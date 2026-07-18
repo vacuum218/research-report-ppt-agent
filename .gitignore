@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env
+
+# IDE
+.vscode/
+
+# Generated PPT files
+output/
+*.pptx
+
+# Input data
+input/
+
+# Temporary files
+tmp/
