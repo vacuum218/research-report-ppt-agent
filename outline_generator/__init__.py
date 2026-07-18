@@ -1,4 +1,4 @@
-"""Compatibility package for the legacy ``outline_generator`` import."""
+"""LLM-backed slide-outline generation."""
 
 from .generate_outline import OutlineGenerationError
 

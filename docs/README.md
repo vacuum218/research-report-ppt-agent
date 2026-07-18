@@ -34,5 +34,5 @@ JSON Schema 文件本身位于仓库根目录 `schemas/`，并且优先级高于
 
 - [Financial-report-ppt 本地功能合并记录](archive/merges/integration_merge.md)
 
-归档文档用于追溯，不定义当前公共 API。当前包结构、命令和路径以根目录
-README、`pyproject.toml` 和本导航中的长期规范为准。
+归档文档用于追溯，不定义当前公共 API。当前代码结构、命令和路径以根目录
+README、`requirements.txt`、`main.py` 和本导航中的长期规范为准。

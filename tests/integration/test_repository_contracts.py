@@ -3,8 +3,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from research_report_ppt.paths import PATHS
-from research_report_ppt.validation.outline import load_json, validate_outline
+from tools.validate_outline import load_json, validate_outline
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -12,18 +11,20 @@ MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
 
 def test_canonical_resource_paths_exist():
-    assert PATHS.root == PROJECT_ROOT
-    assert PATHS.parsed_document_schema.is_file()
-    assert PATHS.slide_outline_schema.is_file()
-    assert PATHS.visualization_schema.is_file()
-    assert PATHS.outline_system_prompt.is_file()
-    assert PATHS.outline_few_shot.is_file()
-    assert PATHS.financial_template.is_file()
+    assert (PROJECT_ROOT / "schemas/parsed_document.schema.json").is_file()
+    assert (PROJECT_ROOT / "schemas/slide_outline.schema.json").is_file()
+    assert (PROJECT_ROOT / "schemas/visualization.schema.json").is_file()
+    assert (PROJECT_ROOT / "prompts/outline_system_prompt.md").is_file()
+    assert (PROJECT_ROOT / "prompts/outline_few_shot_examples.json").is_file()
+    assert (PROJECT_ROOT / "templates/financial_report_template_v1.pptx").is_file()
 
 
 def test_declared_repository_directories_exist():
     for relative in (
-        "src/research_report_ppt",
+        "document_parser",
+        "outline_generator",
+        "ppt_template_parser",
+        "tools",
         "schemas",
         "prompts",
         "templates",
@@ -53,7 +54,10 @@ def test_formal_outline_remains_valid():
         / "002544_2025-10-28_slide_outline.json",
         "formal outline",
     )
-    schema = load_json(PATHS.slide_outline_schema, "outline schema")
+    schema = load_json(
+        PROJECT_ROOT / "schemas/slide_outline.schema.json",
+        "outline schema",
+    )
 
     assert validate_outline(outline, schema) == []
 
@@ -65,6 +69,8 @@ def test_critical_moved_paths_exist_and_old_paths_are_gone():
         / "docs/planning/研报PPT生成项目_周计划与任务跟踪.xlsx"
     ).is_file()
     assert (PROJECT_ROOT / "docs/specs/template_layout.md").is_file()
+    assert not (PROJECT_ROOT / "src").exists()
+    assert not (PROJECT_ROOT / "pyproject.toml").exists()
     assert not (PROJECT_ROOT / "测试研报").exists()
     assert not (PROJECT_ROOT / "reference").exists()
 

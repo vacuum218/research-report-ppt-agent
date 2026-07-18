@@ -31,9 +31,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
         ),
     ],
 )
-def test_legacy_imports_work_and_warn(statement, expected):
+def test_module_imports(statement, expected):
     result = subprocess.run(
-        [sys.executable, "-W", "default", "-c", statement],
+        [sys.executable, "-c", statement],
         cwd=PROJECT_ROOT,
         text=True,
         capture_output=True,
@@ -42,7 +42,7 @@ def test_legacy_imports_work_and_warn(statement, expected):
 
     assert result.returncode == 0
     assert result.stdout.strip() == expected
-    assert "deprecated" in result.stderr
+    assert "deprecated" not in result.stderr
 
 
 @pytest.mark.parametrize(
@@ -56,7 +56,7 @@ def test_legacy_imports_work_and_warn(statement, expected):
         "tools/build_layout_map.py",
     ],
 )
-def test_legacy_scripts_forward_help(script):
+def test_module_scripts_expose_help(script):
     result = subprocess.run(
         [sys.executable, str(PROJECT_ROOT / script), "--help"],
         cwd=PROJECT_ROOT,

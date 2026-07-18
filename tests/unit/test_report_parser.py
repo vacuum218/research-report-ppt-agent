@@ -12,7 +12,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import research_report_ppt.parsing.report as parse_report
+import document_parser.parse_report as parse_report
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]

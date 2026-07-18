@@ -18,7 +18,7 @@
 - 专项测试：`tests/unit/test_report_parser.py`。
 - 输出契约：`schemas/parsed_document.schema.json`。
 - 命令入口：`python main.py parse-report ...`。
-- 当前全量自动化测试：`89 passed`。
+- 当前全量自动化测试：`108 passed`。
 
 ## 状态更新规则
 

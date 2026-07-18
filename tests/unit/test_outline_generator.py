@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-import research_report_ppt.outline.generator as generator
+import outline_generator.generate_outline as generator
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]

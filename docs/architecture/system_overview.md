@@ -44,10 +44,10 @@ python-pptx Renderer
 
 | 模块 | 状态 | 当前代码位置 |
 |---|---|---|
-| Markdown / Text Parser | 已实现 | `research_report_ppt.parsing` |
-| Slide Outline Generator | 已实现 | `research_report_ppt.outline` |
-| Schema/语义校验 | 已实现 | `research_report_ppt.validation` |
-| 模板解析与 Layout Map | 已实现 | `research_report_ppt.templates` |
+| Markdown / Text Parser | 已实现 | `document_parser/` |
+| Slide Outline Generator | 已实现 | `outline_generator/` |
+| Schema/语义校验 | 已实现 | `tools/` |
+| 模板解析与 Layout Map | 已实现 | `ppt_template_parser/`、`tools/` |
 | Visualization Detector | 规划中 | 尚无运行时模块 |
 | PPT Renderer | 规划中 | 尚无运行时模块 |
 

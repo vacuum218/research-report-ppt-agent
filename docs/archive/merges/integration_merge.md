@@ -1,7 +1,8 @@
 # 本地功能合并说明
 
 > 归档说明：本文记录最初从 `Financial-report-ppt` 合并功能时的决策。
-> 当前正式实现已经迁移到 `src/research_report_ppt/`；下表路径已更新为当前位置。
+> 当前项目仍处于前期开发阶段，正式实现直接保存在原功能目录中；
+> 下表路径已更新为当前位置。
 
 ## 合并原则
 
@@ -32,12 +33,12 @@ Parsed Document
 
 | 本地功能 | 合并位置 | 处理方式 |
 |---|---|---|
-| Markdown/纯文本解析 | `src/research_report_ppt/parsing/` | 完整迁移，并补充 Document Schema 校验测试 |
-| DeepSeek 大纲生成 | `src/research_report_ppt/outline/`、`prompts/` | 迁移后适配目标 Slide Outline Schema |
-| 旧大纲校验器 | `src/research_report_ppt/validation/` | 重写为目标 Schema + ID/来源交叉校验 |
-| 通用 PPT 模板解析 | `src/research_report_ppt/templates/` | 保留兼容 API，修复包导入、shape 返回和样式接入 |
-| 模板对象盘点 | `src/research_report_ppt/templates/inspection.py` | 作为 layout-map 上游能力保留 |
-| Layout map 构建 | `src/research_report_ppt/templates/layout_map.py` | 独立于语义大纲保留 |
+| Markdown/纯文本解析 | `document_parser/` | 完整迁移，并补充 Document Schema 校验测试 |
+| DeepSeek 大纲生成 | `outline_generator/`、`prompts/` | 迁移后适配目标 Slide Outline Schema |
+| 旧大纲校验器 | `tools/validate_outline.py` | 重写为目标 Schema + ID/来源交叉校验 |
+| 通用 PPT 模板解析 | `ppt_template_parser/` | 修复包导入、shape 返回和样式接入 |
+| 模板对象盘点 | `tools/inspect_template.py` | 作为 layout-map 上游能力保留 |
+| Layout map 构建 | `tools/build_layout_map.py` | 独立于语义大纲保留 |
 | 固定模板与映射 | `templates/` | 迁移模板、说明和 16 页预生成映射 |
 
 新增的 `schemas/parsed_document.schema.json` 只定义此前缺失的上游

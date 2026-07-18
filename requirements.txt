@@ -1,2 +1,4 @@
-# Compatibility entry point. pyproject.toml is the dependency source of truth.
--e .[dev]
+python-pptx==0.6.23
+jsonschema>=4.18,<5
+lxml>=4.9,<7
+pytest>=7,<9

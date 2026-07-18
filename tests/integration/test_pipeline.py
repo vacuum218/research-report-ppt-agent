@@ -5,15 +5,15 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
-from research_report_ppt.parsing import parse_file
-from research_report_ppt.outline.generator import (
+from document_parser import parse_file
+from outline_generator.generate_outline import (
     build_messages,
     build_request,
     load_json,
     load_text,
 )
-from research_report_ppt.validation.outline import validate_outline
-from research_report_ppt.validation.visualization import validate_visualization
+from tools.validate_outline import validate_outline
+from tools.validate_visualization import validate_visualization
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
