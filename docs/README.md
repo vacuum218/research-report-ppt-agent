@@ -25,14 +25,8 @@ JSON Schema 文件本身位于仓库根目录 `schemas/`，并且优先级高于
 
 ## 评审与交付
 
-- [Week 2 T2.1–T2.3 验收状态](reviews/week2_acceptance_status.md)
-- [T2.1 Schema 评审记录](reviews/T2.1_slide_outline_schema_review.md)
 - [T2.3 正式样例评审记录](reviews/T2.3_002544_outline_review.md)
-- [Week 2 Partner 交付说明](delivery/week2_t2.1-t2.3_partner_handoff.md)
+- [当前项目代码交付说明](delivery/week2_t2.1-t2.3_partner_handoff.md)
 
-## 历史归档
-
-- [Financial-report-ppt 本地功能合并记录](archive/merges/integration_merge.md)
-
-归档文档用于追溯，不定义当前公共 API。当前代码结构、命令和路径以根目录
-README、`requirements.txt`、`main.py` 和本导航中的长期规范为准。
+当前代码结构、命令和路径以根目录 README、`requirements.txt`、`main.py`
+和本导航中的长期规范为准。

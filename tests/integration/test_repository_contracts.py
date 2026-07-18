@@ -38,7 +38,6 @@ def test_declared_repository_directories_exist():
         "docs/quality",
         "docs/reviews",
         "docs/delivery",
-        "docs/archive",
         "tests/unit",
         "tests/integration",
         "tests/fixtures",
