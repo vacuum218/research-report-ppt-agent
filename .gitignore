@@ -8,6 +8,7 @@ venv/
 
 # IDE
 .vscode/
+.vs/
 
 # Generated PPT files
 output/

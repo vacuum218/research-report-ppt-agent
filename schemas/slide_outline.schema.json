@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-report-ppt-agent.local/schemas/slide_outline.schema.json",
+  "title": "Research Report Slide Outline",
+  "description": "研报幻灯片内容语义层数据契约，不描述具体 PPT 渲染样式或模板布局。",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "metadata",
+    "slides"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/slide"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "company",
+        "industry",
+        "report_date",
+        "source_file"
+      ],
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "report_date": {
+          "type": "string",
+          "description": "推荐使用 YYYY-MM-DD；无法确定时可为空字符串。"
+        },
+        "source_file": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_ref": {
+      "type": "object",
+      "required": [
+        "text",
+        "section",
+        "location"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "visual_candidate": {
+      "type": "object",
+      "required": [
+        "candidate_id",
+        "type",
+        "description",
+        "source_refs"
+      ],
+      "properties": {
+        "candidate_id": {
+          "type": "string",
+          "pattern": "^visual-[A-Za-z0-9_-]+$"
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "slide": {
+      "type": "object",
+      "required": [
+        "slide_id",
+        "title",
+        "slide_type",
+        "page_role",
+        "key_message",
+        "bullet_points",
+        "source_refs",
+        "visual_candidates"
+      ],
+      "properties": {
+        "slide_id": {
+          "type": "string",
+          "pattern": "^slide-[A-Za-z0-9_-]+$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slide_type": {
+          "type": "string",
+          "description": "页面主要讨论的业务主题。",
+          "enum": [
+            "company_overview",
+            "industry_analysis",
+            "business_model",
+            "core_competitiveness",
+            "financial_forecast",
+            "valuation_analysis",
+            "investment_risk",
+            "summary"
+          ]
+        },
+        "page_role": {
+          "type": "string",
+          "description": "页面在整份报告中的结构角色。",
+          "enum": [
+            "title",
+            "section",
+            "content",
+            "closing"
+          ]
+        },
+        "section": {
+          "type": "string",
+          "description": "页面所属研报章节。"
+        },
+        "key_message": {
+          "type": "string",
+          "description": "本页希望传达的单一核心观点。",
+          "minLength": 1
+        },
+        "bullet_points": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        },
+        "layout_hint": {
+          "type": "string",
+          "description": "非强制布局建议，例如 title_content、two_column、chart_page、table_page；最终布局由 T2.5 决定。",
+          "minLength": 1
+        },
+        "visual_candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_candidate"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
