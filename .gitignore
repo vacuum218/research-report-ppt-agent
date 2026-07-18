@@ -13,6 +13,7 @@ venv/
 # Generated PPT files
 output/
 *.pptx
+!templates/*.pptx
 
 # Input data
 input/

@@ -153,6 +153,58 @@ https://github.com/huohua325/Memslides
 - 图片读取
 - 基础样式读取
 
+### Markdown / Text Parser
+
+- Markdown 与纯文本解析
+- 多级标题、段落、列表、表格、引用、图片和代码块
+- 保留原文行号、块 ID、章节路径和引用
+- 输出通过 `schemas/parsed_document.schema.json` 校验
+
+### Slide Outline Generator
+
+- 使用 DeepSeek OpenAI-compatible API 生成语义大纲
+- 支持离线 `--dry-run` 请求预览
+- 严格使用 `schemas/slide_outline.schema.json`
+- 大纲与 Visualization / Layout Mapping 分层，不混入图表数据或模板坐标
+
+### Template Layout Mapping
+
+- 导出模板对象、样式、位置和图表/表格信息
+- 依据命名锚点生成 16 种语义 layout map
+- 已包含模板文件和预生成的 `templates/template_layout_map.json`
+
+## 快速开始
+
+```powershell
+python -m pip install -r requirements.txt
+
+# 1. 解析研报
+python main.py parse-report report.md -o output/report_parsed.json
+
+# 2. 离线检查大纲请求
+python main.py generate-outline output/report_parsed.json `
+  --dry-run `
+  --request-output output/outline_request.json
+
+# 3. 调用 DeepSeek 生成并校验大纲
+$env:DEEPSEEK_API_KEY = "your-api-key"
+python main.py generate-outline output/report_parsed.json `
+  -o output/slide_outline.json
+
+# 4. 检查模板并构建 layout map
+python main.py inspect-template templates/financial_report_template_v1.pptx `
+  -o output/template_objects.json
+python main.py build-layout-map output/template_objects.json `
+  -o output/template_layout_map.json
+```
+
+单独校验现有大纲：
+
+```powershell
+python tools/validate_outline.py examples/slide_outline_valid.json
+python tools/validate_visualization.py examples/visualization_valid.json
+```
+
 
 ---
 
@@ -168,6 +220,10 @@ research-report-ppt-agent/
 ├── 测试研报/                # 测试数据
 ├── document_parser/         # 文本解析
 ├── outline_generator/       # 大纲生成
+├── prompts/                 # 大纲生成提示词与少样本
+├── schemas/                 # 分层 JSON Schema
+├── templates/               # PPT 模板与 layout map
+├── tools/                   # 校验和模板盘点工具
 ├── visualization/           # 图表生成
 ├── ppt_engine/              # PPT渲染
 ├── tests/                   # 测试

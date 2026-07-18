@@ -2,7 +2,7 @@ from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 import json
 import os
-from style_parser import ShapeStyleParser
+from .style_parser import ShapeStyleParser
 
 class PPTTemplateParser:
 
@@ -256,6 +256,8 @@ class PPTTemplateParser:
 
             }
 
+        info["style"] = self.style_parser.parse(shape)
+        return info
 
 
 
@@ -376,6 +378,8 @@ class PPTTemplateParser:
 
 
         data=self.parse()
+        output_dir = os.path.dirname(os.path.abspath(output_path))
+        os.makedirs(output_dir, exist_ok=True)
 
 
         with open(

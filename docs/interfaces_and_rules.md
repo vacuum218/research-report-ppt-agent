@@ -12,6 +12,8 @@ Document JSON
 → PPT Renderer
 ```
 
+Document JSON 由 `document_parser` 生成，正式定义见 `schemas/parsed_document.schema.json`。
+
 Slide Outline 只描述页面内容语义、来源引用和可视化候选，正式定义见 `schemas/slide_outline.schema.json` 和 `docs/slide_outline_schema.md`。
 
 Visualization JSON 只描述已抽取并核对的 chart/table 数据，正式定义见 `schemas/visualization.schema.json` 和 `docs/visualization_schema.md`。

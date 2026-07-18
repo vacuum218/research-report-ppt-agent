@@ -1,0 +1,4677 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-18T06:01:00.836070+00:00",
+  "template_file": "financial_report_template_v1.pptx",
+  "presentation": {
+    "slide_count": 16,
+    "width_in": null,
+    "height_in": null
+  },
+  "rendering_policy": {
+    "object_lookup": "name_then_shape_id",
+    "chart_strategy": "recreate_inside_anchor",
+    "preserve_decorative_objects": true,
+    "clear_unused_repeated_items": true,
+    "do_not_depend_on_source_path": true
+  },
+  "layouts": {
+    "cover": {
+      "template_slide": 1,
+      "description": "财报封面",
+      "fields": {
+        "cover_title": {
+          "type": "composite_text",
+          "action": "format_text",
+          "required": true,
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[1].objects[3]",
+            "bounds_in": {
+              "left": 0.7708,
+              "top": 1.8542,
+              "width": 7.9167,
+              "height": 0.875
+            },
+            "bounds_normalized": {
+              "left": 0.057813,
+              "top": 0.247222,
+              "width": 0.59375,
+              "height": 0.116667
+            }
+          },
+          "inputs": [
+            "company_name",
+            "report_title"
+          ],
+          "format": "{company_name}\n{report_title}",
+          "max_chars": 36
+        },
+        "subtitle": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[1].objects[4]",
+            "bounds_in": {
+              "left": 0.7708,
+              "top": 2.9792,
+              "width": 7.9167,
+              "height": 0.5
+            },
+            "bounds_normalized": {
+              "left": 0.057813,
+              "top": 0.397222,
+              "width": 0.59375,
+              "height": 0.066667
+            }
+          },
+          "max_chars": 30
+        },
+        "cover_meta": {
+          "type": "composite_text",
+          "action": "format_text",
+          "required": true,
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[1].objects[6]",
+            "bounds_in": {
+              "left": 0.7708,
+              "top": 4.25,
+              "width": 8.5417,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.057813,
+              "top": 0.566667,
+              "width": 0.640625,
+              "height": 0.038889
+            }
+          },
+          "inputs": [
+            "stock_code",
+            "report_date",
+            "presenter"
+          ],
+          "format": "{stock_code}  |  {report_date}  |  {presenter}",
+          "max_chars": 48
+        },
+        "tag": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[1].objects[7]",
+            "bounds_in": {
+              "left": 0.7708,
+              "top": 6.4375,
+              "width": 2.5,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.057813,
+              "top": 0.858333,
+              "width": 0.1875,
+              "height": 0.038889
+            }
+          },
+          "max_chars": 12
+        }
+      }
+    },
+    "agenda": {
+      "template_slide": 2,
+      "description": "报告目录",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[2].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[2].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "items": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 3,
+          "max_items": 6,
+          "targets": [
+            {
+              "number": {
+                "name": "agenda_no_1",
+                "shape_id": 6,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[6]",
+                "bounds_in": {
+                  "left": 0.6667,
+                  "top": 1.625,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.05,
+                  "top": 0.216667,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "title": {
+                "name": "agenda_title_1",
+                "shape_id": 7,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[7]",
+                "bounds_in": {
+                  "left": 1.5625,
+                  "top": 1.625,
+                  "width": 2.7083,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.117188,
+                  "top": 0.216667,
+                  "width": 0.203125,
+                  "height": 0.044444
+                }
+              },
+              "description": {
+                "name": "agenda_desc_1",
+                "shape_id": 8,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[8]",
+                "bounds_in": {
+                  "left": 4.5833,
+                  "top": 1.6458,
+                  "width": 7.0833,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.34375,
+                  "top": 0.219444,
+                  "width": 0.53125,
+                  "height": 0.038889
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "agenda_no_2",
+                "shape_id": 10,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[10]",
+                "bounds_in": {
+                  "left": 0.6667,
+                  "top": 2.4167,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.05,
+                  "top": 0.322222,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "title": {
+                "name": "agenda_title_2",
+                "shape_id": 11,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[11]",
+                "bounds_in": {
+                  "left": 1.5625,
+                  "top": 2.4167,
+                  "width": 2.7083,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.117188,
+                  "top": 0.322222,
+                  "width": 0.203125,
+                  "height": 0.044444
+                }
+              },
+              "description": {
+                "name": "agenda_desc_2",
+                "shape_id": 12,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[12]",
+                "bounds_in": {
+                  "left": 4.5833,
+                  "top": 2.4375,
+                  "width": 7.0833,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.34375,
+                  "top": 0.325,
+                  "width": 0.53125,
+                  "height": 0.038889
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "agenda_no_3",
+                "shape_id": 14,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[14]",
+                "bounds_in": {
+                  "left": 0.6667,
+                  "top": 3.2083,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.05,
+                  "top": 0.427778,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "title": {
+                "name": "agenda_title_3",
+                "shape_id": 15,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[15]",
+                "bounds_in": {
+                  "left": 1.5625,
+                  "top": 3.2083,
+                  "width": 2.7083,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.117188,
+                  "top": 0.427778,
+                  "width": 0.203125,
+                  "height": 0.044444
+                }
+              },
+              "description": {
+                "name": "agenda_desc_3",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[16]",
+                "bounds_in": {
+                  "left": 4.5833,
+                  "top": 3.2292,
+                  "width": 7.0833,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.34375,
+                  "top": 0.430556,
+                  "width": 0.53125,
+                  "height": 0.038889
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "agenda_no_4",
+                "shape_id": 18,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[18]",
+                "bounds_in": {
+                  "left": 0.6667,
+                  "top": 4.0,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.05,
+                  "top": 0.533333,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "title": {
+                "name": "agenda_title_4",
+                "shape_id": 19,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[19]",
+                "bounds_in": {
+                  "left": 1.5625,
+                  "top": 4.0,
+                  "width": 2.7083,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.117188,
+                  "top": 0.533333,
+                  "width": 0.203125,
+                  "height": 0.044444
+                }
+              },
+              "description": {
+                "name": "agenda_desc_4",
+                "shape_id": 20,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[20]",
+                "bounds_in": {
+                  "left": 4.5833,
+                  "top": 4.0208,
+                  "width": 7.0833,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.34375,
+                  "top": 0.536111,
+                  "width": 0.53125,
+                  "height": 0.038889
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "agenda_no_5",
+                "shape_id": 22,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[22]",
+                "bounds_in": {
+                  "left": 0.6667,
+                  "top": 4.7917,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.05,
+                  "top": 0.638889,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "title": {
+                "name": "agenda_title_5",
+                "shape_id": 23,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[23]",
+                "bounds_in": {
+                  "left": 1.5625,
+                  "top": 4.7917,
+                  "width": 2.7083,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.117188,
+                  "top": 0.638889,
+                  "width": 0.203125,
+                  "height": 0.044444
+                }
+              },
+              "description": {
+                "name": "agenda_desc_5",
+                "shape_id": 24,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[24]",
+                "bounds_in": {
+                  "left": 4.5833,
+                  "top": 4.8125,
+                  "width": 7.0833,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.34375,
+                  "top": 0.641667,
+                  "width": 0.53125,
+                  "height": 0.038889
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "agenda_no_6",
+                "shape_id": 26,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[26]",
+                "bounds_in": {
+                  "left": 0.6667,
+                  "top": 5.5833,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.05,
+                  "top": 0.744444,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "title": {
+                "name": "agenda_title_6",
+                "shape_id": 27,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[27]",
+                "bounds_in": {
+                  "left": 1.5625,
+                  "top": 5.5833,
+                  "width": 2.7083,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.117188,
+                  "top": 0.744444,
+                  "width": 0.203125,
+                  "height": 0.044444
+                }
+              },
+              "description": {
+                "name": "agenda_desc_6",
+                "shape_id": 28,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[2].objects[28]",
+                "bounds_in": {
+                  "left": 4.5833,
+                  "top": 5.6042,
+                  "width": 7.0833,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.34375,
+                  "top": 0.747222,
+                  "width": 0.53125,
+                  "height": 0.038889
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "number": 2,
+            "title": 8,
+            "description": 20
+          }
+        }
+      }
+    },
+    "executive_summary": {
+      "template_slide": 3,
+      "description": "核心结论、投资逻辑和关键指标",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[3].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[3].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 39,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[3].objects[39]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "thesis": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "thesis",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[3].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.5625,
+              "width": 11.9792,
+              "height": 0.5625
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.208333,
+              "width": 0.898438,
+              "height": 0.075
+            }
+          },
+          "max_chars": 45
+        },
+        "logics": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 1,
+          "max_items": 3,
+          "targets": [
+            {
+              "title": {
+                "name": "logic_1_title",
+                "shape_id": 9,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[9]",
+                "bounds_in": {
+                  "left": 0.875,
+                  "top": 2.8333,
+                  "width": 3.2812,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.065625,
+                  "top": 0.377778,
+                  "width": 0.246094,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "logic_1_body",
+                "shape_id": 10,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[10]",
+                "bounds_in": {
+                  "left": 0.875,
+                  "top": 3.3958,
+                  "width": 3.2812,
+                  "height": 0.625
+                },
+                "bounds_normalized": {
+                  "left": 0.065625,
+                  "top": 0.452778,
+                  "width": 0.246094,
+                  "height": 0.083333
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "logic_2_title",
+                "shape_id": 13,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[13]",
+                "bounds_in": {
+                  "left": 4.8333,
+                  "top": 2.8333,
+                  "width": 3.2812,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.3625,
+                  "top": 0.377778,
+                  "width": 0.246094,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "logic_2_body",
+                "shape_id": 14,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[14]",
+                "bounds_in": {
+                  "left": 4.8333,
+                  "top": 3.3958,
+                  "width": 3.2812,
+                  "height": 0.625
+                },
+                "bounds_normalized": {
+                  "left": 0.3625,
+                  "top": 0.452778,
+                  "width": 0.246094,
+                  "height": 0.083333
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "logic_3_title",
+                "shape_id": 17,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[17]",
+                "bounds_in": {
+                  "left": 8.7917,
+                  "top": 2.8333,
+                  "width": 3.2812,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.659375,
+                  "top": 0.377778,
+                  "width": 0.246094,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "logic_3_body",
+                "shape_id": 18,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[18]",
+                "bounds_in": {
+                  "left": 8.7917,
+                  "top": 3.3958,
+                  "width": 3.2812,
+                  "height": 0.625
+                },
+                "bounds_normalized": {
+                  "left": 0.659375,
+                  "top": 0.452778,
+                  "width": 0.246094,
+                  "height": 0.083333
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "title": 10,
+            "body": 45
+          }
+        },
+        "metrics": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 1,
+          "max_items": 4,
+          "targets": [
+            {
+              "value": {
+                "name": "metric_2026E营收增速_value",
+                "shape_id": 21,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[21]",
+                "bounds_in": {
+                  "left": 0.9167,
+                  "top": 4.75,
+                  "width": 2.3438,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.06875,
+                  "top": 0.633333,
+                  "width": 0.175781,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_2026E营收增速_label",
+                "shape_id": 22,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[22]",
+                "bounds_in": {
+                  "left": 0.9167,
+                  "top": 5.2292,
+                  "width": 2.3438,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.06875,
+                  "top": 0.697222,
+                  "width": 0.175781,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_2026E营收增速_note",
+                "shape_id": 23,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[23]",
+                "bounds_in": {
+                  "left": 0.9167,
+                  "top": 5.5,
+                  "width": 2.3438,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.06875,
+                  "top": 0.733333,
+                  "width": 0.175781,
+                  "height": 0.023611
+                }
+              }
+            },
+            {
+              "value": {
+                "name": "metric_2026E毛利率_value",
+                "shape_id": 26,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[26]",
+                "bounds_in": {
+                  "left": 3.8854,
+                  "top": 4.75,
+                  "width": 2.3438,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.291406,
+                  "top": 0.633333,
+                  "width": 0.175781,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_2026E毛利率_label",
+                "shape_id": 27,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[27]",
+                "bounds_in": {
+                  "left": 3.8854,
+                  "top": 5.2292,
+                  "width": 2.3438,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.291406,
+                  "top": 0.697222,
+                  "width": 0.175781,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_2026E毛利率_note",
+                "shape_id": 28,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[28]",
+                "bounds_in": {
+                  "left": 3.8854,
+                  "top": 5.5,
+                  "width": 2.3438,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.291406,
+                  "top": 0.733333,
+                  "width": 0.175781,
+                  "height": 0.023611
+                }
+              }
+            },
+            {
+              "value": {
+                "name": "metric_未来利润CAGR_value",
+                "shape_id": 31,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[31]",
+                "bounds_in": {
+                  "left": 6.8542,
+                  "top": 4.75,
+                  "width": 2.3438,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.514062,
+                  "top": 0.633333,
+                  "width": 0.175781,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_未来利润CAGR_label",
+                "shape_id": 32,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[32]",
+                "bounds_in": {
+                  "left": 6.8542,
+                  "top": 5.2292,
+                  "width": 2.3438,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.514062,
+                  "top": 0.697222,
+                  "width": 0.175781,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_未来利润CAGR_note",
+                "shape_id": 33,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[33]",
+                "bounds_in": {
+                  "left": 6.8542,
+                  "top": 5.5,
+                  "width": 2.3438,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.514062,
+                  "top": 0.733333,
+                  "width": 0.175781,
+                  "height": 0.023611
+                }
+              }
+            },
+            {
+              "value": {
+                "name": "metric_2026E PE_value",
+                "shape_id": 36,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[36]",
+                "bounds_in": {
+                  "left": 9.8229,
+                  "top": 4.75,
+                  "width": 2.2917,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.736719,
+                  "top": 0.633333,
+                  "width": 0.171875,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_2026E PE_label",
+                "shape_id": 37,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[37]",
+                "bounds_in": {
+                  "left": 9.8229,
+                  "top": 5.2292,
+                  "width": 2.2917,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.736719,
+                  "top": 0.697222,
+                  "width": 0.171875,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_2026E PE_note",
+                "shape_id": 38,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[3].objects[38]",
+                "bounds_in": {
+                  "left": 9.8229,
+                  "top": 5.5,
+                  "width": 2.2917,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.736719,
+                  "top": 0.733333,
+                  "width": 0.171875,
+                  "height": 0.023611
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "label": 12,
+            "note": 15
+          }
+        }
+      }
+    },
+    "company_overview": {
+      "template_slide": 4,
+      "description": "公司定位、主营业务和规模",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[4].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[4].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 27,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[4].objects[27]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "company_name": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "company_name",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[4].objects[7]",
+            "bounds_in": {
+              "left": 0.9792,
+              "top": 1.9167,
+              "width": 3.125,
+              "height": 0.5417
+            },
+            "bounds_normalized": {
+              "left": 0.073438,
+              "top": 0.255556,
+              "width": 0.234375,
+              "height": 0.072222
+            }
+          },
+          "max_chars": 12
+        },
+        "company_code": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "company_code",
+            "shape_id": 8,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[4].objects[8]",
+            "bounds_in": {
+              "left": 0.9792,
+              "top": 2.5417,
+              "width": 3.125,
+              "height": 0.2708
+            },
+            "bounds_normalized": {
+              "left": 0.073438,
+              "top": 0.338889,
+              "width": 0.234375,
+              "height": 0.036111
+            }
+          },
+          "max_chars": 12
+        },
+        "company_positioning": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "company_positioning",
+            "shape_id": 9,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[4].objects[9]",
+            "bounds_in": {
+              "left": 0.9792,
+              "top": 3.2292,
+              "width": 3.0417,
+              "height": 2.3958
+            },
+            "bounds_normalized": {
+              "left": 0.073438,
+              "top": 0.430556,
+              "width": 0.228125,
+              "height": 0.319444
+            }
+          },
+          "max_chars": 90
+        },
+        "segments": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 1,
+          "max_items": 3,
+          "targets": [
+            {
+              "title": {
+                "name": "business_a_title",
+                "shape_id": 12,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[12]",
+                "bounds_in": {
+                  "left": 5.0417,
+                  "top": 2.0833,
+                  "width": 3.1771,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.378125,
+                  "top": 0.277778,
+                  "width": 0.238281,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "business_a_body",
+                "shape_id": 13,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[13]",
+                "bounds_in": {
+                  "left": 5.0417,
+                  "top": 2.6458,
+                  "width": 3.1771,
+                  "height": 0.5833
+                },
+                "bounds_normalized": {
+                  "left": 0.378125,
+                  "top": 0.352778,
+                  "width": 0.238281,
+                  "height": 0.077778
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "business_b_title",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[16]",
+                "bounds_in": {
+                  "left": 8.8958,
+                  "top": 2.0833,
+                  "width": 3.1771,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.667188,
+                  "top": 0.277778,
+                  "width": 0.238281,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "business_b_body",
+                "shape_id": 17,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[17]",
+                "bounds_in": {
+                  "left": 8.8958,
+                  "top": 2.6458,
+                  "width": 3.1771,
+                  "height": 0.5833
+                },
+                "bounds_normalized": {
+                  "left": 0.667188,
+                  "top": 0.352778,
+                  "width": 0.238281,
+                  "height": 0.077778
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "business_c_title",
+                "shape_id": 20,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[20]",
+                "bounds_in": {
+                  "left": 5.0417,
+                  "top": 4.1458,
+                  "width": 3.1771,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.378125,
+                  "top": 0.552778,
+                  "width": 0.238281,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "business_c_body",
+                "shape_id": 21,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[21]",
+                "bounds_in": {
+                  "left": 5.0417,
+                  "top": 4.7083,
+                  "width": 3.1771,
+                  "height": 0.5833
+                },
+                "bounds_normalized": {
+                  "left": 0.378125,
+                  "top": 0.627778,
+                  "width": 0.238281,
+                  "height": 0.077778
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "title": 10,
+            "body": 45
+          }
+        },
+        "key_metric": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": false,
+          "min_items": 0,
+          "max_items": 1,
+          "targets": [
+            {
+              "value": {
+                "name": "metric_年度营业收入_value",
+                "shape_id": 24,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[24]",
+                "bounds_in": {
+                  "left": 8.9375,
+                  "top": 3.8542,
+                  "width": 3.1771,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.670312,
+                  "top": 0.513889,
+                  "width": 0.238281,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_年度营业收入_label",
+                "shape_id": 25,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[25]",
+                "bounds_in": {
+                  "left": 8.9375,
+                  "top": 4.3333,
+                  "width": 3.1771,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.670312,
+                  "top": 0.577778,
+                  "width": 0.238281,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_年度营业收入_note",
+                "shape_id": 26,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[4].objects[26]",
+                "bounds_in": {
+                  "left": 8.9375,
+                  "top": 4.6042,
+                  "width": 3.1771,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.670312,
+                  "top": 0.613889,
+                  "width": 0.238281,
+                  "height": 0.023611
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "label": 12,
+            "note": 15
+          }
+        }
+      }
+    },
+    "timeline": {
+      "template_slide": 5,
+      "description": "发展阶段、技术路线或战略演进",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[5].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[5].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "milestones": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 3,
+          "max_items": 4,
+          "targets": [
+            {
+              "stage": {
+                "name": "timeline_stage_1",
+                "shape_id": 8,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[8]",
+                "bounds_in": {
+                  "left": 1.0625,
+                  "top": 3.0625,
+                  "width": 1.25,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.079687,
+                  "top": 0.408333,
+                  "width": 0.09375,
+                  "height": 0.038889
+                }
+              },
+              "title": {
+                "name": "timeline_title_1",
+                "shape_id": 9,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[9]",
+                "bounds_in": {
+                  "left": 1.0625,
+                  "top": 4.1875,
+                  "width": 2.3958,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.079687,
+                  "top": 0.558333,
+                  "width": 0.179688,
+                  "height": 0.047222
+                }
+              },
+              "description": {
+                "name": "timeline_body_1",
+                "shape_id": 10,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[10]",
+                "bounds_in": {
+                  "left": 1.0625,
+                  "top": 4.6458,
+                  "width": 2.2917,
+                  "height": 0.6458
+                },
+                "bounds_normalized": {
+                  "left": 0.079687,
+                  "top": 0.619444,
+                  "width": 0.171875,
+                  "height": 0.086111
+                }
+              }
+            },
+            {
+              "stage": {
+                "name": "timeline_stage_2",
+                "shape_id": 12,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[12]",
+                "bounds_in": {
+                  "left": 4.2917,
+                  "top": 3.0625,
+                  "width": 1.25,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.321875,
+                  "top": 0.408333,
+                  "width": 0.09375,
+                  "height": 0.038889
+                }
+              },
+              "title": {
+                "name": "timeline_title_2",
+                "shape_id": 13,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[13]",
+                "bounds_in": {
+                  "left": 4.2917,
+                  "top": 4.1875,
+                  "width": 2.3958,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.321875,
+                  "top": 0.558333,
+                  "width": 0.179688,
+                  "height": 0.047222
+                }
+              },
+              "description": {
+                "name": "timeline_body_2",
+                "shape_id": 14,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[14]",
+                "bounds_in": {
+                  "left": 4.2917,
+                  "top": 4.6458,
+                  "width": 2.2917,
+                  "height": 0.6458
+                },
+                "bounds_normalized": {
+                  "left": 0.321875,
+                  "top": 0.619444,
+                  "width": 0.171875,
+                  "height": 0.086111
+                }
+              }
+            },
+            {
+              "stage": {
+                "name": "timeline_stage_3",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[16]",
+                "bounds_in": {
+                  "left": 7.5208,
+                  "top": 3.0625,
+                  "width": 1.25,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.564063,
+                  "top": 0.408333,
+                  "width": 0.09375,
+                  "height": 0.038889
+                }
+              },
+              "title": {
+                "name": "timeline_title_3",
+                "shape_id": 17,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[17]",
+                "bounds_in": {
+                  "left": 7.5208,
+                  "top": 4.1875,
+                  "width": 2.3958,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.564063,
+                  "top": 0.558333,
+                  "width": 0.179688,
+                  "height": 0.047222
+                }
+              },
+              "description": {
+                "name": "timeline_body_3",
+                "shape_id": 18,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[18]",
+                "bounds_in": {
+                  "left": 7.5208,
+                  "top": 4.6458,
+                  "width": 2.2917,
+                  "height": 0.6458
+                },
+                "bounds_normalized": {
+                  "left": 0.564063,
+                  "top": 0.619444,
+                  "width": 0.171875,
+                  "height": 0.086111
+                }
+              }
+            },
+            {
+              "stage": {
+                "name": "timeline_stage_4",
+                "shape_id": 20,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[20]",
+                "bounds_in": {
+                  "left": 10.75,
+                  "top": 3.0625,
+                  "width": 1.25,
+                  "height": 0.2917
+                },
+                "bounds_normalized": {
+                  "left": 0.80625,
+                  "top": 0.408333,
+                  "width": 0.09375,
+                  "height": 0.038889
+                }
+              },
+              "title": {
+                "name": "timeline_title_4",
+                "shape_id": 21,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[21]",
+                "bounds_in": {
+                  "left": 10.75,
+                  "top": 4.1875,
+                  "width": 2.3958,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.80625,
+                  "top": 0.558333,
+                  "width": 0.179688,
+                  "height": 0.047222
+                }
+              },
+              "description": {
+                "name": "timeline_body_4",
+                "shape_id": 22,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[5].objects[22]",
+                "bounds_in": {
+                  "left": 10.75,
+                  "top": 4.6458,
+                  "width": 2.2917,
+                  "height": 0.6458
+                },
+                "bounds_normalized": {
+                  "left": 0.80625,
+                  "top": 0.619444,
+                  "width": 0.171875,
+                  "height": 0.086111
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "stage": 8,
+            "title": 12,
+            "description": 25
+          }
+        },
+        "takeaway": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "timeline_takeaway",
+            "shape_id": 23,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[5].objects[23]",
+            "bounds_in": {
+              "left": 0.9375,
+              "top": 5.8958,
+              "width": 10.625,
+              "height": 0.3333
+            },
+            "bounds_normalized": {
+              "left": 0.070312,
+              "top": 0.786111,
+              "width": 0.796875,
+              "height": 0.044444
+            }
+          },
+          "max_chars": 40
+        }
+      }
+    },
+    "business_structure": {
+      "template_slide": 6,
+      "description": "分业务收入、占比、毛利率或增速对比",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[6].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[6].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 12,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[6].objects[12]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "chart_left": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "chart_left_panel",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[6].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6042,
+              "width": 5.7292,
+              "height": 4.6458
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.213889,
+              "width": 0.429688,
+              "height": 0.619444
+            }
+          },
+          "title_target": {
+            "name": "chart_left_title",
+            "shape_id": 8,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[6].objects[8]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 1.8125,
+              "width": 4.375,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.241667,
+              "width": 0.328125,
+              "height": 0.038889
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 18,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 22,
+            "shape_type": "CHART",
+            "path": "slides[6].objects[10]",
+            "bounds_in": {
+              "left": 0.8958,
+              "top": 2.25,
+              "width": 5.2083,
+              "height": 3.4375
+            },
+            "bounds_normalized": {
+              "left": 0.067187,
+              "top": 0.3,
+              "width": 0.390625,
+              "height": 0.458333
+            },
+            "chart": {
+              "chart_type": "COLUMN_CLUSTERED",
+              "series_count": 1,
+              "has_legend": false,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "chart_right": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "chart_right_panel",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[6].objects[7]",
+            "bounds_in": {
+              "left": 6.6458,
+              "top": 1.6042,
+              "width": 5.6354,
+              "height": 4.6458
+            },
+            "bounds_normalized": {
+              "left": 0.498437,
+              "top": 0.213889,
+              "width": 0.422656,
+              "height": 0.619444
+            }
+          },
+          "title_target": {
+            "name": "chart_right_title",
+            "shape_id": 9,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[6].objects[9]",
+            "bounds_in": {
+              "left": 6.8958,
+              "top": 1.8125,
+              "width": 4.375,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.517188,
+              "top": 0.241667,
+              "width": 0.328125,
+              "height": 0.038889
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 18,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 23,
+            "shape_type": "CHART",
+            "path": "slides[6].objects[11]",
+            "bounds_in": {
+              "left": 6.875,
+              "top": 2.25,
+              "width": 5.125,
+              "height": 3.4375
+            },
+            "bounds_normalized": {
+              "left": 0.515625,
+              "top": 0.3,
+              "width": 0.384375,
+              "height": 0.458333
+            },
+            "chart": {
+              "chart_type": "COLUMN_CLUSTERED",
+              "series_count": 1,
+              "has_legend": false,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "industry_outlook": {
+      "template_slide": 7,
+      "description": "行业空间、渗透率、景气度或资本开支趋势",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[7].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[7].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 21,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[7].objects[21]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "chart": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "industry_chart_panel",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[7].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6042,
+              "width": 6.9271,
+              "height": 4.6042
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.213889,
+              "width": 0.519531,
+              "height": 0.613889
+            }
+          },
+          "title_target": {
+            "name": "industry_chart_title",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[7].objects[7]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 1.8333,
+              "width": 4.0625,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.244444,
+              "width": 0.304688,
+              "height": 0.038889
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 18,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 29,
+            "shape_type": "CHART",
+            "path": "slides[7].objects[8]",
+            "bounds_in": {
+              "left": 0.8958,
+              "top": 2.2917,
+              "width": 6.4167,
+              "height": 3.3542
+            },
+            "bounds_normalized": {
+              "left": 0.067187,
+              "top": 0.305556,
+              "width": 0.48125,
+              "height": 0.447222
+            },
+            "chart": {
+              "chart_type": "LINE_MARKERS",
+              "series_count": 1,
+              "has_legend": false,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "drivers": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 2,
+          "max_items": 3,
+          "targets": [
+            {
+              "title": {
+                "name": "driver_1_title",
+                "shape_id": 11,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[7].objects[11]",
+                "bounds_in": {
+                  "left": 8.1146,
+                  "top": 2.0833,
+                  "width": 3.9583,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.608594,
+                  "top": 0.277778,
+                  "width": 0.296875,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "driver_1_body",
+                "shape_id": 12,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[7].objects[12]",
+                "bounds_in": {
+                  "left": 8.1146,
+                  "top": 2.6458,
+                  "width": 3.9583,
+                  "height": 0.125
+                },
+                "bounds_normalized": {
+                  "left": 0.608594,
+                  "top": 0.352778,
+                  "width": 0.296875,
+                  "height": 0.016667
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "driver_2_title",
+                "shape_id": 15,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[7].objects[15]",
+                "bounds_in": {
+                  "left": 8.1146,
+                  "top": 3.6667,
+                  "width": 3.9583,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.608594,
+                  "top": 0.488889,
+                  "width": 0.296875,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "driver_2_body",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[7].objects[16]",
+                "bounds_in": {
+                  "left": 8.1146,
+                  "top": 4.2292,
+                  "width": 3.9583,
+                  "height": 0.125
+                },
+                "bounds_normalized": {
+                  "left": 0.608594,
+                  "top": 0.563889,
+                  "width": 0.296875,
+                  "height": 0.016667
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "driver_3_title",
+                "shape_id": 19,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[7].objects[19]",
+                "bounds_in": {
+                  "left": 8.1146,
+                  "top": 5.25,
+                  "width": 3.9583,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.608594,
+                  "top": 0.7,
+                  "width": 0.296875,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "driver_3_body",
+                "shape_id": 20,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[7].objects[20]",
+                "bounds_in": {
+                  "left": 8.1146,
+                  "top": 5.8125,
+                  "width": 3.9583,
+                  "height": 0.125
+                },
+                "bounds_normalized": {
+                  "left": 0.608594,
+                  "top": 0.775,
+                  "width": 0.296875,
+                  "height": 0.016667
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "title": 8,
+            "body": 35
+          }
+        }
+      }
+    },
+    "competitive_landscape": {
+      "template_slide": 8,
+      "description": "二维定位、竞争对比和护城河",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[8].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[8].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 31,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[8].objects[31]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "matrix": {
+          "type": "matrix",
+          "action": "position_matrix_points",
+          "required": true,
+          "anchor": {
+            "name": "matrix_panel",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[8].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6042,
+              "width": 7.2917,
+              "height": 4.6875
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.213889,
+              "width": 0.546875,
+              "height": 0.625
+            }
+          },
+          "axis_targets": {
+            "x_axis": {
+              "name": "matrix_x_label",
+              "shape_id": 9,
+              "shape_type": "AUTO_SHAPE",
+              "path": "slides[8].objects[9]",
+              "bounds_in": {
+                "left": 5.3125,
+                "top": 5.7083,
+                "width": 1.875,
+                "height": 0.25
+              },
+              "bounds_normalized": {
+                "left": 0.398438,
+                "top": 0.761111,
+                "width": 0.140625,
+                "height": 0.033333
+              }
+            },
+            "y_axis": {
+              "name": "matrix_y_label",
+              "shape_id": 10,
+              "shape_type": "AUTO_SHAPE",
+              "path": "slides[8].objects[10]",
+              "bounds_in": {
+                "left": 0.8542,
+                "top": 2.0208,
+                "width": 1.5625,
+                "height": 0.25
+              },
+              "bounds_normalized": {
+                "left": 0.064062,
+                "top": 0.269444,
+                "width": 0.117188,
+                "height": 0.033333
+              }
+            }
+          },
+          "point_targets": [
+            {
+              "point": {
+                "name": "matrix_point_1",
+                "shape_id": 11,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[11]",
+                "bounds_in": {
+                  "left": 2.7083,
+                  "top": 4.4792,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.203125,
+                  "top": 0.597222,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "label": {
+                "name": "matrix_label_1",
+                "shape_id": 12,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[12]",
+                "bounds_in": {
+                  "left": 2.7708,
+                  "top": 4.5417,
+                  "width": 0.6042,
+                  "height": 0.1875
+                },
+                "bounds_normalized": {
+                  "left": 0.207813,
+                  "top": 0.605556,
+                  "width": 0.045312,
+                  "height": 0.025
+                }
+              }
+            },
+            {
+              "point": {
+                "name": "matrix_point_2",
+                "shape_id": 13,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[13]",
+                "bounds_in": {
+                  "left": 4.4792,
+                  "top": 3.8021,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.335938,
+                  "top": 0.506944,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "label": {
+                "name": "matrix_label_2",
+                "shape_id": 14,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[14]",
+                "bounds_in": {
+                  "left": 4.5417,
+                  "top": 3.8646,
+                  "width": 0.6042,
+                  "height": 0.1875
+                },
+                "bounds_normalized": {
+                  "left": 0.340625,
+                  "top": 0.515278,
+                  "width": 0.045312,
+                  "height": 0.025
+                }
+              }
+            },
+            {
+              "point": {
+                "name": "matrix_point_3",
+                "shape_id": 15,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[15]",
+                "bounds_in": {
+                  "left": 6.0417,
+                  "top": 2.8333,
+                  "width": 0.9583,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.453125,
+                  "top": 0.377778,
+                  "width": 0.071875,
+                  "height": 0.044444
+                }
+              },
+              "label": {
+                "name": "matrix_label_3",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[16]",
+                "bounds_in": {
+                  "left": 6.1042,
+                  "top": 2.8958,
+                  "width": 0.8333,
+                  "height": 0.1875
+                },
+                "bounds_normalized": {
+                  "left": 0.457813,
+                  "top": 0.386111,
+                  "width": 0.0625,
+                  "height": 0.025
+                }
+              }
+            },
+            {
+              "point": {
+                "name": "matrix_point_4",
+                "shape_id": 17,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[17]",
+                "bounds_in": {
+                  "left": 3.4375,
+                  "top": 3.0729,
+                  "width": 0.7292,
+                  "height": 0.3333
+                },
+                "bounds_normalized": {
+                  "left": 0.257812,
+                  "top": 0.409722,
+                  "width": 0.054688,
+                  "height": 0.044444
+                }
+              },
+              "label": {
+                "name": "matrix_label_4",
+                "shape_id": 18,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[18]",
+                "bounds_in": {
+                  "left": 3.5,
+                  "top": 3.1354,
+                  "width": 0.6042,
+                  "height": 0.1875
+                },
+                "bounds_normalized": {
+                  "left": 0.2625,
+                  "top": 0.418056,
+                  "width": 0.045312,
+                  "height": 0.025
+                }
+              }
+            }
+          ],
+          "min_items": 3,
+          "max_items": 4,
+          "limits": {
+            "x_axis": 12,
+            "y_axis": 12,
+            "label": 12
+          }
+        },
+        "moats": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 1,
+          "max_items": 3,
+          "targets": [
+            {
+              "title": {
+                "name": "moat_1_title",
+                "shape_id": 21,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[21]",
+                "bounds_in": {
+                  "left": 8.4792,
+                  "top": 2.0833,
+                  "width": 3.5938,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.635938,
+                  "top": 0.277778,
+                  "width": 0.269531,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "moat_1_body",
+                "shape_id": 22,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[22]",
+                "bounds_in": {
+                  "left": 8.4792,
+                  "top": 2.6458,
+                  "width": 3.5938,
+                  "height": 0.1042
+                },
+                "bounds_normalized": {
+                  "left": 0.635938,
+                  "top": 0.352778,
+                  "width": 0.269531,
+                  "height": 0.013889
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "moat_2_title",
+                "shape_id": 25,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[25]",
+                "bounds_in": {
+                  "left": 8.4792,
+                  "top": 3.6458,
+                  "width": 3.5938,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.635938,
+                  "top": 0.486111,
+                  "width": 0.269531,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "moat_2_body",
+                "shape_id": 26,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[26]",
+                "bounds_in": {
+                  "left": 8.4792,
+                  "top": 4.2083,
+                  "width": 3.5938,
+                  "height": 0.1042
+                },
+                "bounds_normalized": {
+                  "left": 0.635938,
+                  "top": 0.561111,
+                  "width": 0.269531,
+                  "height": 0.013889
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "moat_3_title",
+                "shape_id": 29,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[29]",
+                "bounds_in": {
+                  "left": 8.4792,
+                  "top": 5.2083,
+                  "width": 3.5938,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.635938,
+                  "top": 0.694444,
+                  "width": 0.269531,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "moat_3_body",
+                "shape_id": 30,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[8].objects[30]",
+                "bounds_in": {
+                  "left": 8.4792,
+                  "top": 5.7708,
+                  "width": 3.5938,
+                  "height": 0.1042
+                },
+                "bounds_normalized": {
+                  "left": 0.635938,
+                  "top": 0.769444,
+                  "width": 0.269531,
+                  "height": 0.013889
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "title": 10,
+            "body": 35
+          }
+        }
+      }
+    },
+    "chart_text": {
+      "template_slide": 9,
+      "description": "一张核心图表配解释与结论",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 14,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[14]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "chart": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "logic_chart_panel",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6042,
+              "width": 6.7708,
+              "height": 4.6875
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.213889,
+              "width": 0.507812,
+              "height": 0.625
+            }
+          },
+          "title_target": {
+            "name": "logic_chart_title",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[7]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 1.8333,
+              "width": 3.75,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.244444,
+              "width": 0.28125,
+              "height": 0.038889
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 18,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 22,
+            "shape_type": "CHART",
+            "path": "slides[9].objects[8]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 2.2917,
+              "width": 6.2083,
+              "height": 3.4375
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.305556,
+              "width": 0.465625,
+              "height": 0.458333
+            },
+            "chart": {
+              "chart_type": "LINE_MARKERS",
+              "series_count": 1,
+              "has_legend": false,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "takeaway": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "logic_main_point",
+            "shape_id": 10,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[10]",
+            "bounds_in": {
+              "left": 7.8542,
+              "top": 2.125,
+              "width": 4.375,
+              "height": 0.7292
+            },
+            "bounds_normalized": {
+              "left": 0.589063,
+              "top": 0.283333,
+              "width": 0.328125,
+              "height": 0.097222
+            }
+          },
+          "max_chars": 25
+        },
+        "bullets": {
+          "type": "bullet_list",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "logic_bullets",
+            "shape_id": 11,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[11]",
+            "bounds_in": {
+              "left": 7.8542,
+              "top": 3.1667,
+              "width": 4.2708,
+              "height": 2.3125
+            },
+            "bounds_normalized": {
+              "left": 0.589063,
+              "top": 0.422222,
+              "width": 0.320312,
+              "height": 0.308333
+            }
+          },
+          "min_items": 2,
+          "max_items": 4,
+          "max_chars_per_item": 30
+        },
+        "conclusion": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "logic_conclusion_text",
+            "shape_id": 13,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[9].objects[13]",
+            "bounds_in": {
+              "left": 8.0833,
+              "top": 5.8542,
+              "width": 3.8125,
+              "height": 0.2708
+            },
+            "bounds_normalized": {
+              "left": 0.60625,
+              "top": 0.780556,
+              "width": 0.285938,
+              "height": 0.036111
+            }
+          },
+          "max_chars": 35
+        }
+      }
+    },
+    "two_charts": {
+      "template_slide": 10,
+      "description": "两张相关图表共同支撑一个结论",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 13,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[13]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "chart_left": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "two_chart_left",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6042,
+              "width": 5.7292,
+              "height": 4.4792
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.213889,
+              "width": 0.429688,
+              "height": 0.597222
+            }
+          },
+          "title_target": {
+            "name": "two_chart_left_title",
+            "shape_id": 8,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[8]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 1.8333,
+              "width": 3.5417,
+              "height": 0.2708
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.244444,
+              "width": 0.265625,
+              "height": 0.036111
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 16,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 23,
+            "shape_type": "CHART",
+            "path": "slides[10].objects[10]",
+            "bounds_in": {
+              "left": 0.8958,
+              "top": 2.2708,
+              "width": 5.2083,
+              "height": 3.1875
+            },
+            "bounds_normalized": {
+              "left": 0.067187,
+              "top": 0.302778,
+              "width": 0.390625,
+              "height": 0.425
+            },
+            "chart": {
+              "chart_type": "LINE_MARKERS",
+              "series_count": 2,
+              "has_legend": true,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                },
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "chart_right": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "two_chart_right",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[7]",
+            "bounds_in": {
+              "left": 6.6458,
+              "top": 1.6042,
+              "width": 5.6354,
+              "height": 4.4792
+            },
+            "bounds_normalized": {
+              "left": 0.498437,
+              "top": 0.213889,
+              "width": 0.422656,
+              "height": 0.597222
+            }
+          },
+          "title_target": {
+            "name": "two_chart_right_title",
+            "shape_id": 9,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[9]",
+            "bounds_in": {
+              "left": 6.8958,
+              "top": 1.8333,
+              "width": 3.5417,
+              "height": 0.2708
+            },
+            "bounds_normalized": {
+              "left": 0.517188,
+              "top": 0.244444,
+              "width": 0.265625,
+              "height": 0.036111
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 16,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 24,
+            "shape_type": "CHART",
+            "path": "slides[10].objects[11]",
+            "bounds_in": {
+              "left": 6.875,
+              "top": 2.2708,
+              "width": 5.125,
+              "height": 3.1875
+            },
+            "bounds_normalized": {
+              "left": 0.515625,
+              "top": 0.302778,
+              "width": 0.384375,
+              "height": 0.425
+            },
+            "chart": {
+              "chart_type": "LINE_MARKERS",
+              "series_count": 2,
+              "has_legend": true,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                },
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "conclusion": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "two_chart_conclusion",
+            "shape_id": 12,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[10].objects[12]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 5.7083,
+              "width": 10.8333,
+              "height": 0.25
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.761111,
+              "width": 0.8125,
+              "height": 0.033333
+            }
+          },
+          "max_chars": 45
+        }
+      }
+    },
+    "capability_map": {
+      "template_slide": 11,
+      "description": "能力、进展和商业兑现路径",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[11].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[11].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 21,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[11].objects[21]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "stages": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 1,
+          "max_items": 3,
+          "targets": [
+            {
+              "title": {
+                "name": "capability_1_title",
+                "shape_id": 8,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[11].objects[8]",
+                "bounds_in": {
+                  "left": 0.875,
+                  "top": 2.1667,
+                  "width": 3.2292,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.065625,
+                  "top": 0.288889,
+                  "width": 0.242188,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "capability_1_body",
+                "shape_id": 9,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[11].objects[9]",
+                "bounds_in": {
+                  "left": 0.875,
+                  "top": 2.7292,
+                  "width": 3.2292,
+                  "height": 1.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.065625,
+                  "top": 0.363889,
+                  "width": 0.242188,
+                  "height": 0.194444
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "capability_2_title",
+                "shape_id": 12,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[11].objects[12]",
+                "bounds_in": {
+                  "left": 4.8333,
+                  "top": 2.1667,
+                  "width": 3.2292,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.3625,
+                  "top": 0.288889,
+                  "width": 0.242188,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "capability_2_body",
+                "shape_id": 13,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[11].objects[13]",
+                "bounds_in": {
+                  "left": 4.8333,
+                  "top": 2.7292,
+                  "width": 3.2292,
+                  "height": 1.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.3625,
+                  "top": 0.363889,
+                  "width": 0.242188,
+                  "height": 0.194444
+                }
+              }
+            },
+            {
+              "title": {
+                "name": "capability_3_title",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[11].objects[16]",
+                "bounds_in": {
+                  "left": 8.7917,
+                  "top": 2.1667,
+                  "width": 3.2812,
+                  "height": 0.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.659375,
+                  "top": 0.288889,
+                  "width": 0.246094,
+                  "height": 0.061111
+                }
+              },
+              "body": {
+                "name": "capability_3_body",
+                "shape_id": 17,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[11].objects[17]",
+                "bounds_in": {
+                  "left": 8.7917,
+                  "top": 2.7292,
+                  "width": 3.2812,
+                  "height": 1.4583
+                },
+                "bounds_normalized": {
+                  "left": 0.659375,
+                  "top": 0.363889,
+                  "width": 0.246094,
+                  "height": 0.194444
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "title": 12,
+            "body": 70
+          }
+        },
+        "catalyst_path": {
+          "type": "bullet_list",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "catalyst_strip_body",
+            "shape_id": 20,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[11].objects[20]",
+            "bounds_in": {
+              "left": 0.9583,
+              "top": 5.4167,
+              "width": 10.5208,
+              "height": 0.3958
+            },
+            "bounds_normalized": {
+              "left": 0.071875,
+              "top": 0.722222,
+              "width": 0.789062,
+              "height": 0.052778
+            }
+          },
+          "min_items": 3,
+          "max_items": 5,
+          "max_chars_per_item": 16
+        }
+      }
+    },
+    "financial_review": {
+      "template_slide": 12,
+      "description": "历史收入、利润率、现金流和经营质量",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[12].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[12].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 24,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[12].objects[24]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "chart": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "financial_chart_panel",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[12].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6042,
+              "width": 7.2917,
+              "height": 4.6042
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.213889,
+              "width": 0.546875,
+              "height": 0.613889
+            }
+          },
+          "title_target": {
+            "name": "financial_chart_title",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[12].objects[7]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 1.8333,
+              "width": 4.4792,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.244444,
+              "width": 0.335938,
+              "height": 0.038889
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 5,
+          "max_series": 3,
+          "title_max_chars": 20,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 32,
+            "shape_type": "CHART",
+            "path": "slides[12].objects[8]",
+            "bounds_in": {
+              "left": 0.8958,
+              "top": 2.2917,
+              "width": 6.7708,
+              "height": 3.3333
+            },
+            "bounds_normalized": {
+              "left": 0.067187,
+              "top": 0.305556,
+              "width": 0.507812,
+              "height": 0.444444
+            },
+            "chart": {
+              "chart_type": "LINE_MARKERS",
+              "series_count": 2,
+              "has_legend": true,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                },
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "metrics": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 1,
+          "max_items": 3,
+          "targets": [
+            {
+              "value": {
+                "name": "metric_2024A毛利率_value",
+                "shape_id": 11,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[11]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 1.7917,
+                  "width": 3.5938,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.238889,
+                  "width": 0.269531,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_2024A毛利率_label",
+                "shape_id": 12,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[12]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 2.2708,
+                  "width": 3.5938,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.302778,
+                  "width": 0.269531,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_2024A毛利率_note",
+                "shape_id": 13,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[13]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 2.5417,
+                  "width": 3.5938,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.338889,
+                  "width": 0.269531,
+                  "height": 0.023611
+                }
+              }
+            },
+            {
+              "value": {
+                "name": "metric_真实净利率中枢_value",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[16]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 3.2292,
+                  "width": 3.5938,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.430556,
+                  "width": 0.269531,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_真实净利率中枢_label",
+                "shape_id": 17,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[17]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 3.7083,
+                  "width": 3.5938,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.494444,
+                  "width": 0.269531,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_真实净利率中枢_note",
+                "shape_id": 18,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[18]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 3.9792,
+                  "width": 3.5938,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.530556,
+                  "width": 0.269531,
+                  "height": 0.023611
+                }
+              }
+            },
+            {
+              "value": {
+                "name": "metric_经营现金流_value",
+                "shape_id": 21,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[21]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 4.6667,
+                  "width": 3.5938,
+                  "height": 0.4375
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.622222,
+                  "width": 0.269531,
+                  "height": 0.058333
+                }
+              },
+              "label": {
+                "name": "metric_经营现金流_label",
+                "shape_id": 22,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[22]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 5.1458,
+                  "width": 3.5938,
+                  "height": 0.25
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.686111,
+                  "width": 0.269531,
+                  "height": 0.033333
+                }
+              },
+              "note": {
+                "name": "metric_经营现金流_note",
+                "shape_id": 23,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[12].objects[23]",
+                "bounds_in": {
+                  "left": 8.5208,
+                  "top": 5.4167,
+                  "width": 3.5938,
+                  "height": 0.1771
+                },
+                "bounds_normalized": {
+                  "left": 0.639062,
+                  "top": 0.722222,
+                  "width": 0.269531,
+                  "height": 0.023611
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "label": 12,
+            "note": 18
+          }
+        }
+      }
+    },
+    "earnings_forecast": {
+      "template_slide": 13,
+      "description": "盈利预测表、趋势图和核心假设",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[13].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[13].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "source",
+            "shape_id": 12,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[13].objects[12]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "note": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "forecast_note",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[13].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.4792,
+              "width": 6.4583,
+              "height": 0.25
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.197222,
+              "width": 0.484375,
+              "height": 0.033333
+            }
+          },
+          "max_chars": 30
+        },
+        "table": {
+          "type": "table",
+          "action": "fill_table",
+          "required": true,
+          "target": {
+            "name": "forecast_table",
+            "shape_id": 19,
+            "shape_type": "TABLE",
+            "path": "slides[13].objects[7]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.9167,
+              "width": 8.6458,
+              "height": 3.75
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.255556,
+              "width": 0.648438,
+              "height": 0.5
+            },
+            "table": {
+              "rows": 7,
+              "columns": 5
+            }
+          },
+          "max_rows": 7,
+          "max_columns": 5,
+          "preserve_style": true,
+          "overflow": "truncate_or_appendix"
+        },
+        "chart": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": false,
+          "anchor": {
+            "name": "forecast_chart_panel",
+            "shape_id": 8,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[13].objects[8]",
+            "bounds_in": {
+              "left": 9.6042,
+              "top": 1.9167,
+              "width": 2.6771,
+              "height": 3.75
+            },
+            "bounds_normalized": {
+              "left": 0.720313,
+              "top": 0.255556,
+              "width": 0.200781,
+              "height": 0.5
+            }
+          },
+          "title_target": {
+            "name": "forecast_chart_title",
+            "shape_id": 9,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[13].objects[9]",
+            "bounds_in": {
+              "left": 9.8333,
+              "top": 2.125,
+              "width": 2.0833,
+              "height": 0.25
+            },
+            "bounds_normalized": {
+              "left": 0.7375,
+              "top": 0.283333,
+              "width": 0.15625,
+              "height": 0.033333
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 18,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 22,
+            "shape_type": "CHART",
+            "path": "slides[13].objects[10]",
+            "bounds_in": {
+              "left": 9.75,
+              "top": 2.5417,
+              "width": 2.3542,
+              "height": 2.7083
+            },
+            "bounds_normalized": {
+              "left": 0.73125,
+              "top": 0.338889,
+              "width": 0.176563,
+              "height": 0.361111
+            },
+            "chart": {
+              "chart_type": "COLUMN_CLUSTERED",
+              "series_count": 1,
+              "has_legend": false,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "assumptions": {
+          "type": "bullet_list",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "forecast_assumption",
+            "shape_id": 11,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[13].objects[11]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 5.8958,
+              "width": 10.9375,
+              "height": 0.6875
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.786111,
+              "width": 0.820312,
+              "height": 0.091667
+            }
+          },
+          "min_items": 2,
+          "max_items": 4,
+          "max_chars_per_item": 22
+        }
+      }
+    },
+    "valuation": {
+      "template_slide": 14,
+      "description": "可比估值、历史估值或目标价值",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 14,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[14]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "chart": {
+          "type": "chart_slot",
+          "action": "render_chart",
+          "required": true,
+          "anchor": {
+            "name": "valuation_chart_panel",
+            "shape_id": 6,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6042,
+              "width": 6.7708,
+              "height": 4.625
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.213889,
+              "width": 0.507812,
+              "height": 0.616667
+            }
+          },
+          "title_target": {
+            "name": "valuation_chart_title",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[7]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 1.8333,
+              "width": 3.9583,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.244444,
+              "width": 0.296875,
+              "height": 0.038889
+            }
+          },
+          "replace_mode": "recreate",
+          "max_categories": 8,
+          "max_series": 3,
+          "title_max_chars": 18,
+          "template_chart": {
+            "name": "Chart",
+            "shape_id": 22,
+            "shape_type": "CHART",
+            "path": "slides[14].objects[8]",
+            "bounds_in": {
+              "left": 0.9167,
+              "top": 2.2917,
+              "width": 6.2083,
+              "height": 3.375
+            },
+            "bounds_normalized": {
+              "left": 0.06875,
+              "top": 0.305556,
+              "width": 0.465625,
+              "height": 0.45
+            },
+            "chart": {
+              "chart_type": "COLUMN_CLUSTERED",
+              "series_count": 1,
+              "has_legend": false,
+              "has_title": false,
+              "series": [
+                {
+                  "name": ""
+                }
+              ]
+            }
+          }
+        },
+        "headline": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "valuation_headline",
+            "shape_id": 10,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[10]",
+            "bounds_in": {
+              "left": 7.8542,
+              "top": 2.125,
+              "width": 4.2708,
+              "height": 0.8542
+            },
+            "bounds_normalized": {
+              "left": 0.589063,
+              "top": 0.283333,
+              "width": 0.320312,
+              "height": 0.113889
+            }
+          },
+          "max_chars": 30
+        },
+        "bullets": {
+          "type": "bullet_list",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "valuation_bullets",
+            "shape_id": 11,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[11]",
+            "bounds_in": {
+              "left": 7.8542,
+              "top": 3.2708,
+              "width": 4.2708,
+              "height": 2.0833
+            },
+            "bounds_normalized": {
+              "left": 0.589063,
+              "top": 0.436111,
+              "width": 0.320312,
+              "height": 0.277778
+            }
+          },
+          "min_items": 2,
+          "max_items": 4,
+          "max_chars_per_item": 30
+        },
+        "conclusion": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "valuation_conclusion_text",
+            "shape_id": 13,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[14].objects[13]",
+            "bounds_in": {
+              "left": 8.0833,
+              "top": 5.7604,
+              "width": 3.8333,
+              "height": 0.2708
+            },
+            "bounds_normalized": {
+              "left": 0.60625,
+              "top": 0.768056,
+              "width": 0.2875,
+              "height": 0.036111
+            }
+          },
+          "max_chars": 35
+        }
+      }
+    },
+    "risk_catalyst": {
+      "template_slide": 15,
+      "description": "上行催化因素和结论失效条件",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[15].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[15].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 34,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[15].objects[34]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 3
+        },
+        "catalysts": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": false,
+          "min_items": 0,
+          "max_items": 4,
+          "targets": [
+            {
+              "number": {
+                "name": "catalyst_num_1",
+                "shape_id": 10,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[10]",
+                "bounds_in": {
+                  "left": 0.9583,
+                  "top": 2.5625,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.071875,
+                  "top": 0.341667,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "catalyst_item_1",
+                "shape_id": 11,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[11]",
+                "bounds_in": {
+                  "left": 1.6042,
+                  "top": 2.5417,
+                  "width": 4.2708,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.120313,
+                  "top": 0.338889,
+                  "width": 0.320312,
+                  "height": 0.047222
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "catalyst_num_2",
+                "shape_id": 16,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[16]",
+                "bounds_in": {
+                  "left": 0.9583,
+                  "top": 3.3542,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.071875,
+                  "top": 0.447222,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "catalyst_item_2",
+                "shape_id": 17,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[17]",
+                "bounds_in": {
+                  "left": 1.6042,
+                  "top": 3.3333,
+                  "width": 4.2708,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.120313,
+                  "top": 0.444444,
+                  "width": 0.320312,
+                  "height": 0.047222
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "catalyst_num_3",
+                "shape_id": 22,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[22]",
+                "bounds_in": {
+                  "left": 0.9583,
+                  "top": 4.1458,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.071875,
+                  "top": 0.552778,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "catalyst_item_3",
+                "shape_id": 23,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[23]",
+                "bounds_in": {
+                  "left": 1.6042,
+                  "top": 4.125,
+                  "width": 4.2708,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.120313,
+                  "top": 0.55,
+                  "width": 0.320312,
+                  "height": 0.047222
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "catalyst_num_4",
+                "shape_id": 28,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[28]",
+                "bounds_in": {
+                  "left": 0.9583,
+                  "top": 4.9375,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.071875,
+                  "top": 0.658333,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "catalyst_item_4",
+                "shape_id": 29,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[29]",
+                "bounds_in": {
+                  "left": 1.6042,
+                  "top": 4.9167,
+                  "width": 4.2708,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.120313,
+                  "top": 0.655556,
+                  "width": 0.320312,
+                  "height": 0.047222
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "text": 24
+          },
+          "auto_fields": [
+            "number"
+          ]
+        },
+        "risks": {
+          "type": "repeated_group",
+          "action": "set_repeated_text",
+          "required": true,
+          "min_items": 1,
+          "max_items": 4,
+          "targets": [
+            {
+              "number": {
+                "name": "risk_num_1",
+                "shape_id": 13,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[13]",
+                "bounds_in": {
+                  "left": 6.9375,
+                  "top": 2.5625,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.520312,
+                  "top": 0.341667,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "risk_item_1",
+                "shape_id": 14,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[14]",
+                "bounds_in": {
+                  "left": 7.5833,
+                  "top": 2.5417,
+                  "width": 4.1667,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.56875,
+                  "top": 0.338889,
+                  "width": 0.3125,
+                  "height": 0.047222
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "risk_num_2",
+                "shape_id": 19,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[19]",
+                "bounds_in": {
+                  "left": 6.9375,
+                  "top": 3.3542,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.520312,
+                  "top": 0.447222,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "risk_item_2",
+                "shape_id": 20,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[20]",
+                "bounds_in": {
+                  "left": 7.5833,
+                  "top": 3.3333,
+                  "width": 4.1667,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.56875,
+                  "top": 0.444444,
+                  "width": 0.3125,
+                  "height": 0.047222
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "risk_num_3",
+                "shape_id": 25,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[25]",
+                "bounds_in": {
+                  "left": 6.9375,
+                  "top": 4.1458,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.520312,
+                  "top": 0.552778,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "risk_item_3",
+                "shape_id": 26,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[26]",
+                "bounds_in": {
+                  "left": 7.5833,
+                  "top": 4.125,
+                  "width": 4.1667,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.56875,
+                  "top": 0.55,
+                  "width": 0.3125,
+                  "height": 0.047222
+                }
+              }
+            },
+            {
+              "number": {
+                "name": "risk_num_4",
+                "shape_id": 31,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[31]",
+                "bounds_in": {
+                  "left": 6.9375,
+                  "top": 4.9375,
+                  "width": 0.5417,
+                  "height": 0.2708
+                },
+                "bounds_normalized": {
+                  "left": 0.520312,
+                  "top": 0.658333,
+                  "width": 0.040625,
+                  "height": 0.036111
+                }
+              },
+              "text": {
+                "name": "risk_item_4",
+                "shape_id": 32,
+                "shape_type": "AUTO_SHAPE",
+                "path": "slides[15].objects[32]",
+                "bounds_in": {
+                  "left": 7.5833,
+                  "top": 4.9167,
+                  "width": 4.1667,
+                  "height": 0.3542
+                },
+                "bounds_normalized": {
+                  "left": 0.56875,
+                  "top": 0.655556,
+                  "width": 0.3125,
+                  "height": 0.047222
+                }
+              }
+            }
+          ],
+          "empty_item_action": "clear",
+          "limits": {
+            "text": 24
+          },
+          "auto_fields": [
+            "number"
+          ]
+        }
+      }
+    },
+    "appendix": {
+      "template_slide": 16,
+      "description": "财务明细、统计口径和来源",
+      "fields": {
+        "title": {
+          "type": "text",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[16].objects[2]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 0.5833,
+              "width": 11.6667,
+              "height": 0.6042
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.077778,
+              "width": 0.875,
+              "height": 0.080556
+            }
+          },
+          "max_chars": 24
+        },
+        "page_number": {
+          "type": "auto",
+          "action": "set_page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[16].objects[5]",
+            "bounds_in": {
+              "left": 12.1875,
+              "top": 7.0417,
+              "width": 0.5833,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.914062,
+              "top": 0.938889,
+              "width": 0.04375,
+              "height": 0.025
+            }
+          }
+        },
+        "source_refs": {
+          "type": "source_list",
+          "action": "set_text",
+          "required": true,
+          "target": {
+            "name": "source",
+            "shape_id": 9,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[16].objects[9]",
+            "bounds_in": {
+              "left": 0.5625,
+              "top": 6.7708,
+              "width": 11.25,
+              "height": 0.1875
+            },
+            "bounds_normalized": {
+              "left": 0.042188,
+              "top": 0.902778,
+              "width": 0.84375,
+              "height": 0.025
+            }
+          },
+          "max_items": 5
+        },
+        "table": {
+          "type": "table",
+          "action": "fill_table",
+          "required": true,
+          "target": {
+            "name": "appendix_financial_table",
+            "shape_id": 15,
+            "shape_type": "TABLE",
+            "path": "slides[16].objects[6]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 1.6667,
+              "width": 11.6667,
+              "height": 4.0625
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.222222,
+              "width": 0.875,
+              "height": 0.541667
+            },
+            "table": {
+              "rows": 9,
+              "columns": 5
+            }
+          },
+          "max_rows": 9,
+          "max_columns": 5,
+          "preserve_style": true,
+          "overflow": "new_slide"
+        },
+        "source_policy_title": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "appendix_sources_title",
+            "shape_id": 7,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[16].objects[7]",
+            "bounds_in": {
+              "left": 0.6667,
+              "top": 6.0208,
+              "width": 2.5,
+              "height": 0.25
+            },
+            "bounds_normalized": {
+              "left": 0.05,
+              "top": 0.802778,
+              "width": 0.1875,
+              "height": 0.033333
+            }
+          },
+          "max_chars": 12
+        },
+        "source_policy": {
+          "type": "text",
+          "action": "set_text",
+          "required": false,
+          "target": {
+            "name": "appendix_sources",
+            "shape_id": 8,
+            "shape_type": "AUTO_SHAPE",
+            "path": "slides[16].objects[8]",
+            "bounds_in": {
+              "left": 3.1667,
+              "top": 6.0208,
+              "width": 9.1667,
+              "height": 0.2917
+            },
+            "bounds_normalized": {
+              "left": 0.2375,
+              "top": 0.802778,
+              "width": 0.6875,
+              "height": 0.038889
+            }
+          },
+          "max_chars": 80
+        }
+      }
+    }
+  },
+  "validation": {
+    "layout_count": 16,
+    "warning_count": 0,
+    "error_count": 0,
+    "warnings": [],
+    "errors": []
+  }
+}
