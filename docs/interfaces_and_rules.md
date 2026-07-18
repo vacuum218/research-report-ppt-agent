@@ -1,44 +1,22 @@
 # 接口规范与开发规则
 
-## Slide Outline JSON
+## 分层接口
 
-用于连接：
+系统接口按以下顺序连接：
 
-文本解析模块
-
-和
-
-PPT生成模块。
-
-推荐结构：
-
-``` json
-{
-  "slides": [
-    {
-      "title": "",
-      "summary": [],
-      "source_text": "",
-      "visual_candidates": []
-    }
-  ]
-}
+```text
+Document JSON
+→ Slide Outline JSON
+→ Visualization JSON
+→ Layout Mapping
+→ PPT Renderer
 ```
 
-## Visualization JSON
+Slide Outline 只描述页面内容语义、来源引用和可视化候选，正式定义见 `schemas/slide_outline.schema.json` 和 `docs/slide_outline_schema.md`。
 
-推荐结构：
+Visualization JSON 只描述已抽取并核对的 chart/table 数据，正式定义见 `schemas/visualization.schema.json` 和 `docs/visualization_schema.md`。
 
-``` json
-{
-  "type": "line",
-  "title": "",
-  "unit": "",
-  "categories": [],
-  "values": [],
-  "source": ""
-}
-```
+模板 Layout、坐标、字体、颜色和渲染对象不得进入以上两个 Schema；它们分别属于 Layout Mapping 和 PPT Renderer。
 
 ## 开发规则
 

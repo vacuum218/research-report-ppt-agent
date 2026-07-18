@@ -1,57 +1,105 @@
 # Slide Outline JSON Schema
 
-## 1. 定位
+## 1. 定位与边界
 
-Slide Outline JSON 是研报内容语义层的数据契约，用于连接文档解析、大纲生成、可视化检测和 PPT 生成模块。
+Slide Outline JSON 是研报内容语义层的数据契约，负责回答“这一页讲什么”。它连接结构化 Document JSON 与后续 Visualization Detector，但不承担图表数据、模板映射或 PPT 渲染职责。
 
-它描述：
+允许描述：
 
-- 一页主要讨论什么业务主题。
-- 页面在整份报告中承担什么角色。
-- 本页希望传达的核心观点。
-- 内容来自哪些原文位置。
-- 是否存在适合进一步处理的可视化候选。
+- 报告及公司基本信息。
+- 全局来源目录。
+- 页面业务主题和结构角色。
+- 页面核心观点与支撑要点。
+- 页面引用了哪些来源。
+- 是否存在图表或表格候选。
 
-它不描述 PPT 坐标、字体、颜色、具体模板 Layout 或最终排版。最终版式由 T2.5 Template Mapping 根据页面语义、内容量、模板能力和 `layout_hint` 综合决定。
+禁止描述：
+
+- `layout_id` 或具体模板名称。
+- PPT 坐标、字体、颜色。
+- `python-pptx` 对象。
+- chart 的 categories、series、values。
+- table 的 columns、rows。
 
 正式 Schema 位于 `schemas/slide_outline.schema.json`，使用 JSON Schema Draft 2020-12，当前版本为 `1.0.0`。
 
-## 2. 顶层结构
+## 2. 数据流分层
 
-| 字段 | 必需 | 说明 |
-|---|---|---|
-| `schema_version` | 是 | 接口版本，当前固定为 `1.0.0` |
-| `metadata` | 是 | 研报基本信息 |
-| `slides` | 是 | 按叙事顺序排列的页面列表，至少一页 |
+```text
+Document JSON
+  → Slide Outline JSON：这一页讲什么
+  → Visualization JSON：展示什么数据
+  → Layout Mapping：如何放入 PPT 模板
+  → PPT Renderer：如何生成 PPTX
+```
 
-`metadata` 包含：
+`layout_hint` 只是 Outline Generator 给出的非强制建议。T2.5 可以忽略或修正它，最终模板选择由独立的 Template Mapping 决定。
 
-- `company`：公司名称。
-- `industry`：所属行业。
-- `report_date`：报告日期，推荐 `YYYY-MM-DD`；无法确定时允许空字符串。
-- `source_file`：输入研报文件名或可追溯标识。
+## 3. 顶层结构
 
-## 3. 页面字段
+```json
+{
+  "schema_version": "1.0.0",
+  "metadata": {},
+  "sources": [],
+  "slides": []
+}
+```
 
-每个页面必须包含：
+四个顶层字段均为必需字段。
 
-- `slide_id`：稳定页面标识，格式为 `slide-*`。
-- `title`：页面标题。
-- `slide_type`：业务内容分类。
-- `page_role`：页面在报告中的结构角色。
-- `key_message`：本页单一核心观点，类型为字符串。
-- `bullet_points`：支撑核心观点的要点列表。
-- `source_refs`：页面内容对应的一个或多个原文引用。
-- `visual_candidates`：可视化候选列表。
+### metadata
+
+| 字段 | 说明 |
+|---|---|
+| `company` | 公司主体或法定全称 |
+| `company_name` | 用于封面和文件名的展示名称 |
+| `stock_code` | 股票代码 |
+| `industry` | 所属行业 |
+| `report_title` | 研报标题 |
+| `report_date` | 报告日期，推荐 `YYYY-MM-DD` |
+| `source_file` | 输入文件名或输入文档标识 |
+
+## 4. 全局来源目录
+
+`sources` 集中保存来源信息，页面和可视化只保存 `source_id`，不重复保存全文。
+
+```json
+{
+  "source_id": "src_annual_2025",
+  "type": "annual_report",
+  "title": "公司2025年年度报告",
+  "locator": "财务报表章节"
+}
+```
+
+`source_id` 必须以 `src_` 开头，并在同一 Outline 中唯一。支持的来源类型包括年报、季报、公司公告、券商研报、数据库、网站、计算结果、用户输入和其他来源。
+
+页面及候选中的 `source_refs` 是去重的 `source_id` 字符串数组。所有引用都必须能在顶层 `sources` 中找到。
+
+标准 JSON Schema 只能验证 ID 格式和完全重复对象，不能验证“某个属性在数组中唯一”及跨数组引用存在性。因此 `source_id` 唯一性和引用完整性属于生成后的语义校验器职责。
+
+## 5. 页面结构
+
+每页必需字段：
+
+- `slide_id`
+- `page_role`
+- `slide_type`
+- `title`
+- `key_message`
+- `bullet_points`
+- `source_refs`
+- `visual_candidates`
 
 可选字段：
 
-- `section`：页面所属研报章节。
-- `layout_hint`：大纲生成阶段给出的非强制布局建议。
+- `section`
+- `layout_hint`
 
 ### slide_type
 
-`slide_type` 只表达“这一页主要讨论什么业务主题”，允许值为：
+`slide_type` 只表达“这一页讲什么业务主题”：
 
 - `company_overview`
 - `industry_analysis`
@@ -62,9 +110,11 @@ Slide Outline JSON 是研报内容语义层的数据契约，用于连接文档�
 - `investment_risk`
 - `summary`
 
+不得使用 `chart`、`table`、`two_column`、`content` 等布局或页面形式作为 `slide_type`。
+
 ### page_role
 
-`page_role` 只表达页面角色，允许值为：
+`page_role` 只表达页面在整份报告中的结构作用：
 
 - `title`
 - `section`
@@ -73,46 +123,30 @@ Slide Outline JSON 是研报内容语义层的数据契约，用于连接文档�
 
 ### layout_hint
 
-`layout_hint` 是可选的普通字符串，例如：
+`layout_hint` 是不限制具体取值的非空字符串，例如 `title_content`、`two_column`、`chart_page`、`table_page`。它不是 `layout_id`，也不绑定某个模板。
 
-- `title_content`
-- `two_column`
-- `chart_page`
-- `table_page`
+## 6. 可视化候选
 
-它不直接绑定模板 Layout，也不保证渲染器采用该建议。
+Slide Outline 中的候选只描述可视化意图：
 
-## 4. 来源追溯
+```json
+{
+  "candidate_id": "visual_001",
+  "type": "chart",
+  "description": "展示收入增长趋势",
+  "source_refs": ["src_annual_2025"]
+}
+```
 
-`source_refs` 是引用对象数组。每个引用包含：
+基础字段为 `candidate_id`、`type`、`description`、`source_refs`；`type` 为 `chart` 或 `table`。候选对象允许额外扩展字段，但不得把 categories、series、values、columns 或 rows 当作 Slide Outline 的标准字段。完成抽取后的数据应使用 `visualization.schema.json`。
 
-| 字段 | 说明 |
-|---|---|
-| `text` | 支撑页面内容或可视化候选的原文，不能为空 |
-| `section` | 原文所在章节；无法确定时可为空字符串 |
-| `location` | 页码、段落、节点 ID 等位置描述；无法确定时可为空字符串 |
+## 7. 字段职责
 
-标题页、章节页和尾页允许使用空的页面级 `source_refs`。内容页是否必须存在来源属于语义校验规则，后续由独立校验器结合 `page_role` 和原始文档检查。
-
-## 5. 可视化候选
-
-每个 `visual_candidates` 项目的基础字段为：
-
-- `candidate_id`：稳定候选标识，格式为 `visual-*`。
-- `type`：候选类型，例如 `line_chart`、`bar_chart` 或 `table`。
-- `description`：希望表达的可视化内容。
-- `source_refs`：支撑该候选的原文引用，至少一项。
-
-可视化候选对象允许额外字段，以便 Week 3 增加优先级、单位、数据抽取状态等信息，而无需破坏 Slide Outline 1.0 接口。具体 categories、series 和 values 应由独立的 Visualization JSON Schema 定义。
-
-## 6. 分层约束
-
-三个字段职责不得混用：
-
-| 字段 | 负责回答的问题 |
+| 字段或文件 | 回答的问题 |
 |---|---|
 | `slide_type` | 这一页讲什么业务主题？ |
 | `page_role` | 这一页在报告结构中是什么角色？ |
-| `layout_hint` | 内容生成模块建议怎样呈现？ |
-
-最终 PPT 布局由 T2.5 负责。Slide Outline 中不得加入坐标、字体、颜色或模板 Layout 名称等渲染层字段。
+| `layout_hint` | 内容模块建议怎样呈现？ |
+| `visualization.schema.json` | 具体展示什么 chart/table 数据？ |
+| Template Mapping | 最终选择什么模板版式？ |
+| Renderer | 如何生成 PPTX？ |

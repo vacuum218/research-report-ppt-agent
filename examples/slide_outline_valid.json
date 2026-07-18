@@ -2,17 +2,38 @@
   "schema_version": "1.0.0",
   "metadata": {
     "company": "示例科技股份有限公司",
+    "company_name": "示例科技",
+    "stock_code": "000000.SZ",
     "industry": "电子设备",
+    "report_title": "核心业务稳健，新业务打开成长空间",
     "report_date": "2026-07-18",
     "source_file": "example_report.md"
   },
+  "sources": [
+    {
+      "source_id": "src_annual_2025",
+      "type": "annual_report",
+      "title": "示例科技2025年年度报告",
+      "publisher": "示例科技股份有限公司",
+      "published_date": "2026-04-30",
+      "file_name": "example_annual_report_2025.pdf",
+      "locator": "财务报表及经营情况讨论"
+    },
+    {
+      "source_id": "src_calc_forecast",
+      "type": "calculation",
+      "title": "盈利预测测算底稿",
+      "locator": "2026年至2028年盈利预测",
+      "notes": "基于年度报告和明确预测假设计算。"
+    }
+  ],
   "slides": [
     {
-      "slide_id": "slide-001",
-      "title": "示例科技投资价值分析",
-      "slide_type": "company_overview",
+      "slide_id": "slide_001",
       "page_role": "title",
+      "slide_type": "company_overview",
       "section": "封面",
+      "title": "示例科技投资价值分析",
       "key_message": "核心业务稳健增长，新业务打开长期成长空间",
       "bullet_points": [],
       "source_refs": [],
@@ -20,38 +41,31 @@
       "visual_candidates": []
     },
     {
-      "slide_id": "slide-002",
-      "title": "未来三年收入有望保持较快增长",
-      "slide_type": "financial_forecast",
+      "slide_id": "slide_002",
       "page_role": "content",
+      "slide_type": "financial_forecast",
       "section": "财务分析",
-      "key_message": "公司未来三年收入预计保持高速增长",
+      "title": "未来盈利预测",
+      "key_message": "公司未来三年利润预计保持高速增长",
       "bullet_points": [
-        "核心产品需求持续恢复",
-        "海外市场和新产品形成增量"
+        "收入持续提升",
+        "盈利能力增强"
       ],
       "source_refs": [
-        {
-          "text": "预计公司2026年至2028年营业收入分别为120亿元、150亿元和185亿元。",
-          "section": "盈利预测",
-          "location": "第5节第2段"
-        }
+        "src_annual_2025",
+        "src_calc_forecast"
       ],
       "layout_hint": "chart_page",
       "visual_candidates": [
         {
-          "candidate_id": "visual-revenue-001",
-          "type": "line_chart",
-          "description": "展示2026年至2028年营业收入预测趋势",
+          "candidate_id": "visual_001",
+          "type": "chart",
+          "description": "展示营业收入增长趋势",
           "source_refs": [
-            {
-              "text": "预计公司2026年至2028年营业收入分别为120亿元、150亿元和185亿元。",
-              "section": "盈利预测",
-              "location": "第5节第2段"
-            }
+            "src_annual_2025",
+            "src_calc_forecast"
           ],
-          "priority": "high",
-          "suggested_unit": "亿元"
+          "priority": "high"
         }
       ]
     }
