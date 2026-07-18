@@ -1,1 +1,1 @@
-"""Command-line validation and template-inspection tools."""
+"""Deprecated command wrappers retained through Week 4."""

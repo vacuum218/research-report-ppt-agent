@@ -1,4 +1,4 @@
-"""PPT template structure, style, and theme parsers."""
+"""Compatibility package for the legacy ``ppt_template_parser`` import."""
 
 from .ppt_template_parser import PPTTemplateParser
 from .theme_parser import PPTThemeParser

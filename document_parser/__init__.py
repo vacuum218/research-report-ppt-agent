@@ -1,4 +1,4 @@
-"""Structured Markdown and plain-text report parsing."""
+"""Compatibility package for the legacy ``document_parser`` import."""
 
 from .parse_report import ParseError, ReportParser, parse_file
 
