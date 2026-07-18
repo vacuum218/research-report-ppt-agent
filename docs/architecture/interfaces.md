@@ -14,9 +14,11 @@ Document JSON
 
 Document JSON 由 `document_parser` 生成，正式定义见 `schemas/parsed_document.schema.json`。
 
-Slide Outline 只描述页面内容语义、来源引用和可视化候选，正式定义见 `schemas/slide_outline.schema.json` 和 `docs/slide_outline_schema.md`。
+Slide Outline 只描述页面内容语义、来源引用和可视化候选，正式定义见
+`schemas/slide_outline.schema.json` 和 `docs/specs/slide_outline.md`。
 
-Visualization JSON 只描述已抽取并核对的 chart/table 数据，正式定义见 `schemas/visualization.schema.json` 和 `docs/visualization_schema.md`。
+Visualization JSON 只描述已抽取并核对的 chart/table 数据，正式定义见
+`schemas/visualization.schema.json` 和 `docs/specs/visualization.md`。
 
 模板 Layout、坐标、字体、颜色和渲染对象不得进入以上两个 Schema；它们分别属于 Layout Mapping 和 PPT Renderer。
 

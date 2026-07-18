@@ -15,7 +15,7 @@
 ## T2.2 验收证据
 
 - 样例覆盖：标题/段落、列表、Markdown 表格、纯文本编号标题。
-- 专项测试：`tests/test_parse_report.py`。
+- 专项测试：`tests/unit/test_report_parser.py`。
 - 输出契约：`schemas/parsed_document.schema.json`。
 - 命令入口：`python main.py parse-report ...`。
 - 当前全量自动化测试：`89 passed`。

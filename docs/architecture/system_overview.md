@@ -40,6 +40,19 @@ python-pptx Renderer
 
 最终 PPT
 
+## 当前实现状态
+
+| 模块 | 状态 | 当前代码位置 |
+|---|---|---|
+| Markdown / Text Parser | 已实现 | `research_report_ppt.parsing` |
+| Slide Outline Generator | 已实现 | `research_report_ppt.outline` |
+| Schema/语义校验 | 已实现 | `research_report_ppt.validation` |
+| 模板解析与 Layout Map | 已实现 | `research_report_ppt.templates` |
+| Visualization Detector | 规划中 | 尚无运行时模块 |
+| PPT Renderer | 规划中 | 尚无运行时模块 |
+
+下文同时描述当前模块和目标架构。标记为“规划中”的部分不得被视为已经交付。
+
 ## 模块说明
 
 ## 1. 文本解析模块
@@ -65,6 +78,8 @@ python-pptx Renderer
 
 ## 3. 可视化定位模块
 
+状态：规划中。
+
 这是区别于 MemSlides 的核心模块。
 
 识别：
@@ -81,6 +96,8 @@ python-pptx Renderer
 chart/table 数据结构。
 
 ## 4. PPT 渲染模块
+
+状态：规划中。
 
 技术：
 

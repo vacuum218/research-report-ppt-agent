@@ -8,33 +8,15 @@ Run from the project root:
 from __future__ import annotations
 
 import hashlib
-import importlib.util
 import tempfile
 import unittest
 from pathlib import Path
 
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
+import research_report_ppt.parsing.report as parse_report
 
 
-def _load_parser_module():
-    """Load parse_report.py from the recommended or legacy project location."""
-    candidates = (PROJECT_ROOT / "document_parser" / "parse_report.py",)
-    parser_path = next((path for path in candidates if path.is_file()), None)
-    if parser_path is None:
-        searched = "\n".join(f"  - {path}" for path in candidates)
-        raise RuntimeError(f"Cannot find parse_report.py. Searched:\n{searched}")
-
-    spec = importlib.util.spec_from_file_location("parse_report", parser_path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"Cannot load parser module: {parser_path}")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-parse_report = _load_parser_module()
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+FIXTURES_DIR = Path(__file__).resolve().parents[1] / "fixtures"
 
 
 class ParseReportFixtureTests(unittest.TestCase):

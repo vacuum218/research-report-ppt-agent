@@ -16,7 +16,7 @@ from research_report_ppt.validation.outline import validate_outline
 from research_report_ppt.validation.visualization import validate_visualization
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_parser_output_matches_parsed_document_schema():

@@ -38,11 +38,11 @@ Week 2 的 T2.1–T2.3 已完成开发、自动验证、真实模型调用和人
 - 支持 Markdown 和纯文本的标题、段落、列表、表格、引用、图片和代码块。
 - 保留块 ID、原文行号、章节路径和引用。
 - 输出遵循 `schemas/parsed_document.schema.json`。
-- 专项测试位于 `tests/test_parse_report.py`。
+- 专项测试位于 `tests/unit/test_report_parser.py`。
 
 ### T2.3：大纲生成链路
 
-`outline_generator/generate_outline.py` 已补齐以下能力：
+`src/research_report_ppt/outline/generator.py` 已补齐以下能力：
 
 - 在调用 API 前校验 Parsed Document；
 - 支持 `--max-attempts`，默认值为 2；
@@ -53,7 +53,7 @@ Week 2 的 T2.1–T2.3 已完成开发、自动验证、真实模型调用和人
 - 最终输出只有在 JSON、Schema 和语义校验全部通过后才写入正式文件；
 - 校验失败时不保存不合格正式产物。
 
-新增测试 `tests/test_generate_outline.py`，覆盖：
+新增测试 `tests/unit/test_outline_generator.py`，覆盖：
 
 - 正常响应；
 - 空内容；
@@ -72,7 +72,7 @@ Week 2 的 T2.1–T2.3 已完成开发、自动验证、真实模型调用和人
 ## 3. 正式验收样例
 
 - 输入：
-  `测试研报/Agent生成研报/002544_2025-10-28.md`
+  `data/reports/agent/002544_2025-10-28.md`
 - 输入 SHA-256：
   `c19c4aa488e4944af0027960d1ee48906a8a597f4f1d81043cb7780b7b9c6f65`
 - 模型：`deepseek-v4-pro`
@@ -111,7 +111,7 @@ Week 2 的 T2.1–T2.3 已完成开发、自动验证、真实模型调用和人
 ```powershell
 python -m pytest -q
 
-python main.py validate-outline `
+research-report-ppt validate-outline `
   examples/generated/002544_2025-10-28_slide_outline.json
 ```
 
@@ -120,11 +120,11 @@ python main.py validate-outline `
 ```powershell
 $env:DEEPSEEK_API_KEY = "<your-key>"
 
-python main.py parse-report `
-  "测试研报/Agent生成研报/002544_2025-10-28.md" `
+research-report-ppt parse-report `
+  "data/reports/agent/002544_2025-10-28.md" `
   -o "output/002544_2025-10-28_parsed.json"
 
-python main.py generate-outline `
+research-report-ppt generate-outline `
   "output/002544_2025-10-28_parsed.json" `
   -o "output/002544_2025-10-28_slide_outline.json" `
   --model deepseek-v4-pro `
@@ -140,9 +140,9 @@ API Key 只能通过环境变量提供，不应写入命令脚本、配置文件
 
 建议 partner 在合并时重点检查以下文件：
 
-- `outline_generator/generate_outline.py`
+- `src/research_report_ppt/outline/generator.py`
 - `prompts/outline_system_prompt.md`
-- `tests/test_generate_outline.py`
+- `tests/unit/test_outline_generator.py`
 - `README.md`
 - `examples/generated/002544_2025-10-28_slide_outline.json`
 - `examples/generated/README.md`
@@ -159,7 +159,7 @@ API Key 只能通过环境变量提供，不应写入命令脚本、配置文件
 - 未提交 API Key、完整 API 请求、原始响应、reasoning content 或临时解析产物。
 - 未修改原始 `.xlsx` 任务跟踪表；工作簿状态应在连接 Excel/Spreadsheets 会话后
   单独同步。
-- 本交付不包含 Git commit、push 或 PR；由项目负责人确认合并方式后执行。
+- Week 2 验收闭环已保存在本地提交 `96c169d`；未 push、未创建 PR。
 
 ## 7. 后续衔接建议
 

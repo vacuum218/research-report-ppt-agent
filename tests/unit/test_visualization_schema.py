@@ -6,7 +6,7 @@ import pytest
 from jsonschema import Draft202012Validator
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_PATH = PROJECT_ROOT / "schemas" / "visualization.schema.json"
 EXAMPLE_PATH = PROJECT_ROOT / "examples" / "visualization_valid.json"
 

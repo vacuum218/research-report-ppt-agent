@@ -11,7 +11,7 @@ import pytest
 import research_report_ppt.outline.generator as generator
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 class FakeHTTPResponse:
