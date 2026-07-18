@@ -24,13 +24,17 @@ import argparse
 import json
 import os
 import re
-import subprocess
 import sys
 import tempfile
 import urllib.error
 import urllib.request
 from pathlib import Path
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
+
+from jsonschema import Draft202012Validator
+from jsonschema.exceptions import SchemaError
+
+from tools.validate_outline import Issue, validate_outline as validate_outline_data
 
 
 DEFAULT_MODEL = "deepseek-v4-pro"
@@ -40,6 +44,38 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 class OutlineGenerationError(RuntimeError):
     """Raised when prompt creation, API invocation, or validation fails."""
+
+
+class DeepSeekAPIError(OutlineGenerationError):
+    """Raised for an HTTP/network API failure with retry metadata."""
+
+    def __init__(self, message: str, *, retryable: bool, status_code: Optional[int] = None):
+        super().__init__(message)
+        self.retryable = retryable
+        self.status_code = status_code
+
+
+class OutlineResponseError(OutlineGenerationError):
+    """Raised when the model response cannot be used as an outline."""
+
+    def __init__(self, message: str, *, retryable: bool, content: str = ""):
+        super().__init__(message)
+        self.retryable = retryable
+        self.content = content
+
+
+class OutlineValidationError(OutlineGenerationError):
+    """Raised when a generated outline violates the canonical contract."""
+
+    def __init__(self, issues: Sequence[Issue], *, content: str):
+        errors = [issue for issue in issues if issue.severity == "error"]
+        summary = "\n".join(
+            f"- {issue.code} {issue.path}: {issue.message}" for issue in errors[:20]
+        )
+        super().__init__(f"Generated outline failed validation:\n{summary}")
+        self.issues = list(issues)
+        self.content = content
+        self.retryable = True
 
 
 def load_json(path: Path, label: str) -> Dict[str, Any]:
@@ -61,6 +97,37 @@ def load_text(path: Path, label: str) -> str:
         return path.read_text(encoding="utf-8").strip()
     except FileNotFoundError as exc:
         raise OutlineGenerationError(f"{label} not found: {path}") from exc
+
+
+def validate_json_instance(
+    instance: Mapping[str, Any],
+    schema: Mapping[str, Any],
+    *,
+    label: str,
+) -> None:
+    """Fail early when an input JSON object violates its canonical schema."""
+    try:
+        Draft202012Validator.check_schema(schema)
+    except SchemaError as exc:
+        raise OutlineGenerationError(f"{label} schema is invalid: {exc.message}") from exc
+
+    errors = sorted(
+        Draft202012Validator(schema).iter_errors(instance),
+        key=lambda error: list(error.absolute_path),
+    )
+    if not errors:
+        return
+    details = []
+    for error in errors[:20]:
+        path = "$" + "".join(
+            f"[{part}]" if isinstance(part, int) else f".{part}"
+            for part in error.absolute_path
+        )
+        details.append(f"- {path}: {error.message}")
+    raise OutlineGenerationError(
+        f"{label} failed schema validation ({len(errors)} error(s)):\n"
+        + "\n".join(details)
+    )
 
 
 def safe_identifier(value: str) -> str:
@@ -202,62 +269,171 @@ def call_deepseek(request_body: Mapping[str, Any], *, api_key: str, base_url: st
             payload = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="replace")
-        raise OutlineGenerationError(f"DeepSeek API returned HTTP {exc.code}: {detail[:1000]}") from exc
+        raise DeepSeekAPIError(
+            f"DeepSeek API returned HTTP {exc.code}: {detail[:1000]}",
+            retryable=exc.code == 429 or exc.code >= 500,
+            status_code=exc.code,
+        ) from exc
     except urllib.error.URLError as exc:
-        raise OutlineGenerationError(f"Cannot connect to DeepSeek API: {exc.reason}") from exc
+        raise DeepSeekAPIError(
+            f"Cannot connect to DeepSeek API: {exc.reason}",
+            retryable=True,
+        ) from exc
     except json.JSONDecodeError as exc:
-        raise OutlineGenerationError("DeepSeek API response is not valid JSON") from exc
+        raise DeepSeekAPIError(
+            "DeepSeek API response is not valid JSON",
+            retryable=True,
+        ) from exc
     if not isinstance(payload, dict):
-        raise OutlineGenerationError("DeepSeek API response root is not an object")
+        raise DeepSeekAPIError(
+            "DeepSeek API response root is not an object",
+            retryable=True,
+        )
     return payload
 
 
-def extract_outline(api_response: Mapping[str, Any]) -> Dict[str, Any]:
+def extract_response_content(api_response: Mapping[str, Any]) -> str:
     try:
         choice = api_response["choices"][0]
         finish_reason = choice.get("finish_reason")
         content = choice["message"]["content"]
     except (KeyError, IndexError, TypeError) as exc:
-        raise OutlineGenerationError("DeepSeek response does not contain choices[0].message.content") from exc
+        raise OutlineResponseError(
+            "DeepSeek response does not contain choices[0].message.content",
+            retryable=True,
+        ) from exc
     if finish_reason == "length":
-        raise OutlineGenerationError("DeepSeek output was truncated; increase --max-tokens")
+        raise OutlineResponseError(
+            "DeepSeek output was truncated; increase --max-tokens",
+            retryable=False,
+            content=content if isinstance(content, str) else "",
+        )
     if not isinstance(content, str) or not content.strip():
-        raise OutlineGenerationError("DeepSeek returned empty content; retry or adjust the prompt")
+        raise OutlineResponseError(
+            "DeepSeek returned empty content; retry or adjust the prompt",
+            retryable=True,
+        )
+    return content
+
+
+def parse_outline_content(content: str) -> Dict[str, Any]:
     try:
         value = json.loads(content)
     except json.JSONDecodeError as exc:
-        raise OutlineGenerationError(
-            f"Model content is not valid JSON: line {exc.lineno}, column {exc.colno}: {exc.msg}"
+        raise OutlineResponseError(
+            f"Model content is not valid JSON: line {exc.lineno}, column {exc.colno}: {exc.msg}",
+            retryable=True,
+            content=content,
         ) from exc
     if not isinstance(value, dict):
-        raise OutlineGenerationError("Generated outline root must be a JSON object")
+        raise OutlineResponseError(
+            "Generated outline root must be a JSON object",
+            retryable=True,
+            content=content,
+        )
     return value
 
 
-def find_validator(project_root: Path) -> Optional[Path]:
-    candidates = (
-        project_root / "tools" / "validate_outline.py",
-        project_root / "validate_outline.py",
-    )
-    return next((path for path in candidates if path.is_file()), None)
+def extract_outline(api_response: Mapping[str, Any]) -> Dict[str, Any]:
+    """Extract and parse the final JSON object from a DeepSeek response."""
+    return parse_outline_content(extract_response_content(api_response))
 
 
-def validate_outline(
-    outline_path: Path,
+def build_correction_messages(
+    original_messages: Sequence[Mapping[str, str]],
     *,
-    project_root: Path,
-    schema_path: Path,
-) -> None:
-    validator = find_validator(project_root)
-    if validator is None:
-        raise OutlineGenerationError("Cannot find tools/validate_outline.py")
-    command = [sys.executable, str(validator), str(outline_path), "--schema", str(schema_path)]
-    result = subprocess.run(command, text=True, capture_output=True, check=False)
-    if result.returncode != 0:
-        details = (result.stdout + "\n" + result.stderr).strip()
-        raise OutlineGenerationError(f"Generated outline failed validation:\n{details}")
-    if result.stdout.strip():
-        print(result.stdout.strip())
+    previous_content: str,
+    errors: Sequence[str],
+) -> List[Dict[str, str]]:
+    """Build one corrective turn without changing the schema or source input."""
+    error_text = "\n".join(f"- {item}" for item in errors[:20])
+    return [
+        *[dict(message) for message in original_messages],
+        {
+            "role": "assistant",
+            "content": previous_content[:50_000] or "{}",
+        },
+        {
+            "role": "user",
+            "content": (
+                "上一个输出无效。请只返回修正后的完整 JSON 对象，不要解释，"
+                "不得改变或补造输入事实。需要修复的问题：\n"
+                + error_text
+            ),
+        },
+    ]
+
+
+def generate_with_retries(
+    messages: List[Dict[str, str]],
+    schema: Mapping[str, Any],
+    *,
+    api_key: str,
+    base_url: str,
+    timeout: int,
+    model: str,
+    max_tokens: int,
+    thinking: str,
+    reasoning_effort: str,
+    max_attempts: int,
+    validate_output: bool = True,
+) -> Tuple[Dict[str, Any], List[Issue], int]:
+    """Call DeepSeek and retry only failures that can be corrected safely."""
+    attempt_messages = list(messages)
+    last_error: Optional[OutlineGenerationError] = None
+
+    for attempt in range(1, max_attempts + 1):
+        request_body = build_request(
+            attempt_messages,
+            model=model,
+            max_tokens=max_tokens,
+            thinking=thinking,
+            reasoning_effort=reasoning_effort,
+        )
+        content = ""
+        try:
+            response = call_deepseek(
+                request_body,
+                api_key=api_key,
+                base_url=base_url,
+                timeout=timeout,
+            )
+            content = extract_response_content(response)
+            outline = parse_outline_content(content)
+            issues = validate_outline_data(outline, schema) if validate_output else []
+            errors = [issue for issue in issues if issue.severity == "error"]
+            if errors:
+                raise OutlineValidationError(issues, content=content)
+            return outline, issues, attempt
+        except DeepSeekAPIError as exc:
+            last_error = exc
+            if not exc.retryable or attempt >= max_attempts:
+                raise
+            attempt_messages = list(messages)
+        except OutlineResponseError as exc:
+            last_error = exc
+            if not exc.retryable or attempt >= max_attempts:
+                raise
+            attempt_messages = build_correction_messages(
+                messages,
+                previous_content=exc.content,
+                errors=[str(exc)],
+            )
+        except OutlineValidationError as exc:
+            last_error = exc
+            if attempt >= max_attempts:
+                raise
+            attempt_messages = build_correction_messages(
+                messages,
+                previous_content=exc.content,
+                errors=[
+                    f"{issue.code} {issue.path}: {issue.message}"
+                    for issue in exc.issues
+                    if issue.severity == "error"
+                ],
+            )
+
+    raise last_error or OutlineGenerationError("Outline generation failed")
 
 
 def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
@@ -268,6 +444,12 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         "--schema",
         type=Path,
         default=PROJECT_ROOT / "schemas" / "slide_outline.schema.json",
+    )
+    parser.add_argument(
+        "--parsed-schema",
+        type=Path,
+        default=PROJECT_ROOT / "schemas" / "parsed_document.schema.json",
+        help="Schema used to validate the T2.2 parsed-document input",
     )
     parser.add_argument(
         "--system-prompt",
@@ -284,6 +466,12 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser.add_argument("--max-tokens", type=int, default=16000)
     parser.add_argument("--max-input-chars", type=int, default=180000)
     parser.add_argument("--timeout", type=int, default=300)
+    parser.add_argument(
+        "--max-attempts",
+        type=int,
+        default=2,
+        help="Maximum API attempts for retryable response/API failures (default: 2)",
+    )
     parser.add_argument("--thinking", choices=["enabled", "disabled"], default="enabled")
     parser.add_argument("--reasoning-effort", choices=["low", "medium", "high", "max"], default="high")
     parser.add_argument("--dry-run", action="store_true", help="Build request JSON without calling DeepSeek")
@@ -294,11 +482,18 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parse_args(argv)
-    project_root = PROJECT_ROOT
     output = args.output or Path("output/outlines") / f"{args.input.stem}_outline.json"
 
     try:
+        if args.max_attempts < 1:
+            raise OutlineGenerationError("--max-attempts must be at least 1")
         parsed_document = load_json(args.input, "Parsed document")
+        parsed_schema = load_json(args.parsed_schema, "Parsed document schema")
+        validate_json_instance(
+            parsed_document,
+            parsed_schema,
+            label="Parsed document",
+        )
         schema = load_json(args.schema, "Outline schema")
         few_shot = load_json(args.few_shot, "Few-shot examples")
         system_prompt = load_text(args.system_prompt, "System prompt")
@@ -332,13 +527,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         api_key = os.getenv("DEEPSEEK_API_KEY")
         if not api_key:
             raise OutlineGenerationError("DEEPSEEK_API_KEY is not set")
-        response = call_deepseek(
-            request_body,
+        outline, issues, attempts_used = generate_with_retries(
+            messages,
+            schema,
             api_key=api_key,
             base_url=args.base_url,
             timeout=args.timeout,
+            model=args.model,
+            max_tokens=args.max_tokens,
+            thinking=args.thinking,
+            reasoning_effort=args.reasoning_effort,
+            max_attempts=args.max_attempts,
+            validate_output=not args.skip_validation,
         )
-        outline = extract_outline(response)
 
         output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.NamedTemporaryFile(
@@ -354,19 +555,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             handle.write("\n")
 
         try:
-            if not args.skip_validation:
-                validate_outline(
-                    temporary_path,
-                    project_root=project_root,
-                    schema_path=args.schema,
-                )
             temporary_path.replace(output)
         finally:
             if temporary_path.exists():
                 temporary_path.unlink()
 
+        errors = [issue for issue in issues if issue.severity == "error"]
+        warnings = [issue for issue in issues if issue.severity == "warning"]
+        if not args.skip_validation:
+            print(f"VALID: {len(errors)} error(s), {len(warnings)} warning(s)")
         print(f"Created outline: {output}")
         print(f"Model: {args.model}")
+        print(f"Attempts: {attempts_used}/{args.max_attempts}")
         print(f"Slides: {len(outline.get('slides', []))}")
         return 0
     except (OutlineGenerationError, OSError) as exc:

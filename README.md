@@ -191,6 +191,11 @@ $env:DEEPSEEK_API_KEY = "your-api-key"
 python main.py generate-outline output/report_parsed.json `
   -o output/slide_outline.json
 
+# 默认最多执行2次；空内容、非法JSON、临时API错误或Schema错误会触发一次安全重试
+python main.py generate-outline output/report_parsed.json `
+  -o output/slide_outline.json `
+  --max-attempts 2
+
 # 4. 检查模板并构建 layout map
 python main.py inspect-template templates/financial_report_template_v1.pptx `
   -o output/template_objects.json
@@ -204,6 +209,9 @@ python main.py build-layout-map output/template_objects.json `
 python tools/validate_outline.py examples/slide_outline_valid.json
 python tools/validate_visualization.py examples/visualization_valid.json
 ```
+
+生成器会在调用 API 前使用 `schemas/parsed_document.schema.json` 校验输入，
+生成后使用 `schemas/slide_outline.schema.json` 和语义规则校验输出。
 
 
 ---
