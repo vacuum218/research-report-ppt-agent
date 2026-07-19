@@ -1,0 +1,130 @@
+# 系统架构说明
+
+## 总体流程
+
+研报文本
+
+↓
+
+Markdown / Text Parser
+
+↓
+
+结构化文档树
+
+↓
+
+Slide Outline Generator
+
+↓
+
+大纲 JSON
+
+↓
+
+Visualization Detector
+
+↓
+
+Chart/Table JSON
+
+↓
+
+Layout Engine
+
+↓
+
+python-pptx Renderer
+
+↓
+
+最终 PPT
+
+## 当前实现状态
+
+| 模块 | 状态 | 当前代码位置 |
+|---|---|---|
+| Markdown / Text Parser | 已实现 | `document_parser/` |
+| Slide Outline Generator | 已实现 | `outline_generator/` |
+| Schema/语义校验 | 已实现 | `tools/` |
+| 模板解析与 Layout Map | 已实现 | `ppt_template_parser/`、`tools/`、`templates/` |
+| Layout Resolver | 已实现 | `ppt_engine/layout_resolver.py` |
+| Visualization Detector | 规划中 | 尚无运行时模块 |
+| 基础 PPT Renderer | 已实现 | `ppt_engine/` |
+
+下文同时描述当前模块和目标架构。标记为“规划中”的部分不得被视为已经交付。
+
+## 模块说明
+
+## 1. 文本解析模块
+
+输入： - Markdown - 普通文本
+
+输出： - 标题层级 - 段落 - 列表 - 表格
+
+## 2. 大纲生成模块
+
+负责：
+
+将研报内容拆分为：
+
+-   公司介绍
+-   行业分析
+-   核心逻辑
+-   财务预测
+-   估值分析
+-   风险因素
+
+输出必须为 JSON。
+
+## 3. 可视化定位模块
+
+状态：规划中。
+
+这是区别于 MemSlides 的核心模块。
+
+识别：
+
+-   营收增长
+-   利润趋势
+-   CAGR
+-   估值比较
+-   市占率
+-   财务指标
+
+输出：
+
+chart/table 数据结构。
+
+## 4. PPT 渲染模块
+
+状态：T2.4 MVP 已实现。
+
+技术：
+
+-   python-pptx
+-   固定模板及语义 Layout Map
+
+负责：
+
+-   根据 Outline 页面语义选择模板版式
+-   克隆模板页并保留 slide background、母版和 Shape 样式
+-   填充标题、核心观点、要点、来源和页码
+-   基础可编辑图表与表格生成
+-   输出后重新打开 PPTX，检查文件和页数
+
+当前 MVP 不承担复杂自动排版、高级溢出处理或完整图表美化。
+
+## 5. 模板模块
+
+固定模板：
+
+包含：
+
+-   母版
+-   配色
+-   字体
+-   placeholder
+-   layout
+
+不要设计用户画像系统。

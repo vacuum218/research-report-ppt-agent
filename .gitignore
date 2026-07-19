@@ -1,0 +1,43 @@
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Packaging and builds
+build/
+dist/
+*.egg-info/
+
+# Virtual environments and local secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# IDE and OS files
+.idea/
+.vscode/
+.vs/
+.DS_Store
+Thumbs.db
+
+# Runtime inputs, outputs, and temporary files
+input/
+output/
+outputs/
+artifacts/
+tmp/
+temp/
+*.request.json
+*.response.json
+*.reasoning.txt
+
+# Generated PowerPoint files; the canonical template remains tracked
+*.pptx
+!templates/*.pptx

@@ -1,0 +1,96 @@
+{
+  "version": "2.0",
+  "description": "语义大纲规划示例。最终输出必须遵循 slide_outline.schema.json。",
+  "examples": [
+    {
+      "name": "公司概况与核心竞争力",
+      "input_blocks": [
+        {
+          "block_id": "block_0010",
+          "type": "heading",
+          "text": "公司是国内卫星通信核心供应商"
+        },
+        {
+          "block_id": "block_0011",
+          "type": "paragraph",
+          "text": "公司形成卫星通信、专网通信和相关解决方案三类业务。"
+        },
+        {
+          "block_id": "block_0018",
+          "type": "paragraph",
+          "text": "技术积累、客户认证和项目交付能力构成主要竞争壁垒。"
+        }
+      ],
+      "expected_plan": [
+        {
+          "page_role": "content",
+          "slide_type": "company_overview",
+          "title_pattern": "定位清晰，三类业务协同发展",
+          "source_refs": ["src_<document_id>"]
+        },
+        {
+          "page_role": "content",
+          "slide_type": "core_competitiveness",
+          "title_pattern": "技术、客户与交付能力构筑壁垒",
+          "source_refs": ["src_<document_id>"]
+        }
+      ],
+      "lesson": "事实性公司介绍与竞争力结论分开，二者均引用当前输入文档。"
+    },
+    {
+      "name": "财务预测候选图表",
+      "input_blocks": [
+        {
+          "block_id": "block_0040",
+          "type": "table",
+          "columns": ["指标", "2023A", "2024A", "2025E"],
+          "rows": [
+            ["营业收入", 20.0, 23.0, 27.0],
+            ["归母净利润", 2.0, 2.4, 3.0]
+          ]
+        }
+      ],
+      "expected_plan": [
+        {
+          "page_role": "content",
+          "slide_type": "financial_forecast",
+          "title_pattern": "收入与利润有望延续增长",
+          "visual_candidates": [
+            {
+              "candidate_id": "visual_001",
+              "type": "chart",
+              "description": "展示收入与利润的历史值及预测趋势",
+              "source_refs": ["src_<document_id>"]
+            }
+          ]
+        }
+      ],
+      "forbidden_candidate_fields": [
+        "categories",
+        "series",
+        "values",
+        "columns",
+        "rows"
+      ],
+      "lesson": "大纲只提出可视化意图，具体数据留给 Visualization JSON。"
+    },
+    {
+      "name": "估值缺失",
+      "input_blocks": [
+        {
+          "block_id": "block_0060",
+          "type": "heading",
+          "text": "风险提示"
+        },
+        {
+          "block_id": "block_0061",
+          "type": "paragraph",
+          "text": "卫星互联网建设进度不及预期；行业竞争加剧。"
+        }
+      ],
+      "expected_slide_type": "investment_risk",
+      "forbidden_slide_type": "valuation_analysis",
+      "lesson": "输入没有估值数据时省略估值页，不能自行计算目标价或估值倍数。"
+    }
+  ]
+}
