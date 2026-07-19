@@ -26,11 +26,11 @@
     },
     "slide_type_defaults": {
       "company_overview": "company_overview",
-      "industry_analysis": "executive_summary",
-      "business_model": "executive_summary",
-      "core_competitiveness": "executive_summary",
+      "industry_analysis": "industry_outlook",
+      "business_model": "company_overview",
+      "core_competitiveness": "capability_map",
       "financial_forecast": "executive_summary",
-      "valuation_analysis": "executive_summary",
+      "valuation_analysis": "valuation",
       "investment_risk": "risk_catalyst",
       "summary": "executive_summary"
     },

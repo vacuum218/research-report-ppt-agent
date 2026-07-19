@@ -31,9 +31,9 @@ class ResolvedLayout:
 DEFAULT_SLIDE_TYPE_LAYOUT: dict[str, str] = {
     "company_overview": "company_overview",
     "industry_analysis": "industry_outlook",
-    "business_model": "business_structure",
-    "core_competitiveness": "competitive_landscape",
-    "financial_forecast": "earnings_forecast",
+    "business_model": "company_overview",
+    "core_competitiveness": "capability_map",
+    "financial_forecast": "executive_summary",
     "valuation_analysis": "valuation",
     "investment_risk": "risk_catalyst",
     "summary": "executive_summary",

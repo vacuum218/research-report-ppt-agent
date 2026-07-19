@@ -47,6 +47,11 @@ def test_slide_type_mapping_is_used_without_visualization(layout_map):
 
     assert resolver.resolve(slide(slide_type="investment_risk")) == "risk_catalyst"
     assert resolver.resolve(slide(slide_type="company_overview")) == "company_overview"
+    assert resolver.resolve(slide(slide_type="industry_analysis")) == "industry_outlook"
+    assert resolver.resolve(slide(slide_type="business_model")) == "company_overview"
+    assert resolver.resolve(slide(slide_type="core_competitiveness")) == "capability_map"
+    assert resolver.resolve(slide(slide_type="financial_forecast")) == "executive_summary"
+    assert resolver.resolve(slide(slide_type="valuation_analysis")) == "valuation"
 
 
 def test_unknown_resolution_target_is_rejected(layout_map):
@@ -55,4 +60,3 @@ def test_unknown_resolution_target_is_rejected(layout_map):
 
     with pytest.raises(LayoutMapError, match="UNKNOWN_RESOLUTION_TARGET"):
         LayoutResolver(broken)
-
