@@ -4,8 +4,8 @@
   "template_file": "financial_report_template_v1.pptx",
   "presentation": {
     "slide_count": 16,
-    "width_in": null,
-    "height_in": null
+    "width_in": 13.3333,
+    "height_in": 7.5
   },
   "rendering_policy": {
     "object_lookup": "name_then_shape_id",
@@ -13,6 +13,28 @@
     "preserve_decorative_objects": true,
     "clear_unused_repeated_items": true,
     "do_not_depend_on_source_path": true
+  },
+  "layout_resolution": {
+    "page_role_overrides": {
+      "title": "cover",
+      "section": "agenda",
+      "closing": "executive_summary"
+    },
+    "visualization_overrides": {
+      "chart": "chart_text",
+      "table": "earnings_forecast"
+    },
+    "slide_type_defaults": {
+      "company_overview": "company_overview",
+      "industry_analysis": "executive_summary",
+      "business_model": "executive_summary",
+      "core_competitiveness": "executive_summary",
+      "financial_forecast": "executive_summary",
+      "valuation_analysis": "executive_summary",
+      "investment_risk": "risk_catalyst",
+      "summary": "executive_summary"
+    },
+    "fallback_layout": "executive_summary"
   },
   "layouts": {
     "cover": {
@@ -42,11 +64,10 @@
             }
           },
           "inputs": [
-            "company_name",
-            "report_title"
+            "company_name"
           ],
-          "format": "{company_name}\n{report_title}",
-          "max_chars": 36
+          "format": "{company_name}",
+          "max_chars": 16
         },
         "subtitle": {
           "type": "text",

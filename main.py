@@ -51,6 +51,18 @@ def build_parser() -> argparse.ArgumentParser:
     )
     validate_visualization.add_argument("args", nargs=argparse.REMAINDER)
 
+    validate_layout_map = commands.add_parser(
+        "validate-layout-map",
+        help="Validate runtime template layout mappings",
+    )
+    validate_layout_map.add_argument("args", nargs=argparse.REMAINDER)
+
+    render = commands.add_parser(
+        "render-ppt",
+        help="Render a semantic slide outline as a template-based PPTX",
+    )
+    render.add_argument("args", nargs=argparse.REMAINDER)
+
     template = commands.add_parser(
         "parse-template",
         help="Parse generic PPT structure, styles, and theme",
@@ -95,6 +107,16 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         from tools.validate_visualization import main as validate_visualization_main
 
         return validate_visualization_main(args.args)
+
+    if args.command == "validate-layout-map":
+        from ppt_engine.layout_resolver import main as validate_layout_map_main
+
+        return validate_layout_map_main(args.args)
+
+    if args.command == "render-ppt":
+        from ppt_engine.renderer import main as render_main
+
+        return render_main(args.args)
 
     if args.command == "parse-template":
         import json

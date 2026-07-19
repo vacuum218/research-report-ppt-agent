@@ -9,7 +9,7 @@ Document JSON
 → Slide Outline JSON
 → Visualization JSON
 → Layout Mapping
-→ PPT Renderer
+→ PPT Engine
 ```
 
 Document JSON 由 `document_parser` 生成，正式定义见 `schemas/parsed_document.schema.json`。
@@ -20,7 +20,20 @@ Slide Outline 只描述页面内容语义、来源引用和可视化候选，正
 Visualization JSON 只描述已抽取并核对的 chart/table 数据，正式定义见
 `schemas/visualization.schema.json` 和 `docs/specs/visualization.md`。
 
-模板 Layout、坐标、字体、颜色和渲染对象不得进入以上两个 Schema；它们分别属于 Layout Mapping 和 PPT Renderer。
+模板 Layout、坐标、字体、颜色和渲染对象不得进入以上两个 Schema；它们分别属于 Layout Mapping 和 PPT Engine。
+
+## Renderer 编排接口
+
+`ppt_engine` 不修改或包装权威 JSON Schema：
+
+- Outline 使用完整 `slide_outline.schema.json` 对象。
+- 每个 Visualization 仍是一个完整 `visualization.schema.json` chart/table 对象。
+- Visualization 与页面的关联由调用层以 `slide_id → Visualization[]` 传入。
+- CLI 使用可重复的 `--visualization SLIDE_ID=JSON_PATH` 参数表达该关联。
+- `layout_id` 只存在于 `template_layout_map.json` 和运行时 resolver 中。
+
+Layout Resolver 的优先级为：标题页角色、table/chart 实际数据、`slide_type`
+固定映射、通用内容页降级。`layout_hint` 不作为强制映射依据。
 
 ## 开发规则
 

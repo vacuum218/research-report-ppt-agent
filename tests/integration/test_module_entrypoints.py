@@ -29,6 +29,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
             "print(validate_outline.__name__)",
             "validate_outline",
         ),
+        (
+            "from ppt_engine import LayoutResolver; print(LayoutResolver.__name__)",
+            "LayoutResolver",
+        ),
     ],
 )
 def test_module_imports(statement, expected):

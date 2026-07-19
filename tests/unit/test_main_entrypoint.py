@@ -27,6 +27,8 @@ def test_top_level_help_lists_commands():
     assert result.returncode == 0
     assert "generate-outline" in result.stdout
     assert "validate-outline" in result.stdout
+    assert "validate-layout-map" in result.stdout
+    assert "render-ppt" in result.stdout
 
 
 def test_unknown_command_returns_nonzero():

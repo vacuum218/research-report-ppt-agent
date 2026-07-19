@@ -2,9 +2,9 @@
 
 将中文证券研究报告转换为结构化 PPT 资产的 Python 项目。
 
-项目目前处于前期开发阶段，已实现研报解析、语义大纲生成、Schema/语义校验、
-PPT 模板解析和 Layout Map 构建。Visualization 数据抽取与最终 PPT Renderer
-仍在规划中。
+项目目前处于 Week 2，已实现研报解析、语义大纲生成、Schema/语义校验、
+PPT 模板解析、运行时 Layout Mapping 和基础 PPT Engine。Visualization 数据抽取
+仍在规划中；Renderer 已可消费现有 Visualization JSON，但不会自行抽取数据。
 
 ## 当前能力
 
@@ -14,9 +14,9 @@ PPT 模板解析和 Layout Map 构建。Visualization 数据抽取与最终 PPT 
 | DeepSeek 幻灯片大纲生成 | 已完成 | `slide_outline.schema.json` |
 | Outline/Visualization 校验 | 已完成 | Schema + 语义问题列表 |
 | PPT 模板解析与对象盘点 | 已完成 | 模板对象 JSON |
-| 语义 Layout Map | 已完成 | `template_layout_map.json` |
+| 语义 Layout Map 与 Resolver | 已完成 | `template_layout_map.json` |
 | Visualization Detector | 规划中 | `visualization.schema.json` |
-| PPT Renderer | 规划中 | `.pptx` |
+| 基础 PPT Engine | 已完成 | 可打开的 `.pptx` |
 
 核心数据流：
 
@@ -70,6 +70,19 @@ python main.py inspect-template `
 
 python main.py build-layout-map output/template_objects.json `
   -o output/template_layout_map.json
+
+# 6. 校验固定模板映射
+python main.py validate-layout-map templates/template_layout_map.json
+
+# 7. 仅使用 Outline 与 Layout Map 生成基础 PPTX
+python main.py render-ppt examples/slide_outline_valid.json `
+  -o output/outline_demo.pptx
+
+# 8. 可选：把冻结的 Visualization JSON 绑定到指定 slide_id
+python main.py render-ppt examples/slide_outline_valid.json `
+  -o output/visual_demo.pptx `
+  --visualization slide_002=examples/visualization_valid.json `
+  --visualization slide_002=examples/visualization_table_valid.json
 ```
 
 各模块脚本也可以独立执行，例如：
@@ -86,6 +99,7 @@ python tools/validate_outline.py --help
 ├── document_parser/         # Markdown/纯文本解析
 ├── outline_generator/       # DeepSeek 大纲生成和纠错重试
 ├── ppt_template_parser/     # PPT 结构、样式和主题解析
+├── ppt_engine/              # Layout Resolver、模板页构建与 PPTX 渲染
 ├── tools/                   # 校验、模板盘点和 Layout Map
 ├── schemas/                 # 权威 JSON Schema
 ├── prompts/                 # LLM Prompt 与 few-shot

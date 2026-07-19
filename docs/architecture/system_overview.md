@@ -47,9 +47,10 @@ python-pptx Renderer
 | Markdown / Text Parser | 已实现 | `document_parser/` |
 | Slide Outline Generator | 已实现 | `outline_generator/` |
 | Schema/语义校验 | 已实现 | `tools/` |
-| 模板解析与 Layout Map | 已实现 | `ppt_template_parser/`、`tools/` |
+| 模板解析与 Layout Map | 已实现 | `ppt_template_parser/`、`tools/`、`templates/` |
+| Layout Resolver | 已实现 | `ppt_engine/layout_resolver.py` |
 | Visualization Detector | 规划中 | 尚无运行时模块 |
-| PPT Renderer | 规划中 | 尚无运行时模块 |
+| 基础 PPT Renderer | 已实现 | `ppt_engine/` |
 
 下文同时描述当前模块和目标架构。标记为“规划中”的部分不得被视为已经交付。
 
@@ -97,21 +98,22 @@ chart/table 数据结构。
 
 ## 4. PPT 渲染模块
 
-状态：规划中。
+状态：T2.4 MVP 已实现。
 
 技术：
 
 -   python-pptx
--   matplotlib
--   pandas
+-   固定模板及语义 Layout Map
 
 负责：
 
--   页面创建
--   图片插入
--   表格生成
--   字体统一
--   样式控制
+-   根据 Outline 页面语义选择模板版式
+-   克隆模板页并保留 slide background、母版和 Shape 样式
+-   填充标题、核心观点、要点、来源和页码
+-   基础可编辑图表与表格生成
+-   输出后重新打开 PPTX，检查文件和页数
+
+当前 MVP 不承担复杂自动排版、高级溢出处理或完整图表美化。
 
 ## 5. 模板模块
 

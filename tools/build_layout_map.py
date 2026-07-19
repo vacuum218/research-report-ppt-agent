@@ -205,9 +205,9 @@ def layout_definitions() -> Dict[str, Dict[str, Any]]:
                     "action": "format_text",
                     "required": True,
                     "target": "cover_title",
-                    "inputs": ["company_name", "report_title"],
-                    "format": "{company_name}\n{report_title}",
-                    "max_chars": 36,
+                    "inputs": ["company_name"],
+                    "format": "{company_name}",
+                    "max_chars": 16,
                 },
                 "subtitle": text("cover_subtitle", required=False, max_chars=30),
                 "cover_meta": {
@@ -486,6 +486,33 @@ def layout_definitions() -> Dict[str, Dict[str, Any]]:
     return definitions
 
 
+def layout_resolution() -> Dict[str, Any]:
+    """Return frozen-semantic-to-template rules used by ppt_engine."""
+
+    return {
+        "page_role_overrides": {
+            "title": "cover",
+            "section": "agenda",
+            "closing": "executive_summary",
+        },
+        "visualization_overrides": {
+            "chart": "chart_text",
+            "table": "earnings_forecast",
+        },
+        "slide_type_defaults": {
+            "company_overview": "company_overview",
+            "industry_analysis": "executive_summary",
+            "business_model": "executive_summary",
+            "core_competitiveness": "executive_summary",
+            "financial_forecast": "executive_summary",
+            "valuation_analysis": "executive_summary",
+            "investment_risk": "risk_catalyst",
+            "summary": "executive_summary",
+        },
+        "fallback_layout": "executive_summary",
+    }
+
+
 def load_inventory(path: Path) -> Dict[str, Any]:
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -728,8 +755,8 @@ def build_layout_map(inventory: Mapping[str, Any], *, strict: bool = True,
         "template_file": source_file,
         "presentation": {
             "slide_count": presentation.get("slide_count", len(slides)),
-            "width_in": presentation.get("width_in"),
-            "height_in": presentation.get("height_in"),
+            "width_in": presentation.get("slide_width_in", presentation.get("width_in")),
+            "height_in": presentation.get("slide_height_in", presentation.get("height_in")),
         },
         "rendering_policy": {
             "object_lookup": "name_then_shape_id",
@@ -738,6 +765,7 @@ def build_layout_map(inventory: Mapping[str, Any], *, strict: bool = True,
             "clear_unused_repeated_items": True,
             "do_not_depend_on_source_path": True,
         },
+        "layout_resolution": layout_resolution(),
         "layouts": layouts,
         "validation": {
             "layout_count": len(layouts),

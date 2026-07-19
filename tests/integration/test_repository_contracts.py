@@ -24,6 +24,7 @@ def test_declared_repository_directories_exist():
         "document_parser",
         "outline_generator",
         "ppt_template_parser",
+        "ppt_engine",
         "tools",
         "schemas",
         "prompts",
@@ -68,6 +69,7 @@ def test_critical_moved_paths_exist_and_old_paths_are_gone():
         / "docs/planning/研报PPT生成项目_周计划与任务跟踪.xlsx"
     ).is_file()
     assert (PROJECT_ROOT / "docs/specs/template_layout.md").is_file()
+    assert (PROJECT_ROOT / "templates/template_layout_map.json").is_file()
     assert not (PROJECT_ROOT / "src").exists()
     assert not (PROJECT_ROOT / "pyproject.toml").exists()
     assert not (PROJECT_ROOT / "测试研报").exists()
