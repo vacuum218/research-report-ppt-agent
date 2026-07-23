@@ -1,5 +1,15 @@
 # 财报 PPT 模板版式与占位区域说明
 
+## Template Profile 契约
+
+本说明中的 layout、字段和槽位将由
+`schemas/template_profile.schema.json` 冻结为机器可校验的 Template Profile。
+Profile 中每个 visual slot 必须显式声明 `slot_id`、`kind`、`operation`、target 和
+capacity。Renderer 不得在运行时借用 chart/table/text 区域推断 image 位置。
+
+迁移阶段保留现有 `template_layout_map.json`；Template Profile 是新增契约，不会在
+新 Renderer 入口验收前替换旧接口。
+
 ## 1. 文档信息
 
 | 项目 | 内容 |

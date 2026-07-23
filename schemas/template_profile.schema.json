@@ -1,0 +1,434 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-report-ppt-agent.local/schemas/template_profile.schema.json",
+  "title": "Research Report PPT Template Profile",
+  "description": "A deterministic contract describing template identity, semantic layout selection, content bindings, and explicit visual slots.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "profile_id",
+    "template",
+    "supported_operations",
+    "layout_resolution",
+    "layouts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "profile_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+$"
+    },
+    "template": {
+      "$ref": "#/$defs/template"
+    },
+    "supported_operations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/operation"
+      }
+    },
+    "layout_resolution": {
+      "$ref": "#/$defs/layout_resolution"
+    },
+    "layouts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/$defs/layout"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "operation": {
+      "type": "string",
+      "enum": [
+        "set_text",
+        "set_bullets",
+        "set_repeated_text",
+        "render_chart",
+        "render_table",
+        "render_image",
+        "remove_shapes"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shape_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bounds_in": {
+          "$ref": "#/$defs/bounds"
+        }
+      },
+      "anyOf": [
+        {
+          "required": ["name"]
+        },
+        {
+          "required": ["shape_id"]
+        },
+        {
+          "required": ["bounds_in"]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "bounds": {
+      "type": "object",
+      "required": ["left", "top", "width", "height"],
+      "properties": {
+        "left": {
+          "type": "number",
+          "minimum": 0
+        },
+        "top": {
+          "type": "number",
+          "minimum": 0
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "template": {
+      "type": "object",
+      "required": [
+        "file",
+        "sha256",
+        "slide_count",
+        "width_in",
+        "height_in"
+      ],
+      "properties": {
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "slide_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "width_in": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height_in": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "binding": {
+      "type": "object",
+      "required": [
+        "binding_id",
+        "kind",
+        "operation",
+        "source",
+        "required"
+      ],
+      "properties": {
+        "binding_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["text", "bullet_list", "repeated_text", "auto"]
+        },
+        "operation": {
+          "type": "string",
+          "enum": ["set_text", "set_bullets", "set_repeated_text"]
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^(slide|metadata|compiler)\\.[A-Za-z0-9_.-]+$"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "$ref": "#/$defs/target"
+            }
+          }
+        },
+        "max_items": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "separator": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "set_repeated_text"
+              }
+            },
+            "required": ["operation"]
+          },
+          "then": {
+            "required": ["targets"]
+          },
+          "else": {
+            "required": ["target"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "slot": {
+      "type": "object",
+      "required": [
+        "slot_id",
+        "kind",
+        "operation",
+        "required",
+        "target",
+        "capacity"
+      ],
+      "properties": {
+        "slot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["chart", "table", "image"]
+        },
+        "operation": {
+          "type": "string",
+          "enum": ["render_chart", "render_table", "render_image"]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "title_target": {
+          "$ref": "#/$defs/target"
+        },
+        "capacity": {
+          "type": "object",
+          "required": ["max_items"],
+          "properties": {
+            "max_items": {
+              "const": 1
+            },
+            "max_rows": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "max_columns": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "max_categories": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "max_series": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "chart"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "properties": {
+              "operation": {
+                "const": "render_chart"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "table"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "properties": {
+              "operation": {
+                "const": "render_table"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "image"
+              }
+            },
+            "required": ["kind"]
+          },
+          "then": {
+            "properties": {
+              "operation": {
+                "const": "render_image"
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "template_slide",
+        "description",
+        "bindings",
+        "slots"
+      ],
+      "properties": {
+        "template_slide": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/binding"
+          }
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/slot"
+          }
+        },
+        "remove_shapes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "semantic_visual_rule": {
+      "type": "object",
+      "required": [
+        "rule_id",
+        "slide_type",
+        "visual_type",
+        "layout_id"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slide_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visual_type": {
+          "type": "string",
+          "enum": ["chart", "table", "image"]
+        },
+        "layout_hint_any": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "layout_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "layout_resolution": {
+      "type": "object",
+      "required": [
+        "page_role_overrides",
+        "semantic_visual_rules",
+        "slide_type_defaults"
+      ],
+      "properties": {
+        "page_role_overrides": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "semantic_visual_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/semantic_visual_rule"
+          }
+        },
+        "slide_type_defaults": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

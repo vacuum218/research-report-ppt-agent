@@ -1,5 +1,15 @@
 # 接口规范
 
+## Template Profile
+
+`Template Profile` 是模板能力的正式确定性契约，Schema 位于
+`schemas/template_profile.schema.json`。它声明模板身份、layout 选择规则、内容
+binding、显式 visual slot 和 Renderer 支持的 operation。Profile 不允许包含全局
+fallback，也不允许 Renderer 借用其他类型 slot。
+
+旧 `template_layout_map.json` 在迁移期继续服务现有 Renderer；在新链路通过验收前
+不得删除。
+
 ## 正式依赖
 
 ```text
