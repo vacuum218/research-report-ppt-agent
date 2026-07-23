@@ -8,6 +8,7 @@ from .layout_resolver import (
     resolve_outline,
 )
 from .renderer import RenderError, render_ppt, render_presentation
+from .compiler import LayoutCompileError, compile_layout_plan
 
 __all__ = [
     "LayoutResolutionError",
@@ -18,4 +19,6 @@ __all__ = [
     "render_presentation",
     "resolve_layout",
     "resolve_outline",
+    "LayoutCompileError",
+    "compile_layout_plan",
 ]

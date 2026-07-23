@@ -251,6 +251,53 @@ def resolve_outline(
     return results
 
 
+def resolve_profile_layout(
+    slide: Mapping[str, Any],
+    *,
+    visualizations: Sequence[Mapping[str, Any]] = (),
+    template_profile: Mapping[str, Any],
+) -> ResolvedLayout:
+    """Resolve one slide against a Template Profile without changing legacy APIs.
+
+    Template Profile deliberately has no fallback.  The legacy resolver is
+    reused only for its frozen rule precedence; a fallback result is rejected.
+    """
+
+    profile_layouts = template_profile.get("layouts")
+    template = template_profile.get("template", {})
+    if not isinstance(profile_layouts, Mapping):
+        raise LayoutResolutionError("Template Profile must contain layouts")
+    adapter = {
+        "presentation": {
+            "slide_count": template.get("slide_count")
+            if isinstance(template, Mapping)
+            else None
+        },
+        "layout_resolution": dict(template_profile.get("layout_resolution", {})),
+        "layouts": {
+            str(layout_id): {
+                "template_slide": layout.get("template_slide"),
+                "fields": {},
+            }
+            for layout_id, layout in profile_layouts.items()
+            if isinstance(layout, Mapping)
+        },
+    }
+    resolver = LayoutResolver(adapter)
+    decision = resolver.resolve_decision(slide, visualizations)
+    if decision.matched_rule == "fallback_layout":
+        raise LayoutResolutionError(
+            f"slide {slide.get('slide_id')!r} has no Template Profile layout rule"
+        )
+    layout = profile_layouts[decision.layout_id]
+    return ResolvedLayout(
+        slide_id=str(slide.get("slide_id", "")),
+        layout_id=decision.layout_id,
+        template_slide=int(layout["template_slide"]),
+        reason=decision.matched_rule,
+    )
+
+
 def validate_layout_map(layout_map: Mapping[str, Any]) -> list[str]:
     """Return structural and semantic Layout Map validation errors."""
 

@@ -75,6 +75,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     validate_layout_map.add_argument("args", nargs=argparse.REMAINDER)
 
+    compile_layout = commands.add_parser(
+        "compile-layout",
+        help="Compile Outline, Visualization Manifest, and Template Profile",
+    )
+    compile_layout.add_argument("args", nargs=argparse.REMAINDER)
+
     render = commands.add_parser(
         "render-ppt",
         help="Render a semantic slide outline as a template-based PPTX",
@@ -145,6 +151,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         from ppt_engine.layout_resolver import main as validate_layout_map_main
 
         return validate_layout_map_main(args.args)
+
+    if args.command == "compile-layout":
+        from ppt_engine.compiler import main as compile_layout_main
+
+        return compile_layout_main(args.args)
 
     if args.command == "render-ppt":
         from visualization_generator.generate_visualizations import warn_for_render_args
