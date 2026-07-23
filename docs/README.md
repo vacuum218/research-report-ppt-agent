@@ -22,6 +22,7 @@ JSON Schema 文件本身位于仓库根目录 `schemas/`，并且优先级高于
 ## 计划与质量
 
 - [项目任务计划](planning/task_plan.md)
+- [Week 3 可视化内容定位与抽取执行计划](planning/week3_visualization_execution_plan.md)
 - [原始周计划与任务跟踪表](planning/研报PPT生成项目_周计划与任务跟踪.xlsx)
 - [验收标准与风险](quality/acceptance_and_risk.md)
 
