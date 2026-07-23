@@ -87,6 +87,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     render.add_argument("args", nargs=argparse.REMAINDER)
 
+    render_compiled = commands.add_parser(
+        "render-compiled-plan",
+        help="Execute a Compiled Layout Plan without layout inference",
+    )
+    render_compiled.add_argument("args", nargs=argparse.REMAINDER)
+
     template = commands.add_parser(
         "parse-template",
         help="Parse generic PPT structure, styles, and theme",
@@ -163,6 +169,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
         warn_for_render_args(args.args)
         return render_main(args.args)
+
+    if args.command == "render-compiled-plan":
+        from ppt_engine.renderer import compiled_main
+
+        return compiled_main(args.args)
 
     if args.command == "parse-template":
         import json

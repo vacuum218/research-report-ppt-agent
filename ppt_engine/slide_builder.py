@@ -105,6 +105,101 @@ def _remove_named_shapes(slide: Any, names: Sequence[str]) -> None:
             shape._element.getparent().remove(shape._element)
 
 
+def _compiled_target(slide: Any, target: Mapping[str, Any]) -> Any:
+    bounds = target.get("bounds_in")
+    if isinstance(bounds, Mapping):
+        return SimpleNamespace(
+            left=Inches(float(bounds["left"])),
+            top=Inches(float(bounds["top"])),
+            width=Inches(float(bounds["width"])),
+            height=Inches(float(bounds["height"])),
+        )
+    shape = find_shape(slide, target)
+    if shape is None:
+        raise SlideBuildError(f"compiled target is missing: {dict(target)!r}")
+    return shape
+
+
+def _set_compiled_repeated(
+    slide: Any,
+    targets: Sequence[Mapping[str, Any]],
+    values: Sequence[Any],
+) -> None:
+    for index, target_group in enumerate(targets):
+        value = values[index] if index < len(values) else None
+        if isinstance(value, Mapping):
+            for field, target in target_group.items():
+                shape = _compiled_target(slide, target)
+                set_text(shape, value.get(field, ""), required=True)
+        else:
+            fields = list(target_group)
+            for field_index, field in enumerate(fields):
+                shape = _compiled_target(slide, target_group[field])
+                text = value if field_index == len(fields) - 1 and value is not None else ""
+                set_text(shape, text, required=True)
+
+
+def execute_compiled_operations(
+    slide: Any,
+    operations: Sequence[Mapping[str, Any]],
+    *,
+    visualizations_by_id: Mapping[str, Mapping[str, Any]],
+    asset_root: Path,
+) -> None:
+    """Execute a complete operation stream without resolving layout semantics."""
+
+    for operation in operations:
+        op = str(operation.get("op", ""))
+        if op == "set_text":
+            set_text(
+                _compiled_target(slide, operation["target"]),
+                operation.get("value"),
+                required=True,
+            )
+        elif op == "set_bullets":
+            set_bullets(
+                _compiled_target(slide, operation["target"]),
+                operation.get("values", []),
+                required=True,
+            )
+        elif op == "set_repeated_text":
+            _set_compiled_repeated(
+                slide,
+                operation.get("targets", []),
+                operation.get("values", []),
+            )
+        elif op == "remove_shapes":
+            _remove_named_shapes(slide, operation.get("names", []))
+        elif op in {"render_chart", "render_table", "render_image"}:
+            visualization_id = str(operation.get("visualization_id", ""))
+            record = visualizations_by_id.get(visualization_id)
+            if record is None:
+                raise SlideBuildError(
+                    f"compiled operation references missing visualization {visualization_id!r}"
+                )
+            data = record.get("data")
+            if not isinstance(data, Mapping):
+                raise SlideBuildError(
+                    f"compiled visualization {visualization_id!r} has no data"
+                )
+            target = _compiled_target(slide, operation["target"])
+            if op == "render_chart":
+                render_chart(slide, target, data)
+                title_target = operation.get("title_target")
+                if isinstance(title_target, Mapping):
+                    set_text(
+                        _compiled_target(slide, title_target),
+                        data.get("title", ""),
+                        required=True,
+                    )
+            elif op == "render_table":
+                render_table(slide, target, data)
+            else:
+                render_image(slide, target, data, asset_root=asset_root)
+        else:
+            raise SlideBuildError(f"unsupported compiled operation: {op!r}")
+
+
 def _field(layout: Mapping[str, Any], name: str) -> Mapping[str, Any]:
     fields = layout.get("fields", {})
     value = fields.get(name, {}) if isinstance(fields, Mapping) else {}

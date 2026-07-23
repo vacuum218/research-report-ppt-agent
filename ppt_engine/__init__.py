@@ -7,7 +7,12 @@ from .layout_resolver import (
     resolve_layout,
     resolve_outline,
 )
-from .renderer import RenderError, render_ppt, render_presentation
+from .renderer import (
+    RenderError,
+    render_compiled_plan,
+    render_ppt,
+    render_presentation,
+)
 from .compiler import LayoutCompileError, compile_layout_plan
 
 __all__ = [
@@ -17,6 +22,7 @@ __all__ = [
     "RenderError",
     "render_ppt",
     "render_presentation",
+    "render_compiled_plan",
     "resolve_layout",
     "resolve_outline",
     "LayoutCompileError",
