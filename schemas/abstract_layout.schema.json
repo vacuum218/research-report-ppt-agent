@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-report-ppt-agent.local/schemas/abstract_layout.schema.json",
+  "title": "Abstract Layout Catalog",
+  "type": "object",
+  "required": ["schema_version", "catalog_id", "coordinate_space", "layouts"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "catalog_id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+    "coordinate_space": {
+      "type": "object",
+      "required": ["type", "width", "height"],
+      "properties": {
+        "type": {"const": "normalized"},
+        "width": {"const": 1},
+        "height": {"const": 1}
+      },
+      "additionalProperties": false
+    },
+    "layouts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/layout"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "bounds": {
+      "type": "object",
+      "required": ["left", "top", "width", "height"],
+      "properties": {
+        "left": {"type": "number", "minimum": 0, "maximum": 1},
+        "top": {"type": "number", "minimum": 0, "maximum": 1},
+        "width": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "capacity": {
+      "type": "object",
+      "properties": {
+        "max_items": {"type": "integer", "minimum": 1},
+        "max_rows": {"type": "integer", "minimum": 1},
+        "max_columns": {"type": "integer", "minimum": 1},
+        "max_categories": {"type": "integer", "minimum": 1},
+        "max_series": {"type": "integer", "minimum": 1},
+        "max_chars": {"type": "integer", "minimum": 1},
+        "max_chars_per_item": {"type": "integer", "minimum": 1},
+        "minimum_font_size_pt": {"type": "number", "minimum": 8}
+      },
+      "additionalProperties": false
+    },
+    "region": {
+      "type": "object",
+      "required": ["region_id", "content_role", "required", "bounds", "style_role"],
+      "properties": {
+        "region_id": {"type": "string", "minLength": 1},
+        "content_role": {
+          "type": "string",
+          "enum": ["title", "key_message", "bullet_list", "visual"]
+        },
+        "required": {"type": "boolean"},
+        "accepts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "enum": ["chart", "table", "image"]}
+        },
+        "bounds": {"$ref": "#/$defs/bounds"},
+        "style_role": {"type": "string", "minLength": 1},
+        "capacity": {"$ref": "#/$defs/capacity"}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"content_role": {"const": "visual"}},
+            "required": ["content_role"]
+          },
+          "then": {"required": ["accepts", "capacity"]}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "object",
+      "required": ["min_visuals", "max_visuals", "accepted_visual_kinds"],
+      "properties": {
+        "min_visuals": {"type": "integer", "minimum": 0},
+        "max_visuals": {"type": "integer", "minimum": 0},
+        "accepted_visual_kinds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "enum": ["chart", "table", "image"]}
+        },
+        "body_supported": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "object",
+      "required": ["description", "eligible_page_roles", "capabilities", "regions", "constraints"],
+      "properties": {
+        "description": {"type": "string"},
+        "eligible_page_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "enum": ["title", "section", "content", "closing"]}
+        },
+        "capabilities": {"$ref": "#/$defs/capabilities"},
+        "regions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/region"}
+        },
+        "constraints": {
+          "type": "object",
+          "required": ["overflow"],
+          "properties": {
+            "overflow": {"const": "error"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

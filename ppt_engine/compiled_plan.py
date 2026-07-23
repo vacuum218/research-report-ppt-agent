@@ -64,6 +64,33 @@ def semantic_plan_errors(plan: Mapping[str, Any]) -> list[str]:
         if slide_id in slide_ids:
             errors.append(f"duplicate slide_id: {slide_id!r}")
         slide_ids.add(slide_id)
+        mode = str(slide.get("slide_mode", "exact_template"))
+        if mode == "adaptive_canvas":
+            base = slide.get("base", {})
+            width = float(base.get("width_in", 0)) if isinstance(base, Mapping) else 0
+            height = float(base.get("height_in", 0)) if isinstance(base, Mapping) else 0
+            for operation in slide.get("operations", []):
+                if not isinstance(operation, Mapping):
+                    continue
+                target = operation.get("target", {})
+                bounds = (
+                    target.get("bounds_in", {})
+                    if isinstance(target, Mapping)
+                    else {}
+                )
+                if not isinstance(bounds, Mapping) or not bounds:
+                    continue
+                left = float(bounds.get("left", 0))
+                top = float(bounds.get("top", 0))
+                box_width = float(bounds.get("width", 0))
+                box_height = float(bounds.get("height", 0))
+                if (
+                    left + box_width > width + 1e-6
+                    or top + box_height > height + 1e-6
+                ):
+                    errors.append(
+                        f"adaptive operation exceeds slide bounds on {slide_id!r}"
+                    )
         for operation in slide.get("operations", []):
             if not isinstance(operation, Mapping):
                 continue

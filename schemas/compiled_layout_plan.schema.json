@@ -6,7 +6,7 @@
   "type": "object",
   "required": ["schema_version", "plan_id", "source", "template", "asset_root", "visualizations", "slides"],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {"type": "string", "enum": ["1.0.0", "2.0.0"]},
     "plan_id": {"type": "string", "pattern": "^plan_[a-f0-9]{16}$"},
     "source": {
       "type": "object",
@@ -102,6 +102,46 @@
       },
       "additionalProperties": false
     },
+    "text_style": {
+      "type": "object",
+      "required": ["font_family", "font_size_pt", "color"],
+      "properties": {
+        "font_family": {"type": "string", "minLength": 1},
+        "font_size_pt": {"type": "number", "minimum": 8},
+        "bold": {"type": "boolean"},
+        "color": {"type": "string", "pattern": "^[A-Fa-f0-9]{6}$"},
+        "alignment": {"type": "string", "enum": ["left", "center", "right"]},
+        "vertical_alignment": {"type": "string", "enum": ["top", "middle", "bottom"]}
+      },
+      "additionalProperties": false
+    },
+    "add_text_box": {
+      "type": "object",
+      "required": ["op", "element_id", "target", "value", "style"],
+      "properties": {
+        "op": {"const": "add_text_box"},
+        "element_id": {"type": "string", "minLength": 1},
+        "target": {"$ref": "#/$defs/target"},
+        "value": {"type": ["string", "number", "boolean", "null"]},
+        "style": {"$ref": "#/$defs/text_style"}
+      },
+      "additionalProperties": false
+    },
+    "add_bullet_list": {
+      "type": "object",
+      "required": ["op", "element_id", "target", "values", "style"],
+      "properties": {
+        "op": {"const": "add_bullet_list"},
+        "element_id": {"type": "string", "minLength": 1},
+        "target": {"$ref": "#/$defs/target"},
+        "values": {
+          "type": "array",
+          "items": {"type": ["string", "number", "boolean"]}
+        },
+        "style": {"$ref": "#/$defs/text_style"}
+      },
+      "additionalProperties": false
+    },
     "set_repeated_text": {
       "type": "object",
       "required": ["op", "binding_id", "targets", "values"],
@@ -145,6 +185,7 @@
         "slot_id": {"type": "string", "minLength": 1},
         "target": {"$ref": "#/$defs/target"},
         "title_target": {"$ref": "#/$defs/target"},
+        "style": {"type": "object"},
         "visualization_id": {"type": "string", "minLength": 1}
       },
       "additionalProperties": false
@@ -167,6 +208,8 @@
       "oneOf": [
         {"$ref": "#/$defs/set_text"},
         {"$ref": "#/$defs/set_bullets"},
+        {"$ref": "#/$defs/add_text_box"},
+        {"$ref": "#/$defs/add_bullet_list"},
         {"$ref": "#/$defs/set_repeated_text"},
         {"$ref": "#/$defs/render_visual"},
         {"$ref": "#/$defs/remove_shapes"}
@@ -174,16 +217,44 @@
     },
     "slide": {
       "type": "object",
-      "required": ["slide_id", "layout_id", "template_slide", "operations"],
+      "required": ["slide_id", "operations"],
       "properties": {
         "slide_id": {"type": "string", "minLength": 1},
+        "slide_mode": {
+          "type": "string",
+          "enum": ["exact_template", "adaptive_canvas"]
+        },
         "layout_id": {"type": "string", "minLength": 1},
+        "abstract_layout_id": {"type": "string", "minLength": 1},
         "template_slide": {"type": "integer", "minimum": 1},
+        "base": {
+          "type": "object",
+          "required": ["mode", "slide_layout_index", "clear_placeholders", "width_in", "height_in", "background_color"],
+          "properties": {
+            "mode": {"const": "blank"},
+            "slide_layout_index": {"type": "integer", "minimum": 0},
+            "clear_placeholders": {"type": "boolean"},
+            "width_in": {"type": "number", "exclusiveMinimum": 0},
+            "height_in": {"type": "number", "exclusiveMinimum": 0},
+            "background_color": {"type": "string", "pattern": "^[A-Fa-f0-9]{6}$"}
+          },
+          "additionalProperties": false
+        },
         "operations": {
           "type": "array",
           "items": {"$ref": "#/$defs/operation"}
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"slide_mode": {"const": "adaptive_canvas"}},
+            "required": ["slide_mode"]
+          },
+          "then": {"required": ["abstract_layout_id", "base"]},
+          "else": {"required": ["layout_id", "template_slide"]}
+        }
+      ],
       "additionalProperties": false
     }
   }

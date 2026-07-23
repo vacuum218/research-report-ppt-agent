@@ -11,6 +11,7 @@ from typing import Any, Mapping, Sequence
 
 from jsonschema import Draft202012Validator
 from pptx import Presentation
+from pptx.dml.color import RGBColor
 
 from tools.validate_outline import semantic_issues
 from tools.validate_visualization import semantic_issues as visualization_semantic_issues
@@ -41,6 +42,39 @@ COMPILED_PLAN_SCHEMA = PROJECT_ROOT / "schemas" / "compiled_layout_plan.schema.j
 
 class RenderError(RuntimeError):
     """Raised when rendering cannot produce a valid PPTX."""
+
+
+def _clear_unbound_template_metrics(
+    slide: Any, operations: Sequence[Mapping[str, Any]]
+) -> None:
+    """Remove example KPI text that is not populated by the compiled plan."""
+
+    bound_names: set[str] = set()
+    bound_ids: set[int] = set()
+
+    def collect(value: object) -> None:
+        if isinstance(value, Mapping):
+            if isinstance(value.get("name"), str):
+                bound_names.add(str(value["name"]))
+            if isinstance(value.get("shape_id"), int):
+                bound_ids.add(int(value["shape_id"]))
+            for nested in value.values():
+                collect(nested)
+        elif isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+            for nested in value:
+                collect(nested)
+
+    for operation in operations:
+        collect(operation.get("target"))
+        collect(operation.get("targets"))
+    for shape in slide.shapes:
+        if (
+            getattr(shape, "has_text_frame", False)
+            and str(shape.name).startswith("metric_")
+            and shape.name not in bound_names
+            and shape.shape_id not in bound_ids
+        ):
+            shape.text_frame.clear()
 
 
 def _load_json(path: Path, label: str) -> dict[str, Any]:
@@ -268,12 +302,36 @@ def render_compiled_plan(
     template_slide_count = len(prs.slides)
     try:
         for compiled_slide in data.get("slides", []):
-            template_slide = int(compiled_slide["template_slide"])
-            if template_slide > template_slide_count:
-                raise SlideBuildError(
-                    f"template_slide {template_slide} exceeds template slide count"
+            mode = str(compiled_slide.get("slide_mode", "exact_template"))
+            if mode == "adaptive_canvas":
+                base = compiled_slide["base"]
+                if abs(float(base["width_in"]) - prs.slide_width / 914400) > 0.01:
+                    raise SlideBuildError("adaptive canvas width does not match template")
+                if abs(float(base["height_in"]) - prs.slide_height / 914400) > 0.01:
+                    raise SlideBuildError("adaptive canvas height does not match template")
+                slide_layout_index = int(base["slide_layout_index"])
+                if len(prs.slide_layouts) <= slide_layout_index:
+                    raise SlideBuildError("template has no deterministic blank slide layout")
+                target = prs.slides.add_slide(prs.slide_layouts[slide_layout_index])
+                if base["clear_placeholders"]:
+                    for shape in list(target.shapes):
+                        if getattr(shape, "is_placeholder", False):
+                            shape._element.getparent().remove(shape._element)
+                fill = target.background.fill
+                fill.solid()
+                fill.fore_color.rgb = RGBColor.from_string(
+                    str(base["background_color"])
                 )
-            target = duplicate_slide(prs, prs.slides[template_slide - 1])
+            else:
+                template_slide = int(compiled_slide["template_slide"])
+                if template_slide > template_slide_count:
+                    raise SlideBuildError(
+                        f"template_slide {template_slide} exceeds template slide count"
+                    )
+                target = duplicate_slide(prs, prs.slides[template_slide - 1])
+                _clear_unbound_template_metrics(
+                    target, compiled_slide.get("operations", [])
+                )
             execute_compiled_operations(
                 target,
                 compiled_slide.get("operations", []),

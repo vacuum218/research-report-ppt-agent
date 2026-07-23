@@ -9,7 +9,9 @@ from typing import Any, Iterable, Mapping, Sequence
 
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.oxml.ns import qn
-from pptx.util import Inches
+from pptx.util import Inches, Pt
+from pptx.dml.color import RGBColor
+from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE, PP_ALIGN
 
 from .visualization_renderer import render_chart, render_image, render_table
 
@@ -120,6 +122,63 @@ def _compiled_target(slide: Any, target: Mapping[str, Any]) -> Any:
     return shape
 
 
+def _apply_compiled_text_style(shape: Any, style: Mapping[str, Any]) -> None:
+    alignment = {
+        "left": PP_ALIGN.LEFT,
+        "center": PP_ALIGN.CENTER,
+        "right": PP_ALIGN.RIGHT,
+    }
+    vertical = {
+        "top": MSO_ANCHOR.TOP,
+        "middle": MSO_ANCHOR.MIDDLE,
+        "bottom": MSO_ANCHOR.BOTTOM,
+    }
+    frame = shape.text_frame
+    frame.vertical_anchor = vertical.get(
+        str(style.get("vertical_alignment", "top")), MSO_ANCHOR.TOP
+    )
+    for paragraph in frame.paragraphs:
+        paragraph.alignment = alignment.get(
+            str(style.get("alignment", "left")), PP_ALIGN.LEFT
+        )
+        for run in paragraph.runs:
+            run.font.name = str(style["font_family"])
+            run.font.size = Pt(float(style["font_size_pt"]))
+            run.font.bold = bool(style.get("bold", False))
+            run.font.color.rgb = RGBColor.from_string(str(style["color"]))
+
+
+def _add_compiled_text_box(
+    slide: Any,
+    target: Mapping[str, Any],
+    value: Any,
+    style: Mapping[str, Any],
+    *,
+    bullets: bool = False,
+) -> Any:
+    anchor = _compiled_target(slide, target)
+    shape = slide.shapes.add_textbox(
+        anchor.left, anchor.top, anchor.width, anchor.height
+    )
+    frame = shape.text_frame
+    frame.clear()
+    frame.word_wrap = True
+    frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+    frame.margin_left = Pt(2)
+    frame.margin_right = Pt(2)
+    frame.margin_top = Pt(1)
+    frame.margin_bottom = Pt(1)
+    values = value if bullets and isinstance(value, Sequence) else [value]
+    for index, item in enumerate(values):
+        paragraph = frame.paragraphs[0] if index == 0 else frame.add_paragraph()
+        paragraph.text = str(item)
+        paragraph.level = 0
+        if bullets:
+            paragraph.text = f"•{item}"
+    _apply_compiled_text_style(shape, style)
+    return shape
+
+
 def _set_compiled_repeated(
     slide: Any,
     targets: Sequence[Mapping[str, Any]],
@@ -150,7 +209,22 @@ def execute_compiled_operations(
 
     for operation in operations:
         op = str(operation.get("op", ""))
-        if op == "set_text":
+        if op == "add_text_box":
+            _add_compiled_text_box(
+                slide,
+                operation["target"],
+                operation.get("value"),
+                operation["style"],
+            )
+        elif op == "add_bullet_list":
+            _add_compiled_text_box(
+                slide,
+                operation["target"],
+                operation.get("values", []),
+                operation["style"],
+                bullets=True,
+            )
+        elif op == "set_text":
             set_text(
                 _compiled_target(slide, operation["target"]),
                 operation.get("value"),
@@ -184,7 +258,7 @@ def execute_compiled_operations(
                 )
             target = _compiled_target(slide, operation["target"])
             if op == "render_chart":
-                render_chart(slide, target, data)
+                render_chart(slide, target, data, style=operation.get("style"))
                 title_target = operation.get("title_target")
                 if isinstance(title_target, Mapping):
                     set_text(
@@ -193,7 +267,7 @@ def execute_compiled_operations(
                         required=True,
                     )
             elif op == "render_table":
-                render_table(slide, target, data)
+                render_table(slide, target, data, style=operation.get("style"))
             else:
                 render_image(slide, target, data, asset_root=asset_root)
         else:

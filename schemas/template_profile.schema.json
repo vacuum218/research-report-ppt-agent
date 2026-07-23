@@ -34,6 +34,9 @@
     "layout_resolution": {
       "$ref": "#/$defs/layout_resolution"
     },
+    "adaptive_canvas": {
+      "$ref": "#/$defs/adaptive_canvas"
+    },
     "layouts": {
       "type": "object",
       "minProperties": 1,
@@ -53,7 +56,11 @@
         "render_chart",
         "render_table",
         "render_image",
-        "remove_shapes"
+        "remove_shapes",
+        "add_text_box",
+        "add_bullet_list",
+        "add_shape",
+        "add_line"
       ]
     },
     "target": {
@@ -103,6 +110,51 @@
         "height": {
           "type": "number",
           "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "text_style": {
+      "type": "object",
+      "required": ["font_family", "font_size_pt", "color"],
+      "properties": {
+        "font_family": {"type": "string", "minLength": 1},
+        "font_size_pt": {"type": "number", "minimum": 8},
+        "bold": {"type": "boolean"},
+        "color": {"type": "string", "pattern": "^[A-Fa-f0-9]{6}$"},
+        "alignment": {"type": "string", "enum": ["left", "center", "right"]},
+        "vertical_alignment": {"type": "string", "enum": ["top", "middle", "bottom"]}
+      },
+      "additionalProperties": false
+    },
+    "adaptive_canvas": {
+      "type": "object",
+      "required": ["enabled", "base", "safe_area_in", "style_tokens"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "base": {
+          "type": "object",
+          "required": ["mode"],
+          "properties": {
+            "mode": {"const": "blank"},
+            "slide_layout_index": {"type": "integer", "minimum": 0},
+            "clear_placeholders": {"type": "boolean"},
+            "background_color": {"type": "string", "pattern": "^[A-Fa-f0-9]{6}$"}
+          },
+          "additionalProperties": false
+        },
+        "safe_area_in": {"$ref": "#/$defs/bounds"},
+        "style_tokens": {
+          "type": "object",
+          "required": ["slide_title", "key_message", "body_text", "primary_visual", "table"],
+          "properties": {
+            "slide_title": {"$ref": "#/$defs/text_style"},
+            "key_message": {"$ref": "#/$defs/text_style"},
+            "body_text": {"$ref": "#/$defs/text_style"},
+            "primary_visual": {"type": "object"},
+            "table": {"type": "object"}
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -360,6 +412,9 @@
             "type": "string",
             "minLength": 1
           }
+        },
+        "has_unbound_example_content": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false

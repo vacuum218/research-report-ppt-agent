@@ -83,3 +83,76 @@ def test_content_slide_requires_section_and_evidence(tmp_path):
         "BUNDLE.CONTENT_WITHOUT_SOURCE",
         "BUNDLE.SLIDE_WITHOUT_SECTION",
     }
+
+
+def test_content_title_must_preserve_section_heading(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    section_id = snapshot.section_order[0]
+    block_id = next(
+        value
+        for value in snapshot.ordered_block_ids
+        if snapshot.blocks_by_id[value].get("section_id") == section_id
+        and snapshot.blocks_by_id[value].get("type") == "paragraph"
+    )
+    slide = _content_slide(section_id, block_id)
+    slide["title"] = "模型自行总结的标题"
+    issues = validate_outline_evidence({"slides": [slide]}, snapshot)
+    assert any(issue.code == "BUNDLE.SECTION_SLIDE_TITLE" for issue in issues)
+
+
+def test_concise_first_sentence_must_be_preserved_as_key_message(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    section_id = snapshot.section_order[0]
+    block_id = next(
+        value
+        for value in snapshot.ordered_block_ids
+        if snapshot.blocks_by_id[value].get("section_id") == section_id
+        and snapshot.blocks_by_id[value].get("type") == "paragraph"
+    )
+    title_block_id = snapshot.sections_by_id[section_id]["title_block_id"]
+    slide = _content_slide(section_id, block_id)
+    slide["title"] = snapshot.blocks_by_id[title_block_id]["text_raw"]
+    slide["key_message"] = "模型重新概括的主旨"
+    issues = validate_outline_evidence({"slides": [slide]}, snapshot)
+    assert any(issue.code == "BUNDLE.TOPIC_SENTENCE_MISMATCH" for issue in issues)
+
+
+def test_numeric_claims_must_exist_in_cited_evidence(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    section_id = snapshot.section_order[0]
+    block_id = next(
+        value
+        for value in snapshot.ordered_block_ids
+        if snapshot.blocks_by_id[value].get("section_id") == section_id
+        and snapshot.blocks_by_id[value].get("type") == "paragraph"
+    )
+    title_block_id = snapshot.sections_by_id[section_id]["title_block_id"]
+    slide = _content_slide(section_id, block_id)
+    slide["title"] = snapshot.blocks_by_id[title_block_id]["text_raw"]
+    slide["bullet_points"] = ["2026年收入增长99%。"]
+    issues = validate_outline_evidence({"slides": [slide]}, snapshot)
+    assert any(issue.code == "BUNDLE.UNGROUNDED_NUMBER" for issue in issues)
+
+
+def test_visual_candidate_requires_native_evidence(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    section_id = snapshot.section_order[0]
+    block_id = next(
+        value
+        for value in snapshot.ordered_block_ids
+        if snapshot.blocks_by_id[value].get("section_id") == section_id
+    )
+    slide = _content_slide(section_id, block_id)
+    slide["visual_candidates"] = [
+        {
+            "candidate_id": "visual_001",
+            "type": "table",
+            "description": "展示原文表格",
+            "source_refs": ["src_fixture"],
+        }
+    ]
+    issues = validate_outline_evidence({"slides": [slide]}, snapshot)
+    assert any(
+        issue.code == "BUNDLE.VISUAL_WITHOUT_NATIVE_EVIDENCE"
+        for issue in issues
+    )

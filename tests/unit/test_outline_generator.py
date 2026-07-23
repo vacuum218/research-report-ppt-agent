@@ -60,7 +60,7 @@ def outline_schema():
     )
 
 
-def test_call_deepseek_returns_decoded_response(monkeypatch):
+def test_call_deepseek_returns_decoded_response_and_redacts_key(monkeypatch, capsys):
     expected = api_response('{"schema_version":"1.0.0"}')
     monkeypatch.setattr(
         generator.urllib.request,
@@ -76,63 +76,53 @@ def test_call_deepseek_returns_decoded_response(monkeypatch):
     )
 
     assert result == expected
+    output = capsys.readouterr().out
+    assert "Bearer ***REDACTED***" in output
+    assert "secret" not in output
+    assert "Request payload JSON characters:" in output
+    assert "Request message[0]: role=" not in output
+    assert "Request body bytes:" in output
 
 
-def test_build_request_uses_siliconflow_thinking_budget_for_non_v4_flash():
+@pytest.mark.parametrize("thinking", ["enabled", "disabled"])
+def test_build_request_uses_minimal_siliconflow_payload(thinking):
+    messages = [{"role": "user", "content": "{}"}]
     request = generator.build_request(
-        [{"role": "user", "content": "{}"}],
+        messages,
         model="deepseek-ai/DeepSeek-V3.2",
         max_tokens=1000,
-        thinking="enabled",
+        thinking=thinking,
         reasoning_effort="high",
         api_provider="siliconflow",
     )
 
-    assert request["enable_thinking"] is True
-    assert request["thinking_budget"] == 16384
-    assert "thinking" not in request
-    assert "reasoning_effort" not in request
-
-
-@pytest.mark.parametrize(
-    ("requested_effort", "expected_effort"),
-    [("low", "high"), ("medium", "high"), ("high", "high"), ("max", "max")],
-)
-def test_build_request_uses_reasoning_effort_for_siliconflow_v4_flash(
-    requested_effort, expected_effort
-):
-    request = generator.build_request(
-        [{"role": "user", "content": "{}"}],
-        model="deepseek-ai/DeepSeek-V4-Flash",
-        max_tokens=1000,
-        thinking="enabled",
-        reasoning_effort=requested_effort,
-        api_provider="siliconflow",
-    )
-
-    assert request["enable_thinking"] is True
-    assert request["reasoning_effort"] == expected_effort
-    assert "thinking_budget" not in request
-
-
-def test_build_request_disables_siliconflow_thinking_without_budget():
-    request = generator.build_request(
-        [{"role": "user", "content": "{}"}],
-        model="deepseek-ai/DeepSeek-V3.2",
-        max_tokens=1000,
-        thinking="disabled",
-        reasoning_effort="low",
-        api_provider="siliconflow",
-    )
-
-    assert request["enable_thinking"] is False
-    assert "thinking_budget" not in request
+    assert request == {
+        "model": "deepseek-ai/DeepSeek-V3.2",
+        "messages": messages,
+        "max_tokens": 1000,
+    }
 
 
 def test_resolve_api_provider_detects_siliconflow_base_url():
     assert (
         generator.resolve_api_provider("auto", "https://api.siliconflow.cn/v1")
         == "siliconflow"
+    )
+
+
+def test_siliconflow_caps_direct_context_without_affecting_other_providers():
+    assert (
+        generator.effective_direct_planning_max_chars(300_000, "siliconflow")
+        == 60_000
+    )
+    assert (
+        generator.effective_direct_planning_max_chars(30_000, "siliconflow")
+        == 30_000
+    )
+    assert generator.effective_direct_planning_max_chars(0, "siliconflow") == 0
+    assert (
+        generator.effective_direct_planning_max_chars(300_000, "deepseek")
+        == 300_000
     )
 
 

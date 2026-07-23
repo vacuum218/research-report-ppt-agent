@@ -20,6 +20,12 @@ from visualization_generator.manifest import (
 
 from .compiled_plan import validate_compiled_plan
 from .layout_resolver import LayoutResolutionError, resolve_profile_layout
+from .abstract_layout import (
+    AbstractLayoutError,
+    DEFAULT_ABSTRACT_LAYOUT_CATALOG,
+    load_abstract_layout_catalog,
+    select_abstract_layout,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -206,6 +212,283 @@ def _compile_visual_operations(
     return operations
 
 
+def _required_text_sources(slide: Mapping[str, Any]) -> set[str]:
+    required = {"slide.title"} if slide.get("title") else set()
+    if (
+        slide.get("key_message")
+        and slide.get("slide_type") != "figure_page"
+    ):
+        required.add("slide.key_message")
+    if slide.get("bullet_points"):
+        required.add("slide.bullet_points")
+    return required
+
+
+def _exact_layout_feasible(
+    slide: Mapping[str, Any],
+    layout: Mapping[str, Any],
+    visualizations: Sequence[Mapping[str, Any]],
+) -> bool:
+    if layout.get("has_unbound_example_content") is True:
+        return False
+    if slide.get("page_role") == "content":
+        sources = {
+            str(binding.get("source"))
+            for binding in layout.get("bindings", [])
+            if isinstance(binding, Mapping)
+        }
+        if not _required_text_sources(slide).issubset(sources):
+            return False
+    try:
+        _compile_visual_operations(
+            str(slide.get("slide_id", "")),
+            layout.get("slots", []),
+            visualizations,
+        )
+    except LayoutCompileError:
+        return False
+    return True
+
+
+def _select_exact_layout(
+    slide: Mapping[str, Any],
+    visualizations: Sequence[Mapping[str, Any]],
+    template_profile: Mapping[str, Any],
+) -> tuple[str, Mapping[str, Any]] | None:
+    try:
+        resolution = resolve_profile_layout(
+            slide,
+            visualizations=[item["data"] for item in visualizations],
+            template_profile=template_profile,
+        )
+    except LayoutResolutionError:
+        return None
+    layout = template_profile.get("layouts", {}).get(resolution.layout_id)
+    if not isinstance(layout, Mapping):
+        return None
+    if not _exact_layout_feasible(slide, layout, visualizations):
+        return None
+    return resolution.layout_id, layout
+
+
+def _absolute_target(
+    bounds: Mapping[str, Any],
+    *,
+    width_in: float,
+    height_in: float,
+) -> dict[str, Any]:
+    return {
+        "bounds_in": {
+            "left": round(float(bounds["left"]) * width_in, 4),
+            "top": round(float(bounds["top"]) * height_in, 4),
+            "width": round(float(bounds["width"]) * width_in, 4),
+            "height": round(float(bounds["height"]) * height_in, 4),
+        }
+    }
+
+
+def _check_text_capacity(
+    slide_id: str,
+    layout_id: str,
+    region: Mapping[str, Any],
+    values: Sequence[object],
+) -> None:
+    capacity = region.get("capacity", {})
+    if not isinstance(capacity, Mapping):
+        return
+    texts = [str(value) for value in values if value is not None]
+    max_chars = capacity.get("max_chars")
+    if isinstance(max_chars, int) and sum(len(value) for value in texts) > max_chars:
+        raise LayoutCompileError(
+            f"slide {slide_id}: text exceeds "
+            f"{layout_id}.{region['region_id']}.max_chars={max_chars}"
+        )
+    max_chars_per_item = capacity.get("max_chars_per_item")
+    if isinstance(max_chars_per_item, int):
+        for value in texts:
+            if len(value) > max_chars_per_item:
+                raise LayoutCompileError(
+                    f"slide {slide_id}: text item exceeds "
+                    f"{layout_id}.{region['region_id']}"
+                    f".max_chars_per_item={max_chars_per_item}"
+                )
+
+
+def _compile_adaptive_slide(
+    slide: Mapping[str, Any],
+    visualizations: Sequence[Mapping[str, Any]],
+    template_profile: Mapping[str, Any],
+    abstract_catalog: Mapping[str, Any],
+) -> dict[str, Any]:
+    adaptive = template_profile.get("adaptive_canvas", {})
+    if not isinstance(adaptive, Mapping) or adaptive.get("enabled") is not True:
+        raise LayoutCompileError(
+            f"slide {slide.get('slide_id')}: no exact template and adaptive_canvas is disabled"
+        )
+    has_body = bool(
+        (
+            slide.get("key_message")
+            and slide.get("slide_type") != "figure_page"
+        )
+        or slide.get("bullet_points")
+    )
+    try:
+        layout_id, layout = select_abstract_layout(
+            abstract_catalog,
+            page_role=str(slide.get("page_role", "content")),
+            visualizations=visualizations,
+            has_body=has_body,
+        )
+    except AbstractLayoutError as exc:
+        raise LayoutCompileError(f"slide {slide.get('slide_id')}: {exc}") from exc
+    template = template_profile["template"]
+    width_in = float(template["width_in"])
+    height_in = float(template["height_in"])
+    styles = adaptive.get("style_tokens", {})
+    operations: list[dict[str, Any]] = []
+    remaining = list(visualizations)
+    emitted_roles: set[str] = set()
+    for region in layout.get("regions", []):
+        role = str(region["content_role"])
+        target = _absolute_target(
+            region["bounds"], width_in=width_in, height_in=height_in
+        )
+        if role == "title":
+            value = slide.get("title", "")
+            _check_text_capacity(
+                str(slide["slide_id"]), layout_id, region, [value]
+            )
+            operations.append(
+                {
+                    "op": "add_text_box",
+                    "element_id": region["region_id"],
+                    "target": target,
+                    "value": value,
+                    "style": dict(styles[region["style_role"]]),
+                }
+            )
+            emitted_roles.add(role)
+        elif (
+            role == "key_message"
+            and slide.get("key_message")
+            and slide.get("slide_type") != "figure_page"
+        ):
+            _check_text_capacity(
+                str(slide["slide_id"]),
+                layout_id,
+                region,
+                [slide["key_message"]],
+            )
+            operations.append(
+                {
+                    "op": "add_text_box",
+                    "element_id": region["region_id"],
+                    "target": target,
+                    "value": slide["key_message"],
+                    "style": dict(styles[region["style_role"]]),
+                }
+            )
+            emitted_roles.add(role)
+        elif role == "bullet_list" and slide.get("bullet_points"):
+            capacity = region.get("capacity", {})
+            values = list(slide["bullet_points"])
+            if len(values) > int(capacity.get("max_items", len(values))):
+                raise LayoutCompileError(
+                    f"slide {slide.get('slide_id')}: bullet_points exceed "
+                    f"{layout_id}.{region['region_id']} capacity"
+                )
+            _check_text_capacity(
+                str(slide["slide_id"]), layout_id, region, values
+            )
+            style = dict(styles[region["style_role"]])
+            minimum_font_size = capacity.get("minimum_font_size_pt")
+            if isinstance(minimum_font_size, (int, float)):
+                style["font_size_pt"] = min(
+                    float(style["font_size_pt"]), float(minimum_font_size)
+                )
+            operations.append(
+                {
+                    "op": "add_bullet_list",
+                    "element_id": region["region_id"],
+                    "target": target,
+                    "values": values,
+                    "style": style,
+                }
+            )
+            emitted_roles.add(role)
+        elif role == "visual":
+            match = next(
+                (
+                    item for item in remaining
+                    if item["visual_type"] in region.get("accepts", [])
+                ),
+                None,
+            )
+            if match is None:
+                if region.get("required") is True:
+                    raise LayoutCompileError(
+                        f"slide {slide.get('slide_id')}: adaptive visual region "
+                        f"{region['region_id']!r} is unbound"
+                    )
+                continue
+            pseudo_slot = {
+                "slot_id": region["region_id"],
+                "kind": match["visual_type"],
+                "capacity": region.get("capacity", {}),
+            }
+            _check_capacity(str(slide["slide_id"]), pseudo_slot, match)
+            visual_operation = {
+                    "op": f"render_{match['visual_type']}",
+                    "slot_id": region["region_id"],
+                    "target": target,
+                    "visualization_id": match["visualization_id"],
+                }
+            if match["visual_type"] == "table":
+                visual_operation["style"] = dict(styles.get("table", {}))
+            elif match["visual_type"] == "chart":
+                visual_operation["style"] = dict(
+                    styles.get("primary_visual", {})
+                )
+            operations.append(visual_operation)
+            remaining.remove(match)
+    if (
+        slide.get("key_message")
+        and slide.get("slide_type") != "figure_page"
+        and "key_message" not in emitted_roles
+    ):
+        raise LayoutCompileError(
+            f"slide {slide.get('slide_id')}: adaptive layout does not preserve key_message"
+        )
+    if slide.get("bullet_points") and "bullet_list" not in emitted_roles:
+        raise LayoutCompileError(
+            f"slide {slide.get('slide_id')}: adaptive layout does not preserve bullet_points"
+        )
+    if remaining:
+        raise LayoutCompileError(
+            f"slide {slide.get('slide_id')}: adaptive layout left visualizations unconsumed"
+        )
+    return {
+        "slide_id": str(slide["slide_id"]),
+        "slide_mode": "adaptive_canvas",
+        "abstract_layout_id": layout_id,
+        "base": {
+            "mode": "blank",
+            "slide_layout_index": int(
+                adaptive.get("base", {}).get("slide_layout_index", 0)
+            ),
+            "clear_placeholders": bool(
+                adaptive.get("base", {}).get("clear_placeholders", True)
+            ),
+            "width_in": width_in,
+            "height_in": height_in,
+            "background_color": str(
+                adaptive.get("base", {}).get("background_color", "FFFFFF")
+            ),
+        },
+        "operations": operations,
+    }
+
+
 def compile_layout_plan(
     outline: Mapping[str, Any],
     template_profile: Mapping[str, Any],
@@ -214,6 +497,7 @@ def compile_layout_plan(
     outline_schema: Mapping[str, Any] | None = None,
     profile_schema: Mapping[str, Any] | None = None,
     plan_schema: Mapping[str, Any] | None = None,
+    abstract_layout_catalog: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     outline_schema = outline_schema or _load_json(OUTLINE_SCHEMA, "Outline schema")
     profile_schema = profile_schema or _load_json(
@@ -221,6 +505,9 @@ def compile_layout_plan(
     )
     plan_schema = plan_schema or _load_json(
         COMPILED_PLAN_SCHEMA, "Compiled Layout Plan schema"
+    )
+    abstract_layout_catalog = (
+        abstract_layout_catalog or load_abstract_layout_catalog()
     )
     outline_errors = _schema_errors(outline, outline_schema)
     if outline_errors:
@@ -262,40 +549,47 @@ def compile_layout_plan(
     for page_number, slide in enumerate(outline.get("slides", []), start=1):
         slide_id = str(slide["slide_id"])
         records = list(manifest.bindings_by_slide.get(slide_id, ()))
-        resolution = resolve_profile_layout(
-            slide,
-            visualizations=[item["data"] for item in records],
-            template_profile=template_profile,
-        )
-        layout = template_profile["layouts"][resolution.layout_id]
-        operations = [
-            _compile_binding(binding, slide, metadata, page_number)
-            for binding in layout.get("bindings", [])
-        ]
-        if layout.get("remove_shapes"):
-            operations.append(
-                {"op": "remove_shapes", "names": list(layout["remove_shapes"])}
+        exact = _select_exact_layout(slide, records, template_profile)
+        if exact is None:
+            compiled_slides.append(
+                _compile_adaptive_slide(
+                    slide,
+                    records,
+                    template_profile,
+                    abstract_layout_catalog,
+                )
             )
-        operations.extend(
-            _compile_visual_operations(
-                slide_id,
-                layout.get("slots", []),
-                records,
+        else:
+            layout_id, layout = exact
+            operations = [
+                _compile_binding(binding, slide, metadata, page_number)
+                for binding in layout.get("bindings", [])
+            ]
+            if layout.get("remove_shapes"):
+                operations.append(
+                    {"op": "remove_shapes", "names": list(layout["remove_shapes"])}
+                )
+            operations.extend(
+                _compile_visual_operations(
+                    slide_id,
+                    layout.get("slots", []),
+                    records,
+                )
             )
-        )
-        compiled_slides.append(
-            {
-                "slide_id": slide_id,
-                "layout_id": resolution.layout_id,
-                "template_slide": resolution.template_slide,
-                "operations": operations,
-            }
-        )
+            compiled_slides.append(
+                {
+                    "slide_id": slide_id,
+                    "slide_mode": "exact_template",
+                    "layout_id": layout_id,
+                    "template_slide": int(layout["template_slide"]),
+                    "operations": operations,
+                }
+            )
 
     profile_hash = canonical_sha256(template_profile)
     manifest_hash = canonical_sha256(dict(manifest.data))
     plan: dict[str, Any] = {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "plan_id": "plan_0000000000000000",
         "source": {
             "outline_sha256": outline_hash,
@@ -325,6 +619,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("outline", type=Path)
     parser.add_argument("manifest", type=Path)
     parser.add_argument("template_profile", type=Path)
+    parser.add_argument(
+        "--abstract-layouts",
+        type=Path,
+        default=DEFAULT_ABSTRACT_LAYOUT_CATALOG,
+    )
     parser.add_argument("-o", "--output", type=Path, required=True)
     return parser.parse_args(argv)
 
@@ -335,7 +634,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         outline = _load_json(args.outline, "Outline")
         profile = _load_json(args.template_profile, "Template Profile")
         manifest = load_visualization_manifest(args.manifest)
-        plan = compile_layout_plan(outline, profile, manifest)
+        plan = compile_layout_plan(
+            outline,
+            profile,
+            manifest,
+            abstract_layout_catalog=load_abstract_layout_catalog(args.abstract_layouts),
+        )
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(
             json.dumps(plan, ensure_ascii=False, indent=2) + "\n",
@@ -344,6 +648,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     except (
         LayoutCompileError,
         LayoutResolutionError,
+        AbstractLayoutError,
         VisualizationManifestError,
         OSError,
     ) as exc:

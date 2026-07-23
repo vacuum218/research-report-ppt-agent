@@ -75,3 +75,18 @@ def test_profile_matches_current_renderer_capability_boundary():
         "chart",
     ]
     assert not profile["layouts"]["competitive_landscape"]["slots"]
+
+
+def test_adaptive_style_tokens_are_induced_from_template_shapes():
+    profile = build_template_profile(
+        load("templates/template_layout_map.json"),
+        PROJECT_ROOT / "templates/financial_report_template_v1.pptx",
+    )
+
+    styles = profile["adaptive_canvas"]["style_tokens"]
+    assert styles["slide_title"]["font_family"] == "Microsoft YaHei"
+    assert styles["slide_title"]["font_size_pt"] == 27.0
+    assert styles["slide_title"]["color"] == "102A43"
+    assert styles["key_message"]["font_size_pt"] == 16.0
+    assert styles["body_text"]["font_size_pt"] >= 14.0
+    assert styles["table"]["font_family"] == styles["body_text"]["font_family"]

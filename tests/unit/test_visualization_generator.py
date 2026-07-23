@@ -136,6 +136,23 @@ def test_table_candidate_preserves_complete_bundle_table(tmp_path):
     assert artifacts[0].data["rows"][0] == ["营业收入", 10, 15, 22]
 
 
+def test_table_candidate_reconciles_an_unambiguous_same_section_table(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    outline = {
+        "slides": [
+            _slide(
+                "table",
+                "收入与盈利预测表",
+                [{"kind": "block", "id": "p001-b001"}],
+            )
+        ]
+    }
+    artifacts, issues = generate_visualizations(outline, snapshot)
+
+    assert not issues
+    assert artifacts[0].data["sources"] == [{"kind": "table", "id": "table-001"}]
+
+
 def test_image_uses_existing_bundle_figure_asset(tmp_path):
     snapshot = _snapshot(tmp_path)
     outline = {"slides": [_slide(None, "展示原始研报图片", [{"kind": "figure", "id": "fig-001"}])]}

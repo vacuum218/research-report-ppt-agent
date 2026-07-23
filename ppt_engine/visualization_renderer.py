@@ -8,6 +8,7 @@ from typing import Any, Mapping, Sequence
 
 from PIL import Image as PILImage
 from pptx.chart.data import CategoryChartData
+from pptx.dml.color import RGBColor
 from pptx.enum.chart import XL_CHART_TYPE
 from pptx.util import Pt
 
@@ -51,6 +52,18 @@ def _chart_data(visualization: Mapping[str, Any]) -> CategoryChartData:
     return data
 
 
+def _normalize_chart_axis_ids(chart: Any) -> None:
+    """Keep generated axis IDs within the unsigned range required by Open XML."""
+
+    for axis_id in chart._chartSpace.xpath(".//c:axId | .//c:crossAx"):
+        raw = axis_id.get("val")
+        if raw is None:
+            continue
+        value = int(raw)
+        if value < 0 or value > 0x7FFFFFFF:
+            axis_id.set("val", str(value & 0x7FFFFFFF))
+
+
 def remove_overlapping_charts(slide: Any, anchor: Any) -> None:
     """Remove template example charts whose bounds overlap a semantic anchor."""
 
@@ -66,7 +79,13 @@ def remove_overlapping_charts(slide: Any, anchor: Any) -> None:
             slide.shapes._spTree.remove(shape._element)
 
 
-def render_chart(slide: Any, anchor: Any, visualization: Mapping[str, Any]) -> Any:
+def render_chart(
+    slide: Any,
+    anchor: Any,
+    visualization: Mapping[str, Any],
+    *,
+    style: Mapping[str, Any] | None = None,
+) -> Any:
     remove_overlapping_charts(slide, anchor)
     chart = slide.shapes.add_chart(
         _chart_type(str(visualization.get("chart_type"))),
@@ -76,12 +95,44 @@ def render_chart(slide: Any, anchor: Any, visualization: Mapping[str, Any]) -> A
         anchor.height,
         _chart_data(visualization),
     ).chart
+    _normalize_chart_axis_ids(chart)
     chart.has_title = False
     chart.has_legend = len(visualization.get("series", [])) > 1
+    style = style or {}
+    font_size = Pt(float(style.get("font_size_pt", 11)))
+    font_name = str(style.get("font_family", "")).strip() or None
+    text_color = str(style.get("text_color", "")).strip()
+    try:
+        chart.category_axis.tick_labels.font.size = font_size
+        chart.value_axis.tick_labels.font.size = font_size
+        if font_name:
+            chart.category_axis.tick_labels.font.name = font_name
+            chart.value_axis.tick_labels.font.name = font_name
+        if len(text_color) == 6:
+            chart.category_axis.tick_labels.font.color.rgb = RGBColor.from_string(
+                text_color
+            )
+            chart.value_axis.tick_labels.font.color.rgb = RGBColor.from_string(
+                text_color
+            )
+    except ValueError:
+        pass
+    if chart.has_legend:
+        chart.legend.font.size = Pt(float(style.get("legend_font_size_pt", 9)))
+        if font_name:
+            chart.legend.font.name = font_name
+        if len(text_color) == 6:
+            chart.legend.font.color.rgb = RGBColor.from_string(text_color)
     return chart
 
 
-def render_table(slide: Any, target: Any, visualization: Mapping[str, Any]) -> Any:
+def render_table(
+    slide: Any,
+    target: Any,
+    visualization: Mapping[str, Any],
+    *,
+    style: Mapping[str, Any] | None = None,
+) -> Any:
     columns = visualization.get("columns")
     rows = visualization.get("rows")
     if not isinstance(columns, list) or not isinstance(rows, list) or not columns:
@@ -89,9 +140,10 @@ def render_table(slide: Any, target: Any, visualization: Mapping[str, Any]) -> A
     if any(not isinstance(row, list) or len(row) != len(columns) for row in rows):
         raise VisualizationRenderError("each table row must match columns length")
     left, top, width, height = target.left, target.top, target.width, target.height
-    old_element = target._element
-    target_name = target.name
-    slide.shapes._spTree.remove(old_element)
+    old_element = getattr(target, "_element", None)
+    target_name = getattr(target, "name", "compiled_table")
+    if old_element is not None:
+        slide.shapes._spTree.remove(old_element)
     table_shape = slide.shapes.add_table(len(rows) + 1, len(columns), left, top, width, height)
     table_shape.name = target_name
     table = table_shape.table
@@ -100,11 +152,23 @@ def render_table(slide: Any, target: Any, visualization: Mapping[str, Any]) -> A
     for row_index, row in enumerate(rows, start=1):
         for col, value in enumerate(row):
             table.cell(row_index, col).text = "" if value is None else str(value)
+    style = style or {}
+    font_size = float(style.get("font_size_pt", 11))
+    font_name = str(style.get("font_family", "")).strip() or None
+    text_color = str(style.get("text_color", "")).strip()
     for row in table.rows:
         for cell in row.cells:
+            cell.margin_left = Pt(3)
+            cell.margin_right = Pt(3)
+            cell.margin_top = Pt(2)
+            cell.margin_bottom = Pt(2)
             for paragraph in cell.text_frame.paragraphs:
                 for run in paragraph.runs:
-                    run.font.size = Pt(11)
+                    run.font.size = Pt(font_size)
+                    if font_name:
+                        run.font.name = font_name
+                    if len(text_color) == 6:
+                        run.font.color.rgb = RGBColor.from_string(text_color)
     return table_shape
 
 

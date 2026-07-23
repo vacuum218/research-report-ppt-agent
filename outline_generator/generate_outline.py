@@ -63,13 +63,8 @@ DEFAULT_MODEL = "deepseek-v4-pro"
 DEFAULT_BASE_URL = "https://api.deepseek.com"
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 API_PROVIDERS = ("auto", "deepseek", "siliconflow")
-SILICONFLOW_THINKING_BUDGETS = {
-    "low": 4096,
-    "medium": 8192,
-    "high": 16384,
-    "max": 32768,
-}
 DEFAULT_DIRECT_PLANNING_MAX_CHARS = 300_000
+SILICONFLOW_DIRECT_PLANNING_MAX_CHARS = 60_000
 
 
 class OutlineGenerationError(RuntimeError):
@@ -192,6 +187,13 @@ def context_input_chars(chunks: Sequence[IntelligenceChunk]) -> int:
     )
 
 
+def effective_direct_planning_max_chars(configured: int, api_provider: str) -> int:
+    """Apply a conservative direct-context cap for SiliconFlow requests."""
+    if api_provider == "siliconflow" and configured > 0:
+        return min(configured, SILICONFLOW_DIRECT_PLANNING_MAX_CHARS)
+    return configured
+
+
 def generate_context_memories(
     chunks: Sequence[IntelligenceChunk],
     *,
@@ -269,31 +271,37 @@ def build_request(
     request: Dict[str, Any] = {
         "model": model,
         "messages": messages,
-        "response_format": {"type": "json_object"},
         "max_tokens": max_tokens,
-        "stream": False,
     }
     if api_provider == "siliconflow":
-        request["enable_thinking"] = thinking == "enabled"
-        if thinking == "enabled":
-            if model == "deepseek-ai/DeepSeek-V4-Flash":
-                # SiliconFlow exposes model-specific reasoning levels for V4 Flash.
-                # Its API accepts only high/max; low and medium are documented as
-                # compatibility aliases for high, so normalize them explicitly.
-                request["reasoning_effort"] = (
-                    "max" if reasoning_effort == "max" else "high"
-                )
-            else:
-                request["thinking_budget"] = SILICONFLOW_THINKING_BUDGETS[
-                    reasoning_effort
-                ]
-    elif api_provider == "deepseek":
+        # Keep SiliconFlow's OpenAI-compatible request deliberately minimal.
+        # Model-specific extension fields have caused HTTP 400 parse failures
+        # even when the selected model nominally advertises those capabilities.
+        return request
+    if api_provider == "deepseek":
+        request["response_format"] = {"type": "json_object"}
+        request["stream"] = False
         request["thinking"] = {"type": thinking}
         if thinking == "enabled":
             request["reasoning_effort"] = reasoning_effort
-    else:
-        raise OutlineGenerationError(f"Unsupported API provider: {api_provider}")
-    return request
+        return request
+    raise OutlineGenerationError(f"Unsupported API provider: {api_provider}")
+
+
+def _redact_request_payload(value: Any) -> Any:
+    """Return a printable request copy with credential-like fields redacted."""
+    if isinstance(value, Mapping):
+        return {
+            key: (
+                "***REDACTED***"
+                if str(key).lower() in {"api_key", "authorization", "token"}
+                else _redact_request_payload(item)
+            )
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        return [_redact_request_payload(item) for item in value]
+    return value
 
 
 def resolve_api_provider(requested: str, base_url: str) -> str:
@@ -307,9 +315,41 @@ def resolve_api_provider(requested: str, base_url: str) -> str:
 
 def call_deepseek(request_body: Mapping[str, Any], *, api_key: str, base_url: str, timeout: int) -> Dict[str, Any]:
     endpoint = base_url.rstrip("/") + "/chat/completions"
+    serialized_payload = json.dumps(request_body, ensure_ascii=False)
+    body = serialized_payload.encode("utf-8")
+    print(f"Request payload JSON characters: {len(serialized_payload)}")
+    messages = request_body.get("messages", [])
+    if isinstance(messages, list):
+        for index, message in enumerate(messages):
+            if not isinstance(message, Mapping):
+                continue
+            role = message.get("role", "")
+            content = message.get("content", "")
+            content_length = len(content) if isinstance(content, str) else 0
+            print(
+                f"Request message[{index}]: "
+                f"role={role}, content_characters={content_length}"
+            )
+    print(f"Request body bytes: {len(body)}")
+    print(
+        "OpenAI-compatible request:\n"
+        + json.dumps(
+            {
+                "url": endpoint,
+                "headers": {
+                    "Authorization": "Bearer ***REDACTED***",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                "payload": _redact_request_payload(request_body),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
     http_request = urllib.request.Request(
         endpoint,
-        data=json.dumps(request_body, ensure_ascii=False).encode("utf-8"),
+        data=body,
         method="POST",
         headers={
             "Authorization": f"Bearer {api_key}",
@@ -590,9 +630,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         snapshot = load_document_intelligence(args.input, args.bundle_schema)
         chunks = generate_chunks(snapshot, args.chunk_chars)
         input_chars = context_input_chars(chunks)
+        direct_planning_max_chars = effective_direct_planning_max_chars(
+            args.direct_planning_max_chars,
+            api_provider,
+        )
         use_direct_context = (
-            args.direct_planning_max_chars > 0
-            and input_chars <= args.direct_planning_max_chars
+            direct_planning_max_chars > 0
+            and input_chars <= direct_planning_max_chars
         )
         context_mode = "direct" if use_direct_context else "compressed"
         schema = load_json(args.schema, "Outline schema")
@@ -637,7 +681,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 ),
                 "context_mode": context_mode,
                 "context_input_chars": input_chars,
-                "direct_planning_max_chars": args.direct_planning_max_chars,
+                "direct_planning_max_chars": direct_planning_max_chars,
                 "selected_case_trace": case_trace,
                 "compression_requests": (
                     []

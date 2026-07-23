@@ -177,6 +177,14 @@
         "source_refs": {
           "$ref": "#/$defs/source_refs"
         },
+        "evidence_refs": {
+          "type": "array",
+          "description": "直接支持该候选视觉的原生 block/table 证据；新生成的大纲应提供。",
+          "items": {
+            "$ref": "#/$defs/evidence_ref"
+          },
+          "uniqueItems": true
+        },
         "values": false,
         "categories": false,
         "series": false,

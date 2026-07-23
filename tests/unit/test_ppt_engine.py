@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import hashlib
 import json
 from pathlib import Path
 
@@ -10,7 +11,12 @@ from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.oxml.ns import qn
 from pptx.util import Inches
 
-from ppt_engine.renderer import RenderError, render_presentation
+from ppt_engine.renderer import (
+    RenderError,
+    _clear_unbound_template_metrics,
+    render_compiled_plan,
+    render_presentation,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -96,9 +102,31 @@ def test_renderer_supports_chart_and_table_bindings(tmp_path):
     presentation = Presentation(output)
     visual_slide = presentation.slides[1]
     assert any(shape.has_chart for shape in visual_slide.shapes)
+    rendered_chart = next(shape.chart for shape in visual_slide.shapes if shape.has_chart)
+    assert all(
+        0 <= int(axis_id.get("val")) <= 0x7FFFFFFF
+        for axis_id in rendered_chart._chartSpace.xpath(".//c:axId | .//c:crossAx")
+    )
     forecast_table = next(shape for shape in visual_slide.shapes if shape.name == "forecast_table")
     assert forecast_table.table.cell(0, 0).text == "项目"
     assert forecast_table.table.cell(1, 0).text == "营业收入"
+
+
+def test_compiled_renderer_clears_unbound_template_example_metrics():
+    presentation = Presentation(
+        PROJECT_ROOT / "templates/financial_report_template_v1.pptx"
+    )
+    slide = presentation.slides[2]
+
+    _clear_unbound_template_metrics(slide, [])
+
+    metric_shapes = [
+        shape
+        for shape in slide.shapes
+        if shape.name.startswith("metric_") and shape.has_text_frame
+    ]
+    assert metric_shapes
+    assert all(not shape.text.strip() for shape in metric_shapes)
 
 
 def test_renderer_rejects_unknown_visualization_slide(tmp_path):
@@ -220,3 +248,90 @@ def test_renderer_rejects_image_path_escape(tmp_path):
                 "slide_002": [image_visualization("../../outside.png")]
             },
         )
+
+
+def test_compiled_renderer_executes_adaptive_canvas_with_image(tmp_path):
+    template = PROJECT_ROOT / "templates/financial_report_template_v1.pptx"
+    image_path = tmp_path / "assets" / "figures" / "fig-001.png"
+    write_test_png(image_path)
+    plan = {
+        "schema_version": "2.0.0",
+        "plan_id": "plan_0123456789abcdef",
+        "source": {
+            "outline_sha256": "a" * 64,
+            "manifest_sha256": "b" * 64,
+        },
+        "template": {
+            "profile_id": "financial-report-v1",
+            "profile_sha256": "c" * 64,
+            "file": template.name,
+            "sha256": hashlib.sha256(template.read_bytes()).hexdigest(),
+        },
+        "asset_root": str(tmp_path),
+        "visualizations": [
+            {
+                "visualization_id": "visual_image",
+                "slide_id": "slide_001",
+                "visual_type": "image",
+                "data": image_visualization("assets/figures/fig-001.png"),
+            }
+        ],
+        "slides": [
+            {
+                "slide_id": "slide_001",
+                "slide_mode": "adaptive_canvas",
+                "abstract_layout_id": "visual_right_text_left",
+                "base": {
+                    "mode": "blank",
+                    "slide_layout_index": 0,
+                    "clear_placeholders": True,
+                    "width_in": 13.333,
+                    "height_in": 7.5,
+                    "background_color": "FFFFFF",
+                },
+                "operations": [
+                    {
+                        "op": "add_text_box",
+                        "element_id": "title",
+                        "target": {
+                            "bounds_in": {
+                                "left": 0.8,
+                                "top": 0.5,
+                                "width": 11.7,
+                                "height": 0.7,
+                            }
+                        },
+                        "value": "Adaptive title",
+                        "style": {
+                            "font_family": "Microsoft YaHei",
+                            "font_size_pt": 24,
+                            "bold": True,
+                            "color": "1F2937",
+                        },
+                    },
+                    {
+                        "op": "render_image",
+                        "slot_id": "primary_visual",
+                        "target": {
+                            "bounds_in": {
+                                "left": 6.8,
+                                "top": 1.5,
+                                "width": 5.7,
+                                "height": 5.0,
+                            }
+                        },
+                        "visualization_id": "visual_image",
+                    },
+                ],
+            }
+        ],
+    }
+    output = tmp_path / "adaptive.pptx"
+    render_compiled_plan(plan, template_path=template, output_path=output)
+
+    presentation = Presentation(output)
+    assert len(presentation.slides) == 1
+    assert any(
+        shape.shape_type == MSO_SHAPE_TYPE.PICTURE
+        for shape in presentation.slides[0].shapes
+    )

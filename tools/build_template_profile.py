@@ -16,6 +16,8 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from jsonschema import Draft202012Validator
+from pptx import Presentation
+from pptx.enum.dml import MSO_COLOR_TYPE
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +31,10 @@ SUPPORTED_OPERATIONS = (
     "render_table",
     "render_image",
     "remove_shapes",
+    "add_text_box",
+    "add_bullet_list",
+    "add_shape",
+    "add_line",
 )
 
 _SOURCE_BINDINGS: dict[tuple[str, str], tuple[str, str]] = {
@@ -72,6 +78,113 @@ _IMAGE_ONLY_REMOVE_SHAPES = (
 
 class TemplateProfileError(ValueError):
     """Raised when a Layout Map cannot produce a valid Template Profile."""
+
+
+def _first_text_run(shape: Any) -> Any | None:
+    if not getattr(shape, "has_text_frame", False):
+        return None
+    for paragraph in shape.text_frame.paragraphs:
+        for run in paragraph.runs:
+            if run.text.strip():
+                return run
+    return None
+
+
+def _find_style_shape(presentation: Presentation, names: Sequence[str]) -> Any | None:
+    wanted = {name.casefold() for name in names}
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if str(getattr(shape, "name", "")).casefold() in wanted:
+                if _first_text_run(shape) is not None:
+                    return shape
+    return None
+
+
+def _text_style_token(
+    presentation: Presentation,
+    names: Sequence[str],
+    *,
+    fallback_size: float,
+    fallback_color: str,
+    fallback_bold: bool,
+) -> dict[str, Any]:
+    shape = _find_style_shape(presentation, names)
+    run = _first_text_run(shape) if shape is not None else None
+    font = run.font if run is not None else None
+    color = fallback_color
+    if (
+        font is not None
+        and font.color.type == MSO_COLOR_TYPE.RGB
+        and font.color.rgb is not None
+    ):
+        color = str(font.color.rgb)
+    return {
+        "font_family": (
+            str(font.name)
+            if font is not None and font.name
+            else "Microsoft YaHei"
+        ),
+        "font_size_pt": (
+            float(font.size.pt)
+            if font is not None and font.size is not None
+            else fallback_size
+        ),
+        "bold": (
+            bool(font.bold)
+            if font is not None and font.bold is not None
+            else fallback_bold
+        ),
+        "color": color,
+        "alignment": "left",
+        "vertical_alignment": "middle" if "title" in names else "top",
+    }
+
+
+def _adaptive_style_tokens(presentation: Presentation) -> dict[str, Any]:
+    """Induce reusable style tokens from named shapes in the supplied template."""
+
+    title = _text_style_token(
+        presentation,
+        ("title",),
+        fallback_size=27,
+        fallback_color="102A43",
+        fallback_bold=True,
+    )
+    key_message = _text_style_token(
+        presentation,
+        ("thesis", "logic_main_point", "company_positioning"),
+        fallback_size=21,
+        fallback_color=title["color"],
+        fallback_bold=True,
+    )
+    body = _text_style_token(
+        presentation,
+        ("logic_1_body", "agenda_desc_1", "risk_1_body"),
+        fallback_size=12.75,
+        fallback_color="334155",
+        fallback_bold=False,
+    )
+    # Adaptive pages have less decorative scaffolding than exact template pages.
+    # Preserve the template typography but keep body copy at a readable floor.
+    key_message["font_size_pt"] = min(16.0, float(key_message["font_size_pt"]))
+    body["font_size_pt"] = max(14.0, float(body["font_size_pt"]))
+    table_font_size = max(8.0, min(10.0, float(body["font_size_pt"]) - 4.0))
+    return {
+        "slide_title": title,
+        "key_message": key_message,
+        "body_text": body,
+        "primary_visual": {
+            "font_family": body["font_family"],
+            "font_size_pt": 10,
+            "legend_font_size_pt": 9,
+            "text_color": body["color"],
+        },
+        "table": {
+            "font_family": body["font_family"],
+            "font_size_pt": table_font_size,
+            "text_color": body["color"],
+        },
+    }
 
 
 def _load_json(path: Path, label: str) -> dict[str, Any]:
@@ -224,6 +337,7 @@ def build_template_profile(
     layouts = layout_map.get("layouts")
     if not isinstance(presentation, Mapping) or not isinstance(layouts, Mapping):
         raise TemplateProfileError("Layout Map must contain presentation and layouts")
+    template_presentation = Presentation(str(template_path))
     profile_layouts: dict[str, Any] = {}
     for layout_id, raw_layout in layouts.items():
         if not isinstance(raw_layout, Mapping):
@@ -249,9 +363,41 @@ def build_template_profile(
             "bindings": bindings,
             "slots": slots,
         }
+        bound_names = {
+            str(target.get("name"))
+            for binding in [*bindings, *slots]
+            for target in (
+                [binding.get("target")]
+                if isinstance(binding.get("target"), Mapping)
+                else [
+                    nested
+                    for group in binding.get("targets", [])
+                    if isinstance(group, Mapping)
+                    for nested in group.values()
+                    if isinstance(nested, Mapping)
+                ]
+            )
+            if isinstance(target, Mapping) and target.get("name")
+        }
+        template_slide = int(raw_layout.get("template_slide", 0))
+        if 1 <= template_slide <= len(template_presentation.slides):
+            layout["has_unbound_example_content"] = any(
+                shape.name.startswith("metric_") and shape.name not in bound_names
+                for shape in template_presentation.slides[template_slide - 1].shapes
+            )
         if layout_id == "image_only_layout":
             layout["remove_shapes"] = list(_IMAGE_ONLY_REMOVE_SHAPES)
         profile_layouts[str(layout_id)] = layout
+    blank_layout_index = min(
+        range(len(template_presentation.slide_layouts)),
+        key=lambda index: (
+            len(template_presentation.slide_layouts[index].placeholders),
+            index,
+        ),
+    )
+    width_in = float(presentation.get("width_in", 13.333))
+    height_in = float(presentation.get("height_in", 7.5))
+    style_tokens = _adaptive_style_tokens(template_presentation)
     return {
         "schema_version": "1.0.0",
         "profile_id": profile_id,
@@ -264,6 +410,24 @@ def build_template_profile(
         },
         "supported_operations": list(SUPPORTED_OPERATIONS),
         "layout_resolution": _resolution(layout_map),
+        "adaptive_canvas": {
+            "enabled": True,
+            "base": {
+                "mode": "blank",
+                "slide_layout_index": blank_layout_index,
+                "clear_placeholders": True,
+                "background_color": "FFFFFF",
+            },
+            "safe_area_in": {
+                "left": round(width_in * 0.04, 4),
+                "top": round(height_in * 0.04, 4),
+                "width": round(width_in * 0.92, 4),
+                "height": round(height_in * 0.92, 4),
+            },
+            "style_tokens": {
+                **style_tokens,
+            },
+        },
         "layouts": profile_layouts,
     }
 

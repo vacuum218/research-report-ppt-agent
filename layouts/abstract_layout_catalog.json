@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "research-report-abstract-layouts-v1",
+  "coordinate_space": {"type": "normalized", "width": 1, "height": 1},
+  "layouts": {
+    "text_only": {
+      "description": "Title, key message, and body without visual assets.",
+      "eligible_page_roles": ["content"],
+      "capabilities": {"min_visuals": 0, "max_visuals": 0, "accepted_visual_kinds": [], "body_supported": true},
+      "regions": [
+        {"region_id": "title", "content_role": "title", "required": true, "bounds": {"left": 0.06, "top": 0.05, "width": 0.88, "height": 0.14}, "style_role": "slide_title", "capacity": {"max_chars": 72, "minimum_font_size_pt": 20}},
+        {"region_id": "key_message", "content_role": "key_message", "required": false, "bounds": {"left": 0.06, "top": 0.22, "width": 0.88, "height": 0.14}, "style_role": "key_message", "capacity": {"max_chars": 120, "minimum_font_size_pt": 14}},
+        {"region_id": "body", "content_role": "bullet_list", "required": false, "bounds": {"left": 0.06, "top": 0.40, "width": 0.88, "height": 0.48}, "style_role": "body_text", "capacity": {"max_items": 8, "max_chars": 520, "max_chars_per_item": 120, "minimum_font_size_pt": 14}}
+      ],
+      "constraints": {"overflow": "error"}
+    },
+    "visual_right_text_left": {
+      "description": "Text on the left and one primary visual on the right.",
+      "eligible_page_roles": ["content"],
+      "capabilities": {"min_visuals": 1, "max_visuals": 1, "accepted_visual_kinds": ["chart", "table", "image"], "body_supported": true},
+      "regions": [
+        {"region_id": "title", "content_role": "title", "required": true, "bounds": {"left": 0.06, "top": 0.05, "width": 0.88, "height": 0.14}, "style_role": "slide_title", "capacity": {"max_chars": 72, "minimum_font_size_pt": 20}},
+        {"region_id": "key_message", "content_role": "key_message", "required": false, "bounds": {"left": 0.06, "top": 0.22, "width": 0.40, "height": 0.15}, "style_role": "key_message", "capacity": {"max_chars": 110, "minimum_font_size_pt": 14}},
+        {"region_id": "body", "content_role": "bullet_list", "required": false, "bounds": {"left": 0.06, "top": 0.41, "width": 0.40, "height": 0.47}, "style_role": "body_text", "capacity": {"max_items": 6, "max_chars": 320, "max_chars_per_item": 90, "minimum_font_size_pt": 14}},
+        {"region_id": "primary_visual", "content_role": "visual", "required": true, "accepts": ["chart", "table", "image"], "bounds": {"left": 0.51, "top": 0.22, "width": 0.43, "height": 0.66}, "style_role": "primary_visual", "capacity": {"max_items": 1, "max_rows": 12, "max_columns": 6, "max_categories": 12, "max_series": 5}}
+      ],
+      "constraints": {"overflow": "error"}
+    },
+    "visual_left_text_right": {
+      "description": "One primary visual on the left and text on the right.",
+      "eligible_page_roles": ["content"],
+      "capabilities": {"min_visuals": 1, "max_visuals": 1, "accepted_visual_kinds": ["chart", "table", "image"], "body_supported": true},
+      "regions": [
+        {"region_id": "title", "content_role": "title", "required": true, "bounds": {"left": 0.06, "top": 0.05, "width": 0.88, "height": 0.14}, "style_role": "slide_title", "capacity": {"max_chars": 72, "minimum_font_size_pt": 20}},
+        {"region_id": "primary_visual", "content_role": "visual", "required": true, "accepts": ["chart", "table", "image"], "bounds": {"left": 0.06, "top": 0.22, "width": 0.43, "height": 0.66}, "style_role": "primary_visual", "capacity": {"max_items": 1, "max_rows": 12, "max_columns": 6, "max_categories": 12, "max_series": 5}},
+        {"region_id": "key_message", "content_role": "key_message", "required": false, "bounds": {"left": 0.54, "top": 0.22, "width": 0.40, "height": 0.15}, "style_role": "key_message", "capacity": {"max_chars": 110, "minimum_font_size_pt": 14}},
+        {"region_id": "body", "content_role": "bullet_list", "required": false, "bounds": {"left": 0.54, "top": 0.41, "width": 0.40, "height": 0.47}, "style_role": "body_text", "capacity": {"max_items": 6, "max_chars": 320, "max_chars_per_item": 90, "minimum_font_size_pt": 14}}
+      ],
+      "constraints": {"overflow": "error"}
+    },
+    "full_width_visual": {
+      "description": "One large visual below the title.",
+      "eligible_page_roles": ["content"],
+      "capabilities": {"min_visuals": 1, "max_visuals": 1, "accepted_visual_kinds": ["chart", "image"], "body_supported": false},
+      "regions": [
+        {"region_id": "title", "content_role": "title", "required": true, "bounds": {"left": 0.06, "top": 0.05, "width": 0.88, "height": 0.14}, "style_role": "slide_title", "capacity": {"max_chars": 72, "minimum_font_size_pt": 20}},
+        {"region_id": "primary_visual", "content_role": "visual", "required": true, "accepts": ["chart", "image"], "bounds": {"left": 0.06, "top": 0.22, "width": 0.88, "height": 0.66}, "style_role": "primary_visual", "capacity": {"max_items": 1, "max_categories": 18, "max_series": 6}}
+      ],
+      "constraints": {"overflow": "error"}
+    },
+    "full_width_table": {
+      "description": "One large table below the title.",
+      "eligible_page_roles": ["content"],
+      "capabilities": {"min_visuals": 1, "max_visuals": 1, "accepted_visual_kinds": ["table"], "body_supported": false},
+      "regions": [
+        {"region_id": "title", "content_role": "title", "required": true, "bounds": {"left": 0.06, "top": 0.05, "width": 0.88, "height": 0.14}, "style_role": "slide_title", "capacity": {"max_chars": 72, "minimum_font_size_pt": 20}},
+        {"region_id": "primary_visual", "content_role": "visual", "required": true, "accepts": ["table"], "bounds": {"left": 0.06, "top": 0.22, "width": 0.88, "height": 0.66}, "style_role": "table", "capacity": {"max_items": 1, "max_rows": 18, "max_columns": 8}}
+      ],
+      "constraints": {"overflow": "error"}
+    },
+    "two_visuals": {
+      "description": "Two equally weighted visuals below the title.",
+      "eligible_page_roles": ["content"],
+      "capabilities": {"min_visuals": 2, "max_visuals": 2, "accepted_visual_kinds": ["chart", "table", "image"], "body_supported": true},
+      "regions": [
+        {"region_id": "title", "content_role": "title", "required": true, "bounds": {"left": 0.06, "top": 0.05, "width": 0.88, "height": 0.14}, "style_role": "slide_title", "capacity": {"max_chars": 72, "minimum_font_size_pt": 20}},
+        {"region_id": "key_message", "content_role": "key_message", "required": false, "bounds": {"left": 0.06, "top": 0.20, "width": 0.88, "height": 0.09}, "style_role": "key_message", "capacity": {"max_chars": 120, "minimum_font_size_pt": 13}},
+        {"region_id": "body", "content_role": "bullet_list", "required": false, "bounds": {"left": 0.06, "top": 0.30, "width": 0.88, "height": 0.11}, "style_role": "body_text", "capacity": {"max_items": 4, "max_chars": 240, "max_chars_per_item": 120, "minimum_font_size_pt": 11}},
+        {"region_id": "visual_1", "content_role": "visual", "required": true, "accepts": ["chart", "table", "image"], "bounds": {"left": 0.06, "top": 0.45, "width": 0.42, "height": 0.43}, "style_role": "primary_visual", "capacity": {"max_items": 1, "max_rows": 10, "max_columns": 6, "max_categories": 12, "max_series": 5}},
+        {"region_id": "visual_2", "content_role": "visual", "required": true, "accepts": ["chart", "table", "image"], "bounds": {"left": 0.52, "top": 0.45, "width": 0.42, "height": 0.43}, "style_role": "primary_visual", "capacity": {"max_items": 1, "max_rows": 10, "max_columns": 6, "max_categories": 12, "max_series": 5}}
+      ],
+      "constraints": {"overflow": "error"}
+    }
+  }
+}

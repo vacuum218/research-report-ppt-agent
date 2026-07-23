@@ -142,14 +142,31 @@ def _candidate_tables(
             )
     if explicit:
         return list({str(item.get("id")): item for item in explicit}.values())
-    if plan.evidence_refs:
-        return []
     query = plan.purpose + " " + " ".join(plan.data_requirement.values())
     values = [
         table for table in snapshot.tables_by_id.values()
         if not section_ids or str(table.get("section_id") or "") in section_ids
     ]
-    return sorted(values, key=lambda item: _score(query, _table_text(item, snapshot)), reverse=True)
+    ranked = sorted(
+        values,
+        key=lambda item: _score(query, _table_text(item, snapshot)),
+        reverse=True,
+    )
+    if not plan.evidence_refs:
+        return ranked
+    # LLM candidates commonly cite the supporting paragraph rather than the
+    # native table. Reconcile only within that paragraph's section and only
+    # when the semantic winner is strong and unambiguous. The emitted
+    # Visualization still records the selected native table ID.
+    if not ranked:
+        return []
+    scores = [_score(query, _table_text(item, snapshot)) for item in ranked]
+    minimum_score = 1 if len(ranked) == 1 else 2
+    if scores[0] < minimum_score:
+        return []
+    if len(scores) > 1 and scores[0] - scores[1] < 2:
+        return []
+    return [ranked[0]]
 
 
 def _candidate_blocks(
@@ -314,11 +331,8 @@ def generate_from_plans(
                     }
                     break
         elif plan.visual_type == "chart":
-            for table in _candidate_tables(plan, snapshot):
-                data = _chart_from_table(plan, table)
-                if data:
-                    break
-            if data is None:
+            has_explicit_table = any(kind == "table" for kind, _ in plan.evidence_refs)
+            if not has_explicit_table:
                 for block in _candidate_blocks(plan, snapshot):
                     categories, values, unit = _paragraph_pairs(str(block.get("text_raw") or ""))
                     if len(categories) >= 2:
@@ -333,6 +347,11 @@ def generate_from_plans(
                             "sources": _native_sources(("block", identity)),
                             "note": f"Extracted from DocumentBundle block {identity}",
                         }
+                        break
+            if data is None:
+                for table in _candidate_tables(plan, snapshot):
+                    data = _chart_from_table(plan, table)
+                    if data:
                         break
         if data is None:
             issues.append(GenerationIssue(plan.slide_id, plan.visualization_id, plan.visual_type, "no_traceable_source_data"))
