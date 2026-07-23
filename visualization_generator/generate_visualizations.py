@@ -15,6 +15,7 @@ from document_intelligence.models import DocumentIntelligenceSnapshot
 from ppt_engine.layout_resolver import load_layout_map, resolve_outline
 
 from .generator import GenerationIssue, VisualizationArtifact, generate_from_plans
+from .manifest import canonical_sha256, visual_type
 from .planning import VisualizationPlanningError, plan_visualizations
 
 
@@ -204,7 +205,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         coverage = preflight_visualizations(outline, layout_map, bindings)
         args.output_dir.mkdir(parents=True, exist_ok=True)
         manifest: dict[str, Any] = {
-            "schema_version": "2.0",
+            "schema_version": "3.0.0",
+            "outline_sha256": canonical_sha256(outline),
+            "document_source_sha256": str(
+                snapshot.metadata.get("source_sha256") or "0" * 64
+            ),
             "asset_root": str(snapshot.bundle_directory.resolve()),
             "bindings": [],
         }
@@ -219,6 +224,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 {
                     "slide_id": artifact.slide_id,
                     "visualization_id": artifact.visualization_id,
+                    "visual_type": visual_type(artifact.data),
                     "sources": list(artifact.sources),
                     "visualization_file": filename,
                 }

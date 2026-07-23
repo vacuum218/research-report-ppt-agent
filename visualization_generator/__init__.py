@@ -9,6 +9,11 @@ from .generate_visualizations import (
     preflight_visualizations,
     warn_for_render_args,
 )
+from .manifest import (
+    LoadedVisualizationManifest,
+    VisualizationManifestError,
+    load_visualization_manifest,
+)
 
 __all__ = [
     "GenerationIssue",
@@ -18,4 +23,7 @@ __all__ = [
     "generate_visualizations",
     "preflight_visualizations",
     "warn_for_render_args",
+    "LoadedVisualizationManifest",
+    "VisualizationManifestError",
+    "load_visualization_manifest",
 ]

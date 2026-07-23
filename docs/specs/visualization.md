@@ -66,12 +66,13 @@ image source 可以是原生 figure 或 image-only table。
 
 ## Manifest
 
-Manifest v2.0 为每个生成物记录：
+Manifest v3.0.0 由 `schemas/visualization_manifest.schema.json` 冻结，为每个生成物记录：
 
 ```json
 {
   "slide_id": "slide_006",
   "visualization_id": "visual_001",
+  "visual_type": "chart",
   "sources": [
     {"kind": "block", "id": "p005-b001"},
     {"kind": "table", "id": "table-003"},
@@ -80,6 +81,10 @@ Manifest v2.0 为每个生成物记录：
   "visualization_file": "slide_006__visual_001.json"
 }
 ```
+
+Manifest 还记录 Outline、DocumentBundle 的稳定身份和 `asset_root`。Compiler 通过
+Manifest loader 校验每个文件、声明类型和 Visualization Schema；迁移期 loader
+继续只读兼容 v2.0，但 Generator 只输出 v3.0.0。
 
 ## Renderer 边界
 
