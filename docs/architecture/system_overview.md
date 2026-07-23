@@ -65,3 +65,15 @@ Slide Planning 使用有序 section catalog 和 runtime memory 生成最终 Outl
 PPT Engine 继续只消费 Outline、Visualization、Layout Map 和 PPT 模板。当前冻结的 Renderer
 只渲染 chart/table；image Visualization 已可生成和追溯，但预检会报告
 `image_not_supported_by_frozen_renderer`，不会静默声称图片已进入 PPT。
+
+迁移期并行增加新的确定性链路：
+
+```text
+Template Profile + Slide Outline + Visualization Manifest
+        → Layout Compiler
+        → Compiled Layout Plan
+        → Compiled-plan Renderer
+        → PPTX
+```
+
+旧 Outline + Layout Map Renderer 在新链路完成验收前继续保留。

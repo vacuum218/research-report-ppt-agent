@@ -10,6 +10,14 @@ fallback，也不允许 Renderer 借用其他类型 slot。
 旧 `template_layout_map.json` 在迁移期继续服务现有 Renderer；在新链路通过验收前
 不得删除。
 
+## Compiled Layout Plan
+
+`Compiled Layout Plan` 是 Layout Compiler 与新 Renderer 之间唯一的确定性执行契约，
+Schema 位于 `schemas/compiled_layout_plan.schema.json`。Plan 包含模板与上游输入
+hash、内嵌且已校验的 Visualization、按页排序的 template slide，以及完整有序的
+`set_*`、`render_*`、`remove_shapes` operation。每个 Visualization 必须被恰好消费
+一次；Renderer 不得补充 Plan 中不存在的操作。
+
 ## 正式依赖
 
 ```text
