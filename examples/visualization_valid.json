@@ -1,0 +1,24 @@
+{
+  "chart_type": "line",
+  "title": "营业收入增长",
+  "unit": "亿元",
+  "categories": [
+    "2023A",
+    "2024A",
+    "2025E"
+  ],
+  "series": [
+    {
+      "name": "营业收入",
+      "values": [
+        100,
+        120,
+        150
+      ]
+    }
+  ],
+  "source_refs": [
+    "src_annual_2025",
+    "src_calc_forecast"
+  ]
+}

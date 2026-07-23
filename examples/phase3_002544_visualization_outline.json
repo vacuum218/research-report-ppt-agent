@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "company": "普天科技",
+    "company_name": "普天科技",
+    "stock_code": "002544",
+    "industry": "通信",
+    "report_title": "AI+卫星互联网的“国家队”",
+    "report_date": "2025-07-07",
+    "source_file": "002544_2025-07-07_公司动态报告：AI+卫星互联网的“国家队”.pdf"
+  },
+  "sources": [
+    {
+      "source_id": "src_002544_2025-07-07",
+      "type": "broker_report",
+      "title": "AI+卫星互联网的“国家队”",
+      "publisher": "民生证券",
+      "published_date": "2025-07-07",
+      "file_name": "002544_2025-07-07_公司动态报告：AI+卫星互联网的“国家队”.pdf"
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section": "卫星互联网行业",
+      "section_ref": "sec-1-2",
+      "title": "国内卫星互联网市场规模保持增长",
+      "key_message": "市场规模预计由2021年的291.62亿元增长至2025年的376亿元。",
+      "bullet_points": [
+        "锐观咨询预计2021—2025年国内卫星互联网市场复合增速约7%。"
+      ],
+      "source_refs": ["src_002544_2025-07-07"],
+      "evidence_refs": [
+        {"kind": "block", "id": "p004-b011"}
+      ],
+      "layout_hint": "趋势图加文字",
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_001",
+          "type": "chart",
+          "description": "展示2021—2025年国内卫星互联网市场规模变化",
+          "source_refs": ["src_002544_2025-07-07"]
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_002",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section": "卫星互联网领域布局",
+      "section_ref": "sec-1-2",
+      "title": "PDT星通站实现一站多能",
+      "key_message": "原研报产品图展示PDT星通站的一体化能力。",
+      "bullet_points": [
+        "集成PDT核心网、基站、卫星天线、功率放大器和双卫星Modem。"
+      ],
+      "source_refs": ["src_002544_2025-07-07"],
+      "evidence_refs": [
+        {"kind": "figure", "id": "fig-007"}
+      ],
+      "layout_hint": "原图加文字",
+      "visual_candidates": []
+    }
+  ]
+}

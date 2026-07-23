@@ -1,0 +1,159 @@
+{
+  "version": "2.0",
+  "description": "语义大纲规划示例。最终输出必须遵循 slide_outline.schema.json。",
+  "examples": [
+    {
+      "name": "公司概况与核心竞争力",
+      "input_blocks": [
+        {
+          "block_id": "block_0010",
+          "type": "heading",
+          "text": "1.1 公司是国内卫星通信核心供应商"
+        },
+        {
+          "block_id": "block_0011",
+          "type": "paragraph",
+          "text": "公司形成卫星通信、专网通信和相关解决方案三类业务。"
+        },
+        {
+          "block_id": "block_0018",
+          "type": "paragraph",
+          "text": "技术积累、客户认证和项目交付能力构成主要竞争壁垒。"
+        }
+      ],
+      "expected_plan": [
+        {
+          "page_role": "content",
+          "slide_type": "company_overview",
+          "title": "1.1 公司是国内卫星通信核心供应商",
+          "source_refs": ["src_<document_id>"]
+        },
+        {
+          "page_role": "content",
+          "slide_type": "core_competitiveness",
+          "title": "1.1 公司是国内卫星通信核心供应商",
+          "source_refs": ["src_<document_id>"]
+        }
+      ],
+      "lesson": "同一原文章节拆为多页时仍逐字复用章节标题，不把标题改写为结论。正文第一句保留主旨，后续信息提炼为要点。"
+    },
+    {
+      "name": "财务预测候选图表",
+      "input_blocks": [
+        {
+          "block_id": "block_0039",
+          "type": "heading",
+          "text": "2.1 盈利预测假设与业务拆分"
+        },
+        {
+          "block_id": "block_0040",
+          "type": "table",
+          "columns": ["指标", "2023A", "2024A", "2025E"],
+          "rows": [
+            ["营业收入", 20.0, 23.0, 27.0],
+            ["归母净利润", 2.0, 2.4, 3.0]
+          ]
+        }
+      ],
+      "expected_plan": [
+        {
+          "page_role": "content",
+          "slide_type": "financial_forecast",
+          "title": "2.1 盈利预测假设与业务拆分",
+          "visual_candidates": [
+            {
+              "candidate_id": "visual_001",
+              "type": "chart",
+              "description": "展示收入与利润的历史值及预测趋势",
+              "source_refs": ["src_<document_id>"]
+            }
+          ]
+        }
+      ],
+      "forbidden_candidate_fields": [
+        "categories",
+        "series",
+        "values",
+        "columns",
+        "rows"
+      ],
+      "lesson": "标题逐字沿用原文章节标题；大纲只提出可视化意图，具体数据留给 Visualization JSON。"
+    },
+    {
+      "name": "短段落按主旨句和编号分点保真拆解",
+      "section_title": "1.1 国家网信行业“国家队”，公网通信等领域深度布局",
+      "input_blocks": [
+        {
+          "block_id": "block_0020",
+          "type": "paragraph",
+          "text": "中电科普天科技股份有限公司是中国电子科技集团有限公司控制的国有控股上市企业，以信息通信领域为核心战略布局新兴产业领域。1）公网通信业务，包括通信信息技术服务、通信网络产品等业务。2）专网通信与智慧应用业务，包括专网通信、智慧通信等业务。3）智能制造业务，包括印制电路板、时频器件等业务。"
+        }
+      ],
+      "expected_plan": [
+        {
+          "page_role": "content",
+          "slide_type": "company_overview",
+          "title": "1.1 国家网信行业“国家队”，公网通信等领域深度布局",
+          "key_message": "中电科普天科技股份有限公司是中国电子科技集团有限公司控制的国有控股上市企业，以信息通信领域为核心战略布局新兴产业领域。",
+          "bullet_points": [
+            "公网通信业务，包括通信信息技术服务、通信网络产品等业务。",
+            "专网通信与智慧应用业务，包括专网通信、智慧通信等业务。",
+            "智能制造业务，包括印制电路板、时频器件等业务。"
+          ],
+          "source_refs": [
+            "src_<document_id>"
+          ]
+        }
+      ],
+      "lesson": "短文本保留第一句主旨句和原有编号分点；长文本才压缩，但每条 bullet 必须完整、自然、可读。"
+    },
+    {
+      "name": "估值缺失",
+      "input_blocks": [
+        {
+          "block_id": "block_0060",
+          "type": "heading",
+          "text": "风险提示"
+        },
+        {
+          "block_id": "block_0061",
+          "type": "paragraph",
+          "text": "卫星互联网建设进度不及预期；行业竞争加剧。"
+        }
+      ],
+      "expected_slide_type": "investment_risk",
+      "forbidden_slide_type": "valuation_analysis",
+      "lesson": "输入没有估值数据时省略估值页，不能自行计算目标价或估值倍数。"
+    },
+    {
+      "name": "原始图片独立迁移",
+      "figure_inventory": [
+        {
+          "figure_id": "fig-007",
+          "caption": "公司 PDT 星通站实现一站多能",
+          "section_id": "sec-1-2",
+          "available": true,
+          "selectable": true,
+          "order": 7
+        }
+      ],
+      "expected_plan": [
+        {
+          "page_role": "content",
+          "slide_type": "figure_page",
+          "section_ref": "sec-1-2",
+          "title": "公司 PDT 星通站实现一站多能",
+          "bullet_points": [],
+          "evidence_refs": [
+            {
+              "kind": "figure",
+              "id": "fig-007"
+            }
+          ],
+          "visual_candidates": []
+        }
+      ],
+      "lesson": "原始 PDF figure 使用独立页面保真迁移，一页一图并保持 PDF 顺序。"
+    }
+  ]
+}

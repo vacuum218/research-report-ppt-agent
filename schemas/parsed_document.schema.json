@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-report-ppt-agent.local/schemas/parsed_document.schema.json",
+  "title": "Parsed Financial Report Document",
+  "description": "T2.2 Markdown/纯文本解析器的输出格式。保留原文块、标题层级、引用和行号，作为T2.3幻灯片大纲生成的输入。",
+  "type": "object",
+  "required": ["schema_version", "parser", "document", "blocks", "statistics", "warnings"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "parser": {"$ref": "#/$defs/parserMetadata"},
+    "document": {"$ref": "#/$defs/documentMetadata"},
+    "blocks": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/block"},
+      "maxItems": 20000
+    },
+    "statistics": {"$ref": "#/$defs/statistics"},
+    "warnings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/parserWarning"},
+      "maxItems": 1000
+    }
+  },
+  "$defs": {
+    "parserMetadata": {
+      "type": "object",
+      "required": ["name", "version", "parsed_at"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "maxLength": 80},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+(?:\\.\\d+)?$"},
+        "parsed_at": {"type": "string", "format": "date-time"},
+        "options": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "plain_text_heading_detection": {"type": "boolean"},
+            "preserve_code_blocks": {"type": "boolean"},
+            "preserve_images": {"type": "boolean"},
+            "merge_adjacent_paragraph_lines": {"type": "boolean"}
+          }
+        }
+      }
+    },
+    "documentMetadata": {
+      "type": "object",
+      "required": [
+        "document_id", "title", "source_file", "source_format",
+        "encoding", "line_count", "character_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+$"},
+        "title": {"type": ["string", "null"], "maxLength": 300},
+        "source_file": {"type": "string", "minLength": 1, "maxLength": 500},
+        "source_format": {"enum": ["pdf", "markdown", "plain_text"]},
+        "encoding": {"type": "string", "minLength": 1, "maxLength": 40},
+        "line_count": {"type": "integer", "minimum": 0},
+        "character_count": {"type": "integer", "minimum": 0},
+        "source_hash_sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "language": {"type": "string", "default": "zh-CN", "maxLength": 20}
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "required": [
+        "block_count", "heading_count", "paragraph_count", "list_count",
+        "table_count", "image_count", "blockquote_count", "code_count",
+        "horizontal_rule_count"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "block_count": {"type": "integer", "minimum": 0},
+        "heading_count": {"type": "integer", "minimum": 0},
+        "paragraph_count": {"type": "integer", "minimum": 0},
+        "list_count": {"type": "integer", "minimum": 0},
+        "table_count": {"type": "integer", "minimum": 0},
+        "image_count": {"type": "integer", "minimum": 0},
+        "blockquote_count": {"type": "integer", "minimum": 0},
+        "code_count": {"type": "integer", "minimum": 0},
+        "horizontal_rule_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "parserWarning": {
+      "type": "object",
+      "required": ["code", "message", "severity", "line_start", "line_end"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_.-]*$"},
+        "message": {"type": "string", "minLength": 1, "maxLength": 1000},
+        "severity": {"enum": ["info", "warning"]},
+        "line_start": {"type": ["integer", "null"], "minimum": 1},
+        "line_end": {"type": ["integer", "null"], "minimum": 1}
+      }
+    },
+    "sectionRef": {
+      "type": "object",
+      "required": ["level", "title", "heading_block_id"],
+      "additionalProperties": false,
+      "properties": {
+        "level": {"type": "integer", "minimum": 1, "maximum": 6},
+        "title": {"type": "string", "minLength": 1, "maxLength": 500},
+        "heading_block_id": {"type": "string", "pattern": "^(?:block_\\d{4,}|p\\d{3}-b\\d{3})$"}
+      }
+    },
+    "citationIds": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1, "maxLength": 300},
+      "uniqueItems": true,
+      "maxItems": 200
+    },
+    "baseBlockProperties": {
+      "type": "object",
+      "required": [
+        "block_id", "type", "line_start", "line_end", "raw_text",
+        "section_path", "parent_heading_id", "citations"
+      ],
+      "properties": {
+        "block_id": {"type": "string", "pattern": "^(?:block_\\d{4,}|p\\d{3}-b\\d{3})$"},
+        "type": {
+          "enum": [
+            "heading", "paragraph", "list", "table", "image",
+            "blockquote", "code", "horizontal_rule"
+          ]
+        },
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1},
+        "raw_text": {"type": "string", "maxLength": 1000000},
+        "section_path": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/sectionRef"},
+          "maxItems": 6
+        },
+        "parent_heading_id": {
+          "type": ["string", "null"],
+          "pattern": "^(?:block_\\d{4,}|p\\d{3}-b\\d{3})$"
+        },
+        "citations": {"$ref": "#/$defs/citationIds"}
+      }
+    },
+    "headingContent": {
+      "type": "object",
+      "required": ["text", "level", "style"],
+      "properties": {
+        "text": {"type": "string", "minLength": 1, "maxLength": 500},
+        "level": {"type": "integer", "minimum": 1, "maximum": 6},
+        "style": {"enum": ["markdown", "plain_text"]}
+      }
+    },
+    "paragraphContent": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": {"type": "string", "minLength": 1, "maxLength": 1000000}
+      }
+    },
+    "listContent": {
+      "type": "object",
+      "required": ["ordered", "start_number", "tight", "items"],
+      "properties": {
+        "ordered": {"type": "boolean"},
+        "start_number": {"type": ["integer", "null"], "minimum": 1},
+        "tight": {"type": "boolean"},
+        "items": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/listItem"},
+          "minItems": 1,
+          "maxItems": 10000
+        }
+      }
+    },
+    "listItem": {
+      "type": "object",
+      "required": ["text", "level", "marker", "citations", "line_start", "line_end"],
+      "additionalProperties": false,
+      "properties": {
+        "text": {"type": "string", "minLength": 1, "maxLength": 100000},
+        "level": {"type": "integer", "minimum": 0, "maximum": 20},
+        "marker": {"type": "string", "minLength": 1, "maxLength": 20},
+        "citations": {"$ref": "#/$defs/citationIds"},
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1}
+      }
+    },
+    "tableContent": {
+      "type": "object",
+      "required": ["caption", "columns", "alignments", "rows"],
+      "properties": {
+        "caption": {"type": ["string", "null"], "maxLength": 1000},
+        "columns": {
+          "type": "array",
+          "items": {"type": "string", "maxLength": 10000},
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "alignments": {
+          "type": "array",
+          "items": {"enum": ["left", "center", "right", "none"]},
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {"type": "string", "maxLength": 100000},
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "maxItems": 10000
+        },
+        "note": {"type": ["string", "null"], "maxLength": 10000}
+      }
+    },
+    "imageContent": {
+      "type": "object",
+      "required": ["alt_text", "url", "title"],
+      "properties": {
+        "alt_text": {"type": "string", "maxLength": 1000},
+        "url": {"type": "string", "minLength": 1, "maxLength": 5000},
+        "title": {"type": ["string", "null"], "maxLength": 1000}
+      }
+    },
+    "blockquoteContent": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": {"type": "string", "minLength": 1, "maxLength": 1000000}
+      }
+    },
+    "codeContent": {
+      "type": "object",
+      "required": ["language", "text", "fence"],
+      "properties": {
+        "language": {"type": ["string", "null"], "maxLength": 100},
+        "text": {"type": "string", "maxLength": 1000000},
+        "fence": {"enum": ["```", "~~~"]}
+      }
+    },
+    "horizontalRuleContent": {
+      "type": "object",
+      "properties": {}
+    },
+    "block": {
+      "type": "object",
+      "required": [
+        "block_id", "type", "line_start", "line_end", "raw_text",
+        "section_path", "parent_heading_id", "citations"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {"type": "string", "pattern": "^(?:block_\\d{4,}|p\\d{3}-b\\d{3})$"},
+        "type": {
+          "enum": [
+            "heading", "paragraph", "list", "table", "image",
+            "blockquote", "code", "horizontal_rule"
+          ]
+        },
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1},
+        "raw_text": {"type": "string", "maxLength": 1000000},
+        "section_path": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/sectionRef"},
+          "maxItems": 6
+        },
+        "parent_heading_id": {
+          "type": ["string", "null"],
+          "pattern": "^(?:block_\\d{4,}|p\\d{3}-b\\d{3})$"
+        },
+        "citations": {"$ref": "#/$defs/citationIds"},
+        "text": {"type": "string", "maxLength": 1000000},
+        "level": {"type": "integer", "minimum": 1, "maximum": 6},
+        "style": {"enum": ["markdown", "plain_text"]},
+        "ordered": {"type": "boolean"},
+        "start_number": {"type": ["integer", "null"], "minimum": 1},
+        "tight": {"type": "boolean"},
+        "items": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/listItem"},
+          "minItems": 1,
+          "maxItems": 10000
+        },
+        "caption": {"type": ["string", "null"], "maxLength": 1000},
+        "columns": {
+          "type": "array",
+          "items": {"type": "string", "maxLength": 10000},
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "alignments": {
+          "type": "array",
+          "items": {"enum": ["left", "center", "right", "none"]},
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {"type": "string", "maxLength": 100000},
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "maxItems": 10000
+        },
+        "note": {"type": ["string", "null"], "maxLength": 10000},
+        "alt_text": {"type": "string", "maxLength": 1000},
+        "url": {"type": "string", "minLength": 1, "maxLength": 5000},
+        "title": {"type": ["string", "null"], "maxLength": 1000},
+        "language": {"type": ["string", "null"], "maxLength": 100},
+        "fence": {"enum": ["```", "~~~"]}
+      },
+      "allOf": [
+        {"$ref": "#/$defs/baseBlockProperties"},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "heading"}}}, "then": {"$ref": "#/$defs/headingContent"}},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "paragraph"}}}, "then": {"$ref": "#/$defs/paragraphContent"}},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "list"}}}, "then": {"$ref": "#/$defs/listContent"}},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "table"}}}, "then": {"$ref": "#/$defs/tableContent"}},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "image"}}}, "then": {"$ref": "#/$defs/imageContent"}},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "blockquote"}}}, "then": {"$ref": "#/$defs/blockquoteContent"}},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "code"}}}, "then": {"$ref": "#/$defs/codeContent"}},
+        {"if": {"required": ["type"], "properties": {"type": {"const": "horizontal_rule"}}}, "then": {"$ref": "#/$defs/horizontalRuleContent"}}
+      ]
+    }
+  }
+}

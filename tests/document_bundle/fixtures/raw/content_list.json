@@ -1,0 +1,39 @@
+[
+  {
+    "type": "title",
+    "text": "1 原始测试标题",
+    "text_level": 1,
+    "page_idx": 0,
+    "bbox": [50, 40, 800, 100]
+  },
+  {
+    "type": "text",
+    "text": "原始测试段落。",
+    "page_idx": 0,
+    "bbox": [50, 120, 900, 300]
+  },
+  {
+    "type": "image",
+    "img_path": "images/figure.png",
+    "image_caption": ["图 1 原始题注"],
+    "image_footnote": ["资料来源：原始测试来源"],
+    "page_idx": 0,
+    "bbox": [100, 350, 600, 700]
+  },
+  {
+    "type": "table",
+    "img_path": "images/table.png",
+    "table_caption": ["表 1 原始表题"],
+    "table_footnote": ["资料来源：原始测试来源"],
+    "table_body": "<table><tr><td>原始单元格</td></tr></table>",
+    "page_idx": 1,
+    "bbox": [50, 100, 950, 700]
+  },
+  {
+    "type": "footer",
+    "text": "原始页脚",
+    "page_idx": 1,
+    "bbox": [50, 930, 950, 980]
+  }
+]
+
