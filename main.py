@@ -45,6 +45,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     layout_map.add_argument("args", nargs=argparse.REMAINDER)
 
+    template_profile = commands.add_parser(
+        "build-template-profile",
+        help="Build the deterministic Template Profile from the legacy Layout Map",
+    )
+    template_profile.add_argument("args", nargs=argparse.REMAINDER)
+
     validate_outline = commands.add_parser(
         "validate-outline",
         help="Validate a semantic slide outline",
@@ -114,6 +120,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         from tools.build_layout_map import main as layout_map_main
 
         return layout_map_main(args.args)
+
+    if args.command == "build-template-profile":
+        from tools.build_template_profile import main as template_profile_main
+
+        return template_profile_main(args.args)
 
     if args.command == "validate-outline":
         from tools.validate_outline import main as validate_outline_main
