@@ -722,16 +722,16 @@ Legacy Layout Map Renderer 与 Compiled-plan Renderer 同时存在。兼容入�
 - 是否影响 Compiled Renderer；
 - 两条链路是否都需要测试。
 
-### P1：绝对 asset_root 影响可移植性
+### 已补齐：单命令 Pipeline 与运行清单
 
-Manifest 将 `asset_root` 写成 bundle 的绝对路径，Compiled Plan 再继承该值。
-这保证了当前机器上解析明确，但复制产物到其他目录或机器后会失效。当前正确做法是重新编译，
-长期可考虑定义安全的重定位策略，但不能牺牲路径逃逸检查。
+`python main.py run-pipeline` 已串联 bundle、outline、visualization、numeric audit、profile、
+compile 和 render。运行先写入同级临时目录，全部 P0 校验通过后才发布最终目录；失败返回非零码，
+且不生成或宣称生成有效 PPTX。`run_manifest.json` 保存输入、正式 Schema、Outline、
+Visualization Manifest、Template Profile、模板、Compiled Layout Plan 和 PPTX 的 hash。
 
-### P1：没有单命令 Pipeline
-
-当前必须手动串联 bundle、outline、visualization、profile、compile、render。
-缺少统一 run manifest、阶段缓存和失败恢复。新增 orchestration 时不应绕过现有 Schema/hash 校验。
+Pipeline 生成的 Visualization Manifest 使用相对 `asset_root` 进行阶段内校验，最终
+Compiled Layout Plan 写入发布后 DocumentBundle 的明确路径，避免保留临时 staging 路径。
+跨机器复制后仍需按新位置重新编译 Plan。
 
 ### P1：日志可能包含敏感研报内容
 
@@ -780,7 +780,7 @@ CI 仅运行测试，没有 lint、type check、coverage 和视觉回归。
 2. 同步架构文档中的 image Renderer 能力。
 3. 清理或明确隔离不兼容的本地 Plan v2 产物。
 4. 为推荐的新链路补充 README 完整命令。
-5. 增加统一 Pipeline 编排，但复用现有各阶段 CLI 和校验器。
+5. 为统一 Pipeline 增加阶段缓存或显式失败恢复；当前已具备原子发布和失败清理。
 6. 定义 Manifest/Plan 的可重定位策略。
 7. 为模板变更增加 Profile/Plan 再生成检查。
 8. 增加 lint、type check、coverage 和 PPT 视觉回归。

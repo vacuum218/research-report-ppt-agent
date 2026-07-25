@@ -26,14 +26,21 @@ def write_json(path: Path, value: dict) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
 
 
-def compile_fixture(tmp_path: Path, *, outline: dict | None = None) -> dict:
+def compile_fixture(
+    tmp_path: Path,
+    *,
+    outline: dict | None = None,
+    table_visualization: dict | None = None,
+) -> dict:
     outline = outline or load("examples/slide_outline_valid.json")
     profile = build_template_profile(
         load("templates/template_layout_map.json"),
         PROJECT_ROOT / "templates/financial_report_template_v1.pptx",
     )
     chart = load("examples/visualization_valid.json")
-    table = load("examples/visualization_table_valid.json")
+    table = table_visualization or load(
+        "examples/visualization_table_valid.json"
+    )
     write_json(tmp_path / "chart.json", chart)
     write_json(tmp_path / "table.json", table)
     bundle = tmp_path / "bundle"
@@ -81,6 +88,17 @@ def test_compiler_emits_complete_deterministic_plan(tmp_path):
         "visual_chart",
         "visual_table",
     }
+
+
+def test_compiler_rejects_table_that_exceeds_every_available_slot(tmp_path):
+    table = load("examples/visualization_table_valid.json")
+    table["rows"] = [
+        [f"指标{index}", index, index + 1, index + 2]
+        for index in range(19)
+    ]
+
+    with pytest.raises(LayoutCompileError, match=r"exceeds .*max_rows"):
+        compile_fixture(tmp_path, table_visualization=table)
 
 
 def test_compiler_rejects_manifest_for_different_outline(tmp_path):
@@ -226,3 +244,41 @@ def test_compiler_uses_adaptive_canvas_when_no_exact_layout_covers_content(tmp_p
         "add_bullet_list",
         "render_image",
     }
+
+
+def test_compiler_auto_paginates_text_without_dropping_visuals(tmp_path):
+    outline = load("examples/slide_outline_valid.json")
+    source_slide = outline["slides"][1]
+    source_slide["key_message"] = "核心结论：" + "盈利能力持续改善。" * 18
+    source_slide["bullet_points"] = [
+        f"假设{index}：" + "收入与利润预测依据。" * 8
+        for index in range(1, 6)
+    ]
+
+    plan = compile_fixture(tmp_path, outline=outline)
+    source_pages = [
+        slide
+        for slide in plan["slides"]
+        if slide["source_slide_id"] == "slide_002"
+    ]
+
+    assert len(source_pages) >= 2
+    assert source_pages[0]["slide_id"] == "slide_002"
+    assert source_pages[1]["slide_id"] == "slide_002__cont_02"
+    assert [page["continuation_index"] for page in source_pages] == list(
+        range(1, len(source_pages) + 1)
+    )
+    visual_ops = {
+        "render_chart",
+        "render_table",
+        "render_image",
+    }
+    assert any(
+        operation["op"] in visual_ops
+        for operation in source_pages[0]["operations"]
+    )
+    assert all(
+        operation["op"] not in visual_ops
+        for page in source_pages[1:]
+        for operation in page["operations"]
+    )

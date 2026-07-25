@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "company": "普天科技",
+    "company_name": "普天科技",
+    "stock_code": "002544",
+    "industry": "信息通信",
+    "report_title": "Week 3 T3.6 端到端联调验收",
+    "report_date": "2026-07-25",
+    "source_file": "002544_2025-10-28.md"
+  },
+  "sources": [
+    {
+      "source_id": "src_week3_t3_6",
+      "type": "broker_report",
+      "title": "普天科技深度研究报告联调片段",
+      "file_name": "002544_2025-10-28.md"
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_t3_6_trend",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section": "盈利预测",
+      "section_ref": "sec-trend",
+      "title": "归母净利润预测趋势",
+      "key_message": "2025—2027年归母净利润预计持续增长。",
+      "bullet_points": ["数值完全来自原始 paragraph evidence。"],
+      "source_refs": ["src_week3_t3_6"],
+      "evidence_refs": [{"kind": "block", "id": "p001-b001"}],
+      "layout_hint": "使用原生折线图展示趋势",
+      "visual_candidates": []
+    },
+    {
+      "slide_id": "slide_t3_6_table",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "section": "可比公司",
+      "section_ref": "sec-table",
+      "title": "卫星通信产业链可比公司估值",
+      "key_message": "不同业务定位公司的估值水平分化明显。",
+      "bullet_points": ["完整表格保留业务定位、PE与估值说明。"],
+      "source_refs": ["src_week3_t3_6"],
+      "evidence_refs": [{"kind": "table", "id": "table-valuation"}],
+      "layout_hint": "可比公司 comparison table",
+      "visual_candidates": []
+    },
+    {
+      "slide_id": "slide_t3_6_composition",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section": "业务构成",
+      "section_ref": "sec-composition",
+      "title": "2022年业务收入构成",
+      "key_message": "专网通信与智慧应用仍是收入占比最高的业务。",
+      "bullet_points": ["三项业务占比合计为100%。"],
+      "source_refs": ["src_week3_t3_6"],
+      "evidence_refs": [{"kind": "table", "id": "table-composition"}],
+      "layout_hint": "使用原生饼图展示构成",
+      "visual_candidates": []
+    },
+    {
+      "slide_id": "slide_t3_6_reject_single",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section": "拒绝回归",
+      "section_ref": "sec-reject-single",
+      "title": "单一百分比拒绝场景",
+      "key_message": "单个孤立百分比不足以构成可比较的可视化。",
+      "bullet_points": ["此页不得生成 Visualization。"],
+      "source_refs": ["src_week3_t3_6"],
+      "evidence_refs": [{"kind": "block", "id": "p001-b004"}],
+      "visual_candidates": []
+    },
+    {
+      "slide_id": "slide_t3_6_reject_mixed",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section": "拒绝回归",
+      "section_ref": "sec-reject-mixed",
+      "title": "混合单位拒绝场景",
+      "key_message": "金额和百分比不能在没有换算关系时混为一个系列。",
+      "bullet_points": ["此页不得生成 Visualization。"],
+      "source_refs": ["src_week3_t3_6"],
+      "evidence_refs": [{"kind": "block", "id": "p001-b005"}],
+      "visual_candidates": []
+    }
+  ]
+}

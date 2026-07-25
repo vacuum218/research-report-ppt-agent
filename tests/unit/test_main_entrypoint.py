@@ -30,6 +30,7 @@ def test_top_level_help_lists_commands():
     assert "validate-outline" in result.stdout
     assert "validate-layout-map" in result.stdout
     assert "render-ppt" in result.stdout
+    assert "run-pipeline" in result.stdout
 
 
 def test_render_command_warns_when_visual_candidate_has_no_data(tmp_path):

@@ -1,0 +1,16 @@
+{
+  "chart_type": "column",
+  "title": "主要厂商市场份额比较",
+  "unit": "%",
+  "categories": ["厂商A", "厂商B", "厂商C", "厂商D", "其他"],
+  "series": [
+    {
+      "name": "市场份额",
+      "values": [28.6, 22.4, 18.2, 13.8, 17.0],
+      "number_format": "0.0"
+    }
+  ],
+  "source_refs": ["src_week3_t3_4_acceptance"],
+  "sources": [{"kind": "table", "id": "t3_4_column"}],
+  "note": "T3.4 固定验收样例：验证分类比较、坐标轴和柱间距。"
+}

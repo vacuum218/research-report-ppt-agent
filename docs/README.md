@@ -32,6 +32,16 @@ JSON Schema 文件本身位于仓库根目录 `schemas/`，并且优先级高于
 - [当前项目代码交付说明](delivery/week2_t2.1-t2.3_partner_handoff.md)
 - [T2.4/T2.5 基础 PPT Engine 交付说明](delivery/week2_t2.4-t2.5_handoff.md)
 - [最终 Pipeline 验收记录](delivery/final_pipeline_validation.md)
+- [Week 3 T3.0 接口与验收口径冻结](delivery/week3_t3.0_contract_freeze.md)
+- [Week 3 T3.1 Candidate Locator 交付记录](delivery/week3_t3.1_candidate_locator.md)
+- [Week 3 T3.2 数值事实、结构映射与校验](delivery/week3_t3.2_fact_extraction_verification.md)
+- [Week 3 T3.3 预标注与评估工具交付](delivery/week3_t3.3_annotation_draft_handoff.md)
+- [Week 3 T3.3 平衡 Gold 与冻结基线评估](delivery/week3_t3.3_baseline_evaluation.md)
+- [Week 3 T3.3 正样本补充审核与合并](delivery/week3_t3.3_positive_supplement_handoff.md)
+- [Week 3 T3.4 原生图表能力与样式验收](delivery/week3_t3.4_native_chart_handoff.md)
+- [Week 3 T3.5 原生表格样式与容量验收](delivery/week3_t3.5_native_table_handoff.md)
+- [Week 3 T3.6 端到端联调与数值审计](delivery/week3_t3.6_end_to_end_audit.md)
+- [Week 3 T3.7 单命令 Pipeline 与回归](delivery/week3_t3.7_single_command_pipeline.md)
 
 当前代码结构、命令和路径以根目录 README、`requirements.txt`、`main.py`
 和本导航中的长期规范为准。

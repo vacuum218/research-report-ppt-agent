@@ -9,7 +9,10 @@ from pathlib import Path
 import pytest
 
 import outline_generator.generate_outline as generator
+from document_bundle.markdown import build_from_markdown
+from document_intelligence import load_document_intelligence
 from document_intelligence.models import IntelligenceChunk
+from outline_generator.llm_understanding import build_slide_planning_messages
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -42,6 +45,42 @@ def api_response(content, *, finish_reason="stop"):
     }
 
 
+def test_slide_planning_hides_unavailable_markdown_figures(tmp_path, outline_schema):
+    source = tmp_path / "report.md"
+    source.write_text(
+        "# 行业趋势\n\n![趋势图](chart:missing-chart)\n",
+        encoding="utf-8",
+    )
+    bundle = tmp_path / "bundle"
+    build_from_markdown(source, bundle)
+    snapshot = load_document_intelligence(
+        bundle, PROJECT_ROOT / "schemas" / "document_bundle.schema.json"
+    )
+    figure_id = next(iter(snapshot.figures_by_id))
+    memories = [
+        {
+            "evidence_refs": [{"kind": "figure", "id": figure_id}],
+            "raw_context": {
+                "figures": [dict(snapshot.figures_by_id[figure_id])],
+                "allowed_evidence_refs": [
+                    {"kind": "figure", "id": figure_id}
+                ],
+            },
+        }
+    ]
+
+    messages = build_slide_planning_messages(
+        snapshot, memories, outline_schema, {}, "system"
+    )
+    payload = json.loads(messages[1]["content"])
+
+    assert payload["figure_inventory"] == []
+    memory = payload["runtime_context_memories"][0]
+    assert memory["evidence_refs"] == []
+    assert memory["raw_context"]["figures"] == []
+    assert memory["raw_context"]["allowed_evidence_refs"] == []
+
+
 @pytest.fixture
 def valid_outline():
     return json.loads(
@@ -60,7 +99,7 @@ def outline_schema():
     )
 
 
-def test_call_deepseek_returns_decoded_response_and_redacts_key(monkeypatch, capsys):
+def test_call_deepseek_returns_decoded_response_without_dumping_request(monkeypatch, capsys):
     expected = api_response('{"schema_version":"1.0.0"}')
     monkeypatch.setattr(
         generator.urllib.request,
@@ -77,11 +116,11 @@ def test_call_deepseek_returns_decoded_response_and_redacts_key(monkeypatch, cap
 
     assert result == expected
     output = capsys.readouterr().out
-    assert "Bearer ***REDACTED***" in output
     assert "secret" not in output
-    assert "Request payload JSON characters:" in output
-    assert "Request message[0]: role=" not in output
-    assert "Request body bytes:" in output
+    assert '"model": "test"' not in output
+    assert "Calling model API:" in output
+    assert "messages=0" in output
+    assert "payload_bytes=" in output
 
 
 @pytest.mark.parametrize("thinking", ["enabled", "disabled"])
@@ -230,8 +269,9 @@ def test_extract_outline_rejects_truncated_output():
             api_response('{"slides":[', finish_reason="length")
         )
 
-    assert caught.value.retryable is False
-    assert "increase --max-tokens" in str(caught.value)
+    assert caught.value.retryable is True
+    assert caught.value.truncated is True
+    assert "truncated at --max-tokens" in str(caught.value)
 
 
 def test_extract_outline_rejects_invalid_json():
@@ -459,6 +499,52 @@ def test_generate_with_retries_recovers_from_empty_content(
     assert "empty content" in requests[1]["messages"][-1]["content"]
 
 
+def test_truncated_outline_retries_full_context_with_thinking_disabled(
+    monkeypatch, valid_outline, outline_schema
+):
+    original_messages = [
+        {"role": "system", "content": "json"},
+        {"role": "user", "content": "complete source context"},
+    ]
+    responses = iter(
+        [
+            api_response('{"slides":[', finish_reason="length"),
+            api_response(json.dumps(valid_outline, ensure_ascii=False)),
+        ]
+    )
+    requests = []
+
+    def fake_call(request_body, **kwargs):
+        requests.append(request_body)
+        return next(responses)
+
+    monkeypatch.setattr(generator, "call_deepseek", fake_call)
+
+    outline, issues, attempts = generator.generate_with_retries(
+        original_messages,
+        outline_schema,
+        api_key="secret",
+        base_url="https://api.example.test",
+        timeout=10,
+        model="test",
+        max_tokens=1000,
+        thinking="enabled",
+        reasoning_effort="high",
+        max_attempts=2,
+    )
+
+    assert outline == valid_outline
+    assert issues == []
+    assert attempts == 2
+    assert requests[0]["thinking"] == {"type": "enabled"}
+    assert requests[0]["reasoning_effort"] == "high"
+    assert requests[1]["thinking"] == {"type": "disabled"}
+    assert "reasoning_effort" not in requests[1]
+    assert requests[1]["messages"][:2] == original_messages
+    assert '{"slides":[' not in str(requests[1]["messages"])
+    assert "same complete source context" in requests[1]["messages"][-1]["content"]
+
+
 def test_generate_with_retries_does_not_retry_auth_failure(
     monkeypatch, outline_schema
 ):
@@ -507,6 +593,33 @@ def test_validate_json_instance_rejects_invalid_document_bundle():
         )
 
     assert "failed schema validation" in str(caught.value)
+
+
+def test_blank_key_messages_use_existing_bullet_then_title():
+    outline = {
+        "slides": [
+            {
+                "title": "收入趋势",
+                "key_message": "",
+                "bullet_points": ["收入保持增长", "利润率改善"],
+            },
+            {
+                "title": "风险提示",
+                "key_message": "   ",
+                "bullet_points": [],
+            },
+            {
+                "title": "已有结论",
+                "key_message": "保持原值",
+                "bullet_points": ["不应覆盖"],
+            },
+        ]
+    }
+
+    assert generator.fill_blank_key_messages(outline) == 2
+    assert outline["slides"][0]["key_message"] == "收入保持增长"
+    assert outline["slides"][1]["key_message"] == "风险提示"
+    assert outline["slides"][2]["key_message"] == "保持原值"
 
 
 def test_outline_prompt_requires_verbatim_source_titles_and_topic_sentences():

@@ -1,0 +1,34 @@
+{
+  "successful_scenarios": [
+    {
+      "slide_id": "slide_t3_6_trend",
+      "evidence": {"kind": "block", "id": "p001-b001"},
+      "visual_type": "chart",
+      "chart_type": "line"
+    },
+    {
+      "slide_id": "slide_t3_6_table",
+      "evidence": {"kind": "table", "id": "table-valuation"},
+      "visual_type": "table",
+      "chart_type": null
+    },
+    {
+      "slide_id": "slide_t3_6_composition",
+      "evidence": {"kind": "table", "id": "table-composition"},
+      "visual_type": "chart",
+      "chart_type": "pie"
+    }
+  ],
+  "rejected_scenarios": [
+    {
+      "slide_id": "slide_t3_6_reject_single",
+      "evidence": {"kind": "block", "id": "p001-b004"},
+      "rejection_code": "reject.single_number"
+    },
+    {
+      "slide_id": "slide_t3_6_reject_mixed",
+      "evidence": {"kind": "block", "id": "p001-b005"},
+      "rejection_code": "reject.mixed_metric_or_unit"
+    }
+  ]
+}

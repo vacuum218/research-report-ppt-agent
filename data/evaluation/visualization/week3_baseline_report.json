@@ -1,0 +1,36 @@
+{
+  "counts": {
+    "samples": 27,
+    "gold_positive": 15,
+    "predicted_positive": 18,
+    "correct_candidates": 11
+  },
+  "candidate": {
+    "precision": 0.6111111111111112,
+    "recall": 0.7333333333333333,
+    "f1": 0.6666666666666666
+  },
+  "structure": {
+    "chart_type_accuracy": 1.0,
+    "complete_object_accuracy": 0.7333333333333333
+  },
+  "numeric_cells": {
+    "tp": 136,
+    "fp": 32,
+    "fn": 38,
+    "precision": 0.8095238095238095,
+    "recall": 0.7816091954022989,
+    "exact_match": 0.6601941747572816
+  },
+  "rejection": {
+    "correct_rejection_rate": 0.4166666666666667,
+    "reason_code_accuracy": 0.3333333333333333
+  },
+  "engineering": {
+    "schema_pass_count": 18,
+    "schema_pass_rate": 1.0,
+    "source_covered_count": 18,
+    "source_coverage_rate": 1.0,
+    "fabricated_numeric_cells": 0
+  }
+}

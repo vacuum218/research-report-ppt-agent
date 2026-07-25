@@ -1,0 +1,22 @@
+{
+  "chart_type": "bar",
+  "title": "重点项目合同金额",
+  "unit": "亿元",
+  "categories": [
+    "智能制造系统集成项目",
+    "新能源设备扩产项目",
+    "海外渠道建设项目",
+    "研发中心升级项目",
+    "数字化运营平台项目"
+  ],
+  "series": [
+    {
+      "name": "合同金额",
+      "values": [18.5, 15.2, 12.7, 9.8, 7.4],
+      "number_format": "0.0"
+    }
+  ],
+  "source_refs": ["src_week3_t3_4_acceptance"],
+  "sources": [{"kind": "table", "id": "t3_4_bar"}],
+  "note": "T3.4 固定验收样例：验证长分类标签和数值标签。"
+}

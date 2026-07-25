@@ -90,3 +90,14 @@ def test_adaptive_style_tokens_are_induced_from_template_shapes():
     assert styles["key_message"]["font_size_pt"] == 16.0
     assert styles["body_text"]["font_size_pt"] >= 14.0
     assert styles["table"]["font_family"] == styles["body_text"]["font_family"]
+    assert styles["primary_visual"]["series_colors"][:3] == [
+        "2F75B5",
+        "ED7D31",
+        "70AD47",
+    ]
+    assert styles["primary_visual"]["legend_position"] == "bottom"
+    assert styles["primary_visual"]["gap_width"] == 65
+    assert styles["table"]["header_fill"] == "102A43"
+    assert styles["table"]["stripe_fill"] == "F5F7FA"
+    assert styles["table"]["max_rows"] == 18
+    assert styles["table"]["max_columns"] == 8

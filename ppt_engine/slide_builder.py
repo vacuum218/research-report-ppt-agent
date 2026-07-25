@@ -89,6 +89,9 @@ def set_text(shape: Any | None, value: Any, *, required: bool = False) -> None:
             raise SlideBuildError("required template text target is missing")
         return
     shape.text = "" if value is None else str(value)
+    if getattr(shape, "has_text_frame", False):
+        shape.text_frame.word_wrap = True
+        shape.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
 
 
 def set_bullets(shape: Any | None, values: Iterable[Any], *, required: bool = False) -> None:
@@ -98,6 +101,9 @@ def set_bullets(shape: Any | None, values: Iterable[Any], *, required: bool = Fa
         return
     items = [str(value) for value in values if value is not None and str(value).strip()]
     shape.text = "\n".join(items)
+    if getattr(shape, "has_text_frame", False):
+        shape.text_frame.word_wrap = True
+        shape.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
 
 
 def _remove_named_shapes(slide: Any, names: Sequence[str]) -> None:

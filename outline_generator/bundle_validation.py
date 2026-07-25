@@ -3,16 +3,21 @@
 from __future__ import annotations
 
 import re
+from decimal import Decimal, InvalidOperation
 from typing import Any, Mapping
 
 from document_intelligence.figures import build_figure_inventory
 from document_intelligence.models import DocumentIntelligenceSnapshot
+from outline_generator.front_matter import detect_front_matter_summary
 from tools.validate_outline import Issue
 
 
 _CITATION_RE = re.compile(r"\[\^[^\]]+\]")
 _SPACE_RE = re.compile(r"\s+")
 _FIRST_SENTENCE_RE = re.compile(r"^(.+?[。！？：])")
+_LEADING_LIST_MARKER_RE = re.compile(
+    r"^(?:(?:[➢►▶◆◇■□●○•·▪▫\-–—])|(?:\d+|[一二三四五六七八九十]+)[）).、])\s*"
+)
 _NUMBER_RE = re.compile(
     r"(?<![A-Za-z0-9])(?:\d{1,4}(?:[.,]\d+)*)(?:%|倍|X|x|亿元|万元|百万元|TOPS|POPS)?"
 )
@@ -23,14 +28,221 @@ def _normalized_text(value: object) -> str:
 
 
 def _first_topic_sentence(value: object) -> str | None:
-    text = _normalized_text(value)
+    text = _SPACE_RE.sub(" ", _CITATION_RE.sub("", str(value or ""))).strip()
+    text = _LEADING_LIST_MARKER_RE.sub("", text).strip()
     if not text:
         return None
     match = _FIRST_SENTENCE_RE.match(text)
-    sentence = match.group(1) if match else text
+    sentence = (match.group(1) if match else text).strip()
     # A long analytical paragraph often starts directly with supporting detail.
     # Enforce verbatim preservation only for a concise, presentation-ready lead.
-    return sentence if 6 <= len(sentence) <= 120 else None
+    normalized_sentence = _normalized_text(sentence)
+    return sentence if 6 <= len(normalized_sentence) <= 120 else None
+
+
+def normalize_topic_sentence_key_messages(
+    outline: Mapping[str, Any],
+    snapshot: DocumentIntelligenceSnapshot,
+) -> int:
+    """Deterministically restore concise source lead sentences before validation."""
+    changes = 0
+    slides = outline.get("slides", [])
+    if not isinstance(slides, list):
+        return changes
+    for slide in slides:
+        if (
+            not isinstance(slide, dict)
+            or slide.get("page_role") != "content"
+            or slide.get("slide_type") == "figure_page"
+        ):
+            continue
+        refs = slide.get("evidence_refs", [])
+        if not isinstance(refs, list):
+            continue
+        topic_sentence = None
+        for ref in refs:
+            if not isinstance(ref, Mapping) or ref.get("kind") != "block":
+                continue
+            block = snapshot.blocks_by_id.get(str(ref.get("id") or ""))
+            if not isinstance(block, Mapping) or str(block.get("type")) not in {
+                "paragraph",
+                "blockquote",
+            }:
+                continue
+            topic_sentence = _first_topic_sentence(block.get("text_raw"))
+            if topic_sentence:
+                break
+        if (
+            topic_sentence
+            and _normalized_text(slide.get("key_message"))
+            != _normalized_text(topic_sentence)
+        ):
+            slide["key_message"] = topic_sentence
+            changes += 1
+    return changes
+
+
+def _number_key(value: str) -> str:
+    match = re.search(r"\d{1,4}(?:[.,]\d+)*", value)
+    if match is None:
+        return ""
+    raw = match.group(0).replace(",", "")
+    try:
+        return str(Decimal(raw).normalize())
+    except InvalidOperation:
+        return raw
+
+
+def _number_keys_in_text(value: object) -> set[str]:
+    text = str(value or "")
+    keys = {_number_key(token) for token in _NUMBER_RE.findall(text)} - {""}
+    normalized = _normalized_text(text)
+    for start, end in re.findall(
+        r"((?:19|20)\d{2})[-—至]((?:19|20)\d{2})", normalized
+    ):
+        if int(start) <= int(end) <= int(start) + 20:
+            keys.update(str(year) for year in range(int(start), int(end) + 1))
+    return keys
+
+
+def canonicalize_outline_from_bundle(
+    outline: Mapping[str, Any],
+    snapshot: DocumentIntelligenceSnapshot,
+    allowed_evidence: set[tuple[str, str]] | None = None,
+) -> dict[str, int]:
+    """Resolve source-owned fields and omitted citations without another LLM call.
+
+    The model chooses slide semantics and evidence. DocumentBundle remains the
+    authority for labels, headings, and whether a numeric claim is grounded.
+    """
+
+    counts = {
+        "labels": 0,
+        "titles": 0,
+        "evidence_refs": 0,
+        "null_fields": 0,
+        "figure_pages_removed": 0,
+    }
+    slides = outline.get("slides", [])
+    if not isinstance(slides, list):
+        return counts
+
+    selectable_figures = {
+        str(item["figure_id"])
+        for item in build_figure_inventory(snapshot)
+        if item.get("selectable") is True
+    }
+    retained_slides: list[Any] = []
+    for slide in slides:
+        if isinstance(slide, dict) and slide.get("section_ref") is None:
+            slide.pop("section_ref", None)
+            counts["null_fields"] += 1
+        refs = slide.get("evidence_refs", []) if isinstance(slide, Mapping) else []
+        figure_ids = {
+            str(ref.get("id") or "")
+            for ref in refs
+            if isinstance(ref, Mapping) and ref.get("kind") == "figure"
+        } if isinstance(refs, list) else set()
+        if (
+            isinstance(slide, Mapping)
+            and slide.get("slide_type") == "figure_page"
+            and figure_ids
+            and not (figure_ids & selectable_figures)
+        ):
+            counts["figure_pages_removed"] += 1
+            continue
+        retained_slides.append(slide)
+    slides[:] = retained_slides
+
+    for slide in slides:
+        if not isinstance(slide, dict):
+            continue
+        section_id = str(slide.get("section_ref") or "")
+        section = snapshot.sections_by_id.get(section_id)
+        if section is None:
+            continue
+        title_block = snapshot.blocks_by_id.get(
+            str(section.get("title_block_id") or ""), {}
+        )
+        canonical_title = str(title_block.get("text_raw") or "").strip()
+        if canonical_title and str(slide.get("section") or "").strip() != canonical_title:
+            slide["section"] = canonical_title
+            counts["labels"] += 1
+        if (
+            canonical_title
+            and slide.get("page_role") in {"section", "content"}
+            and slide.get("slide_type") != "figure_page"
+            and str(slide.get("title") or "").strip() != canonical_title
+        ):
+            slide["title"] = canonical_title
+            counts["titles"] += 1
+
+        if slide.get("page_role") != "content" or slide.get("slide_type") == "figure_page":
+            continue
+        refs = slide.get("evidence_refs")
+        if not isinstance(refs, list):
+            continue
+        claim_keys = set().union(
+            _number_keys_in_text(slide.get("title")),
+            _number_keys_in_text(slide.get("key_message")),
+            *(
+                _number_keys_in_text(bullet)
+                for bullet in slide.get("bullet_points", [])
+            ),
+        )
+        cited_keys: set[str] = _number_keys_in_text(canonical_title)
+        existing = {
+            (str(ref.get("kind") or ""), str(ref.get("id") or ""))
+            for ref in refs
+            if isinstance(ref, Mapping)
+        }
+        for kind, identity in existing:
+            if kind == "block" and identity in snapshot.blocks_by_id:
+                cited_keys.update(
+                    _number_keys_in_text(snapshot.blocks_by_id[identity].get("text_raw"))
+                )
+            elif kind == "table" and identity in snapshot.tables_by_id:
+                cited_keys.update(
+                    _number_keys_in_text(snapshot.tables_by_id[identity].get("structure_raw"))
+                )
+        missing = claim_keys - cited_keys
+        if not missing:
+            continue
+
+        candidates: list[tuple[str, str, set[str]]] = []
+        for kind, identity in snapshot.evidence_by_key:
+            key = (str(kind), str(identity))
+            if key in existing or (
+                allowed_evidence is not None and key not in allowed_evidence
+            ):
+                continue
+            evidence = snapshot.evidence(*key)
+            if evidence is None or not _descendant_or_same(
+                snapshot, evidence.section_id, section_id
+            ):
+                continue
+            if kind == "block" and identity in snapshot.blocks_by_id:
+                text = snapshot.blocks_by_id[identity].get("text_raw")
+            elif kind == "table" and identity in snapshot.tables_by_id:
+                text = snapshot.tables_by_id[identity].get("structure_raw")
+            else:
+                continue
+            candidate_keys = _number_keys_in_text(text)
+            if candidate_keys & missing:
+                candidates.append((str(kind), str(identity), candidate_keys))
+
+        while missing:
+            useful = [item for item in candidates if item[2] & missing]
+            if not useful:
+                break
+            kind, identity, candidate_keys = max(
+                useful, key=lambda item: len(item[2] & missing)
+            )
+            refs.append({"kind": kind, "id": identity})
+            counts["evidence_refs"] += 1
+            missing -= candidate_keys
+            candidates.remove((kind, identity, candidate_keys))
+    return counts
 
 
 def _grounded_number_issues(
@@ -39,15 +251,7 @@ def _grounded_number_issues(
     evidence_text: str,
     base: str,
 ) -> list[Issue]:
-    def number_key(value: str) -> str:
-        match = re.search(r"\d{1,4}(?:[.,]\d+)*", value)
-        return match.group(0).replace(",", "") if match else ""
-
-    available = {number_key(value) for value in _NUMBER_RE.findall(evidence_text)}
-    normalized_evidence = _normalized_text(evidence_text)
-    for start, end in re.findall(r"((?:19|20)\d{2})[-—至]((?:19|20)\d{2})", normalized_evidence):
-        if int(start) <= int(end) <= int(start) + 20:
-            available.update(str(year) for year in range(int(start), int(end) + 1))
+    available = _number_keys_in_text(evidence_text)
     issues: list[Issue] = []
     fields: list[tuple[str, object]] = [
         ("title", slide.get("title")),
@@ -59,7 +263,7 @@ def _grounded_number_issues(
     ]
     for field, value in fields:
         for token in _NUMBER_RE.findall(str(value or "")):
-            normalized = number_key(token)
+            normalized = _number_key(token)
             if normalized and normalized not in available:
                 issues.append(
                     Issue(
@@ -80,6 +284,79 @@ def _descendant_or_same(
     return candidate == ancestor or (
         candidate is not None and ancestor in snapshot.section_paths.get(candidate, ())
     )
+
+
+def _front_matter_summary_issues(
+    outline: Mapping[str, Any],
+    snapshot: DocumentIntelligenceSnapshot,
+) -> list[Issue]:
+    summary = detect_front_matter_summary(snapshot)
+    if summary is None:
+        return []
+
+    slides = [
+        slide if isinstance(slide, Mapping) else {}
+        for slide in outline.get("slides", [])
+    ]
+    summary_indices = [
+        index
+        for index, slide in enumerate(slides)
+        if slide.get("page_role") == "content"
+        and slide.get("slide_type") == "summary"
+        and str(slide.get("section_ref") or "") == summary.section_id
+    ]
+    if not summary_indices:
+        return [
+            Issue(
+                "error",
+                "BUNDLE.FRONT_SUMMARY_MISSING",
+                "$.slides",
+                (
+                    "pre-contents highlights require a content/summary slide "
+                    f"for section {summary.section_id!r} immediately after the title"
+                ),
+            )
+        ]
+
+    issues: list[Issue] = []
+    first_non_title = next(
+        (
+            index
+            for index, slide in enumerate(slides)
+            if slide.get("page_role") != "title"
+        ),
+        None,
+    )
+    if first_non_title not in summary_indices:
+        issues.append(
+            Issue(
+                "error",
+                "BUNDLE.FRONT_SUMMARY_ORDER",
+                f"$.slides[{summary_indices[0]}]",
+                "pre-contents highlights must be the first non-title slide",
+            )
+        )
+
+    used_block_ids = {
+        str(ref.get("id") or "")
+        for index in summary_indices
+        for ref in slides[index].get("evidence_refs", [])
+        if isinstance(ref, Mapping) and ref.get("kind") == "block"
+    }
+    for block_id in summary.block_ids:
+        if block_id not in used_block_ids:
+            issues.append(
+                Issue(
+                    "error",
+                    "BUNDLE.FRONT_SUMMARY_EVIDENCE_MISSING",
+                    "$.slides",
+                    (
+                        f"pre-contents highlight {block_id!r} must be cited by "
+                        "a content/summary slide"
+                    ),
+                )
+            )
+    return issues
 
 
 def validate_outline_evidence(
@@ -308,7 +585,7 @@ def validate_outline_evidence(
             if (
                 topic_sentence
                 and slide.get("key_message") is not None
-                and key_message != topic_sentence
+                and key_message != _normalized_text(topic_sentence)
             ):
                 issues.append(
                     Issue(
@@ -332,4 +609,5 @@ def validate_outline_evidence(
                     base=base,
                 )
             )
+    issues.extend(_front_matter_summary_issues(outline, snapshot))
     return issues

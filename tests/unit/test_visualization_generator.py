@@ -8,11 +8,13 @@ from jsonschema import Draft202012Validator
 
 from document_intelligence import build_figure_inventory, build_snapshot
 from outline_generator.bundle_validation import validate_outline_evidence
+from visualization_generator.audit import audit_visualization_artifacts
 from visualization_generator.generate_visualizations import (
     bindings_from_artifacts,
     generate_visualizations,
     preflight_visualizations,
 )
+from visualization_generator.numeric_facts import build_numeric_fact_ledger
 from visualization_generator.planning import VisualizationPlanningError, plan_visualizations
 
 
@@ -134,6 +136,56 @@ def test_table_candidate_preserves_complete_bundle_table(tmp_path):
     assert not issues
     assert artifacts[0].data["columns"] == ["项目", "2021A", "2022A", "2023A"]
     assert artifacts[0].data["rows"][0] == ["营业收入", 10, 15, 22]
+
+
+def test_complete_text_table_requires_no_numeric_fact_bindings(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    document = dict(snapshot.document_json)
+    source_table = snapshot.tables_by_id["table-001"]
+    document["tables"] = [
+        {
+            **dict(source_table),
+            "structure_raw": {
+                "format": "grid",
+                "columns": ["Dimension", "Assessment"],
+                "rows": [
+                    ["Competitive position", "Leading"],
+                    ["Demand outlook", "Improving"],
+                ],
+            },
+        }
+    ]
+    text_snapshot = build_snapshot(document, tmp_path)
+    outline = {
+        "slides": [
+            _slide(
+                "table",
+                "Qualitative assessment",
+                [{"kind": "table", "id": "table-001"}],
+            )
+        ]
+    }
+
+    artifacts, issues = generate_visualizations(outline, text_snapshot)
+    audit = audit_visualization_artifacts(
+        artifacts,
+        build_numeric_fact_ledger(text_snapshot),
+    )
+
+    assert not issues
+    assert artifacts[0].fact_bindings == ()
+    assert artifacts[0].data["rows"][0] == [
+        "Competitive position",
+        "Leading",
+    ]
+    assert audit["status"] == "passed"
+    table_audit = next(
+        item
+        for item in audit["visualizations"]
+        if item["visualization_id"] == "visual_001"
+    )
+    assert table_audit["audited_value_count"] == 0
+    assert table_audit["entries"] == []
 
 
 def test_table_candidate_reconciles_an_unambiguous_same_section_table(tmp_path):

@@ -13,6 +13,8 @@ from typing import Any, Mapping, Sequence
 
 from document_intelligence.models import DocumentIntelligenceSnapshot
 
+from .candidate_detection import locate_visual_candidates
+
 
 class VisualizationPlanningError(ValueError):
     """Raised when a semantic plan references nonexistent bundle evidence."""
@@ -51,7 +53,18 @@ def _source_refs(slide: Mapping[str, Any], candidate: Mapping[str, Any]) -> tupl
 
 def _intent(candidate: Mapping[str, Any]) -> str | None:
     value = str(candidate.get("chart_intent") or "").strip().lower()
-    return value if value in {"trend", "comparison", "composition", "relationship"} else None
+    if value in {"trend", "comparison", "composition", "relationship"}:
+        return value
+    description = str(
+        candidate.get("purpose") or candidate.get("description") or ""
+    ).casefold()
+    if any(token in description for token in ("占比", "构成", "份额", "composition")):
+        return "composition"
+    if any(token in description for token in ("趋势", "变化", "增长", "trend", "cagr")):
+        return "trend"
+    if any(token in description for token in ("对比", "比较", "排名", "comparison")):
+        return "comparison"
+    return None
 
 
 def _require_valid_evidence(
@@ -71,7 +84,7 @@ def plan_visualizations(
     outline: Mapping[str, Any],
     snapshot: DocumentIntelligenceSnapshot,
 ) -> list[VisualizationPlan]:
-    """Convert semantic Outline suggestions into validated, data-free plans."""
+    """Merge validated Outline suggestions with proactively located candidates."""
 
     plans: list[VisualizationPlan] = []
     auto_index = 1
@@ -86,6 +99,10 @@ def plan_visualizations(
             for value in slide.get("visual_candidates", [])
             if isinstance(value, Mapping)
         ]
+        planned_keys: set[
+            tuple[str, tuple[tuple[str, str], ...], str | None]
+        ] = set()
+        outline_evidence: set[tuple[str, str]] = set()
         for candidate in candidates:
             forbidden = {"values", "categories", "series", "columns", "rows", "asset_path"} & set(candidate)
             if forbidden:
@@ -100,6 +117,10 @@ def plan_visualizations(
                 )
             candidate_refs = _refs(candidate.get("evidence_refs")) or slide_refs
             _require_valid_evidence(snapshot, candidate_refs)
+            chart_intent = _intent(candidate)
+            key = (visual_type, tuple(sorted(candidate_refs)), chart_intent)
+            if key in planned_keys:
+                continue
             purpose = str(candidate.get("purpose") or candidate.get("description") or slide.get("key_message") or slide.get("title") or "").strip()
             requirement = candidate.get("data_requirement")
             requirement_items = requirement.items() if isinstance(requirement, Mapping) else ()
@@ -109,7 +130,7 @@ def plan_visualizations(
                     visualization_id=str(candidate.get("candidate_id") or f"visual_auto_{auto_index:03d}"),
                     visual_type=visual_type,
                     purpose=purpose,
-                    chart_intent=_intent(candidate),
+                    chart_intent=chart_intent,
                     data_requirement={
                         str(key): str(value)
                         for key, value in requirement_items
@@ -119,6 +140,14 @@ def plan_visualizations(
                     source_refs=_source_refs(slide, candidate),
                 )
             )
+            planned_keys.add(key)
+            outline_evidence.update(candidate_refs)
+            for kind, identity in candidate_refs:
+                if kind == "block":
+                    outline_evidence.update(
+                        ("table", table_id)
+                        for table_id in snapshot.block_table_ids.get(identity, ())
+                    )
             auto_index += 1
 
         # Original PDF figures are intentionally restricted to dedicated,
@@ -146,4 +175,37 @@ def plan_visualizations(
                 )
             )
             auto_index += 1
+            continue
+
+        # Explicit Outline suggestions win for evidence they already cover.
+        # The active locator contributes only new, slide-scoped evidence and
+        # therefore cannot silently reinterpret the same source as another
+        # visual type.
+        for located in locate_visual_candidates(slide, snapshot):
+            key = (
+                located.visual_type,
+                tuple(sorted(located.evidence_refs)),
+                located.chart_intent,
+            )
+            if key in planned_keys or outline_evidence.intersection(located.evidence_refs):
+                continue
+            _require_valid_evidence(snapshot, located.evidence_refs)
+            purpose = str(
+                slide.get("key_message")
+                or slide.get("title")
+                or "Evidence-backed visualization"
+            ).strip()
+            plans.append(
+                VisualizationPlan(
+                    slide_id=slide_id,
+                    visualization_id=located.candidate_id,
+                    visual_type=located.visual_type,
+                    purpose=purpose,
+                    chart_intent=located.chart_intent,
+                    data_requirement={},
+                    evidence_refs=located.evidence_refs,
+                    source_refs=_source_refs(slide, {}),
+                )
+            )
+            planned_keys.add(key)
     return plans

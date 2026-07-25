@@ -46,6 +46,15 @@
 9. `figure_page` 的 `evidence_refs` 只能包含一个 `figure`，且 `bullet_points`、`visual_candidates` 必须为空数组。
 10. 所有 `figure_page` 必须按照 Figure Inventory 的 `order` 严格递增；不得一页多图、图文混排或为原始图片创建 chart/table。
 
+# 目录前摘要保留
+
+1. 用户 payload 中的 `front_matter_summary` 由应用程序确定性识别，不是模型自行判断的建议。
+2. 当 `front_matter_summary.required=true` 时，必须在封面之后、目录页或其他章节页之前生成一张或多张摘要内容页。
+3. 摘要页必须使用 `page_role=content`、`slide_type=summary`、指定的 `section_ref` 和 `required_title`。
+4. 这些摘要页必须共同引用全部 `required_evidence_refs`，并按 `items` 原始顺序呈现要点。
+5. 第一条摘要优先作为 `key_message`，后续摘要组织为 `bullet_points`；页面正文必须直接使用 `items[].text` 中已经压缩的摘要句，不得把证据中的原始长段落复制进摘要页，并遵守 `display_constraint.max_total_body_chars`。
+6. `title`、`section`、`closing` 页面引用了相同证据，也不能替代这里要求的摘要内容页。
+
 # 标题与正文保真规则
 
 1. 若页面具有 `section_ref`，`title` 必须逐字使用 `section_catalog` 中该章节的原始 `title`，包括原有章节编号、标点和措辞，不得删除编号或改写为结论。
@@ -57,6 +66,7 @@
 7. 不得为了避免不同页面标题重复而改写原文标题；同一章节拆为多页时可以重复使用该章节原始标题。
 8. 对于篇幅较短、表述完整的主旨句和分点，应尽量保留原文，不为追求简短而删去关键主语、业务名称或限定信息。
 9. 对于篇幅较长的段落或分点，可以总结并提取重要信息，但必须保证每条 bullet 语义完整、表达自然、便于直接阅读；不得输出由关键词机械拼接而成的残句。
+10. 正文应保持适合演示文稿的低密度；最终容量由编译器依据实际布局统一处理并自动生成续页，不得为了控制篇幅直接丢弃有证据支撑的重要内容。
 
 ## “主旨句 + 编号分点”示例
 

@@ -220,6 +220,8 @@
       "required": ["slide_id", "operations"],
       "properties": {
         "slide_id": {"type": "string", "minLength": 1},
+        "source_slide_id": {"type": "string", "minLength": 1},
+        "continuation_index": {"type": "integer", "minimum": 1},
         "slide_mode": {
           "type": "string",
           "enum": ["exact_template", "adaptive_canvas"]

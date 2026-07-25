@@ -1,0 +1,16 @@
+{
+  "chart_type": "pie",
+  "title": "主营业务收入构成",
+  "unit": "%",
+  "categories": ["产品A", "产品B", "产品C", "服务及其他"],
+  "series": [
+    {
+      "name": "收入占比",
+      "values": [48, 27, 15, 10],
+      "number_format": "0"
+    }
+  ],
+  "source_refs": ["src_week3_t3_4_acceptance"],
+  "sources": [{"kind": "table", "id": "t3_4_pie"}],
+  "note": "T3.4 固定验收样例：验证分类配色、百分比标签和图例。"
+}

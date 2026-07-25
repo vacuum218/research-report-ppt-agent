@@ -20,6 +20,7 @@ from visualization_generator.manifest import (
 
 from .compiled_plan import validate_compiled_plan
 from .layout_resolver import LayoutResolutionError, resolve_profile_layout
+from .text_pagination import paginate_content_slide
 from .abstract_layout import (
     AbstractLayoutError,
     DEFAULT_ABSTRACT_LAYOUT_CATALOG,
@@ -255,6 +256,8 @@ def _select_exact_layout(
     visualizations: Sequence[Mapping[str, Any]],
     template_profile: Mapping[str, Any],
 ) -> tuple[str, Mapping[str, Any]] | None:
+    if slide.get("_force_adaptive") is True:
+        return None
     try:
         resolution = resolve_profile_layout(
             slide,
@@ -546,45 +549,68 @@ def compile_layout_plan(
                 "data": dict(item["data"]),
             }
         )
-    for page_number, slide in enumerate(outline.get("slides", []), start=1):
-        slide_id = str(slide["slide_id"])
-        records = list(manifest.bindings_by_slide.get(slide_id, ()))
-        exact = _select_exact_layout(slide, records, template_profile)
-        if exact is None:
-            compiled_slides.append(
-                _compile_adaptive_slide(
-                    slide,
+    for slide in outline.get("slides", []):
+        source_slide_id = str(slide["slide_id"])
+        source_records = list(
+            manifest.bindings_by_slide.get(source_slide_id, ())
+        )
+        physical_pages = paginate_content_slide(
+            slide,
+            source_records,
+            abstract_layout_catalog,
+        )
+        for physical_page in physical_pages:
+            physical_slide = physical_page.slide
+            slide_id = str(physical_slide["slide_id"])
+            records = list(physical_page.visualizations)
+            page_number = len(compiled_slides) + 1
+            exact = _select_exact_layout(
+                physical_slide, records, template_profile
+            )
+            if exact is None:
+                compiled = _compile_adaptive_slide(
+                    physical_slide,
                     records,
                     template_profile,
                     abstract_layout_catalog,
                 )
-            )
-        else:
-            layout_id, layout = exact
-            operations = [
-                _compile_binding(binding, slide, metadata, page_number)
-                for binding in layout.get("bindings", [])
-            ]
-            if layout.get("remove_shapes"):
-                operations.append(
-                    {"op": "remove_shapes", "names": list(layout["remove_shapes"])}
+            else:
+                layout_id, layout = exact
+                operations = [
+                    _compile_binding(
+                        binding,
+                        physical_slide,
+                        metadata,
+                        page_number,
+                    )
+                    for binding in layout.get("bindings", [])
+                ]
+                if layout.get("remove_shapes"):
+                    operations.append(
+                        {
+                            "op": "remove_shapes",
+                            "names": list(layout["remove_shapes"]),
+                        }
+                    )
+                operations.extend(
+                    _compile_visual_operations(
+                        slide_id,
+                        layout.get("slots", []),
+                        records,
+                    )
                 )
-            operations.extend(
-                _compile_visual_operations(
-                    slide_id,
-                    layout.get("slots", []),
-                    records,
-                )
-            )
-            compiled_slides.append(
-                {
+                compiled = {
                     "slide_id": slide_id,
                     "slide_mode": "exact_template",
                     "layout_id": layout_id,
                     "template_slide": int(layout["template_slide"]),
                     "operations": operations,
                 }
+            compiled["source_slide_id"] = physical_page.source_slide_id
+            compiled["continuation_index"] = (
+                physical_page.continuation_index
             )
+            compiled_slides.append(compiled)
 
     profile_hash = canonical_sha256(template_profile)
     manifest_hash = canonical_sha256(dict(manifest.data))

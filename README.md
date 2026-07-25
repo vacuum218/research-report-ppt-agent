@@ -107,6 +107,45 @@ python main.py render-ppt `
   --visualization slide_001=output/visualizations/report/slide_001__visual_001.json
 ```
 
+推荐的新链路使用单命令编排。命令先在同级临时目录完成所有阶段，只有 DocumentBundle、
+Outline、Visualization、数值审计、Manifest、Compiled Layout Plan 和 PPTX 全部通过后，
+才发布最终输出目录：
+
+```powershell
+python main.py run-pipeline report.md `
+  --template-profile TEMPLATE_PROFILE.json `
+  --output-dir output/report_run
+```
+
+已有 DocumentBundle 可以直接作为输入。离线回归或需要复用已审核 Outline 时可增加：
+
+```powershell
+--outline-input examples/generated/report_outline.json
+```
+
+长研报的 Outline 输出若被模型截断，可增加 `--outline-max-tokens 24000`。
+
+输出至少包含：
+
+```text
+document_bundle/
+slide_outline.json
+numeric_fact_ledger.json
+numeric_audit.json
+visualization_warnings.json
+template_profile.json
+visualizations/
+compiled_layout_plan.json
+presentation.pptx
+run_manifest.json
+```
+
+输出目录必须不存在或为空。任何阶段失败时命令返回非零状态，临时目录被清理，并且不会发布
+或打印有效 PPTX 路径。
+
+Candidate Locator 主动发现但无法通过确定性数值校验的候选会被安全跳过，并记录到
+`visualization_warnings.json`；Outline 明确声明的视觉若无法生成，仍作为 P0 失败阻断运行。
+
 `parse-report` 仍保留为旧脚本兼容入口，但其 Parsed Document JSON 不再是正式上游标准。
 
 ## DocumentBundle 目录
@@ -148,6 +187,7 @@ MinerU raw 文件。
 - `schemas/parsed_document.schema.json`（deprecated，仅用于旧解析器和 compat 回归）
 - `schemas/slide_outline.schema.json`
 - `schemas/visualization.schema.json`
+- `schemas/run_manifest.schema.json`
 
 ## 项目结构
 
@@ -158,6 +198,7 @@ compat/structured_content/ deprecated；仅保留 DocumentBundle→Parsed Docume
 document_parser/          Markdown/plain-text 的 DocumentBundle 生产解析实现；旧 Parsed JSON CLI 兼容
 outline_generator/        Context Compression + Slide Planning
 visualization_generator/  视觉语义规划 + DocumentBundle 原生 chart/table/image 生成
+pipeline_runner/           单命令编排、原子发布、数值审计与 Run Manifest
 ppt_engine/               Layout Resolver 与 PPT Renderer
 ppt_template_parser/      PPT 模板结构分析
 schemas/                  JSON Schema

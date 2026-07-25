@@ -33,6 +33,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     outline.add_argument("args", nargs=argparse.REMAINDER)
 
+    compact_summary = commands.add_parser(
+        "compact-front-summary",
+        help="Compact an existing pre-contents summary without calling an LLM",
+    )
+    compact_summary.add_argument("args", nargs=argparse.REMAINDER)
+
     inspect = commands.add_parser(
         "inspect-template",
         help="Inspect PPT template objects for layout-map construction",
@@ -93,6 +99,31 @@ def build_parser() -> argparse.ArgumentParser:
     )
     render_compiled.add_argument("args", nargs=argparse.REMAINDER)
 
+    pipeline = commands.add_parser(
+        "run-pipeline",
+        help="Run DocumentBundle, Outline, Visualization, Compiler, and Renderer atomically",
+    )
+    pipeline.add_argument("input", type=Path)
+    pipeline.add_argument("--template-profile", type=Path, required=True)
+    pipeline.add_argument("--output-dir", type=Path, required=True)
+    pipeline.add_argument(
+        "--template",
+        type=Path,
+        default=Path(__file__).resolve().parent
+        / "templates/financial_report_template_v1.pptx",
+    )
+    pipeline.add_argument(
+        "--outline-input",
+        type=Path,
+        help="Use a prebuilt Outline for deterministic/offline runs",
+    )
+    pipeline.add_argument("--outline-model")
+    pipeline.add_argument("--outline-base-url")
+    pipeline.add_argument("--outline-api-provider")
+    pipeline.add_argument("--outline-max-tokens", type=int)
+    pipeline.add_argument("--outline-max-attempts", type=int)
+    pipeline.add_argument("--outline-timeout", type=int)
+
     template = commands.add_parser(
         "parse-template",
         help="Parse generic PPT structure, styles, and theme",
@@ -122,6 +153,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         from outline_generator.generate_outline import main as outline_main
 
         return outline_main(args.args)
+
+    if args.command == "compact-front-summary":
+        from tools.compact_front_summary import main as compact_summary_main
+
+        return compact_summary_main(args.args)
 
     if args.command == "inspect-template":
         from tools.inspect_template import main as inspect_main
@@ -174,6 +210,33 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         from ppt_engine.renderer import compiled_main
 
         return compiled_main(args.args)
+
+    if args.command == "run-pipeline":
+        import sys
+
+        from pipeline_runner import PipelineRunError, run_pipeline
+
+        try:
+            output = run_pipeline(
+                args.input,
+                template_profile_path=args.template_profile,
+                output_directory=args.output_dir,
+                template_path=args.template,
+                outline_input=args.outline_input,
+                outline_model=args.outline_model,
+                outline_base_url=args.outline_base_url,
+                outline_api_provider=args.outline_api_provider,
+                outline_max_tokens=args.outline_max_tokens,
+                outline_max_attempts=args.outline_max_attempts,
+                outline_timeout=args.outline_timeout,
+            )
+        except PipelineRunError as exc:
+            print(f"ERROR: {exc}", file=sys.stderr)
+            return 1
+        print(f"Pipeline completed: {output}")
+        print(f"Presentation: {output / 'presentation.pptx'}")
+        print(f"Run manifest: {output / 'run_manifest.json'}")
+        return 0
 
     if args.command == "parse-template":
         import json

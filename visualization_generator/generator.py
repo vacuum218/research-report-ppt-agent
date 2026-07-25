@@ -15,12 +15,28 @@ from jsonschema import Draft202012Validator
 from lxml import html
 
 from document_intelligence.models import DocumentIntelligenceSnapshot
+from .audit import (
+    FactBinding,
+    chart_fact_bindings,
+    table_fact_bindings,
+)
+from .contracts import ExtractionProposal
+from .extraction import (
+    LLMExtractionAdapter,
+    map_extraction_proposal,
+    proposal_from_table,
+)
+from .numeric_facts import build_numeric_fact_ledger
 from .planning import VisualizationPlan
+from .verification import (
+    VisualizationVerificationError,
+    assemble_verified_chart,
+    assemble_verified_table,
+)
 
 
 _CITATION_RE = re.compile(r"\[\^[^\]]+\]")
 _MARKDOWN_RE = re.compile(r"[*_`~]+")
-_NUMBER_RE = re.compile(r"^[+\-]?\d+(?:\.\d+)?$")
 _PERIOD_RE = re.compile(r"((?:19|20)\d{2})(?:年|年末|[AE])?")
 _UNITS = ("亿元", "百万元", "万元", "%", "倍", "颗")
 
@@ -48,6 +64,7 @@ class VisualizationArtifact:
     visualization_id: str
     sources: tuple[dict[str, str], ...]
     data: dict[str, Any]
+    fact_bindings: tuple[FactBinding, ...] = ()
 
     @property
     def candidate_id(self) -> str:  # backward-compatible public attribute
@@ -56,18 +73,6 @@ class VisualizationArtifact:
 
 def _clean(value: object) -> str:
     return _MARKDOWN_RE.sub("", _CITATION_RE.sub("", str(value or ""))).strip()
-
-
-def _cell(value: object) -> str | int | float | None:
-    text = _clean(value).replace(",", "")
-    if not text or text in {"-", "--", "N/A", "n/a"}:
-        return None
-    if text.endswith("%"):
-        return text
-    if _NUMBER_RE.fullmatch(text):
-        number = float(text)
-        return int(number) if number.is_integer() else number
-    return text
 
 
 def _number(value: object) -> float | None:
@@ -295,12 +300,18 @@ def generate_from_plans(
     plans: Sequence[VisualizationPlan],
     snapshot: DocumentIntelligenceSnapshot,
     schema: Mapping[str, Any],
+    *,
+    llm_adapter: LLMExtractionAdapter | None = None,
 ) -> tuple[list[VisualizationArtifact], list[GenerationIssue]]:
     artifacts: list[VisualizationArtifact] = []
     issues: list[GenerationIssue] = []
     validator = Draft202012Validator(schema)
+    ledger = build_numeric_fact_ledger(snapshot)
     for plan in plans:
         data: dict[str, Any] | None = None
+        verification_failure: str | None = None
+        proposal: ExtractionProposal | None = None
+        selected_table: Mapping[str, Any] | None = None
         if plan.visual_type == "image":
             figure_ref = next((ref for ref in plan.evidence_refs if ref[0] == "figure"), None)
             if figure_ref:
@@ -318,47 +329,103 @@ def generate_from_plans(
                     continue
                 columns, rows = _table_grid(table)
                 if columns and rows:
-                    data = {
-                        "title": plan.purpose or "Data table",
-                        "columns": [_clean(value) or "Item" for value in columns[:6]],
-                        "rows": [
-                            [_cell(cell) for cell in (row + [""] * len(columns))[:len(columns)]][:6]
-                            for row in rows[:8]
-                        ],
-                        "source_refs": list(plan.source_refs),
-                        "sources": _native_sources(("table", identity)),
-                        "note": f"Extracted from DocumentBundle table {identity}",
-                    }
+                    try:
+                        data = assemble_verified_table(plan, table, ledger, schema)
+                        selected_table = table
+                    except VisualizationVerificationError as exc:
+                        verification_failure = str(exc)
                     break
         elif plan.visual_type == "chart":
-            has_explicit_table = any(kind == "table" for kind, _ in plan.evidence_refs)
-            if not has_explicit_table:
-                for block in _candidate_blocks(plan, snapshot):
-                    categories, values, unit = _paragraph_pairs(str(block.get("text_raw") or ""))
-                    if len(categories) >= 2:
-                        identity = str(block.get("id"))
-                        data = {
-                            "chart_type": _chart_type(plan, categories),
-                            "title": plan.purpose or "Data chart",
-                            "unit": unit,
-                            "categories": categories,
-                            "series": [{"name": plan.data_requirement.get("y") or plan.purpose or "Value", "values": values}],
-                            "source_refs": list(plan.source_refs),
-                            "sources": _native_sources(("block", identity)),
-                            "note": f"Extracted from DocumentBundle block {identity}",
-                        }
-                        break
-            if data is None:
-                for table in _candidate_tables(plan, snapshot):
-                    data = _chart_from_table(plan, table)
-                    if data:
-                        break
+            if plan.evidence_refs:
+                proposal = map_extraction_proposal(
+                    plan,
+                    snapshot,
+                    ledger,
+                    llm_adapter=llm_adapter,
+                )
+                allowed_sources = list(plan.evidence_refs)
+                for kind, identity in plan.evidence_refs:
+                    if kind == "block":
+                        allowed_sources.extend(
+                            ("table", table_id)
+                            for table_id in snapshot.block_table_ids.get(identity, ())
+                        )
+                if proposal is None:
+                    for table in _candidate_tables(plan, snapshot):
+                        proposal = proposal_from_table(plan, table, ledger)
+                        if proposal is not None:
+                            allowed_sources.append(("table", str(table.get("id") or "")))
+                            break
+                if proposal is not None:
+                    try:
+                        data = assemble_verified_chart(
+                            plan,
+                            proposal,
+                            ledger,
+                            schema,
+                            allowed_sources=tuple(dict.fromkeys(allowed_sources)),
+                        )
+                    except VisualizationVerificationError as exc:
+                        verification_failure = str(exc)
+            else:
+                # Backward-compatible path for legacy Outline files that have
+                # no evidence scope. New Week 3 candidates never enter here.
+                has_explicit_table = any(kind == "table" for kind, _ in plan.evidence_refs)
+                if not has_explicit_table:
+                    for block in _candidate_blocks(plan, snapshot):
+                        categories, values, unit = _paragraph_pairs(str(block.get("text_raw") or ""))
+                        if len(categories) >= 2:
+                            identity = str(block.get("id"))
+                            data = {
+                                "chart_type": _chart_type(plan, categories),
+                                "title": plan.purpose or "Data chart",
+                                "unit": unit,
+                                "categories": categories,
+                                "series": [{"name": plan.data_requirement.get("y") or plan.purpose or "Value", "values": values}],
+                                "source_refs": list(plan.source_refs),
+                                "sources": _native_sources(("block", identity)),
+                                "note": f"Extracted from DocumentBundle block {identity}",
+                            }
+                            break
+                if data is None:
+                    for table in _candidate_tables(plan, snapshot):
+                        data = _chart_from_table(plan, table)
+                        if data:
+                            break
         if data is None:
-            issues.append(GenerationIssue(plan.slide_id, plan.visualization_id, plan.visual_type, "no_traceable_source_data"))
+            reason = (
+                f"verification_failed: {verification_failure}"
+                if verification_failure
+                else "no_traceable_source_data"
+            )
+            issues.append(
+                GenerationIssue(
+                    plan.slide_id,
+                    plan.visualization_id,
+                    plan.visual_type,
+                    reason,
+                )
+            )
             continue
         errors = list(validator.iter_errors(data))
         if errors:
             raise ValueError(f"generated Visualization JSON is invalid: {errors[0].message}")
         sources = tuple(dict(item) for item in data.get("sources", []))
-        artifacts.append(VisualizationArtifact(plan.slide_id, plan.visualization_id, sources, data))
+        fact_bindings: tuple[FactBinding, ...] = ()
+        if "chart_type" in data and proposal is not None:
+            fact_bindings = chart_fact_bindings(proposal)
+        elif "columns" in data and selected_table is not None:
+            fact_bindings = table_fact_bindings(
+                selected_table,
+                ledger,
+            )
+        artifacts.append(
+            VisualizationArtifact(
+                plan.slide_id,
+                plan.visualization_id,
+                sources,
+                data,
+                fact_bindings,
+            )
+        )
     return artifacts, issues

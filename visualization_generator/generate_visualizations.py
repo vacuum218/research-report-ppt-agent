@@ -15,6 +15,7 @@ from document_intelligence.models import DocumentIntelligenceSnapshot
 from ppt_engine.layout_resolver import load_layout_map, resolve_outline
 
 from .generator import GenerationIssue, VisualizationArtifact, generate_from_plans
+from .extraction import LLMExtractionAdapter
 from .manifest import canonical_sha256, visual_type
 from .planning import VisualizationPlanningError, plan_visualizations
 
@@ -57,6 +58,7 @@ def generate_visualizations(
     snapshot: DocumentIntelligenceSnapshot | Mapping[str, Any],
     *,
     schema: Mapping[str, Any] | None = None,
+    llm_adapter: LLMExtractionAdapter | None = None,
 ) -> tuple[list[VisualizationArtifact], list[GenerationIssue]]:
     """Plan semantically, then extract only verified DocumentBundle content."""
 
@@ -64,7 +66,12 @@ def generate_visualizations(
         snapshot = build_snapshot(snapshot, Path.cwd())
     schema = schema or _load_json(DEFAULT_SCHEMA, "Visualization schema")
     plans = plan_visualizations(outline, snapshot)
-    return generate_from_plans(plans, snapshot, schema)
+    return generate_from_plans(
+        plans,
+        snapshot,
+        schema,
+        llm_adapter=llm_adapter,
+    )
 
 
 def bindings_from_artifacts(

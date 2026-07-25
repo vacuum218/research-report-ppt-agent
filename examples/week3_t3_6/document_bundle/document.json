@@ -1,0 +1,191 @@
+{
+  "document": {
+    "id": "week3_t3_6_real_fragments",
+    "title": "Week 3 T3.6 real-report evidence fragments",
+    "page_count": 1,
+    "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_file": "data/reports/agent/002544_2025-10-28.md",
+    "source_format": "markdown",
+    "location_model": "line_range"
+  },
+  "pages": [
+    {
+      "id": "p001",
+      "page": 1,
+      "width": null,
+      "height": null,
+      "block_ids": [
+        "p001-b001",
+        "p001-b002",
+        "p001-b003",
+        "p001-b004",
+        "p001-b005"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "id": "p001-b001",
+      "page": 1,
+      "type": "paragraph",
+      "text_raw": "预计2025-2027年归母净利润分别为1.08/1.45/2.01亿元。",
+      "bbox": null,
+      "parser_order": 0,
+      "reading_order": 0,
+      "section_id": "sec-trend",
+      "source_type": "markdown"
+    },
+    {
+      "id": "p001-b002",
+      "page": 1,
+      "type": "paragraph",
+      "text_raw": "可比公司估值用于观察卫星通信产业链不同业务定位的估值差异。",
+      "bbox": null,
+      "parser_order": 1,
+      "reading_order": 1,
+      "section_id": "sec-table",
+      "source_type": "markdown"
+    },
+    {
+      "id": "p001-b003",
+      "page": 1,
+      "type": "paragraph",
+      "text_raw": "2022年三大业务板块收入占比分别反映专网、公网和智能制造的业务构成。",
+      "bbox": null,
+      "parser_order": 2,
+      "reading_order": 2,
+      "section_id": "sec-composition",
+      "source_type": "markdown"
+    },
+    {
+      "id": "p001-b004",
+      "page": 1,
+      "type": "paragraph",
+      "text_raw": "公司2024年毛利率为17.1%。",
+      "bbox": null,
+      "parser_order": 3,
+      "reading_order": 3,
+      "section_id": "sec-reject-single",
+      "source_type": "markdown"
+    },
+    {
+      "id": "p001-b005",
+      "page": 1,
+      "type": "paragraph",
+      "text_raw": "公司2024年实现营业总收入49.73亿元，毛利率为17.1%。",
+      "bbox": null,
+      "parser_order": 4,
+      "reading_order": 4,
+      "section_id": "sec-reject-mixed",
+      "source_type": "markdown"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec-trend",
+      "level": 1,
+      "title_block_id": "p001-b001",
+      "parent_id": null,
+      "child_section_ids": [],
+      "content_block_ids": ["p001-b001"]
+    },
+    {
+      "id": "sec-table",
+      "level": 1,
+      "title_block_id": "p001-b002",
+      "parent_id": null,
+      "child_section_ids": [],
+      "content_block_ids": ["p001-b002"]
+    },
+    {
+      "id": "sec-composition",
+      "level": 1,
+      "title_block_id": "p001-b003",
+      "parent_id": null,
+      "child_section_ids": [],
+      "content_block_ids": ["p001-b003"]
+    },
+    {
+      "id": "sec-reject-single",
+      "level": 1,
+      "title_block_id": "p001-b004",
+      "parent_id": null,
+      "child_section_ids": [],
+      "content_block_ids": ["p001-b004"]
+    },
+    {
+      "id": "sec-reject-mixed",
+      "level": 1,
+      "title_block_id": "p001-b005",
+      "parent_id": null,
+      "child_section_ids": [],
+      "content_block_ids": ["p001-b005"]
+    }
+  ],
+  "tables": [
+    {
+      "id": "table-valuation",
+      "section_id": "sec-table",
+      "caption_block_ids": ["p001-b002"],
+      "footnote_block_ids": [],
+      "fragments": [],
+      "structure_raw": {
+        "format": "grid",
+        "columns": ["公司", "业务定位", "PE(TTM，倍）", "说明"],
+        "rows": [
+          ["国博电子(688375)", "卫星核心元器件", "42.40", "盈利稳定，估值合理"],
+          ["中国卫通(601698)", "卫星运营服务", "193.42", "亚洲第二大固网卫星运营商"],
+          ["北斗星通(002151)", "导航定位产品与服务", "193.90", "北斗产业链首家上市公司"],
+          ["海格通信(002465)", "导航芯片、地面设备", "527.79", "净利润波动导致PE走高"],
+          ["中国卫星(600118)", "宇航制造与卫星应用", "负值", "微利或亏损"],
+          ["航天宏图(688066)", "卫星遥感与全产业链布局", "负值", "亏损状态"],
+          ["上海瀚讯(300762)", "卫星通信设备", "负值", "亏损状态"],
+          ["震有科技(688418)", "卫星通信设备", "负值", "亏损状态"],
+          ["普天科技(002544)", "地面设备与通信服务", "1,588", "当前利润低谷期"]
+        ]
+      },
+      "status": "complete",
+      "issues": [],
+      "continuation_block_ids": [],
+      "source_block_id": null
+    },
+    {
+      "id": "table-composition",
+      "section_id": "sec-composition",
+      "caption_block_ids": ["p001-b003"],
+      "footnote_block_ids": [],
+      "fragments": [],
+      "structure_raw": {
+        "format": "grid",
+        "columns": [
+          "业务板块",
+          "2022年收入（亿元）",
+          "占比",
+          "2023年收入（亿元）",
+          "占比",
+          "2024年收入（亿元）",
+          "占比",
+          "毛利率（2024）"
+        ],
+        "rows": [
+          ["专网通信与智慧应用", "41.59", "58.78%", "27.71", "50.73%", "22.42", "45.08%", "18.60%"],
+          ["公网通信", "15.11", "21.35%", "14.92", "27.31%", "15.81", "31.80%", "10.62%"],
+          ["智能制造", "14.06", "19.87%", "12.00", "21.96%", "11.49", "23.11%", "23.26%"],
+          ["合计", "70.76", "100%", "54.63", "100%", "49.73", "100%", ""]
+        ]
+      },
+      "status": "complete",
+      "issues": [],
+      "continuation_block_ids": [],
+      "source_block_id": null
+    }
+  ],
+  "figures": [],
+  "reading_order": [
+    "p001-b001",
+    "p001-b002",
+    "p001-b003",
+    "p001-b004",
+    "p001-b005"
+  ]
+}

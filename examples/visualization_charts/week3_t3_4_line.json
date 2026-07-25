@@ -1,0 +1,22 @@
+{
+  "chart_type": "line",
+  "title": "分业务收入趋势",
+  "unit": "亿元",
+  "categories": ["2021A", "2022A", "2023A", "2024A", "2025E", "2026E"],
+  "series": [
+    {
+      "name": "业务A",
+      "values": [42, 51, 66, 83, 102, 126],
+      "number_format": "0.0"
+    },
+    {
+      "name": "业务B",
+      "values": [25, 31, null, 48, 61, 75],
+      "number_format": "0.0"
+    }
+  ],
+  "forecast_start_index": 4,
+  "source_refs": ["src_week3_t3_4_acceptance"],
+  "sources": [{"kind": "block", "id": "t3_4_line"}],
+  "note": "T3.4 固定验收样例：验证多系列、空数据点跨接和预测期空心标记。"
+}

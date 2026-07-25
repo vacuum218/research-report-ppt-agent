@@ -67,6 +67,48 @@ def test_outline_only_renderer_creates_reopenable_pptx(tmp_path):
     assert not any(shape.has_table for shape in visual_slide.shapes)
 
 
+def test_front_summary_content_is_rendered_after_cover(tmp_path):
+    outline = load("examples/slide_outline_valid.json")
+    summary_slide = dict(outline["slides"][1])
+    summary_slide.update(
+        {
+            "slide_id": "slide_002",
+            "page_role": "content",
+            "slide_type": "summary",
+            "title": "示例公司动态报告",
+            "key_message": "公司具备平台优势",
+            "bullet_points": [
+                "行业空间持续扩大",
+                "盈利能力有望改善",
+                "主要风险需要关注",
+            ],
+            "layout_hint": "核心观点摘要页",
+            "visual_candidates": [],
+        }
+    )
+    outline["slides"] = [outline["slides"][0], summary_slide]
+    output = tmp_path / "front-summary.pptx"
+
+    render_presentation(
+        outline,
+        load("templates/template_layout_map.json"),
+        PROJECT_ROOT / "templates/financial_report_template_v1.pptx",
+        output,
+    )
+
+    presentation = Presentation(output)
+    rendered_text = "\n".join(
+        shape.text
+        for shape in presentation.slides[1].shapes
+        if shape.has_text_frame
+    )
+    assert "示例公司动态报告" in rendered_text
+    assert "公司具备平台优势" in rendered_text
+    assert "行业空间持续扩大" in rendered_text
+    assert "盈利能力有望改善" in rendered_text
+    assert "主要风险需要关注" in rendered_text
+
+
 def test_outline_only_renderer_replaces_template_table_with_empty_anchor(tmp_path):
     outline = load("examples/generated/002544_2025-10-28_slide_outline.json")
     layout_map = load("templates/template_layout_map.json")

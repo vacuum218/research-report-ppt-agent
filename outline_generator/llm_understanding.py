@@ -10,6 +10,7 @@ from typing import Any, Mapping, Sequence
 
 from document_intelligence.figures import build_figure_inventory
 from document_intelligence.models import DocumentIntelligenceSnapshot, IntelligenceChunk
+from outline_generator.front_matter import front_matter_summary_payload
 
 
 class ContextMemoryError(ValueError):
@@ -194,6 +195,53 @@ def build_slide_planning_messages(
         character if character.isalnum() or character in "_.-" else "_"
         for character in document_id
     ).strip("_.-")
+    front_summary = front_matter_summary_payload(snapshot)
+    figure_inventory = [
+        item
+        for item in build_figure_inventory(snapshot)
+        if item.get("selectable") is True
+    ]
+    selectable_figure_ids = {
+        str(item["figure_id"]) for item in figure_inventory
+    }
+
+    def planning_memory(memory: Mapping[str, Any]) -> dict[str, Any]:
+        value = dict(memory)
+        refs = value.get("evidence_refs")
+        if isinstance(refs, list):
+            value["evidence_refs"] = [
+                ref
+                for ref in refs
+                if not (
+                    isinstance(ref, Mapping)
+                    and ref.get("kind") == "figure"
+                    and str(ref.get("id") or "") not in selectable_figure_ids
+                )
+            ]
+        raw_context = value.get("raw_context")
+        if isinstance(raw_context, Mapping):
+            filtered_context = dict(raw_context)
+            figures = filtered_context.get("figures")
+            if isinstance(figures, list):
+                filtered_context["figures"] = [
+                    figure
+                    for figure in figures
+                    if isinstance(figure, Mapping)
+                    and str(figure.get("id") or "") in selectable_figure_ids
+                ]
+            allowed_refs = filtered_context.get("allowed_evidence_refs")
+            if isinstance(allowed_refs, list):
+                filtered_context["allowed_evidence_refs"] = [
+                    ref
+                    for ref in allowed_refs
+                    if not (
+                        isinstance(ref, Mapping)
+                        and ref.get("kind") == "figure"
+                        and str(ref.get("id") or "") not in selectable_figure_ids
+                    )
+                ]
+            value["raw_context"] = filtered_context
+        return value
     system_content = (
         system_prompt
         + "\n\n# 指令优先级（发生冲突时必须按此顺序执行）\n"
@@ -210,6 +258,8 @@ def build_slide_planning_messages(
         + "所有带 section_ref 的 slide，其 title 必须逐字复制 section_catalog 对应条目的 title，"
         + "包括章节编号和标点；不得使用结论式标题或同义改写。"
         + "正文 key_message 优先保留证据中的第一句主旨句，后续信息才允许提炼为 bullet_points。"
+        + "正文应保持适合演示文稿的低密度；编译器会依据实际布局容量自动分页，"
+        + "不得为了控制篇幅直接丢弃有证据支撑的重要内容。"
         + "每个 content slide 必须提供 evidence_refs，且只能引用 runtime_context_memories 中的原生证据。"
         + "source_refs 仍必须引用 required_source_id。"
         + "\n\n# 原始 PDF Figure 保真迁移\n"
@@ -221,6 +271,16 @@ def build_slide_planning_messages(
         + "figure_page 的 title 优先使用 caption，section_ref 必须等于 figure 的 section_id。"
         + "被选择的 figure_page 必须严格按照 figure_inventory.order 递增排列，"
         + "不得交换顺序、合并多图或在一页加入解释性正文。"
+        + "\n\n# 目录前摘要强制保留\n"
+        + "用户 payload 的 front_matter_summary 由应用程序确定性识别。"
+        + "当 required=true 时，必须在 title 页之后、其他所有非 title 页面之前，"
+        + "生成一张或多张 page_role=content、slide_type=summary 的摘要页。"
+        + "摘要页必须使用指定 section_ref 和 required_title，并由这些摘要页共同引用"
+        + "全部 required_evidence_refs；title、section 或 closing 页面不能替代摘要页。"
+        + "第一条摘要优先作为 key_message，后续摘要按原顺序组织为 bullet_points；"
+        + "正文必须使用 items 中已压缩的 text，不得把原始长段落复制进摘要页，"
+        + "且 key_message 与 bullet_points 的总字符数不得超过 display_constraint.max_total_body_chars；"
+        + "不得把目录前摘要只压缩进封面或移到末尾总结页。"
         + "\n\n# Selected few-shot 内容规划案例\n"
         + json.dumps(few_shot, ensure_ascii=False, separators=(",", ":"))
         + "\n\n# 必须遵循的 JSON Schema\n"
@@ -235,8 +295,9 @@ def build_slide_planning_messages(
         "required_source_id": source_id,
         "document": dict(snapshot.metadata),
         "section_catalog": _section_catalog(snapshot),
-        "figure_inventory": build_figure_inventory(snapshot),
-        "runtime_context_memories": [dict(memory) for memory in runtime_memories],
+        "front_matter_summary": front_summary,
+        "figure_inventory": figure_inventory,
+        "runtime_context_memories": [planning_memory(memory) for memory in runtime_memories],
         "constraints": {
             "preserve_section_hierarchy": True,
             "preserve_section_order": True,
@@ -244,6 +305,7 @@ def build_slide_planning_messages(
             "preserve_source_section_title_verbatim": True,
             "prefer_first_topic_sentence_verbatim": True,
             "content_slides_require_evidence": True,
+            "preserve_front_matter_summary": bool(front_summary["required"]),
             "figure_page_one_figure_only": True,
             "preserve_figure_order": True,
         },

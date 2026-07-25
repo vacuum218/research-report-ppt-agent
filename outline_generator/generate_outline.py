@@ -42,12 +42,17 @@ from tools.validate_outline import Issue, validate_outline as validate_outline_d
 from document_intelligence import generate_chunks, load_document_intelligence
 from document_intelligence.models import DocumentIntelligenceSnapshot, IntelligenceChunk
 from document_intelligence.loader import DocumentIntelligenceError
-from outline_generator.bundle_validation import validate_outline_evidence
+from outline_generator.bundle_validation import (
+    canonicalize_outline_from_bundle,
+    normalize_topic_sentence_key_messages,
+    validate_outline_evidence,
+)
 from outline_generator.few_shot import (
     FewShotCaseError,
     load_case_library,
     select_cases,
 )
+from outline_generator.front_matter import compact_front_matter_summary_slides
 from outline_generator.llm_understanding import (
     ContextMemoryError,
     build_direct_context_memory,
@@ -80,13 +85,50 @@ class DeepSeekAPIError(OutlineGenerationError):
         self.status_code = status_code
 
 
+def fill_blank_key_messages(outline: Mapping[str, Any]) -> int:
+    """Repair blank key messages from existing, schema-bound slide content."""
+
+    changes = 0
+    slides = outline.get("slides", [])
+    if not isinstance(slides, list):
+        return changes
+    for slide in slides:
+        if not isinstance(slide, dict) or str(
+            slide.get("key_message") or ""
+        ).strip():
+            continue
+        bullets = slide.get("bullet_points", [])
+        fallback = next(
+            (
+                str(value).strip()
+                for value in bullets
+                if isinstance(value, str) and value.strip()
+            ),
+            "",
+        )
+        if not fallback:
+            fallback = str(slide.get("title") or "").strip()
+        if fallback:
+            slide["key_message"] = fallback
+            changes += 1
+    return changes
+
+
 class OutlineResponseError(OutlineGenerationError):
     """Raised when the model response cannot be used as an outline."""
 
-    def __init__(self, message: str, *, retryable: bool, content: str = ""):
+    def __init__(
+        self,
+        message: str,
+        *,
+        retryable: bool,
+        content: str = "",
+        truncated: bool = False,
+    ):
         super().__init__(message)
         self.retryable = retryable
         self.content = content
+        self.truncated = truncated
 
 
 class OutlineValidationError(OutlineGenerationError):
@@ -288,22 +330,6 @@ def build_request(
     raise OutlineGenerationError(f"Unsupported API provider: {api_provider}")
 
 
-def _redact_request_payload(value: Any) -> Any:
-    """Return a printable request copy with credential-like fields redacted."""
-    if isinstance(value, Mapping):
-        return {
-            key: (
-                "***REDACTED***"
-                if str(key).lower() in {"api_key", "authorization", "token"}
-                else _redact_request_payload(item)
-            )
-            for key, item in value.items()
-        }
-    if isinstance(value, list):
-        return [_redact_request_payload(item) for item in value]
-    return value
-
-
 def resolve_api_provider(requested: str, base_url: str) -> str:
     """Resolve provider-specific request parameters without changing prompts."""
     if requested != "auto":
@@ -317,35 +343,11 @@ def call_deepseek(request_body: Mapping[str, Any], *, api_key: str, base_url: st
     endpoint = base_url.rstrip("/") + "/chat/completions"
     serialized_payload = json.dumps(request_body, ensure_ascii=False)
     body = serialized_payload.encode("utf-8")
-    print(f"Request payload JSON characters: {len(serialized_payload)}")
     messages = request_body.get("messages", [])
-    if isinstance(messages, list):
-        for index, message in enumerate(messages):
-            if not isinstance(message, Mapping):
-                continue
-            role = message.get("role", "")
-            content = message.get("content", "")
-            content_length = len(content) if isinstance(content, str) else 0
-            print(
-                f"Request message[{index}]: "
-                f"role={role}, content_characters={content_length}"
-            )
-    print(f"Request body bytes: {len(body)}")
+    message_count = len(messages) if isinstance(messages, list) else 0
     print(
-        "OpenAI-compatible request:\n"
-        + json.dumps(
-            {
-                "url": endpoint,
-                "headers": {
-                    "Authorization": "Bearer ***REDACTED***",
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                },
-                "payload": _redact_request_payload(request_body),
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
+        "Calling model API: "
+        f"url={endpoint}, messages={message_count}, payload_bytes={len(body)}"
     )
     http_request = urllib.request.Request(
         endpoint,
@@ -402,9 +404,10 @@ def extract_response_content(api_response: Mapping[str, Any]) -> str:
         ) from exc
     if finish_reason == "length":
         raise OutlineResponseError(
-            "DeepSeek output was truncated; increase --max-tokens",
-            retryable=False,
+            "DeepSeek output was truncated at --max-tokens",
+            retryable=True,
             content=content if isinstance(content, str) else "",
+            truncated=True,
         )
     if not isinstance(content, str) or not content.strip():
         raise OutlineResponseError(
@@ -462,6 +465,26 @@ def build_correction_messages(
     ]
 
 
+def build_truncation_retry_messages(
+    original_messages: Sequence[Mapping[str, str]],
+) -> List[Dict[str, str]]:
+    """Retry from the same complete context without replaying partial output."""
+
+    return [
+        *[dict(message) for message in original_messages],
+        {
+            "role": "user",
+            "content": (
+                "The previous response reached the output-token limit. "
+                "Using the same complete source context above, return one complete, "
+                "valid, compact JSON object only. Preserve every required slide field "
+                "and evidence reference, but avoid repetition and unnecessary wording. "
+                "Do not summarize, omit source coverage, or explain the response."
+            ),
+        },
+    ]
+
+
 def generate_with_retries(
     messages: List[Dict[str, str]],
     schema: Mapping[str, Any],
@@ -476,10 +499,12 @@ def generate_with_retries(
     max_attempts: int,
     api_provider: str = "deepseek",
     validate_output: bool = True,
+    postprocess_outline: Callable[[Dict[str, Any]], None] | None = None,
     additional_validator: Callable[[Mapping[str, Any]], Sequence[Issue]] | None = None,
 ) -> Tuple[Dict[str, Any], List[Issue], int]:
     """Call DeepSeek and retry only failures that can be corrected safely."""
     attempt_messages = list(messages)
+    attempt_thinking = thinking
     last_error: Optional[OutlineGenerationError] = None
 
     for attempt in range(1, max_attempts + 1):
@@ -487,7 +512,7 @@ def generate_with_retries(
             attempt_messages,
             model=model,
             max_tokens=max_tokens,
-            thinking=thinking,
+            thinking=attempt_thinking,
             reasoning_effort=reasoning_effort,
             api_provider=api_provider,
         )
@@ -501,6 +526,8 @@ def generate_with_retries(
             )
             content = extract_response_content(response)
             outline = parse_outline_content(content)
+            if postprocess_outline is not None:
+                postprocess_outline(outline)
             issues = validate_outline_data(outline, schema) if validate_output else []
             if validate_output and additional_validator is not None:
                 issues.extend(additional_validator(outline))
@@ -517,11 +544,15 @@ def generate_with_retries(
             last_error = exc
             if not exc.retryable or attempt >= max_attempts:
                 raise
-            attempt_messages = build_correction_messages(
-                messages,
-                previous_content=exc.content,
-                errors=[str(exc)],
-            )
+            if exc.truncated:
+                attempt_messages = build_truncation_retry_messages(messages)
+                attempt_thinking = "disabled"
+            else:
+                attempt_messages = build_correction_messages(
+                    messages,
+                    previous_content=exc.content,
+                    errors=[str(exc)],
+                )
         except OutlineValidationError as exc:
             last_error = exc
             if attempt >= max_attempts:
@@ -747,6 +778,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             if isinstance(ref, Mapping)
         }
         messages = build_messages(snapshot, runtime_memories, schema, few_shot, system_prompt)
+
+        def postprocess_generated_outline(value: Dict[str, Any]) -> None:
+            compact_front_matter_summary_slides(value, snapshot)
+            normalize_topic_sentence_key_messages(value, snapshot)
+            fill_blank_key_messages(value)
+            canonicalize_outline_from_bundle(
+                value,
+                snapshot,
+                allowed_runtime_evidence,
+            )
+
         outline, issues, attempts_used = generate_with_retries(
             messages,
             schema,
@@ -760,6 +802,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             api_provider=api_provider,
             max_attempts=args.max_attempts,
             validate_output=not args.skip_validation,
+            postprocess_outline=postprocess_generated_outline,
             additional_validator=lambda value: validate_outline_evidence(
                 value,
                 snapshot,

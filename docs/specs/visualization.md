@@ -6,8 +6,11 @@ Visualization Pipeline 分为两个边界明确的阶段：
 
 ```text
 Slide Outline + Document Intelligence
-  → Visualization Planning（语义判断，无 values/路径）
-  → Deterministic Generator（只读取 DocumentBundle 事实）
+  → Candidate Locator（slide-scoped，无 values）
+  → Visualization Planning（合并 Outline 建议）
+  → Numeric Fact Ledger（Decimal、单位、期间、span/cell）
+  → Structure Mapper（只引用 fact_id）
+  → Deterministic Verifier / Assembler
   → Visualization JSON
   → Renderer
 ```
@@ -32,6 +35,16 @@ Slide Outline + Document Intelligence
 values 必须由确定性代码从来源 block 或 complete table 提取。时间序列强制使用 line；明显的
 分类比较会覆盖不合理的 LLM chart 建议。缺失值使用 `null`，不得用 0 伪装。
 
+Renderer 对 `line`、`column`、`bar`、`pie` 使用 PowerPoint 原生 Chart。默认样式包含固定
+系列色、底部图例、浅色网格线和模板字体；bar 默认显示数值标签，pie 显示百分比标签。line 的
+`forecast_start_index` 及之后数据点使用空心标记；line 遇到 `null` 时不生成该点或数值，但会
+跨接相邻已知数据点，避免 PowerPoint 默认空距造成断线。pie 只允许一个系列，且不允许缺失值、
+负值或非正合计。当前原生 Renderer 不支持 secondary axis；遇到 secondary series 会明确失败。
+
+有 evidence 的 Week 3 路径不允许 Mapper 直接携带数值。Mapper 只能返回 fact_id；Verifier
+从 Numeric Fact Ledger 取回 Decimal 规范值，检查候选作用域、单位、序列长度、图表类型和
+`sources` 后组装本 Schema。未知 fact、跨 evidence 引用或单位冲突会拒绝该 Visualization。
+
 ## Table
 
 complete DocumentBundle table 可以转换为结构化表格：
@@ -47,6 +60,18 @@ complete DocumentBundle table 可以转换为结构化表格：
 ```
 
 `image_only` table 不允许补齐结构，只能使用其 DocumentBundle crop 生成 image。
+complete table 的每个数值单元格必须能通过 table ID、零基 row/column 回查到 Numeric Fact；
+缺少任一 fact 时不生成部分可信的结构化表格。
+
+Renderer 使用 PowerPoint 原生 Table，并采用确定性样式：深色表头、白色粗体表头文字、浅色
+隔行底纹、细边框、水平及垂直居中。列宽根据表头和单元格
+显示宽度分配，首个文本列获得额外权重，所有列宽之和严格等于 Layout slot 宽度。`null` 显示为
+空单元格，不替换为 0。Renderer 全局上限为 18 个数据行 × 8 列；Compiler 还会应用各 Layout
+slot 更严格的 `max_rows/max_columns`。任一上限超出都会明确失败，不静默截断或丢弃数据。
+
+端到端验收使用独立 Numeric Audit sidecar 保存 `fact_id` 到最终 Visualization JSON 路径的
+绑定，并以 Decimal 重新核对每个输出值。该绑定只存在于生成和审计阶段，不进入正式
+Visualization Schema；缺少绑定、未知 fact、路径不存在或数值不一致均视为失败。
 
 ## Image
 
