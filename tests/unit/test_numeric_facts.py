@@ -95,6 +95,12 @@ def test_block_facts_preserve_decimal_unit_period_and_exact_span():
     assert [fact.period for fact in facts] == ["2021", "2022", "2023"]
     assert all(text[fact.start : fact.end] == fact.raw_value for fact in facts)
     assert all(fact.fact_id.startswith("fact_") for fact in facts)
+    assert {fact.metric_key for fact in facts} == {"revenue"}
+    assert {fact.measure_kind for fact in facts} == {"amount"}
+    assert {fact.unit_family for fact in facts} == {"currency"}
+    assert {fact.unit_scale for fact in facts} == {"100000000"}
+    assert {fact.currency for fact in facts} == {"CNY"}
+    assert {fact.scenario for fact in facts} == {"actual"}
 
 
 def test_block_facts_expand_year_range_and_propagate_shared_trailing_unit():
@@ -109,6 +115,9 @@ def test_block_facts_expand_year_range_and_propagate_shared_trailing_unit():
     ]
     assert [fact.period for fact in facts] == ["2025", "2026", "2027"]
     assert [fact.unit for fact in facts] == ["亿元", "亿元", "亿元"]
+    assert {fact.metric_key for fact in facts} == {"parent_net_profit"}
+    assert {fact.measure_kind for fact in facts} == {"amount"}
+    assert {fact.scenario for fact in facts} == {"estimate"}
 
 
 def test_table_facts_use_zero_based_cell_coordinates_and_header_units():
@@ -122,6 +131,10 @@ def test_table_facts_use_zero_based_cell_coordinates_and_header_units():
     assert first.period == "2022A"
     assert (first.row_index, first.column_index) == (0, 1)
     assert first.start is None and first.end is None
+    assert first.metric_key == "revenue"
+    assert first.measure_kind == "amount"
+    assert first.unit_family == "currency"
+    assert first.scenario == "actual"
 
 
 def test_incomplete_table_does_not_register_numeric_facts():
@@ -139,4 +152,3 @@ def test_fact_ledger_is_deterministic_and_indexes_sources_and_cells(tmp_path):
     table_fact = first.table_cell("table-001", 1, 2)
     assert table_fact is not None
     assert first.get(table_fact.fact_id) is table_fact
-

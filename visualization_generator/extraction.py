@@ -157,7 +157,7 @@ def proposal_from_table(
                 and (fact := coordinates.get((row_index, column_index))) is not None
             ]
             if (
-                2 <= len(column_facts) <= 6
+                3 <= len(column_facts) <= 6
                 and all(fact.unit == "%" and fact.normalized_value >= 0 for _, fact in column_facts)
                 and 95 <= sum(fact.normalized_value for _, fact in column_facts) <= 105
             ):
@@ -181,6 +181,10 @@ def proposal_from_table(
             else columns[index]
             for index in period_columns
         ]
+        compatible_series: dict[
+            tuple[str, str, str, str, str, str],
+            list[tuple[ProposedSeries, list[NumericFact]]],
+        ] = {}
         for row_index, row in enumerate(rows):
             row_facts = [
                 coordinates.get((row_index, column_index))
@@ -188,15 +192,47 @@ def proposal_from_table(
             ]
             if all(row_facts):
                 concrete = [fact for fact in row_facts if fact is not None]
-                selected_facts.extend(concrete)
-                series.append(
-                    ProposedSeries(
-                        name=str(row[0] if row else "Series"),
-                        fact_ids=tuple(fact.fact_id for fact in concrete),
-                    )
+                signature = (
+                    concrete[0].metric_key,
+                    concrete[0].measure_kind,
+                    concrete[0].unit_family,
+                    concrete[0].unit_scale,
+                    concrete[0].currency,
+                    concrete[0].scope,
                 )
-            if len(series) == 3:
-                break
+                if all(
+                    (
+                        fact.metric_key,
+                        fact.measure_kind,
+                        fact.unit_family,
+                        fact.unit_scale,
+                        fact.currency,
+                        fact.scope,
+                    )
+                    == signature
+                    for fact in concrete
+                ):
+                    compatible_series.setdefault(signature, []).append(
+                        (
+                            ProposedSeries(
+                                name=str(row[0] if row else "Series"),
+                                fact_ids=tuple(fact.fact_id for fact in concrete),
+                            ),
+                            concrete,
+                        )
+                    )
+        usable_groups = {
+            key: values
+            for key, values in compatible_series.items()
+            if key[1] != "unknown"
+        }
+        if usable_groups:
+            chosen = max(
+                usable_groups.values(),
+                key=lambda values: (len(values), len(values[0][1])),
+            )[:3]
+            series = [item for item, _ in chosen]
+            selected_facts = [fact for _, group in chosen for fact in group]
         intent = "trend"
     else:
         usable_rows = [
@@ -223,6 +259,27 @@ def proposal_from_table(
             if not all(column_facts):
                 continue
             concrete = [fact for fact in column_facts if fact is not None]
+            if concrete[0].measure_kind == "unknown":
+                continue
+            signature = (
+                concrete[0].metric_key,
+                concrete[0].measure_kind,
+                concrete[0].unit_family,
+                concrete[0].unit_scale,
+                concrete[0].currency,
+            )
+            if any(
+                (
+                    fact.metric_key,
+                    fact.measure_kind,
+                    fact.unit_family,
+                    fact.unit_scale,
+                    fact.currency,
+                )
+                != signature
+                for fact in concrete
+            ):
+                continue
             selected_facts.extend(concrete)
             series.append(
                 ProposedSeries(
@@ -230,6 +287,8 @@ def proposal_from_table(
                     fact_ids=tuple(fact.fact_id for fact in concrete),
                 )
             )
+            # A comparison chart must not silently mix different metrics.
+            break
         intent = intent or "comparison"
 
     if not categories or not series or not selected_facts:

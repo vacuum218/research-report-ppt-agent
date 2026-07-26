@@ -8,7 +8,8 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
-from .contracts import ExtractionProposal, NumericFact
+from .contracts import ExtractionProposal, MetricGroup, NumericFact
+from .metric_grouping import MetricGroupError, build_metric_group
 from .numeric_facts import (
     NumericFactLedger,
     parse_table_number,
@@ -74,6 +75,7 @@ def assemble_verified_chart(
     schema: Mapping[str, Any],
     *,
     allowed_sources: Sequence[tuple[str, str]] | None = None,
+    metric_group: MetricGroup | None = None,
 ) -> dict[str, Any]:
     """Resolve fact IDs and assemble one schema-valid chart Visualization."""
 
@@ -103,6 +105,17 @@ def assemble_verified_chart(
     if proposal.unit != fact_unit:
         raise VisualizationVerificationError(
             f"proposal unit {proposal.unit!r} does not match fact unit {fact_unit!r}"
+        )
+    try:
+        metric_group = metric_group or build_metric_group(plan, proposal, ledger)
+    except MetricGroupError as exc:
+        raise VisualizationVerificationError(str(exc)) from exc
+    proposal_fact_ids = tuple(
+        fact_id for series in proposal.series for fact_id in series.fact_ids
+    )
+    if proposal_fact_ids != metric_group.fact_ids:
+        raise VisualizationVerificationError(
+            "proposal facts do not exactly match the verified MetricGroup"
         )
 
     values_by_series = [
@@ -150,6 +163,8 @@ def assemble_verified_chart(
         ],
         "note": "Assembled from verified Numeric Fact Ledger references",
     }
+    if metric_group.forecast_start_index is not None:
+        data["forecast_start_index"] = metric_group.forecast_start_index
     if not data["sources"]:
         raise VisualizationVerificationError("sources coverage must be 100%")
     _validate_schema(data, schema)

@@ -181,7 +181,8 @@ def test_rule_mapper_builds_table_series_from_fact_coordinates(tmp_path):
 
     assert proposal is not None
     assert proposal.category_labels == ("2021A", "2022A", "2023A")
-    assert [series.name for series in proposal.series] == ["营业收入", "净利润"]
+    # Phase 1 never combines different metrics into one chart.
+    assert [series.name for series in proposal.series] == ["营业收入"]
     assert all(len(series.fact_ids) == 3 for series in proposal.series)
 
 
@@ -202,7 +203,7 @@ def test_rule_mapper_builds_fact_only_composition_proposal(tmp_path):
     assert proposal.unit == "%"
 
 
-def test_table_composition_uses_percentage_column_and_excludes_total_row(tmp_path):
+def test_table_composition_rejects_only_two_categories(tmp_path):
     snapshot = _snapshot(tmp_path)
     ledger = build_numeric_fact_ledger(snapshot)
     plan = _plan("table", "table-002", intent="composition")
@@ -213,11 +214,7 @@ def test_table_composition_uses_percentage_column_and_excludes_total_row(tmp_pat
         ledger,
     )
 
-    assert proposal is not None
-    assert proposal.chart_type == "pie"
-    assert proposal.category_labels == ("专网", "公网")
-    assert proposal.unit == "%"
-    assert len(proposal.series[0].fact_ids) == 2
+    assert proposal is None
 
 
 def test_short_table_trend_uses_column_instead_of_line(tmp_path):

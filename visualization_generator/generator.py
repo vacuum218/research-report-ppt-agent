@@ -20,13 +20,14 @@ from .audit import (
     chart_fact_bindings,
     table_fact_bindings,
 )
-from .contracts import ExtractionProposal
+from .contracts import ExtractionProposal, MetricGroup
 from .extraction import (
     LLMExtractionAdapter,
     map_extraction_proposal,
     proposal_from_table,
 )
 from .numeric_facts import build_numeric_fact_ledger
+from .metric_grouping import MetricGroupError, build_metric_group
 from .planning import VisualizationPlan
 from .verification import (
     VisualizationVerificationError,
@@ -65,6 +66,7 @@ class VisualizationArtifact:
     sources: tuple[dict[str, str], ...]
     data: dict[str, Any]
     fact_bindings: tuple[FactBinding, ...] = ()
+    metric_group: MetricGroup | None = None
 
     @property
     def candidate_id(self) -> str:  # backward-compatible public attribute
@@ -311,6 +313,7 @@ def generate_from_plans(
         data: dict[str, Any] | None = None
         verification_failure: str | None = None
         proposal: ExtractionProposal | None = None
+        metric_group: MetricGroup | None = None
         selected_table: Mapping[str, Any] | None = None
         if plan.visual_type == "image":
             figure_ref = next((ref for ref in plan.evidence_refs if ref[0] == "figure"), None)
@@ -358,40 +361,22 @@ def generate_from_plans(
                             break
                 if proposal is not None:
                     try:
+                        metric_group = build_metric_group(plan, proposal, ledger)
                         data = assemble_verified_chart(
                             plan,
                             proposal,
                             ledger,
                             schema,
                             allowed_sources=tuple(dict.fromkeys(allowed_sources)),
+                            metric_group=metric_group,
                         )
-                    except VisualizationVerificationError as exc:
+                    except (MetricGroupError, VisualizationVerificationError) as exc:
                         verification_failure = str(exc)
             else:
-                # Backward-compatible path for legacy Outline files that have
-                # no evidence scope. New Week 3 candidates never enter here.
-                has_explicit_table = any(kind == "table" for kind, _ in plan.evidence_refs)
-                if not has_explicit_table:
-                    for block in _candidate_blocks(plan, snapshot):
-                        categories, values, unit = _paragraph_pairs(str(block.get("text_raw") or ""))
-                        if len(categories) >= 2:
-                            identity = str(block.get("id"))
-                            data = {
-                                "chart_type": _chart_type(plan, categories),
-                                "title": plan.purpose or "Data chart",
-                                "unit": unit,
-                                "categories": categories,
-                                "series": [{"name": plan.data_requirement.get("y") or plan.purpose or "Value", "values": values}],
-                                "source_refs": list(plan.source_refs),
-                                "sources": _native_sources(("block", identity)),
-                                "note": f"Extracted from DocumentBundle block {identity}",
-                            }
-                            break
-                if data is None:
-                    for table in _candidate_tables(plan, snapshot):
-                        data = _chart_from_table(plan, table)
-                        if data:
-                            break
+                verification_failure = (
+                    "reject.missing_evidence_scope: published charts require "
+                    "native evidence, NumericFact, and MetricGroup verification"
+                )
         if data is None:
             reason = (
                 f"verification_failed: {verification_failure}"
@@ -426,6 +411,7 @@ def generate_from_plans(
                 sources,
                 data,
                 fact_bindings,
+                metric_group,
             )
         )
     return artifacts, issues

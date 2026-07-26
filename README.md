@@ -75,6 +75,7 @@ slide_outline.json
 candidate_locator_report.json
 layout_preflight.json
 numeric_fact_ledger.json
+metric_groups.json
 numeric_audit.json
 visualization_warnings.json
 visualizations/

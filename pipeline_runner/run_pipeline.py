@@ -26,6 +26,7 @@ from ppt_engine.preflight import preflight_layouts
 from ppt_engine.renderer import render_compiled_plan
 from visualization_generator.audit import (
     audit_visualization_artifacts,
+    serialize_metric_group_catalog,
     serialize_numeric_fact_ledger,
 )
 from visualization_generator.generate_visualizations import generate_visualizations
@@ -50,6 +51,8 @@ SCHEMA_PATHS = {
     "template_profile": SCHEMA_ROOT / "template_profile.schema.json",
     "compiled_layout_plan": SCHEMA_ROOT / "compiled_layout_plan.schema.json",
     "run_manifest": SCHEMA_ROOT / "run_manifest.schema.json",
+    "numeric_fact_ledger": SCHEMA_ROOT / "numeric_fact_ledger.schema.json",
+    "metric_group": SCHEMA_ROOT / "metric_group.schema.json",
 }
 
 
@@ -306,11 +309,24 @@ def _partition_generation_issues(
         for candidate in slide.get("visual_candidates", [])
         if isinstance(candidate, Mapping) and candidate.get("candidate_id")
     }
+    semantic_skip_codes = (
+        "reject.mixed_metric",
+        "reject.mixed_measure_kind",
+        "reject.mixed_unit_family",
+        "reject.mixed_unit_scale",
+        "reject.mixed_currency",
+        "reject.mixed_entity",
+        "reject.mixed_scope",
+        "reject.mixed_scenario",
+        "reject.invalid_forecast_boundary",
+        "reject.incomplete_metric_typing",
+    )
     warnings = [
         issue
         for issue in issues
         if issue.visualization_id not in explicit_ids
         or issue.reason == "no_traceable_source_data"
+        or any(code in issue.reason for code in semantic_skip_codes)
     ]
     warning_ids = {id(issue) for issue in warnings}
     blocking = [issue for issue in issues if id(issue) not in warning_ids]
@@ -380,6 +396,7 @@ def _run_manifest(
         staging_directory / "document_bundle/document.json",
         staging_directory / "slide_outline.json",
         staging_directory / "numeric_fact_ledger.json",
+        staging_directory / "metric_groups.json",
         staging_directory / "numeric_audit.json",
         staging_directory / "visualization_warnings.json",
         staging_directory / "template_profile.json",
@@ -586,9 +603,25 @@ def run_pipeline(
             numeric_audit = audit_visualization_artifacts(artifacts, ledger)
         except Exception as exc:
             raise PipelineRunError("numeric_audit", str(exc)) from exc
+        numeric_ledger_data = serialize_numeric_fact_ledger(ledger)
+        metric_group_data = serialize_metric_group_catalog(artifacts)
+        _validate_schema(
+            numeric_ledger_data,
+            SCHEMA_PATHS["numeric_fact_ledger"],
+            stage="numeric_fact_ledger",
+        )
+        _validate_schema(
+            metric_group_data,
+            SCHEMA_PATHS["metric_group"],
+            stage="metric_group",
+        )
         _write_json(
             staging_directory / "numeric_fact_ledger.json",
-            serialize_numeric_fact_ledger(ledger),
+            numeric_ledger_data,
+        )
+        _write_json(
+            staging_directory / "metric_groups.json",
+            metric_group_data,
         )
         _write_json(staging_directory / "numeric_audit.json", numeric_audit)
         last_successful_stage = "numeric_audit"

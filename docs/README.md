@@ -45,3 +45,7 @@ JSON Schema 文件本身位于仓库根目录 `schemas/`，并且优先级高于
 
 当前代码结构、命令和路径以根目录 README、`requirements.txt`、`main.py`
 和本导航中的长期规范为准。
+
+## Phase 1
+
+- [Typed metric migration and offline acceptance](delivery/phase1_typed_metric_migration.md)

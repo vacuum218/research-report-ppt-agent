@@ -11,6 +11,7 @@ from decimal import Decimal, InvalidOperation
 from typing import Any, Iterable, Mapping, Sequence
 
 from .contracts import ExtractionProposal, NumericFact
+from .metric_grouping import serialize_metric_group
 from .numeric_facts import NumericFactLedger, parse_table_number, table_grid
 
 
@@ -86,6 +87,19 @@ def serialize_numeric_fact(fact: NumericFact) -> dict[str, Any]:
         "unit": fact.unit,
         "label": fact.label,
         "period": fact.period,
+        "entity": {
+            "id": fact.entity_id,
+            "name": fact.entity_name,
+            "type": fact.entity_type,
+        },
+        "metric_key": fact.metric_key,
+        "metric_label": fact.metric_label,
+        "measure_kind": fact.measure_kind,
+        "unit_family": fact.unit_family,
+        "unit_scale": fact.unit_scale,
+        "currency": fact.currency,
+        "scope": {"kind": fact.scope, "label": fact.scope_label},
+        "scenario": fact.scenario,
         "source_locator": locator,
     }
 
@@ -97,6 +111,19 @@ def serialize_numeric_fact_ledger(
         "schema_version": "1.0.0",
         "fact_count": len(ledger.facts),
         "facts": [serialize_numeric_fact(fact) for fact in ledger.facts],
+    }
+
+
+def serialize_metric_group_catalog(artifacts: Iterable[Any]) -> dict[str, Any]:
+    groups = [
+        serialize_metric_group(artifact.metric_group)
+        for artifact in artifacts
+        if getattr(artifact, "metric_group", None) is not None
+    ]
+    return {
+        "schema_version": "1.0.0",
+        "group_count": len(groups),
+        "groups": groups,
     }
 
 
@@ -191,6 +218,11 @@ def audit_visualization_artifacts(
                 "visualization_id": artifact.visualization_id,
                 "audited_value_count": len(entries),
                 "status": "passed",
+                "metric_group": (
+                    serialize_metric_group(artifact.metric_group)
+                    if getattr(artifact, "metric_group", None) is not None
+                    else None
+                ),
                 "entries": entries,
             }
         )

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "phase1_typed_metrics",
+  "executed_at": "2026-07-26",
+  "python_version": "3.12.3",
+  "llm_api_called": false,
+  "outline_source_pattern": "output/phase0_baseline/<report_id>/slide_outline.json",
+  "output_root": "output/phase1_offline_acceptance",
+  "status": "passed",
+  "reports": [
+    {
+      "report_id": "000333",
+      "outline_sha256": "0eb1b26647c81137058b2ecbb9c09fdda316e20ffd0a82d68f6370efb9e0b557",
+      "outline_reused_byte_for_byte": true,
+      "numeric_fact_count": 852,
+      "metric_group_count": 1,
+      "audited_visualization_count": 2,
+      "warning_count": 1,
+      "semantic_skips": [
+        "visual_002: reject.incomplete_metric_typing"
+      ],
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "001309",
+      "outline_sha256": "d8c9f5c5cfc7655b0d68b26ee06ad5a6e7ba81022055d9a270f76c21136254a5",
+      "outline_reused_byte_for_byte": true,
+      "numeric_fact_count": 905,
+      "metric_group_count": 0,
+      "audited_visualization_count": 4,
+      "warning_count": 0,
+      "semantic_skips": [],
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "002444",
+      "outline_sha256": "d5324aee1c020e6fda5e67c924670f91d4b51b4e8383b2d03905508b489ccf16",
+      "outline_reused_byte_for_byte": true,
+      "numeric_fact_count": 949,
+      "metric_group_count": 1,
+      "audited_visualization_count": 5,
+      "warning_count": 24,
+      "semantic_skips": [],
+      "warning_summary": {
+        "no_traceable_source_data": 24
+      },
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "002544",
+      "outline_sha256": "f1bebff79a3260c60b29e4b2c2bb71bff902784d7921be01160d1154167277e0",
+      "outline_reused_byte_for_byte": true,
+      "numeric_fact_count": 629,
+      "metric_group_count": 0,
+      "audited_visualization_count": 8,
+      "warning_count": 0,
+      "semantic_skips": [],
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "002821",
+      "outline_sha256": "70e3621be123d1dcbc1ac2be5744b3558f57b92a86bee75bfd9a1ddeff9b699c",
+      "outline_reused_byte_for_byte": true,
+      "numeric_fact_count": 1318,
+      "metric_group_count": 0,
+      "audited_visualization_count": 5,
+      "warning_count": 0,
+      "semantic_skips": [],
+      "pipeline_status": "completed"
+    }
+  ]
+}

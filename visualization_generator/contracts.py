@@ -39,9 +39,54 @@ class CandidateRejectionCode(StrEnum):
     OUT_OF_SCOPE = "reject.out_of_scope"
 
 
+class MetricGroupRejectionCode(StrEnum):
+    """Stable Phase 1 reasons for rejecting a proposed metric group."""
+
+    MIXED_METRIC = "reject.mixed_metric"
+    MIXED_MEASURE_KIND = "reject.mixed_measure_kind"
+    MIXED_UNIT_FAMILY = "reject.mixed_unit_family"
+    MIXED_UNIT_SCALE = "reject.mixed_unit_scale"
+    MIXED_CURRENCY = "reject.mixed_currency"
+    MIXED_ENTITY = "reject.mixed_entity"
+    MIXED_SCOPE = "reject.mixed_scope"
+    MIXED_SCENARIO = "reject.mixed_scenario"
+    INVALID_FORECAST_BOUNDARY = "reject.invalid_forecast_boundary"
+    INCOMPLETE_METRIC_TYPING = "reject.incomplete_metric_typing"
+
+
 _TRIGGER_CODES = frozenset(code.value for code in CandidateTriggerCode)
 _CHART_INTENTS = frozenset({"trend", "comparison", "composition"})
 _MVP_CHART_TYPES = frozenset({"line", "column", "bar", "pie"})
+
+
+class MeasureKind(StrEnum):
+    AMOUNT = "amount"
+    RATIO = "ratio"
+    GROWTH_RATE = "growth_rate"
+    SHARE = "share"
+    PER_SHARE = "per_share"
+    MULTIPLE = "multiple"
+    COUNT = "count"
+    UNKNOWN = "unknown"
+
+
+class UnitFamily(StrEnum):
+    CURRENCY = "currency"
+    PERCENTAGE = "percentage"
+    MULTIPLE = "multiple"
+    COUNT = "count"
+    CAPACITY = "capacity"
+    VOLUME = "volume"
+    DIMENSIONLESS = "dimensionless"
+    UNKNOWN = "unknown"
+
+
+class ScenarioKind(StrEnum):
+    ACTUAL = "actual"
+    ESTIMATE = "estimate"
+    GUIDANCE = "guidance"
+    TARGET = "target"
+    UNKNOWN = "unknown"
 
 
 @dataclass(frozen=True, slots=True)
@@ -98,6 +143,18 @@ class NumericFact:
     end: int | None
     row_index: int | None = None
     column_index: int | None = None
+    entity_id: str = "document"
+    entity_name: str = ""
+    entity_type: str = "company"
+    metric_key: str = "unknown"
+    metric_label: str = ""
+    measure_kind: str = MeasureKind.UNKNOWN.value
+    unit_family: str = UnitFamily.UNKNOWN.value
+    unit_scale: str = "1"
+    currency: str = ""
+    scope: str = "consolidated"
+    scope_label: str = ""
+    scenario: str = ScenarioKind.UNKNOWN.value
 
     def __post_init__(self) -> None:
         if not self.fact_id.startswith("fact_"):
@@ -108,6 +165,20 @@ class NumericFact:
             raise ValueError("source_id and raw_value must not be empty")
         if not self.normalized_value.is_finite():
             raise ValueError("normalized_value must be finite")
+        if self.measure_kind not in {item.value for item in MeasureKind}:
+            raise ValueError("unsupported measure_kind")
+        if self.unit_family not in {item.value for item in UnitFamily}:
+            raise ValueError("unsupported unit_family")
+        if self.scenario not in {item.value for item in ScenarioKind}:
+            raise ValueError("unsupported scenario")
+        if not self.entity_id or not self.entity_type or not self.metric_key or not self.scope:
+            raise ValueError("entity, metric_key, and scope identifiers must not be empty")
+        try:
+            scale = Decimal(self.unit_scale)
+        except Exception as exc:
+            raise ValueError("unit_scale must be a positive finite decimal") from exc
+        if not scale.is_finite() or scale <= 0:
+            raise ValueError("unit_scale must be a positive finite decimal")
 
         has_span = self.start is not None or self.end is not None
         has_cell = self.row_index is not None or self.column_index is not None
@@ -128,6 +199,43 @@ class NumericFact:
                 raise ValueError("table facts require non-negative row/column coordinates")
             if has_span:
                 raise ValueError("table facts cannot use block spans")
+
+
+@dataclass(frozen=True, slots=True)
+class MetricGroup:
+    """A semantically compatible set of facts approved for one chart."""
+
+    group_id: str
+    candidate_id: str
+    intent: str
+    metric_key: str
+    measure_kind: str
+    unit_family: str
+    unit: str
+    unit_scale: str
+    currency: str
+    scope: str
+    fact_ids: tuple[str, ...]
+    scenarios: tuple[str, ...]
+    forecast_start_index: int | None = None
+
+    def __post_init__(self) -> None:
+        if not self.group_id.startswith("metric_group_"):
+            raise ValueError("group_id must start with metric_group_")
+        if self.intent not in _CHART_INTENTS:
+            raise ValueError("unsupported MetricGroup intent")
+        if not self.fact_ids or len(self.fact_ids) != len(set(self.fact_ids)):
+            raise ValueError("MetricGroup facts must be non-empty and unique")
+        if self.metric_key == "unknown" or self.measure_kind == "unknown":
+            raise ValueError("MetricGroup requires typed metric semantics")
+        if self.unit_family == "unknown" or not self.unit_scale or not self.scope:
+            raise ValueError("MetricGroup requires typed unit and scope semantics")
+        if len(self.scenarios) != len(self.fact_ids):
+            raise ValueError("MetricGroup scenarios must align with fact_ids")
+        if self.forecast_start_index is not None and not (
+            0 <= self.forecast_start_index < len(self.fact_ids)
+        ):
+            raise ValueError("forecast_start_index is outside MetricGroup facts")
 
 
 @dataclass(frozen=True, slots=True)
@@ -168,4 +276,3 @@ class ExtractionProposal:
             raise ValueError("series must not be empty")
         if any(len(item.fact_ids) != len(self.category_labels) for item in self.series):
             raise ValueError("each series must map one fact_id to each category")
-

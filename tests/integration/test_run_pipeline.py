@@ -78,6 +78,7 @@ def test_run_pipeline_publishes_complete_hashed_output(tmp_path):
         "document_bundle/document.json",
         "slide_outline.json",
         "numeric_fact_ledger.json",
+        "metric_groups.json",
         "numeric_audit.json",
         "visualization_warnings.json",
         "template_profile.json",
@@ -91,8 +92,10 @@ def test_run_pipeline_publishes_complete_hashed_output(tmp_path):
     run_manifest = _load(output / "run_manifest.json")
     compiled_plan = _load(output / "compiled_layout_plan.json")
     audit = _load(output / "numeric_audit.json")
+    metric_groups = _load(output / "metric_groups.json")
     assert run_manifest["status"] == "completed"
     assert audit["status"] == "passed"
+    assert metric_groups["group_count"] == 2
     assert run_manifest["warnings"]["visualization_count"] == 0
     assert run_manifest["hashes"]["presentation_sha256"] == _sha256(
         output / "presentation.pptx"
@@ -149,6 +152,12 @@ def test_missing_source_data_is_warning_but_explicit_verification_failure_blocks
             "chart",
             "verification_failed: source is outside the allowed evidence scope",
         ),
+        GenerationIssue(
+            "slide_004",
+            "visual_explicit",
+            "chart",
+            "verification_failed: reject.mixed_metric: revenue and net_profit",
+        ),
     ]
 
     blocking, warnings = _partition_generation_issues(outline, issues)
@@ -158,6 +167,7 @@ def test_missing_source_data_is_warning_but_explicit_verification_failure_blocks
     ]
     assert [issue.visualization_id for issue in warnings] == [
         "cand_auto",
+        "visual_explicit",
         "visual_explicit",
     ]
     assert blocking[0].reason.startswith("verification_failed:")

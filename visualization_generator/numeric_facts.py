@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import re
 from collections.abc import Iterable, Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from decimal import Decimal, InvalidOperation
 from types import MappingProxyType
 from typing import Any
@@ -15,6 +15,7 @@ from lxml import html
 from document_intelligence.models import DocumentIntelligenceSnapshot
 
 from .contracts import NumericFact
+from .metric_semantics import classify_metric
 
 
 UNITS = (
@@ -152,7 +153,13 @@ def _fact_id(
     return f"fact_{digest}"
 
 
-def block_numeric_facts(block: Mapping[str, Any]) -> tuple[NumericFact, ...]:
+def block_numeric_facts(
+    block: Mapping[str, Any],
+    *,
+    entity_id: str = "document",
+    entity_name: str = "",
+    context: str = "",
+) -> tuple[NumericFact, ...]:
     """Extract traceable facts from one paragraph-like block."""
 
     if str(block.get("type") or "") not in {"paragraph", "blockquote", "list_item"}:
@@ -215,6 +222,12 @@ def block_numeric_facts(block: Mapping[str, Any]) -> tuple[NumericFact, ...]:
     for item in provisional:
         match = item["match"]
         start, end = match.span("number")
+        semantics = classify_metric(
+            label=item["label"],
+            context=f"{context} {text}",
+            unit=item["unit"],
+            period=item["period"],
+        )
         facts.append(
             NumericFact(
                 fact_id=_fact_id("block", source_id, start=start, end=end),
@@ -227,6 +240,15 @@ def block_numeric_facts(block: Mapping[str, Any]) -> tuple[NumericFact, ...]:
                 period=item["period"],
                 start=start,
                 end=end,
+                entity_id=entity_id,
+                entity_name=entity_name,
+                metric_key=semantics.metric_key,
+                metric_label=semantics.metric_label,
+                measure_kind=semantics.measure_kind,
+                unit_family=semantics.unit_family,
+                unit_scale=semantics.unit_scale,
+                currency=semantics.currency,
+                scenario=semantics.scenario,
             )
         )
     return tuple(facts)
@@ -279,7 +301,13 @@ def _header_unit(header: str) -> str:
     return next((unit for unit in UNITS if unit.casefold() in header.casefold()), "")
 
 
-def table_numeric_facts(table: Mapping[str, Any]) -> tuple[NumericFact, ...]:
+def table_numeric_facts(
+    table: Mapping[str, Any],
+    *,
+    entity_id: str = "document",
+    entity_name: str = "",
+    context: str = "",
+) -> tuple[NumericFact, ...]:
     """Extract facts from numeric cells in one complete table."""
 
     source_id = str(table.get("id") or "")
@@ -287,6 +315,9 @@ def table_numeric_facts(table: Mapping[str, Any]) -> tuple[NumericFact, ...]:
     if not source_id or not columns or not rows:
         return ()
     facts: list[NumericFact] = []
+    first_header = columns[0] if columns else ""
+    table_unit = _header_unit(first_header)
+    entity_rows = bool(re.search(r"公司|企业|可比|证券", first_header))
     for row_index, row in enumerate(rows):
         label = row[0] if row and row[0] else None
         for column_index, cell in enumerate(row):
@@ -298,6 +329,56 @@ def table_numeric_facts(table: Mapping[str, Any]) -> tuple[NumericFact, ...]:
             raw_value, normalized, explicit_unit = parsed
             header = columns[column_index] if column_index < len(columns) else ""
             header_periods = period_labels(header)
+            # Compound labels such as ``2024前三季度`` are still one reporting
+            # period.  Treating them as a non-period category changes the scope
+            # halfway through an otherwise coherent time series.
+            period = (
+                header_periods[0]
+                if len(header_periods) == 1
+                else re.sub(r"[（(][^）)]*[）)]", "", str(header)).strip()
+                if header_periods
+                else None
+            )
+            semantic_label = label if period else header
+            resolved_unit = explicit_unit or _header_unit(header) or table_unit
+            semantics = classify_metric(
+                label=semantic_label,
+                context=header,
+                unit=resolved_unit,
+                period=period,
+            )
+            if semantics.metric_key == "unknown" and context:
+                fallback = classify_metric(
+                    label=None,
+                    context=context,
+                    unit=resolved_unit,
+                    period=period,
+                )
+                semantics = replace(
+                    semantics,
+                    metric_key=fallback.metric_key,
+                    metric_label=fallback.metric_label,
+                    measure_kind=(
+                        semantics.measure_kind
+                        if semantics.measure_kind != "unknown"
+                        else fallback.measure_kind
+                    ),
+                )
+            row_entity_id = entity_id
+            row_entity_name = entity_name
+            row_entity_type = "company"
+            scope = "consolidated"
+            scope_label = ""
+            if entity_rows and label:
+                row_entity_id = f"table:{source_id}:entity:{row_index}"
+                row_entity_name = str(label)
+                row_entity_type = "peer"
+            elif period and label and semantics.metric_key == "unknown":
+                scope = "segment"
+                scope_label = str(label)
+            elif not period and label:
+                scope = "category"
+                scope_label = str(label)
             facts.append(
                 NumericFact(
                     fact_id=_fact_id(
@@ -310,13 +391,25 @@ def table_numeric_facts(table: Mapping[str, Any]) -> tuple[NumericFact, ...]:
                     source_id=source_id,
                     raw_value=raw_value,
                     normalized_value=normalized,
-                    unit=explicit_unit or _header_unit(header),
+                    unit=resolved_unit,
                     label=label,
-                    period=header_periods[0] if len(header_periods) == 1 else None,
+                    period=period,
                     start=None,
                     end=None,
                     row_index=row_index,
                     column_index=column_index,
+                    entity_id=row_entity_id,
+                    entity_name=row_entity_name,
+                    entity_type=row_entity_type,
+                    metric_key=semantics.metric_key,
+                    metric_label=semantics.metric_label,
+                    measure_kind=semantics.measure_kind,
+                    unit_family=semantics.unit_family,
+                    unit_scale=semantics.unit_scale,
+                    currency=semantics.currency,
+                    scope=scope,
+                    scope_label=scope_label,
+                    scenario=semantics.scenario,
                 )
             )
     return tuple(facts)
@@ -390,8 +483,37 @@ def build_numeric_fact_ledger(
             if kind == "table" and identity in snapshot.tables_by_id
         ]
     facts: list[NumericFact] = []
+    document_id = str(snapshot.metadata.get("id") or "document")
+    document_name = str(snapshot.metadata.get("title") or "")
     for block_id in dict.fromkeys(block_ids):
-        facts.extend(block_numeric_facts(snapshot.blocks_by_id[block_id]))
+        block = snapshot.blocks_by_id[block_id]
+        section = snapshot.sections_by_id.get(str(block.get("section_id") or ""), {})
+        title_block = snapshot.blocks_by_id.get(str(section.get("title_block_id") or ""), {})
+        facts.extend(
+            block_numeric_facts(
+                block,
+                entity_id=document_id,
+                entity_name=document_name,
+                context=str(title_block.get("text_raw") or ""),
+            )
+        )
     for table_id in dict.fromkeys(table_ids):
-        facts.extend(table_numeric_facts(snapshot.tables_by_id[table_id]))
+        table = snapshot.tables_by_id[table_id]
+        context_ids = [
+            *table.get("caption_block_ids", []),
+            str(table.get("source_block_id") or ""),
+        ]
+        context = " ".join(
+            str(snapshot.blocks_by_id[identity].get("text_raw") or "")
+            for identity in context_ids
+            if identity in snapshot.blocks_by_id
+        )
+        facts.extend(
+            table_numeric_facts(
+                table,
+                entity_id=document_id,
+                entity_name=document_name,
+                context=context,
+            )
+        )
     return _ledger(facts)
