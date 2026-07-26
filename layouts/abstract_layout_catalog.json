@@ -70,6 +70,17 @@
         {"region_id": "visual_2", "content_role": "visual", "required": true, "accepts": ["chart", "table", "image"], "bounds": {"left": 0.52, "top": 0.45, "width": 0.42, "height": 0.43}, "style_role": "primary_visual", "capacity": {"max_items": 1, "max_rows": 10, "max_columns": 6, "max_categories": 12, "max_series": 5}}
       ],
       "constraints": {"overflow": "error"}
+    },
+    "non_content_text": {
+      "description": "Text-only fallback for title, section, and closing pages when exact placeholders overflow.",
+      "eligible_page_roles": ["title", "section", "closing"],
+      "capabilities": {"min_visuals": 0, "max_visuals": 0, "accepted_visual_kinds": [], "body_supported": true},
+      "regions": [
+        {"region_id": "title", "content_role": "title", "required": true, "bounds": {"left": 0.08, "top": 0.10, "width": 0.84, "height": 0.20}, "style_role": "slide_title", "capacity": {"max_chars": 72, "minimum_font_size_pt": 20}},
+        {"region_id": "key_message", "content_role": "key_message", "required": false, "bounds": {"left": 0.10, "top": 0.34, "width": 0.80, "height": 0.16}, "style_role": "key_message", "capacity": {"max_chars": 120, "minimum_font_size_pt": 14}},
+        {"region_id": "body", "content_role": "bullet_list", "required": false, "bounds": {"left": 0.12, "top": 0.54, "width": 0.76, "height": 0.32}, "style_role": "body_text", "capacity": {"max_items": 5, "max_chars": 360, "max_chars_per_item": 100, "minimum_font_size_pt": 14}}
+      ],
+      "constraints": {"overflow": "error"}
     }
   }
 }

@@ -105,6 +105,8 @@ run_manifest.json
 ```
 
 脚本拒绝缺少 `DEEPSEEK_API_KEY` 的执行，不使用 mock、dry-run 或预制 Outline。
+最近一次真实基线结果见
+[`data/evaluation/phase0_real_api_baseline.json`](data/evaluation/phase0_real_api_baseline.json)。
 
 ## 分阶段命令
 

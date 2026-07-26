@@ -77,3 +77,14 @@ def test_non_content_page_rejects_visuals():
 
     assert report["status"] == "failed"
     assert report["pages"][0]["maximum_visual_count"] == 0
+
+
+def test_closing_page_without_visual_has_adaptive_overflow_layout():
+    report = preflight_layouts(
+        {"slides": [_slide(page_role="closing", slide_type="closing")]},
+        [],
+        load_abstract_layout_catalog(),
+    )
+
+    assert report["status"] == "passed"
+    assert report["pages"][0]["selected_abstract_layout"] == "non_content_text"

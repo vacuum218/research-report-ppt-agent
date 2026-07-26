@@ -58,6 +58,18 @@ def test_missing_markdown_image_is_reported_without_fabrication(tmp_path):
     assert document["figures"][0]["asset_path"] is None
 
 
+def test_chart_pseudo_reference_is_preserved_as_non_blocking_warning(tmp_path):
+    report = tmp_path / "report.md"
+    _write_markdown(report, "chart:chart_123")
+
+    document, validation = build_from_markdown(report, tmp_path / "bundle")
+
+    assert validation["status"] == "needs_review"
+    assert validation["issues"][0]["code"] == "unsupported_markdown_image_reference"
+    assert document["figures"][0]["source_reference"] == "chart:chart_123"
+    assert document["figures"][0]["asset_available"] is False
+
+
 def test_markdown_image_parent_traversal_fails_validation(tmp_path):
     report = tmp_path / "source" / "report.md"
     report.parent.mkdir()

@@ -74,7 +74,7 @@ def preflight_layouts(
                 }
             )
 
-        if page_role == "content" and len(visuals) <= maximum:
+        if len(visuals) <= maximum:
             try:
                 selected_layout, _ = select_abstract_layout(
                     abstract_catalog,

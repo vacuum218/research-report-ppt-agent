@@ -416,6 +416,28 @@ def validate_outline_evidence(
         role = slide.get("page_role")
         refs = slide.get("evidence_refs", [])
         slide_type = slide.get("slide_type")
+        raw_visual_candidates = slide.get("visual_candidates", [])
+        visual_candidates = (
+            raw_visual_candidates
+            if isinstance(raw_visual_candidates, list)
+            else []
+        )
+        maximum_visuals = 2 if role == "content" else 0
+        if slide_type == "figure_page":
+            maximum_visuals = 0
+        if len(visual_candidates) > maximum_visuals:
+            issues.append(
+                Issue(
+                    "error",
+                    "LAYOUT.VISUAL_BUDGET_EXCEEDED",
+                    f"{base}.visual_candidates",
+                    (
+                        f"slide has {len(visual_candidates)} visual candidates; "
+                        f"maximum is {maximum_visuals}. Split the content across "
+                        "slides or remove lower-priority visuals"
+                    ),
+                )
+            )
         figure_refs = [
             str(ref.get("id") or "")
             for ref in refs
@@ -515,9 +537,7 @@ def validate_outline_evidence(
                     table = snapshot.tables_by_id[identity]
                     evidence_text_parts.append(str(table.get("structure_raw") or ""))
 
-        for candidate_index, candidate in enumerate(
-            slide.get("visual_candidates", [])
-        ):
+        for candidate_index, candidate in enumerate(visual_candidates):
             if not isinstance(candidate, Mapping):
                 continue
             candidate_refs = candidate.get("evidence_refs", [])

@@ -56,9 +56,12 @@ def _materialize_markdown_image(
         }
     if parsed.scheme or parsed.netloc:
         return None, {
-            "severity": "error",
+            "severity": "warning",
             "code": "unsupported_markdown_image_reference",
-            "message": "Markdown image reference uses an unsupported scheme",
+            "message": (
+                "Markdown image reference uses a non-file scheme and cannot "
+                "be materialized"
+            ),
             **context,
         }
     relative = Path(unquote(parsed.path))

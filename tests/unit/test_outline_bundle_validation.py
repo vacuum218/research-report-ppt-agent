@@ -315,3 +315,33 @@ def test_visual_candidate_requires_native_evidence(tmp_path):
         issue.code == "BUNDLE.VISUAL_WITHOUT_NATIVE_EVIDENCE"
         for issue in issues
     )
+
+
+def test_content_slide_visual_budget_is_enforced_during_llm_retry(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    section_id = snapshot.section_order[0]
+    block_id = next(
+        value
+        for value in snapshot.ordered_block_ids
+        if snapshot.blocks_by_id[value].get("section_id") == section_id
+    )
+    slide = _content_slide(section_id, block_id)
+    slide["visual_candidates"] = [
+        {
+            "candidate_id": f"visual_{index:03d}",
+            "type": "chart",
+            "description": "Evidence chart",
+            "source_refs": ["src_fixture"],
+            "evidence_refs": [{"kind": "block", "id": block_id}],
+        }
+        for index in range(1, 4)
+    ]
+
+    issues = validate_outline_evidence({"slides": [slide]}, snapshot)
+
+    budget = [
+        issue for issue in issues
+        if issue.code == "LAYOUT.VISUAL_BUDGET_EXCEEDED"
+    ]
+    assert len(budget) == 1
+    assert "maximum is 2" in budget[0].message

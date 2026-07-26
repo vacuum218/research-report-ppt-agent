@@ -60,6 +60,26 @@ def main() -> int:
         report_id = report_name.split("_", 1)[0]
         report = PROJECT_ROOT / "data" / "reports" / "agent" / report_name
         output = args.output_root / report_id
+        existing_manifest = output / "run_manifest.json"
+        if existing_manifest.is_file():
+            manifest = _load_json(existing_manifest)
+            outline = _load_json(output / "slide_outline.json")
+            if manifest.get("status") == "completed":
+                print(f"Skipping completed baseline: {report_id}", flush=True)
+                results.append(
+                    {
+                        "report_id": report_id,
+                        "status": manifest.get("status"),
+                        "slide_count": len(outline.get("slides", [])),
+                        "presentation_sha256": manifest.get("hashes", {}).get(
+                            "presentation_sha256"
+                        ),
+                        "outline_sha256": manifest.get("hashes", {}).get(
+                            "outline_sha256"
+                        ),
+                    }
+                )
+                continue
         command = [
             sys.executable,
             str(PROJECT_ROOT / "main.py"),
