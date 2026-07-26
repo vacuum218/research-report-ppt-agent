@@ -49,7 +49,7 @@ def test_fixed_scenarios_are_discovered_rejected_and_audited():
         "slide_t3_6_table",
         "slide_t3_6_composition",
     }
-    assert artifacts_by_slide["slide_t3_6_trend"].data["chart_type"] == "line"
+    assert artifacts_by_slide["slide_t3_6_trend"].data["chart_type"] == "bar"
     assert "columns" in artifacts_by_slide["slide_t3_6_table"].data
     assert (
         artifacts_by_slide["slide_t3_6_composition"].data["chart_type"]

@@ -4,11 +4,105 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import tempfile
 from pathlib import Path
 from typing import Any
+from urllib.parse import unquote, urlsplit
 
 from document_parser.parse_report import parse_file
+
+
+_SUPPORTED_IMAGE_SUFFIXES = {
+    ".bmp",
+    ".gif",
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".tif",
+    ".tiff",
+    ".webp",
+}
+
+
+def _materialize_markdown_image(
+    source_path: Path,
+    bundle_directory: Path,
+    reference: object,
+    figure_id: str,
+) -> tuple[str | None, dict[str, Any] | None]:
+    """Copy a safe local Markdown image into the canonical bundle.
+
+    Remote URLs are retained as unavailable references without network access.
+    Absolute paths and parent traversal are rejected as input errors.
+    """
+
+    raw_reference = str(reference or "").strip()
+    context = {"figure_id": figure_id, "source_reference": raw_reference}
+    if not raw_reference:
+        return None, {
+            "severity": "warning",
+            "code": "empty_markdown_image_reference",
+            "message": "Markdown image has no source reference",
+            **context,
+        }
+    parsed = urlsplit(raw_reference)
+    if parsed.scheme.casefold() in {"http", "https"}:
+        return None, {
+            "severity": "warning",
+            "code": "remote_markdown_image_unavailable",
+            "message": "Remote Markdown images are not downloaded by default",
+            **context,
+        }
+    if parsed.scheme or parsed.netloc:
+        return None, {
+            "severity": "error",
+            "code": "unsupported_markdown_image_reference",
+            "message": "Markdown image reference uses an unsupported scheme",
+            **context,
+        }
+    relative = Path(unquote(parsed.path))
+    if relative.is_absolute() or ".." in relative.parts:
+        return None, {
+            "severity": "error",
+            "code": "unsafe_markdown_image_path",
+            "message": "Markdown image path must stay inside the source directory",
+            **context,
+        }
+    source_root = source_path.parent.resolve()
+    resolved = (source_root / relative).resolve()
+    if resolved != source_root and source_root not in resolved.parents:
+        return None, {
+            "severity": "error",
+            "code": "unsafe_markdown_image_path",
+            "message": "Markdown image path escapes the source directory",
+            **context,
+        }
+    if not resolved.is_file():
+        return None, {
+            "severity": "warning",
+            "code": "missing_markdown_image",
+            "message": "Markdown image file does not exist",
+            **context,
+        }
+    suffix = resolved.suffix.casefold()
+    if suffix not in _SUPPORTED_IMAGE_SUFFIXES:
+        return None, {
+            "severity": "warning",
+            "code": "unsupported_markdown_image_format",
+            "message": "Markdown image format is not renderer-supported",
+            **context,
+        }
+    digest = hashlib.sha256(resolved.read_bytes()).hexdigest()
+    destination = (
+        bundle_directory
+        / "assets"
+        / "figures"
+        / f"{figure_id}-{digest[:12]}{suffix}"
+    )
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(resolved, destination)
+    return destination.relative_to(bundle_directory).as_posix(), None
 
 
 def _write_json_atomic(path: Path, value: object) -> None:
@@ -53,6 +147,7 @@ def build_from_markdown(
     blocks: list[dict[str, Any]] = []
     tables: list[dict[str, Any]] = []
     figures: list[dict[str, Any]] = []
+    image_issues: list[dict[str, Any]] = []
     section_ids: dict[tuple[str, ...], str] = {}
     sections: list[dict[str, Any]] = []
 
@@ -125,16 +220,27 @@ def build_from_markdown(
             )
             block["table_id"] = table_id
         elif source["type"] == "image":
+            figure_id = f"fig-{len(figures) + 1:03d}"
+            asset_path, image_issue = _materialize_markdown_image(
+                source_path,
+                bundle_directory,
+                source.get("url"),
+                figure_id,
+            )
+            if image_issue is not None:
+                image_issues.append(image_issue)
             figures.append(
                 {
-                    "id": f"fig-{len(figures) + 1:03d}",
+                    "id": figure_id,
                     "page": 1,
                     "section_id": section_id,
                     "caption_block_id": None,
                     "caption_block_ids": [],
                     "footnote_block_ids": [],
                     "bbox": None,
-                    "asset_path": source.get("url"),
+                    "asset_path": asset_path,
+                    "asset_available": asset_path is not None,
+                    "source_reference": source.get("url"),
                     "source": "markdown_reference",
                     "source_block_id": block["id"],
                     "issues": [],
@@ -159,8 +265,10 @@ def build_from_markdown(
         "figures": figures,
         "reading_order": [block["id"] for block in blocks],
     }
+    error_count = sum(issue["severity"] == "error" for issue in image_issues)
+    warning_count = sum(issue["severity"] == "warning" for issue in image_issues)
     validation = {
-        "status": "passed",
+        "status": "failed" if error_count else "needs_review" if warning_count else "passed",
         "page_count": {"expected": 1, "actual": 1},
         "block_coverage": {
             "raw_block_count": len(blocks),
@@ -169,9 +277,13 @@ def build_from_markdown(
             "duplicate_block_ids": [],
         },
         "tables": {"detected": len(tables), "complete": len(tables), "image_only": 0},
-        "figures": {"detected": len(figures)},
+        "figures": {
+            "detected": len(figures),
+            "available": sum(figure.get("asset_available") is True for figure in figures),
+            "unavailable": sum(figure.get("asset_available") is not True for figure in figures),
+        },
         "parser": {"name": "parse_report", "api_version": None, "model_version": None, "fallback_used": False},
-        "issues": [],
+        "issues": image_issues,
     }
     _write_json_atomic(bundle_directory / "document.json", document)
     _write_json_atomic(bundle_directory / "validation.json", validation)

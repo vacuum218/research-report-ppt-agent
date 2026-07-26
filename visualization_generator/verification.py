@@ -12,6 +12,7 @@ from .contracts import ExtractionProposal, NumericFact
 from .numeric_facts import (
     NumericFactLedger,
     parse_table_number,
+    period_labels,
     table_grid,
 )
 from .planning import VisualizationPlan
@@ -108,13 +109,25 @@ def assemble_verified_chart(
         [_json_number(fact.normalized_value) for fact in series]
         for series in resolved_series
     ]
+    category_count = len(proposal.category_labels)
+    if proposal.chart_type == "line":
+        if category_count < 4 or any(
+            not period_labels(label) for label in proposal.category_labels
+        ):
+            raise VisualizationVerificationError(
+                "line chart requires at least four period-labelled categories"
+            )
+    elif proposal.chart_type in {"bar", "column"} and not 2 <= category_count <= 12:
+        raise VisualizationVerificationError(
+            "bar or column chart requires between two and twelve categories"
+        )
     if proposal.chart_type == "pie":
         if len(values_by_series) != 1:
             raise VisualizationVerificationError("pie chart requires exactly one series")
         values = values_by_series[0]
-        if len(values) > 6 or any(value < 0 for value in values):
+        if not 3 <= len(values) <= 6 or any(value < 0 for value in values):
             raise VisualizationVerificationError(
-                "pie chart requires at most six non-negative values"
+                "pie chart requires three to six non-negative values"
             )
         if proposal.unit != "%" or not 95.0 <= sum(values) <= 105.0:
             raise VisualizationVerificationError(

@@ -59,13 +59,14 @@ def generate_visualizations(
     *,
     schema: Mapping[str, Any] | None = None,
     llm_adapter: LLMExtractionAdapter | None = None,
+    candidate_mode: str = "active",
 ) -> tuple[list[VisualizationArtifact], list[GenerationIssue]]:
     """Plan semantically, then extract only verified DocumentBundle content."""
 
     if isinstance(snapshot, Mapping):
         snapshot = build_snapshot(snapshot, Path.cwd())
     schema = schema or _load_json(DEFAULT_SCHEMA, "Visualization schema")
-    plans = plan_visualizations(outline, snapshot)
+    plans = plan_visualizations(outline, snapshot, candidate_mode=candidate_mode)
     return generate_from_plans(
         plans,
         snapshot,
@@ -201,13 +202,24 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--layout-map", type=Path, default=DEFAULT_LAYOUT_MAP)
     parser.add_argument("--bundle-schema", type=Path, default=DEFAULT_BUNDLE_SCHEMA)
     parser.add_argument("--visualization-schema", type=Path, default=DEFAULT_SCHEMA)
+    parser.add_argument(
+        "--candidate-mode",
+        choices=["shadow", "active", "disabled"],
+        default="shadow",
+        help="Candidate Locator policy; shadow records candidates without adding slides",
+    )
     args = parser.parse_args(argv)
     try:
         outline = _load_json(args.outline, "outline")
         snapshot = load_document_intelligence(args.document, args.bundle_schema)
         schema = _load_json(args.visualization_schema, "Visualization schema")
         layout_map = load_layout_map(args.layout_map)
-        artifacts, issues = generate_visualizations(outline, snapshot, schema=schema)
+        artifacts, issues = generate_visualizations(
+            outline,
+            snapshot,
+            schema=schema,
+            candidate_mode=args.candidate_mode,
+        )
         bindings = bindings_from_artifacts(artifacts)
         coverage = preflight_visualizations(outline, layout_map, bindings)
         args.output_dir.mkdir(parents=True, exist_ok=True)

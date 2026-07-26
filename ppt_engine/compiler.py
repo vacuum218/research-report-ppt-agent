@@ -114,17 +114,23 @@ def _compile_binding(
             ],
         }
     if operation == "set_repeated_text":
-        values = value if isinstance(value, list) else []
+        values = [
+            item
+            for item in (value if isinstance(value, list) else [])
+            if isinstance(item, (str, int, float, bool, Mapping))
+        ]
         max_items = int(binding.get("max_items", len(binding["targets"])))
+        if len(values) > max_items:
+            raise LayoutCompileError(
+                f"slide {slide.get('slide_id')}: repeated binding "
+                f"{binding['binding_id']!r} has {len(values)} items but "
+                f"capacity is {max_items}; content must be paginated"
+            )
         return {
             "op": "set_repeated_text",
             "binding_id": binding["binding_id"],
             "targets": [dict(group) for group in binding["targets"]],
-            "values": [
-                item
-                for item in values[:max_items]
-                if isinstance(item, (str, int, float, bool, Mapping))
-            ],
+            "values": values,
         }
     raise LayoutCompileError(f"unsupported binding operation: {operation!r}")
 
@@ -239,6 +245,19 @@ def _exact_layout_feasible(
             if isinstance(binding, Mapping)
         }
         if not _required_text_sources(slide).issubset(sources):
+            return False
+    for binding in layout.get("bindings", []):
+        if not isinstance(binding, Mapping):
+            continue
+        if binding.get("operation") != "set_repeated_text":
+            continue
+        source = str(binding.get("source") or "")
+        if not source.startswith("slide."):
+            continue
+        value = slide.get(source.partition(".")[2])
+        values = value if isinstance(value, list) else []
+        max_items = int(binding.get("max_items", len(binding.get("targets", []))))
+        if len(values) > max_items:
             return False
     try:
         _compile_visual_operations(

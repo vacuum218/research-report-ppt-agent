@@ -141,7 +141,7 @@ def _block_candidate(
     explicit_units = {unit for _, unit, _, _ in observations if unit}
     percentages = [number for number, unit, _, _ in observations if unit == "%"]
     composition = (
-        2 <= len(percentages) <= 6
+        3 <= len(percentages) <= 6
         and len(percentages) == len(observations)
         and all(value >= 0 for value in percentages)
         and 95.0 <= sum(percentages) <= 105.0
@@ -166,7 +166,7 @@ def _block_candidate(
         intent = "composition"
         triggers.append(CandidateTriggerCode.COMPOSITION)
         score += 0.30
-    elif len(periods) >= 2:
+    elif len(periods) >= 4:
         intent = "trend"
         triggers.append(CandidateTriggerCode.TIME_SERIES)
         score += 0.30
@@ -283,7 +283,7 @@ def _table_candidate(
             and (parsed := _parse_cell_number(row[index])) is not None
         ]
         if (
-            2 <= len(values) <= 6
+            3 <= len(values) <= 6
             and (
                 all(unit == "%" for _, unit in values)
                 or (
@@ -309,7 +309,7 @@ def _table_candidate(
         intent = "composition"
         triggers.append(CandidateTriggerCode.COMPOSITION)
         score += 0.25
-    elif len(period_columns) >= 2 and not mixed_units:
+    elif len(period_columns) >= 4 and not mixed_units:
         visual_type = "chart"
         intent = "trend"
         triggers.append(CandidateTriggerCode.TIME_SERIES)

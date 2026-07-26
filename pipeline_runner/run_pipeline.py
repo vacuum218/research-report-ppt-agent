@@ -20,7 +20,9 @@ from document_bundle.parser.mineru_client import MinerUClient
 from document_intelligence import load_document_intelligence
 from outline_generator.generate_outline import main as generate_outline_main
 from ppt_engine.compiled_plan import validate_compiled_plan
+from ppt_engine.abstract_layout import load_abstract_layout_catalog
 from ppt_engine.compiler import compile_layout_plan
+from ppt_engine.preflight import preflight_layouts
 from ppt_engine.renderer import render_compiled_plan
 from visualization_generator.audit import (
     audit_visualization_artifacts,
@@ -34,6 +36,7 @@ from visualization_generator.manifest import (
     visual_type,
 )
 from visualization_generator.numeric_facts import build_numeric_fact_ledger
+from visualization_generator.planning import build_candidate_report, plan_visualizations
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +59,7 @@ class PipelineRunError(RuntimeError):
     def __init__(self, stage: str, message: str):
         super().__init__(f"pipeline stage={stage}: {message}")
         self.stage = stage
+        self.message = message
 
 
 def _load_json(path: Path, label: str) -> dict[str, Any]:
@@ -74,6 +78,46 @@ def _write_json(path: Path, value: Mapping[str, Any]) -> None:
         json.dumps(value, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
+
+def _safe_failure_message(value: object) -> str:
+    message = str(value).replace("\r", " ").replace("\n", " ")
+    message = re.sub(
+        r"(?i)(authorization:\s*bearer\s+)[^\s]+",
+        r"\1<redacted>",
+        message,
+    )
+    message = re.sub(
+        r"(?i)(api[_-]?key\s*[=:]\s*)[^\s,;]+",
+        r"\1<redacted>",
+        message,
+    )
+    return message[:1000]
+
+
+def _write_failure_report(
+    output_directory: Path,
+    error: PipelineRunError,
+    *,
+    last_successful_stage: str | None,
+) -> None:
+    try:
+        _write_json(
+            output_directory.with_name(output_directory.name + ".failure")
+            / "failure.json",
+            {
+                "schema_version": "1.0.0",
+                "status": "failed",
+                "failed_stage": error.stage,
+                "last_successful_stage": last_successful_stage,
+                "error_code": "pipeline_stage_failed",
+                "message": _safe_failure_message(error.message),
+                "published_pptx": False,
+            },
+        )
+    except OSError:
+        # Diagnostics must never hide the original pipeline failure.
+        return
 
 
 def _sha256_file(path: Path) -> str:
@@ -403,6 +447,7 @@ def run_pipeline(
     outline_max_tokens: int | None = None,
     outline_max_attempts: int | None = None,
     outline_timeout: int | None = None,
+    candidate_mode: str = "shadow",
 ) -> Path:
     """Run all stages and publish output only after every stage succeeds."""
 
@@ -444,6 +489,7 @@ def run_pipeline(
             dir=output_directory.parent,
         )
     )
+    last_successful_stage: str | None = None
     try:
         bundle_directory = staging_directory / "document_bundle"
         _materialize_document_bundle(input_path, bundle_directory)
@@ -454,6 +500,7 @@ def run_pipeline(
             )
         except Exception as exc:
             raise PipelineRunError("document_bundle", str(exc)) from exc
+        last_successful_stage = "document_bundle"
 
         outline_path = staging_directory / "slide_outline.json"
         outline = _materialize_outline(
@@ -467,9 +514,57 @@ def run_pipeline(
             outline_max_attempts=outline_max_attempts,
             outline_timeout=outline_timeout,
         )
+        last_successful_stage = "outline"
 
         try:
-            artifacts, issues = generate_visualizations(outline, snapshot)
+            candidate_report = build_candidate_report(
+                outline,
+                snapshot,
+                candidate_mode=candidate_mode,
+            )
+            _write_json(
+                staging_directory / "candidate_locator_report.json",
+                candidate_report,
+            )
+        except Exception as exc:
+            raise PipelineRunError("candidate_locator", str(exc)) from exc
+        last_successful_stage = "candidate_locator"
+
+        try:
+            planned_visuals = plan_visualizations(
+                outline,
+                snapshot,
+                candidate_mode=candidate_mode,
+            )
+            layout_preflight = preflight_layouts(
+                outline,
+                planned_visuals,
+                load_abstract_layout_catalog(),
+            )
+            _write_json(
+                staging_directory / "layout_preflight.json",
+                layout_preflight,
+            )
+            if layout_preflight["status"] != "passed":
+                first_error = next(
+                    issue
+                    for page in layout_preflight["pages"]
+                    for issue in page["issues"]
+                    if issue["severity"] == "error"
+                )
+                raise PipelineRunError("layout_preflight", first_error["message"])
+        except PipelineRunError:
+            raise
+        except Exception as exc:
+            raise PipelineRunError("layout_preflight", str(exc)) from exc
+        last_successful_stage = "layout_preflight"
+
+        try:
+            artifacts, issues = generate_visualizations(
+                outline,
+                snapshot,
+                candidate_mode=candidate_mode,
+            )
         except Exception as exc:
             raise PipelineRunError("visualization", str(exc)) from exc
         blocking_issues, warning_issues = _partition_generation_issues(
@@ -481,6 +576,7 @@ def run_pipeline(
                 "visualization",
                 blocking_issues[0].format(),
             )
+        last_successful_stage = "visualization"
         _write_json(
             staging_directory / "visualization_warnings.json",
             _generation_warning_report(warning_issues),
@@ -495,6 +591,7 @@ def run_pipeline(
             serialize_numeric_fact_ledger(ledger),
         )
         _write_json(staging_directory / "numeric_audit.json", numeric_audit)
+        last_successful_stage = "numeric_audit"
 
         try:
             manifest_path = _write_visualizations(
@@ -508,6 +605,7 @@ def run_pipeline(
             manifest = load_visualization_manifest(manifest_path)
         except Exception as exc:
             raise PipelineRunError("manifest", str(exc)) from exc
+        last_successful_stage = "manifest"
 
         template_profile = _load_json(template_profile_path, "template-profile")
         _write_json(
@@ -522,6 +620,7 @@ def run_pipeline(
             )
         except Exception as exc:
             raise PipelineRunError("compile", str(exc)) from exc
+        last_successful_stage = "compile"
         try:
             render_compiled_plan(
                 compiled_plan,
@@ -530,6 +629,7 @@ def run_pipeline(
             )
         except Exception as exc:
             raise PipelineRunError("render", str(exc)) from exc
+        last_successful_stage = "render"
         finalized_plan = _finalize_compiled_plan_asset_root(
             compiled_plan,
             output_directory / "document_bundle",
@@ -560,10 +660,21 @@ def run_pipeline(
             output_directory.rmdir()
         staging_directory.replace(output_directory)
         return output_directory
-    except PipelineRunError:
+    except PipelineRunError as exc:
+        _write_failure_report(
+            output_directory,
+            exc,
+            last_successful_stage=last_successful_stage,
+        )
         raise
     except Exception as exc:
-        raise PipelineRunError("execution", str(exc)) from exc
+        error = PipelineRunError("execution", str(exc))
+        _write_failure_report(
+            output_directory,
+            error,
+            last_successful_stage=last_successful_stage,
+        )
+        raise error from exc
     finally:
         if staging_directory.exists():
             shutil.rmtree(staging_directory)

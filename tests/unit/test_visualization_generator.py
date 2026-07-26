@@ -105,14 +105,14 @@ def _snapshot(tmp_path: Path, *, table_status: str = "complete"):
     return build_snapshot(document, tmp_path)
 
 
-def test_chart_candidate_generates_line_chart_from_native_bundle_table(tmp_path):
+def test_three_period_chart_uses_column_instead_of_line(tmp_path):
     snapshot = _snapshot(tmp_path)
     outline = {"slides": [_slide("chart", "展示营业收入增长趋势", [{"kind": "table", "id": "table-001"}])]}
     artifacts, issues = generate_visualizations(outline, snapshot)
 
     assert not issues
     chart = artifacts[0].data
-    assert chart["chart_type"] == "line"
+    assert chart["chart_type"] == "column"
     assert chart["categories"] == ["2021A", "2022A", "2023A"]
     assert chart["series"][0] == {"name": "营业收入", "values": [10.0, 15.0, 22.0]}
     assert chart["sources"] == [{"kind": "table", "id": "table-001"}]

@@ -6,7 +6,12 @@ from pathlib import Path
 
 import pytest
 
-from ppt_engine.compiler import LayoutCompileError, compile_layout_plan
+from ppt_engine.compiler import (
+    LayoutCompileError,
+    _compile_binding,
+    _exact_layout_feasible,
+    compile_layout_plan,
+)
 from tools.build_template_profile import build_template_profile
 from visualization_generator.manifest import (
     canonical_sha256,
@@ -323,3 +328,45 @@ def test_paginated_adaptive_text_never_drops_below_region_font_floor(tmp_path):
             )
             if minimum is not None:
                 assert operation["style"]["font_size_pt"] >= minimum
+
+
+def test_repeated_binding_rejects_overflow_instead_of_truncating():
+    binding = {
+        "binding_id": "segments",
+        "operation": "set_repeated_text",
+        "source": "slide.bullet_points",
+        "targets": [{"body": {"name": f"segment_{index}"}} for index in range(2)],
+        "max_items": 2,
+    }
+    slide = {
+        "slide_id": "slide_002",
+        "bullet_points": ["第一项", "第二项", "第三项"],
+    }
+
+    with pytest.raises(LayoutCompileError, match="content must be paginated"):
+        _compile_binding(binding, slide, {}, 1)
+
+
+def test_exact_layout_with_repeated_overflow_falls_back_before_compilation():
+    slide = {
+        "slide_id": "slide_002",
+        "page_role": "content",
+        "title": "业务结构",
+        "key_message": "三项业务共同增长",
+        "bullet_points": ["第一项", "第二项", "第三项"],
+    }
+    layout = {
+        "bindings": [
+            {"source": "slide.title", "operation": "set_text"},
+            {"source": "slide.key_message", "operation": "set_text"},
+            {
+                "source": "slide.bullet_points",
+                "operation": "set_repeated_text",
+                "max_items": 2,
+                "targets": [{}, {}],
+            },
+        ],
+        "slots": [],
+    }
+
+    assert _exact_layout_feasible(slide, layout, []) is False

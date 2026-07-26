@@ -160,7 +160,7 @@ def test_rule_mapper_builds_block_proposal_with_fact_ids_only(tmp_path):
     )
 
     assert proposal is not None
-    assert proposal.chart_type == "line"
+    assert proposal.chart_type == "column"
     assert proposal.category_labels == ("2021", "2022", "2023")
     assert all(
         fact_id.startswith("fact_")
@@ -220,7 +220,7 @@ def test_table_composition_uses_percentage_column_and_excludes_total_row(tmp_pat
     assert len(proposal.series[0].fact_ids) == 2
 
 
-def test_table_trend_selects_compatible_period_columns_with_one_unit(tmp_path):
+def test_short_table_trend_uses_column_instead_of_line(tmp_path):
     snapshot = _snapshot(tmp_path)
     ledger = build_numeric_fact_ledger(snapshot)
     plan = _plan("table", "table-003", intent="trend")
@@ -232,7 +232,7 @@ def test_table_trend_selects_compatible_period_columns_with_one_unit(tmp_path):
     )
 
     assert proposal is not None
-    assert proposal.chart_type == "line"
+    assert proposal.chart_type == "column"
     assert proposal.category_labels == ("2022", "2023")
     assert proposal.unit == "亿元"
     assert [series.name for series in proposal.series] == ["专网", "公网"]

@@ -123,6 +123,12 @@ def build_parser() -> argparse.ArgumentParser:
     pipeline.add_argument("--outline-max-tokens", type=int)
     pipeline.add_argument("--outline-max-attempts", type=int)
     pipeline.add_argument("--outline-timeout", type=int)
+    pipeline.add_argument(
+        "--candidate-mode",
+        choices=["shadow", "active", "disabled"],
+        default="shadow",
+        help="Candidate Locator policy; shadow records candidates without changing the deck",
+    )
 
     template = commands.add_parser(
         "parse-template",
@@ -229,6 +235,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 outline_max_tokens=args.outline_max_tokens,
                 outline_max_attempts=args.outline_max_attempts,
                 outline_timeout=args.outline_timeout,
+                candidate_mode=args.candidate_mode,
             )
         except PipelineRunError as exc:
             print(f"ERROR: {exc}", file=sys.stderr)

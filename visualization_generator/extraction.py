@@ -40,7 +40,7 @@ def _series_name(facts: Sequence[NumericFact], fallback: str) -> str:
 def _chart_type(plan: VisualizationPlan, intent: str, categories: Sequence[str]) -> str:
     if intent == "composition":
         return "pie"
-    if intent == "trend" or sum(bool(period_labels(value)) for value in categories) >= 2:
+    if intent == "trend" and sum(bool(period_labels(value)) for value in categories) >= 4:
         return "line"
     return "bar" if plan.chart_intent == "comparison" else "column"
 

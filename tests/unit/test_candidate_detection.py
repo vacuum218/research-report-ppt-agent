@@ -9,7 +9,7 @@ from visualization_generator.candidate_detection import (
 )
 from visualization_generator.contracts import CandidateTriggerCode
 from visualization_generator.generate_visualizations import generate_visualizations
-from visualization_generator.planning import plan_visualizations
+from visualization_generator.planning import build_candidate_report, plan_visualizations
 
 
 def _block(identity: str, section_id: str, text: str, order: int) -> dict:
@@ -134,7 +134,7 @@ def test_locates_a_stable_time_series_candidate_from_direct_block_evidence(tmp_p
             _block(
                 "p001-b001",
                 "sec-1",
-                "2021年营业收入10亿元，2022年营业收入15亿元，2023年营业收入22亿元。",
+                "2021年营业收入10亿元，2022年营业收入15亿元，2023年营业收入22亿元，2024年营业收入28亿元。",
                 0,
             )
         ],
@@ -234,8 +234,8 @@ def test_complete_table_with_one_series_across_period_columns_becomes_trend(tmp_
             _table(
                 "table-001",
                 "sec-1",
-                columns=["项目", "2021A", "2022A", "2023A"],
-                rows=[["营业收入", "10", "15", "22"]],
+                columns=["项目", "2021A", "2022A", "2023A", "2024A"],
+                rows=[["营业收入", "10", "15", "22", "28"]],
             )
         ],
     )
@@ -303,7 +303,7 @@ def test_expands_only_to_bounded_same_section_context(tmp_path):
             _block(
                 "p001-b002",
                 "sec-1",
-                "2021年营收10亿元，2022年营收15亿元，2023年营收22亿元。",
+                "2021年营收10亿元，2022年营收15亿元，2023年营收22亿元，2024年营收28亿元。",
                 1,
             ),
             _block(
@@ -350,7 +350,7 @@ def test_planning_adds_active_candidate_when_outline_has_no_suggestion(tmp_path)
             _block(
                 "p001-b001",
                 "sec-1",
-                "2021年营收10亿元，2022年营收15亿元，2023年营收22亿元。",
+                "2021年营收10亿元，2022年营收15亿元，2023年营收22亿元，2024年营收28亿元。",
                 0,
             )
         ],
@@ -368,6 +368,30 @@ def test_planning_adds_active_candidate_when_outline_has_no_suggestion(tmp_path)
     assert issues == []
     assert artifacts[0].data["chart_type"] == "line"
     assert artifacts[0].data["sources"] == [{"kind": "block", "id": "p001-b001"}]
+
+
+def test_shadow_mode_records_candidate_without_adding_visual_plan(tmp_path):
+    snapshot = _snapshot(
+        tmp_path,
+        [
+            _block(
+                "p001-b001",
+                "sec-1",
+                "2021年营收10亿元，2022年营收15亿元，2023年营收22亿元，2024年营收28亿元。",
+                0,
+            )
+        ],
+    )
+    slide = _slide(evidence_refs=[{"kind": "block", "id": "p001-b001"}])
+    outline = {"slides": [slide]}
+
+    assert plan_visualizations(outline, snapshot, candidate_mode="shadow") == []
+    report = build_candidate_report(outline, snapshot, candidate_mode="shadow")
+
+    assert report["candidate_count"] == 1
+    assert report["selected_count"] == 0
+    assert report["candidates"][0]["selected"] is False
+    assert report["candidates"][0]["decision_reason"] == "candidate_locator_shadow_only"
 
 
 def test_explicit_outline_suggestion_wins_for_the_same_evidence(tmp_path):

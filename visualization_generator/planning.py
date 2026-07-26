@@ -16,6 +16,9 @@ from document_intelligence.models import DocumentIntelligenceSnapshot
 from .candidate_detection import locate_visual_candidates
 
 
+CANDIDATE_MODES = frozenset({"active", "shadow", "disabled"})
+
+
 class VisualizationPlanningError(ValueError):
     """Raised when a semantic plan references nonexistent bundle evidence."""
 
@@ -83,8 +86,15 @@ def _require_valid_evidence(
 def plan_visualizations(
     outline: Mapping[str, Any],
     snapshot: DocumentIntelligenceSnapshot,
+    *,
+    candidate_mode: str = "active",
 ) -> list[VisualizationPlan]:
     """Merge validated Outline suggestions with proactively located candidates."""
+
+    if candidate_mode not in CANDIDATE_MODES:
+        raise VisualizationPlanningError(
+            "candidate_mode must be one of: active, shadow, disabled"
+        )
 
     plans: list[VisualizationPlan] = []
     auto_index = 1
@@ -181,7 +191,14 @@ def plan_visualizations(
         # The active locator contributes only new, slide-scoped evidence and
         # therefore cannot silently reinterpret the same source as another
         # visual type.
-        for located in locate_visual_candidates(slide, snapshot):
+        located_candidates = (
+            locate_visual_candidates(slide, snapshot)
+            if candidate_mode != "disabled"
+            else []
+        )
+        if candidate_mode != "active":
+            continue
+        for located in located_candidates:
             key = (
                 located.visual_type,
                 tuple(sorted(located.evidence_refs)),
@@ -209,3 +226,51 @@ def plan_visualizations(
             )
             planned_keys.add(key)
     return plans
+
+
+def build_candidate_report(
+    outline: Mapping[str, Any],
+    snapshot: DocumentIntelligenceSnapshot,
+    *,
+    candidate_mode: str,
+) -> dict[str, Any]:
+    """Return an auditable report without changing the generated deck in shadow mode."""
+
+    if candidate_mode not in CANDIDATE_MODES:
+        raise VisualizationPlanningError(
+            "candidate_mode must be one of: active, shadow, disabled"
+        )
+    entries: list[dict[str, Any]] = []
+    if candidate_mode != "disabled":
+        for slide in outline.get("slides", []):
+            if not isinstance(slide, Mapping):
+                continue
+            for candidate in locate_visual_candidates(slide, snapshot):
+                entries.append(
+                    {
+                        "candidate_id": candidate.candidate_id,
+                        "slide_id": candidate.slide_id,
+                        "visual_type": candidate.visual_type,
+                        "chart_intent": candidate.chart_intent,
+                        "evidence_refs": [
+                            {"kind": kind, "id": identity}
+                            for kind, identity in candidate.evidence_refs
+                        ],
+                        "trigger_ids": list(candidate.trigger_ids),
+                        "score": candidate.score,
+                        "excerpt": candidate.excerpt,
+                        "selected": candidate_mode == "active",
+                        "decision_reason": (
+                            "candidate_locator_active"
+                            if candidate_mode == "active"
+                            else "candidate_locator_shadow_only"
+                        ),
+                    }
+                )
+    return {
+        "schema_version": "1.0.0",
+        "mode": candidate_mode,
+        "candidate_count": len(entries),
+        "selected_count": sum(bool(item["selected"]) for item in entries),
+        "candidates": entries,
+    }

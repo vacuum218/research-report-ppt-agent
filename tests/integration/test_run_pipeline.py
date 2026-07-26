@@ -69,6 +69,8 @@ def test_run_pipeline_publishes_complete_hashed_output(tmp_path):
         str(_profile(tmp_path)),
         "--output-dir",
         str(output),
+        "--candidate-mode",
+        "active",
     )
 
     assert result.returncode == 0, result.stderr
@@ -180,9 +182,14 @@ def test_p0_failure_returns_nonzero_and_publishes_no_output(tmp_path):
     )
 
     assert result.returncode != 0
-    assert "pipeline stage=visualization" in result.stderr
+    assert "pipeline stage=layout_preflight" in result.stderr
     assert not output.exists()
     assert not list(tmp_path.glob(".failed-output.staging-*"))
+    failure = _load(tmp_path / "failed-output.failure" / "failure.json")
+    assert failure["status"] == "failed"
+    assert failure["failed_stage"] == "layout_preflight"
+    assert failure["last_successful_stage"] == "candidate_locator"
+    assert failure["published_pptx"] is False
 
 
 def test_render_failure_does_not_publish_or_claim_a_presentation(tmp_path):
@@ -208,6 +215,9 @@ def test_render_failure_does_not_publish_or_claim_a_presentation(tmp_path):
     assert "Pipeline completed:" not in result.stdout
     assert "Presentation:" not in result.stdout
     assert not output.exists()
+    failure = _load(tmp_path / "render-failed-output.failure" / "failure.json")
+    assert failure["failed_stage"] == "render"
+    assert failure["published_pptx"] is False
 
 
 def test_nonempty_output_directory_is_preserved(tmp_path):

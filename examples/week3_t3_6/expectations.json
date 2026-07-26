@@ -4,7 +4,7 @@
       "slide_id": "slide_t3_6_trend",
       "evidence": {"kind": "block", "id": "p001-b001"},
       "visual_type": "chart",
-      "chart_type": "line"
+      "chart_type": "bar"
     },
     {
       "slide_id": "slide_t3_6_table",
