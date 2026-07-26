@@ -15,6 +15,7 @@ dist/
 
 # Virtual environments and local secrets
 .venv/
+.venv-*/
 venv/
 .env
 .env.*

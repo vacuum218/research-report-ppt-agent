@@ -1,131 +1,160 @@
 # Research Report PPT Agent
 
-将 PDF、Markdown 或纯文本研报转换为结构化 `DocumentBundle`，再生成 Slide Outline、
-可视化数据和模板化 PPTX。
+把 PDF、Markdown 或 TXT 研报转换为可编辑 PPTX 的研究型工程。当前仓库已经具备可追溯的
+`DocumentBundle`、LLM Slide Outline、确定性可视化生成、布局编译和 PPTX 渲染链路；
+编辑决策、统一页面编排、渲染后 QA 与局部修复仍属于下一阶段重构目标。
 
-## 当前架构
+> 当前状态不是“目标架构已完成”。开发与验收边界以
+> [重构实施要求](docs/architecture/research_report_ppt_refactor_spec.md) 为准。
+
+## 当前实现
 
 ```text
-PDF ──→ MinerU / raw artifacts ──┐
-                                 ├──→ DocumentBundle
-Markdown / Text ─────────────────┘           ↓
+PDF ── MinerU / raw artifacts ──┐
+                                ├─→ DocumentBundle（唯一事实来源）
+Markdown / TXT ─────────────────┘             │
+                                               ▼
                                   Document Intelligence
-                                             ↓
-                                  Context Compression
-                                             ↓
-                                     Slide Planning
-                                             ↓
-                              Visualization Planning
-                                             ↓
-                              Deterministic Visualization Generator
-                                             ↓
-                         Layout Resolver + PPT Renderer
-                                             ↓
-                                            PPTX
+                                  （确定性索引与 evidence）
+                                               │
+                                               ▼
+                                  Context Compression +
+                                  LLM Slide Planning
+                                               │
+                                               ▼
+                                  Candidate Detection +
+                                  Visualization Planning
+                                               │
+                                               ▼
+                                  Deterministic Fact Mapping /
+                                  Verification / Numeric Audit
+                                               │
+                                               ▼
+                                  Layout Compiler → PPT Renderer
+                                               │
+                                               ▼
+                                              PPTX
 ```
 
-`DocumentBundle` 是唯一上游事实来源。`document_intelligence/` 只执行确定性的读取、
-section/block/table/figure 索引、evidence 定位和顺序分块，不执行总结、重要性判断或 slide 规划。
-Context Compression 产生的 LLM memory 仅存在于当前进程内存中，只有最终 Slide Outline 会持久化。
+已实现的关键约束：
 
-## 模块输入输出
+- `DocumentBundle` 是正式上游事实来源；PDF 保留页码与 bbox，Markdown/TXT 使用行号定位。
+- `document_intelligence/` 保序、确定、无 LLM，也不持久化用户或跨任务 memory。
+- Outline 只表达页面语义、来源和视觉意图，不拥有图表数值或模板坐标。
+- 可视化数值由原始 block/table/figure 确定性提取和验证，并生成数值审计记录。
+- Compiled Plan 决定具体渲染操作；Compiled Renderer 不重新推断布局。
+- `run-pipeline` 在成功时原子发布，任一现有 P0 校验失败时不发布 PPTX。
+- Renderer 当前支持原生 chart、table 和 source image。
 
-| 模块 | 输入 | 输出 |
+## 目标架构与当前缺口
+
+目标链路将演进为：
+
+```text
+Input Adapter → Canonical Source Model → ReportMap → DeckStoryboard
+→ CandidatePool → MetricGroup → EditorialVisualDecision → VisualPortfolio
+→ PageSpec / Page Composer → Visualization → Layout Compilation
+→ PPTX Rendering → Render QA → Local Page Repair → Published PPTX
+```
+
+| 能力 | 当前状态 | 后续方向 |
 |---|---|---|
-| `document_bundle/` PDF parser | PDF、MinerU API | `document_bundle/` 目录 |
-| `document_bundle/` raw builder | PDF + 四个 MinerU raw 文件 | `document_bundle/` 目录 |
-| `document_bundle/` Markdown builder | Markdown / plain text | `document_bundle/` 目录 |
-| `document_intelligence/` | `document.json` | 只读索引、关系、evidence 与有序 chunk |
-| `outline_generator/` | Document Intelligence chunk | 运行时压缩 memory → Slide Outline JSON |
-| `visualization_generator/planning.py` | Slide Outline + Document Intelligence evidence | 无数值、无路径的运行时 Visualization Plan |
-| `visualization_generator/generator.py` | Visualization Plan + Document Intelligence | 可追溯的 chart/table/image Visualization JSON |
-| `ppt_engine/` | Slide Outline + Visualization + Layout Map + PPT 模板 | PPTX |
+| 统一事实输入 | 已实现为 `DocumentBundle` | 演进为完整 Canonical Source Model |
+| 研报理解与故事线 | Outline Generator 同时承担多项职责 | 拆分 `ReportMap` 与 `DeckStoryboard` |
+| 视觉候选 | 已有确定性 Candidate Locator | 改为高召回、可审计的 `CandidatePool` |
+| 指标语义 | 已有 Numeric Fact Ledger | 增加 typed metric 与 `MetricGroup` 校验 |
+| 编辑选择 | 尚无独立决策层 | 增加 `EditorialVisualDecision` 与 Portfolio 预算 |
+| 页面编排 | 以布局编译和文字分页为主 | 增加统一 Page Composer、表格/视觉分页与 preflight |
+| 渲染质量 | 结构、边界和可打开性测试为主 | 增加页面图像、文字裁切、字号、重叠和清晰度 QA |
+| 失败诊断 | Pipeline 失败会清理 staging | 保留轻量诊断包和最后成功阶段 |
+| 布局链路 | Legacy Layout Map 与 Compiled Plan 并存 | 分阶段淘汰运行时布局推断 |
 
-DocumentBundle 的正式下游接口是 `document.json` 和 `assets/`。`raw/` 与
-`validation.json` 用于审计、复核和确定性重建。
+因此，“JSON Schema 合法”“PPTX 可以打开”只是当前工程门槛，不等同于最终 deck-level
+质量验收。不要把目标规范中的 ReportMap、Visual Decision、Page Composer 或 Render QA
+当作现有公开接口。
 
-## 安装
+## 环境安装
+
+建议使用 Python 3.12。仓库不提交虚拟环境，也不要复用其他机器复制来的 `.venv`。
 
 ```powershell
-python -m venv .venv
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-PDF 在线解析需要通过环境变量配置 `MINERU_API_TOKEN`。不要把 Token 写入命令、源码或日志。
+PDF 在线解析需要通过环境变量提供 `MINERU_API_TOKEN`。Outline 在线生成默认读取
+`DEEPSEEK_API_KEY`，并可通过 `DEEPSEEK_MODEL`、`DEEPSEEK_BASE_URL` 和
+`DEEPSEEK_API_PROVIDER` 调整服务。不要把 Token 写入源码、命令参数、输出 JSON 或日志。
 
-## 构建 DocumentBundle
+## 快速开始
 
-### PDF + MinerU API
+以下命令均在仓库根目录执行。
 
-```powershell
-python main.py document-bundle parse report.pdf --output-root output
-```
+### 1. 构建 DocumentBundle
 
-输出位置：
-
-```text
-output/<PDF_STEM>/document_bundle/
-```
-
-### 使用已有 MinerU raw 文件重建
+Markdown 或 TXT：
 
 ```powershell
-python main.py document-bundle from-raw report.pdf RAW_DIRECTORY BUNDLE_DIRECTORY
+.\.venv\Scripts\python.exe main.py document-bundle from-markdown `
+  data/reports/agent/002544_2025-10-28.md `
+  output/002544/document_bundle
 ```
 
-需要的 raw 文件：
-
-- `layout.json`
-- `content_list.json`
-- `model.json`
-- `document.md`
-
-### Markdown / Text
+PDF + MinerU API：
 
 ```powershell
-python main.py document-bundle from-markdown report.md output/report/document_bundle
+.\.venv\Scripts\python.exe main.py document-bundle parse report.pdf `
+  --output-root output
 ```
 
-Markdown bundle 使用行号定位，PDF bundle 使用 `page + bbox` 定位，不会为 Markdown
-伪造 PDF 坐标。
-
-## 下游执行
-
-Outline Generator 和 Visualization Generator 都直接读取 bundle：
+已有 MinerU `layout.json`、`content_list.json`、`model.json` 和 `document.md` 时：
 
 ```powershell
-python main.py generate-outline output/report/document_bundle --dry-run
-
-python main.py generate-visualizations `
-  output/outlines/report_outline.json `
-  output/report/document_bundle `
-  -o output/visualizations/report
-
-python main.py render-ppt `
-  output/outlines/report_outline.json `
-  -o output/report.pptx `
-  --visualization slide_001=output/visualizations/report/slide_001__visual_001.json
+.\.venv\Scripts\python.exe main.py document-bundle from-raw `
+  report.pdf RAW_DIRECTORY output/report/document_bundle
 ```
 
-推荐的新链路使用单命令编排。命令先在同级临时目录完成所有阶段，只有 DocumentBundle、
-Outline、Visualization、数值审计、Manifest、Compiled Layout Plan 和 PPTX 全部通过后，
-才发布最终输出目录：
+### 2. 生成或检查 Outline
+
+`--dry-run` 只构造模型请求，不调用外部 LLM：
 
 ```powershell
-python main.py run-pipeline report.md `
-  --template-profile TEMPLATE_PROFILE.json `
-  --output-dir output/report_run
+.\.venv\Scripts\python.exe main.py generate-outline `
+  output/002544/document_bundle `
+  --dry-run
 ```
 
-已有 DocumentBundle 可以直接作为输入。离线回归或需要复用已审核 Outline 时可增加：
+在线生成时移除 `--dry-run` 并使用 `-o output/002544/slide_outline.json`。长研报可通过
+`--max-tokens 24000` 调整 Outline 响应预算。
+
+### 3. 单命令 Pipeline
+
+先从受控模板生成 Template Profile：
 
 ```powershell
---outline-input examples/generated/report_outline.json
+.\.venv\Scripts\python.exe main.py build-template-profile `
+  templates/template_layout_map.json `
+  templates/financial_report_template_v1.pptx `
+  -o output/template_profile.json
 ```
 
-长研报的 Outline 输出若被模型截断，可增加 `--outline-max-tokens 24000`。
+再运行完整现有链路：
 
-输出至少包含：
+```powershell
+.\.venv\Scripts\python.exe main.py run-pipeline `
+  data/reports/agent/002544_2025-10-28.md `
+  --template-profile output/template_profile.json `
+  --output-dir output/002544_run
+```
+
+需要离线回归或复用已审核 Outline 时增加：
+
+```powershell
+--outline-input examples/generated/002544_2025-10-28_slide_outline.json
+```
+
+目标输出目录必须不存在或为空。成功输出包括：
 
 ```text
 document_bundle/
@@ -140,15 +169,40 @@ presentation.pptx
 run_manifest.json
 ```
 
-输出目录必须不存在或为空。任何阶段失败时命令返回非零状态，临时目录被清理，并且不会发布
-或打印有效 PPTX 路径。
+Candidate Locator 主动发现但未通过确定性校验的候选会被跳过并写入
+`visualization_warnings.json`；Outline 明确要求的视觉若无法生成，则阻断发布。
 
-Candidate Locator 主动发现但无法通过确定性数值校验的候选会被安全跳过，并记录到
-`visualization_warnings.json`；Outline 明确声明的视觉若无法生成，仍作为 P0 失败阻断运行。
+## 分阶段命令
 
-`parse-report` 仍保留为旧脚本兼容入口，但其 Parsed Document JSON 不再是正式上游标准。
+调试时可分别执行：
 
-## DocumentBundle 目录
+```powershell
+# 可视化生成
+.\.venv\Scripts\python.exe main.py generate-visualizations `
+  output/002544/slide_outline.json `
+  output/002544/document_bundle `
+  -o output/002544/visualizations
+
+# 编译布局
+.\.venv\Scripts\python.exe main.py compile-layout `
+  output/002544/slide_outline.json `
+  output/002544/visualizations/visualization_manifest.json `
+  output/template_profile.json `
+  -o output/002544/compiled_layout_plan.json
+
+# 严格执行 Compiled Plan
+.\.venv\Scripts\python.exe main.py render-compiled-plan `
+  output/002544/compiled_layout_plan.json `
+  -o output/002544/presentation.pptx
+```
+
+`render-ppt`、`parse-report` 和 Legacy Layout Map 仍为兼容入口。新功能应优先接入
+`DocumentBundle → run-pipeline → Compiled Plan` 链路；不要再以 Parsed Document JSON
+作为新的正式输入契约。
+
+## 数据契约
+
+DocumentBundle 的正式下游接口是 `document.json` 与 `assets/`：
 
 ```text
 document_bundle/
@@ -164,59 +218,64 @@ document_bundle/
     └── document.md
 ```
 
-Markdown bundle 的 `raw/` 只需保留原始 `document.md`；PDF bundle 严格保留全部四个
-MinerU raw 文件。
-
-`document.json` 的冻结顶层字段：
-
-```json
-{
-  "document": {},
-  "pages": [],
-  "blocks": [],
-  "sections": [],
-  "tables": [],
-  "figures": [],
-  "reading_order": []
-}
-```
-
-正式 Schema 位于：
+主要 Schema：
 
 - `schemas/document_bundle.schema.json`
-- `schemas/parsed_document.schema.json`（deprecated，仅用于旧解析器和 compat 回归）
 - `schemas/slide_outline.schema.json`
 - `schemas/visualization.schema.json`
+- `schemas/visualization_manifest.schema.json`
+- `schemas/template_profile.schema.json`
+- `schemas/compiled_layout_plan.schema.json`
 - `schemas/run_manifest.schema.json`
+- `schemas/parsed_document.schema.json`（deprecated，仅用于兼容回归）
+
+修改 Schema 时必须同步 loader、validator、样例、测试和迁移说明。不得把目标架构字段直接
+塞入冻结的旧契约来规避版本迁移。
 
 ## 项目结构
 
-```text
-document_bundle/          新的 PDF/Markdown 上游数据层
-document_intelligence/    确定性结构索引、evidence 与 chunk
-compat/structured_content/ deprecated；仅保留 DocumentBundle→Parsed Document 测试兼容
-document_parser/          Markdown/plain-text 的 DocumentBundle 生产解析实现；旧 Parsed JSON CLI 兼容
-outline_generator/        Context Compression + Slide Planning
-visualization_generator/  视觉语义规划 + DocumentBundle 原生 chart/table/image 生成
-pipeline_runner/           单命令编排、原子发布、数值审计与 Run Manifest
-ppt_engine/               Layout Resolver 与 PPT Renderer
-ppt_template_parser/      PPT 模板结构分析
-schemas/                  JSON Schema
-prompts/                  Outline prompt 与 few-shot
-templates/                PPT 模板和 Layout Map
-tools/                    校验与模板工具
-tests/                    单元、集成及回归测试
-docs/                     架构、接口和交付文档
-```
+| 路径 | 职责 |
+|---|---|
+| `document_bundle/` | PDF/Markdown/TXT 统一事实输入与资产物化 |
+| `document_intelligence/` | 确定性索引、evidence、figure inventory 与 chunk |
+| `outline_generator/` | 运行时 context compression 与 LLM slide planning |
+| `visualization_generator/` | 候选发现、事实抽取、验证、审计和 manifest |
+| `pipeline_runner/` | 单命令编排、当前原子发布和 run manifest |
+| `ppt_engine/` | 布局解析、文字分页、编译与 chart/table/image 渲染 |
+| `ppt_template_parser/` | PPT 模板对象、样式与主题分析 |
+| `compat/structured_content/` | deprecated 的 DocumentBundle→Parsed Document 适配器 |
+| `document_parser/` | Markdown/TXT 解析实现及旧 Parsed JSON CLI 兼容 |
+| `schemas/`、`prompts/` | 冻结数据契约、Outline prompt 与 few-shot cases |
+| `templates/`、`layouts/` | 受控模板、Legacy Layout Map 与抽象布局目录 |
+| `tools/` | 校验、模板构建和历史验收工具 |
+| `tests/`、`examples/` | 单元/集成回归与受控样例 |
+| `data/` | 真实研报基线、人工对照与评估数据，不存放运行生成物 |
+| `docs/` | 长期规范、实施计划与历史交付记录 |
 
-## 测试
+## 测试与验收
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -p no:cacheprovider -q
 ```
 
-partner 的 MinerU 客户端测试使用 `httpx.MockTransport`，不会访问真实 MinerU API。
-Renderer 回归测试会重新打开生成的 PPTX 并检查页数及图表/表格对象。
+自动化测试使用 MockTransport 模拟 MinerU，不需要真实 API Token。PPT 集成测试会重新打开
+输出文件并检查页数以及 chart、table、image 和文本对象，但目前不等同于像素级 Render QA。
 
-详细接口见 [docs/architecture/interfaces.md](docs/architecture/interfaces.md)，
-DocumentBundle 规范见 [docs/specs/document_bundle.md](docs/specs/document_bundle.md)。
+提交主链路改动前还应至少确认：
+
+- 数值、单位、时期和来源可以回查到原始 evidence；
+- mixed metric、mixed measure kind、低信息量序列等负样本被拒绝；
+- 每页视觉不超过当前布局容量，required 内容没有静默丢失；
+- 最终 PPTX 可重新打开，且人工检查无明显裁切、重叠、空洞或图文不相关；
+- 失败不会被误报为已发布的有效 PPTX。
+
+## 文档入口
+
+- [目标架构与重构实施要求](docs/architecture/research_report_ppt_refactor_spec.md)
+- [当前系统概览](docs/architecture/system_overview.md)
+- [接口规范](docs/architecture/interfaces.md)
+- [DocumentBundle 规范](docs/specs/document_bundle.md)
+- [文档导航](docs/README.md)
+
+`docs/delivery/` 中的周次记录是历史验收证据，其中的命令、测试数量和旧 Parsed Document
+路径不代表当前推荐入口。
