@@ -317,6 +317,28 @@ def _check_text_capacity(
                 )
 
 
+def _text_style_at_minimum(
+    style: Mapping[str, Any],
+    region: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Apply a region's font floor without shrinking text to make it fit.
+
+    Text pagination is responsible for moving overflow to continuation pages.
+    The compiler may raise a font size to the declared floor, but it must never
+    lower a style below that floor as a capacity workaround.
+    """
+
+    result = dict(style)
+    capacity = region.get("capacity", {})
+    if not isinstance(capacity, Mapping):
+        return result
+    minimum = capacity.get("minimum_font_size_pt")
+    current = result.get("font_size_pt")
+    if isinstance(minimum, (int, float)) and isinstance(current, (int, float)):
+        result["font_size_pt"] = max(float(current), float(minimum))
+    return result
+
+
 def _compile_adaptive_slide(
     slide: Mapping[str, Any],
     visualizations: Sequence[Mapping[str, Any]],
@@ -367,7 +389,9 @@ def _compile_adaptive_slide(
                     "element_id": region["region_id"],
                     "target": target,
                     "value": value,
-                    "style": dict(styles[region["style_role"]]),
+                    "style": _text_style_at_minimum(
+                        styles[region["style_role"]], region
+                    ),
                 }
             )
             emitted_roles.add(role)
@@ -388,7 +412,9 @@ def _compile_adaptive_slide(
                     "element_id": region["region_id"],
                     "target": target,
                     "value": slide["key_message"],
-                    "style": dict(styles[region["style_role"]]),
+                    "style": _text_style_at_minimum(
+                        styles[region["style_role"]], region
+                    ),
                 }
             )
             emitted_roles.add(role)
@@ -403,12 +429,9 @@ def _compile_adaptive_slide(
             _check_text_capacity(
                 str(slide["slide_id"]), layout_id, region, values
             )
-            style = dict(styles[region["style_role"]])
-            minimum_font_size = capacity.get("minimum_font_size_pt")
-            if isinstance(minimum_font_size, (int, float)):
-                style["font_size_pt"] = min(
-                    float(style["font_size_pt"]), float(minimum_font_size)
-                )
+            style = _text_style_at_minimum(
+                styles[region["style_role"]], region
+            )
             operations.append(
                 {
                     "op": "add_bullet_list",

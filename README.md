@@ -75,7 +75,7 @@ Input Adapter → Canonical Source Model → ReportMap → DeckStoryboard
 
 ## 环境安装
 
-建议使用 Python 3.12。仓库不提交虚拟环境，也不要复用其他机器复制来的 `.venv`。
+项目统一使用 Python 3.12。仓库不提交虚拟环境，也不要复用其他机器复制来的 `.venv`。
 
 ```powershell
 py -3.12 -m venv .venv
@@ -171,6 +171,10 @@ run_manifest.json
 
 Candidate Locator 主动发现但未通过确定性校验的候选会被跳过并写入
 `visualization_warnings.json`；Outline 明确要求的视觉若无法生成，则阻断发布。
+
+Compiled Plan 内容页按 Abstract Layout 声明的最小字号容量分页；内容超过容量时生成
+`__cont_XX` 续页，视觉保留在第一页，后续页承接剩余文本。Compiled Renderer 禁止通过
+PowerPoint 自动缩字把文字压到字号下限以下。
 
 ## 分阶段命令
 

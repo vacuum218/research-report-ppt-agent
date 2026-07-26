@@ -83,7 +83,13 @@ def find_shape(slide: Any, target: Mapping[str, Any] | str | None) -> Any | None
     return None
 
 
-def set_text(shape: Any | None, value: Any, *, required: bool = False) -> None:
+def set_text(
+    shape: Any | None,
+    value: Any,
+    *,
+    required: bool = False,
+    allow_auto_shrink: bool = True,
+) -> None:
     if shape is None:
         if required:
             raise SlideBuildError("required template text target is missing")
@@ -91,10 +97,20 @@ def set_text(shape: Any | None, value: Any, *, required: bool = False) -> None:
     shape.text = "" if value is None else str(value)
     if getattr(shape, "has_text_frame", False):
         shape.text_frame.word_wrap = True
-        shape.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+        shape.text_frame.auto_size = (
+            MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+            if allow_auto_shrink
+            else MSO_AUTO_SIZE.NONE
+        )
 
 
-def set_bullets(shape: Any | None, values: Iterable[Any], *, required: bool = False) -> None:
+def set_bullets(
+    shape: Any | None,
+    values: Iterable[Any],
+    *,
+    required: bool = False,
+    allow_auto_shrink: bool = True,
+) -> None:
     if shape is None:
         if required:
             raise SlideBuildError("required template bullet target is missing")
@@ -103,7 +119,11 @@ def set_bullets(shape: Any | None, values: Iterable[Any], *, required: bool = Fa
     shape.text = "\n".join(items)
     if getattr(shape, "has_text_frame", False):
         shape.text_frame.word_wrap = True
-        shape.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+        shape.text_frame.auto_size = (
+            MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+            if allow_auto_shrink
+            else MSO_AUTO_SIZE.NONE
+        )
 
 
 def _remove_named_shapes(slide: Any, names: Sequence[str]) -> None:
@@ -169,7 +189,10 @@ def _add_compiled_text_box(
     frame = shape.text_frame
     frame.clear()
     frame.word_wrap = True
-    frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+    # Adaptive pages are paginated by the compiler at the declared minimum
+    # font size.  PowerPoint auto-fit would silently shrink text below that
+    # floor, so overflow must become a continuation page instead.
+    frame.auto_size = MSO_AUTO_SIZE.NONE
     frame.margin_left = Pt(2)
     frame.margin_right = Pt(2)
     frame.margin_top = Pt(1)
@@ -195,13 +218,23 @@ def _set_compiled_repeated(
         if isinstance(value, Mapping):
             for field, target in target_group.items():
                 shape = _compiled_target(slide, target)
-                set_text(shape, value.get(field, ""), required=True)
+                set_text(
+                    shape,
+                    value.get(field, ""),
+                    required=True,
+                    allow_auto_shrink=False,
+                )
         else:
             fields = list(target_group)
             for field_index, field in enumerate(fields):
                 shape = _compiled_target(slide, target_group[field])
                 text = value if field_index == len(fields) - 1 and value is not None else ""
-                set_text(shape, text, required=True)
+                set_text(
+                    shape,
+                    text,
+                    required=True,
+                    allow_auto_shrink=False,
+                )
 
 
 def execute_compiled_operations(
@@ -235,12 +268,14 @@ def execute_compiled_operations(
                 _compiled_target(slide, operation["target"]),
                 operation.get("value"),
                 required=True,
+                allow_auto_shrink=False,
             )
         elif op == "set_bullets":
             set_bullets(
                 _compiled_target(slide, operation["target"]),
                 operation.get("values", []),
                 required=True,
+                allow_auto_shrink=False,
             )
         elif op == "set_repeated_text":
             _set_compiled_repeated(
@@ -271,6 +306,7 @@ def execute_compiled_operations(
                         _compiled_target(slide, title_target),
                         data.get("title", ""),
                         required=True,
+                        allow_auto_shrink=False,
                     )
             elif op == "render_table":
                 render_table(slide, target, data, style=operation.get("style"))

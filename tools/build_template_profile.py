@@ -166,7 +166,9 @@ def _adaptive_style_tokens(presentation: Presentation) -> dict[str, Any]:
     )
     # Adaptive pages have less decorative scaffolding than exact template pages.
     # Preserve the template typography but keep body copy at a readable floor.
-    key_message["font_size_pt"] = min(16.0, float(key_message["font_size_pt"]))
+    key_message["font_size_pt"] = max(
+        14.0, min(16.0, float(key_message["font_size_pt"]))
+    )
     body["font_size_pt"] = max(14.0, float(body["font_size_pt"]))
     table_font_size = max(8.0, min(10.0, float(body["font_size_pt"]) - 4.0))
     return {

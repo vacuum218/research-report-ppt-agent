@@ -31,9 +31,10 @@ def compile_fixture(
     *,
     outline: dict | None = None,
     table_visualization: dict | None = None,
+    profile: dict | None = None,
 ) -> dict:
     outline = outline or load("examples/slide_outline_valid.json")
-    profile = build_template_profile(
+    profile = profile or build_template_profile(
         load("templates/template_layout_map.json"),
         PROJECT_ROOT / "templates/financial_report_template_v1.pptx",
     )
@@ -282,3 +283,43 @@ def test_compiler_auto_paginates_text_without_dropping_visuals(tmp_path):
         for page in source_pages[1:]
         for operation in page["operations"]
     )
+
+
+def test_paginated_adaptive_text_never_drops_below_region_font_floor(tmp_path):
+    outline = load("examples/slide_outline_valid.json")
+    source_slide = outline["slides"][1]
+    source_slide["key_message"] = "核心结论：" + "盈利能力持续改善。" * 18
+    source_slide["bullet_points"] = [
+        f"假设{index}：" + "收入与利润预测依据。" * 8
+        for index in range(1, 6)
+    ]
+    profile = build_template_profile(
+        load("templates/template_layout_map.json"),
+        PROJECT_ROOT / "templates/financial_report_template_v1.pptx",
+    )
+    for role in ("slide_title", "key_message", "body_text"):
+        profile["adaptive_canvas"]["style_tokens"][role]["font_size_pt"] = 8
+
+    plan = compile_fixture(tmp_path, outline=outline, profile=profile)
+    source_pages = [
+        slide
+        for slide in plan["slides"]
+        if slide["source_slide_id"] == "slide_002"
+    ]
+    catalog = load("layouts/abstract_layout_catalog.json")
+
+    assert len(source_pages) >= 2
+    for page in source_pages:
+        assert page["slide_mode"] == "adaptive_canvas"
+        regions = {
+            region["region_id"]: region
+            for region in catalog["layouts"][page["abstract_layout_id"]]["regions"]
+        }
+        for operation in page["operations"]:
+            if operation["op"] not in {"add_text_box", "add_bullet_list"}:
+                continue
+            minimum = regions[operation["element_id"]]["capacity"].get(
+                "minimum_font_size_pt"
+            )
+            if minimum is not None:
+                assert operation["style"]["font_size_pt"] >= minimum

@@ -11,6 +11,11 @@ MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
 
 def test_canonical_resource_paths_exist():
+    assert (PROJECT_ROOT / ".python-version").read_text(encoding="utf-8").strip() == "3.12"
+    workflow = (PROJECT_ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+    assert workflow.count('python: "3.12"') == 2
+    assert 'python: "3.10"' not in workflow
+    assert 'python: "3.11"' not in workflow
     assert (PROJECT_ROOT / "schemas/document_bundle.schema.json").is_file()
     assert (PROJECT_ROOT / "schemas/parsed_document.schema.json").is_file()
     assert (PROJECT_ROOT / "schemas/slide_outline.schema.json").is_file()
