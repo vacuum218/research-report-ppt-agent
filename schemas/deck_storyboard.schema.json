@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-report-ppt-agent.local/schemas/deck_storyboard.schema.json",
+  "title": "Presentation Editorial Storyboard",
+  "type": "object",
+  "required": ["schema_version", "report_id", "slides"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "report_id": {"type": "string", "minLength": 1},
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 24,
+      "items": {"$ref": "#/$defs/slide"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_ref": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {"enum": ["block", "table", "figure"]},
+        "id": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "visual_candidate": {
+      "type": "object",
+      "required": ["candidate_id", "type", "purpose", "supports_claim", "evidence_refs"],
+      "properties": {
+        "candidate_id": {"type": "string", "pattern": "^visual_[A-Za-z0-9_.-]+$"},
+        "type": {"enum": ["chart", "table", "image"]},
+        "purpose": {"type": "string", "minLength": 1},
+        "supports_claim": {"const": true},
+        "chart_intent": {"enum": ["trend", "comparison", "composition"]},
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/evidence_ref"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "slide": {
+      "type": "object",
+      "required": ["story_id", "page_role", "slide_type", "purpose", "claim", "headline", "supporting_points", "evidence_refs", "visual_candidates"],
+      "properties": {
+        "story_id": {"type": "string", "pattern": "^story_[A-Za-z0-9_.-]+$"},
+        "page_role": {"enum": ["title", "section", "content", "closing"]},
+        "slide_type": {"enum": ["company_overview", "industry_analysis", "business_model", "core_competitiveness", "financial_forecast", "valuation_analysis", "investment_risk", "figure_page", "summary"]},
+        "section_ref": {"type": "string", "minLength": 1},
+        "section_title": {"type": "string", "minLength": 1},
+        "purpose": {"type": "string", "minLength": 1},
+        "claim_ref": {"type": "string", "pattern": "^claim_[A-Za-z0-9_.-]+$"},
+        "claim": {"type": ["string", "null"]},
+        "headline": {"type": "string", "minLength": 1, "maxLength": 80},
+        "supporting_points": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/evidence_ref"}
+        },
+        "visual_candidates": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {"$ref": "#/$defs/visual_candidate"}
+        },
+        "layout_hint": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"page_role": {"const": "content"}}, "required": ["page_role"]},
+          "then": {
+            "required": ["section_ref", "section_title", "claim_ref"],
+            "properties": {
+              "claim": {"type": "string", "minLength": 1},
+              "evidence_refs": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"page_role": {"const": "section"}}, "required": ["page_role"]},
+          "then": {
+            "required": ["section_ref", "section_title"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

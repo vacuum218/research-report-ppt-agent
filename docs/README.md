@@ -49,3 +49,4 @@ JSON Schema 文件本身位于仓库根目录 `schemas/`，并且优先级高于
 ## Phase 1
 
 - [Typed metric migration and offline acceptance](delivery/phase1_typed_metric_migration.md)
+- [Phase 2 editorial pipeline](delivery/phase2_editorial_pipeline.md)

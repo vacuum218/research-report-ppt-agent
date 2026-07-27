@@ -163,7 +163,7 @@ def _collect_visual_types(
     candidates = slide.get("visual_candidates", [])
     if isinstance(candidates, list):
         for candidate in candidates:
-            if isinstance(candidate, Mapping) and candidate.get("type") in {"chart", "table"}:
+            if isinstance(candidate, Mapping) and candidate.get("type") in {"chart", "table", "image"}:
                 values.append(str(candidate["type"]))
     for visualization in visualizations:
         if visualization.get("type") == "image":

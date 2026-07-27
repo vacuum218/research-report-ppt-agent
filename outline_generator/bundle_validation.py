@@ -168,14 +168,8 @@ def canonicalize_outline_from_bundle(
         if canonical_title and str(slide.get("section") or "").strip() != canonical_title:
             slide["section"] = canonical_title
             counts["labels"] += 1
-        if (
-            canonical_title
-            and slide.get("page_role") in {"section", "content"}
-            and slide.get("slide_type") != "figure_page"
-            and str(slide.get("title") or "").strip() != canonical_title
-        ):
-            slide["title"] = canonical_title
-            counts["titles"] += 1
+        if canonical_title:
+            slide["section_title"] = canonical_title
 
         if slide.get("page_role") != "content" or slide.get("slide_type") == "figure_page":
             continue
@@ -367,15 +361,11 @@ def validate_outline_evidence(
     issues: list[Issue] = []
     section_positions = {value: index for index, value in enumerate(snapshot.section_order)}
     figure_inventory = build_figure_inventory(snapshot)
-    figure_positions = {
-        str(item["figure_id"]): int(item["order"]) for item in figure_inventory
-    }
     selectable_figures = {
         str(item["figure_id"])
         for item in figure_inventory
         if item.get("selectable") is True
     }
-    previous_figure_position = 0
     previous_position = -1
     for slide_index, slide in enumerate(outline.get("slides", [])):
         if not isinstance(slide, Mapping):
@@ -397,21 +387,11 @@ def validate_outline_evidence(
                 declared_section = str(slide.get("section") or "").strip()
                 if declared_section and canonical_title and declared_section != canonical_title:
                     issues.append(Issue("error", "BUNDLE.SECTION_TITLE_MISMATCH", f"{base}.section", "slide section label must match the DocumentBundle heading"))
-                if (
-                    slide.get("page_role") in {"section", "content"}
-                    and slide.get("slide_type") != "figure_page"
-                    and canonical_title
-                    and slide.get("title") is not None
-                    and str(slide.get("title") or "").strip() != canonical_title
-                ):
-                    issues.append(
-                        Issue(
-                            "error",
-                            "BUNDLE.SECTION_SLIDE_TITLE",
-                            f"{base}.title",
-                            "section/content slide title must exactly match the DocumentBundle heading",
-                        )
-                    )
+                declared_provenance_title = str(
+                    slide.get("section_title") or slide.get("section") or ""
+                ).strip()
+                if declared_provenance_title and canonical_title and declared_provenance_title != canonical_title:
+                    issues.append(Issue("error", "BUNDLE.SECTION_TITLE_MISMATCH", f"{base}.section_title", "section_title must exactly match the DocumentBundle heading"))
 
         role = slide.get("page_role")
         refs = slide.get("evidence_refs", [])
@@ -423,8 +403,6 @@ def validate_outline_evidence(
             else []
         )
         maximum_visuals = 2 if role == "content" else 0
-        if slide_type == "figure_page":
-            maximum_visuals = 0
         if len(visual_candidates) > maximum_visuals:
             issues.append(
                 Issue(
@@ -443,68 +421,9 @@ def validate_outline_evidence(
             for ref in refs
             if isinstance(ref, Mapping) and ref.get("kind") == "figure"
         ] if isinstance(refs, list) else []
-        if slide_type == "figure_page":
-            if len(refs) != 1 or len(figure_refs) != 1:
-                issues.append(
-                    Issue(
-                        "error",
-                        "FIGURE.PAGE_REQUIRES_ONE_FIGURE",
-                        f"{base}.evidence_refs",
-                        "figure_page must reference exactly one figure and no other evidence",
-                    )
-                )
-            elif figure_refs[0] not in selectable_figures:
-                issues.append(
-                    Issue(
-                        "error",
-                        "FIGURE.ASSET_UNAVAILABLE",
-                        f"{base}.evidence_refs[0]",
-                        f"figure {figure_refs[0]!r} has no available original asset",
-                    )
-                )
-            else:
-                current_figure_position = figure_positions[figure_refs[0]]
-                figure = snapshot.figures_by_id[figure_refs[0]]
-                caption_block = snapshot.blocks_by_id.get(
-                    str(figure.get("caption_block_id") or ""), {}
-                )
-                canonical_caption = str(
-                    caption_block.get("text_raw") or ""
-                ).strip()
-                if (
-                    canonical_caption
-                    and str(slide.get("title") or "").strip()
-                    != canonical_caption
-                ):
-                    issues.append(
-                        Issue(
-                            "error",
-                            "FIGURE.TITLE_MISMATCH",
-                            f"{base}.title",
-                            "figure page title must exactly match its source caption",
-                        )
-                    )
-                if current_figure_position <= previous_figure_position:
-                    issues.append(
-                        Issue(
-                            "error",
-                            "FIGURE.ORDER",
-                            f"{base}.evidence_refs[0]",
-                            "figure_page order must be strictly increasing in PDF order",
-                        )
-                    )
-                previous_figure_position = max(
-                    previous_figure_position, current_figure_position
-                )
-        elif figure_refs:
-            issues.append(
-                Issue(
-                    "error",
-                    "FIGURE.REQUIRES_FIGURE_PAGE",
-                    f"{base}.evidence_refs",
-                    "figure evidence must be migrated on a dedicated figure_page",
-                )
-            )
+        for figure_id in figure_refs:
+            if figure_id not in selectable_figures:
+                issues.append(Issue("error", "FIGURE.ASSET_UNAVAILABLE", f"{base}.evidence_refs", f"figure {figure_id!r} has no available original asset"))
         if role == "content" and not refs:
             issues.append(Issue("error", "BUNDLE.CONTENT_WITHOUT_EVIDENCE", f"{base}.evidence_refs", "content slide must reference DocumentBundle evidence"))
         if role in {"content", "section"} and section_ref is None:
@@ -587,34 +506,7 @@ def validate_outline_evidence(
                         )
                     )
 
-        if role == "content" and slide_type != "figure_page":
-            first_paragraph = next(
-                (
-                    block
-                    for block in evidence_blocks
-                    if str(block.get("type")) in {"paragraph", "blockquote"}
-                ),
-                None,
-            )
-            topic_sentence = (
-                _first_topic_sentence(first_paragraph.get("text_raw"))
-                if first_paragraph is not None
-                else None
-            )
-            key_message = _normalized_text(slide.get("key_message"))
-            if (
-                topic_sentence
-                and slide.get("key_message") is not None
-                and key_message != _normalized_text(topic_sentence)
-            ):
-                issues.append(
-                    Issue(
-                        "error",
-                        "BUNDLE.TOPIC_SENTENCE_MISMATCH",
-                        f"{base}.key_message",
-                        "a concise first-sentence topic statement must be preserved verbatim",
-                    )
-                )
+        if role == "content":
             evidence_text = " ".join(evidence_text_parts)
             if section_ref in snapshot.sections_by_id:
                 section = snapshot.sections_by_id[str(section_ref)]

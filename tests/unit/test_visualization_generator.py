@@ -216,6 +216,26 @@ def test_image_uses_existing_bundle_figure_asset(tmp_path):
     assert artifacts[0].data["asset_path"] == "assets/figures/fig-001.png"
 
 
+def test_native_figure_can_be_an_image_candidate_on_a_regular_content_slide(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    slide = _slide(
+        "image",
+        "用原始研报图片支持本页观点",
+        [{"kind": "figure", "id": "fig-001"}],
+    )
+    slide["slide_type"] = "industry_analysis"
+    slide["bullet_points"] = ["解释图片与观点的关系"]
+    slide["visual_candidates"][0]["evidence_refs"] = [
+        {"kind": "figure", "id": "fig-001"}
+    ]
+
+    artifacts, issues = generate_visualizations({"slides": [slide]}, snapshot)
+
+    assert not issues
+    assert artifacts[0].data["type"] == "image"
+    assert artifacts[0].data["source"] == {"kind": "figure", "id": "fig-001"}
+
+
 def test_figure_inventory_resolves_context_asset_and_order(tmp_path):
     snapshot = _snapshot(tmp_path)
 
@@ -229,7 +249,7 @@ def test_figure_inventory_resolves_context_asset_and_order(tmp_path):
     assert inventory[0]["caption"].startswith("2021年收入")
 
 
-def test_figure_pages_must_follow_pdf_order(tmp_path):
+def test_selected_figures_do_not_have_to_follow_pdf_order(tmp_path):
     snapshot = _snapshot(tmp_path)
     second_path = tmp_path / "assets" / "figures" / "fig-002.png"
     second_path.write_bytes(b"png")
@@ -255,7 +275,7 @@ def test_figure_pages_must_follow_pdf_order(tmp_path):
         ordered_snapshot,
     )
 
-    assert any(issue.code == "FIGURE.ORDER" for issue in issues)
+    assert not any(issue.code == "FIGURE.ORDER" for issue in issues)
 
 
 def test_image_only_table_is_emitted_only_as_image(tmp_path):

@@ -61,6 +61,18 @@ def test_outline_only_renderer_creates_reopenable_pptx(tmp_path):
     presentation = Presentation(output)
     assert len(presentation.slides) == len(outline["slides"])
     assert presentation.slides[0].shapes[2].name == "cover_title"
+    cover_text_shapes = [
+        shape
+        for shape in presentation.slides[0].shapes
+        if shape.name in {"cover_title", "subtitle", "cover_meta", "tag"}
+    ]
+    assert cover_text_shapes
+    assert all(
+        str(run.font.color.rgb) == "FFFFFF"
+        for shape in cover_text_shapes
+        for paragraph in shape.text_frame.paragraphs
+        for run in paragraph.runs
+    )
     assert presentation.slides[0].element.cSld.find(qn("p:bg")) is not None
     visual_slide = presentation.slides[1]
     assert not any(shape.has_chart for shape in visual_slide.shapes)

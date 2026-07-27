@@ -104,6 +104,14 @@ def set_text(
         )
 
 
+def _set_text_color(shape: Any | None, color: str) -> None:
+    if shape is None or not getattr(shape, "has_text_frame", False):
+        return
+    for paragraph in shape.text_frame.paragraphs:
+        for run in paragraph.runs:
+            run.font.color.rgb = RGBColor.from_string(color)
+
+
 def set_bullets(
     shape: Any | None,
     values: Iterable[Any],
@@ -264,12 +272,20 @@ def execute_compiled_operations(
                 bullets=True,
             )
         elif op == "set_text":
+            target = _compiled_target(slide, operation["target"])
             set_text(
-                _compiled_target(slide, operation["target"]),
+                target,
                 operation.get("value"),
                 required=True,
                 allow_auto_shrink=False,
             )
+            if operation.get("binding_id") in {
+                "cover_title",
+                "subtitle",
+                "cover_meta",
+                "tag",
+            }:
+                _set_text_color(target, "FFFFFF")
         elif op == "set_bullets":
             set_bullets(
                 _compiled_target(slide, operation["target"]),
@@ -488,11 +504,17 @@ def populate_slide(
         return
 
     if layout_id == "cover":
-        set_text(_field_shape(slide, layout, "cover_title"), metadata.get("company_name", ""))
-        set_text(_field_shape(slide, layout, "subtitle"), metadata.get("report_title", title))
+        cover_title = _field_shape(slide, layout, "cover_title")
+        subtitle = _field_shape(slide, layout, "subtitle")
+        cover_meta = _field_shape(slide, layout, "cover_meta")
+        tag = _field_shape(slide, layout, "tag")
+        set_text(cover_title, metadata.get("company_name", ""))
+        set_text(subtitle, metadata.get("report_title", title))
         meta = "  |  ".join(str(metadata.get(key, "")) for key in ("stock_code", "report_date") if metadata.get(key))
-        set_text(_field_shape(slide, layout, "cover_meta"), meta)
-        set_text(_field_shape(slide, layout, "tag"), metadata.get("industry", ""))
+        set_text(cover_meta, meta)
+        set_text(tag, metadata.get("industry", ""))
+        for shape in (cover_title, subtitle, cover_meta, tag):
+            _set_text_color(shape, "FFFFFF")
         _render_images(slide, layout, image_visuals, asset_root=asset_root)
         return
 

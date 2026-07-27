@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "phase2_editorial_pipeline",
+  "executed_at": "2026-07-27",
+  "python_version": "3.12.3",
+  "llm_api_called": true,
+  "model": "deepseek-v4-pro",
+  "status": "passed",
+  "summary": {
+    "real_report_count": 5,
+    "generated_slide_count": 98,
+    "validation_error_count": 0,
+    "validation_warning_count": 0,
+    "out_of_bounds_shape_count": 0,
+    "visual_inspection": "all_slides"
+  },
+  "reports": [
+    {
+      "report_id": "000333",
+      "output_dir": "output/phase2_api_smoke_retry5/000333",
+      "slide_count": 14,
+      "content_slide_count": 12,
+      "section_slide_count": 0,
+      "excluded_evidence_count": 0,
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "001309",
+      "output_dir": "output/phase2_acceptance_retry5/001309",
+      "slide_count": 24,
+      "content_slide_count": 18,
+      "section_slide_count": 4,
+      "excluded_evidence_count": 0,
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "002444",
+      "output_dir": "output/phase2_acceptance_retry/002444",
+      "slide_count": 18,
+      "content_slide_count": 12,
+      "section_slide_count": 4,
+      "excluded_evidence_count": 0,
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "002544",
+      "output_dir": "output/phase2_acceptance_retry/002544",
+      "slide_count": 22,
+      "content_slide_count": 13,
+      "section_slide_count": 7,
+      "excluded_evidence_count": 0,
+      "pipeline_status": "completed"
+    },
+    {
+      "report_id": "002821",
+      "output_dir": "output/phase2_acceptance_retry2/002821",
+      "slide_count": 20,
+      "content_slide_count": 9,
+      "section_slide_count": 9,
+      "excluded_evidence_count": 6,
+      "pipeline_status": "completed"
+    }
+  ],
+  "compatibility": {
+    "phase0_outline_reuse": [
+      "002544",
+      "002821"
+    ],
+    "status": "passed"
+  },
+  "qa_notes": [
+    "All 98 rendered slides were inspected through montages and targeted full-size checks.",
+    "The bundled slide test could not complete because its artifact path handling failed on the Windows non-ASCII user path; static geometry checks and rendered visual inspection were used instead."
+  ]
+}

@@ -622,29 +622,27 @@ def test_blank_key_messages_use_existing_bullet_then_title():
     assert outline["slides"][2]["key_message"] == "保持原值"
 
 
-def test_outline_prompt_requires_verbatim_source_titles_and_topic_sentences():
+def test_outline_prompt_separates_provenance_title_from_audience_headline():
     prompt = (PROJECT_ROOT / "prompts" / "outline_system_prompt.md").read_text(
         encoding="utf-8"
     )
 
-    assert "title` 不得使用结论式标题" in prompt
-    assert "必须逐字使用 `section_catalog` 中该章节的原始 `title`" in prompt
-    assert "第一句明确的主旨句" in prompt
-    assert "提取重点" in prompt
-    assert "中电科普天科技股份有限公司是中国电子科技集团有限公司控制的国有控股上市企业" in prompt
-    assert "公网通信业务，包括通信信息技术服务、通信网络产品等业务。" in prompt
-    assert "不得输出由关键词机械拼接而成的残句" in prompt
+    assert "`section_title` 必须逐字保留" in prompt
+    assert "`headline`/`title` 必须服务于当前页面的单一 claim" in prompt
+    assert "不要求复制章节标题" in prompt
+    assert "原始 figure 可以与正文共同出现在普通 content 页" in prompt
 
 
-def test_outline_prompt_declares_case_priority_and_source_authority():
-    prompt = (PROJECT_ROOT / "prompts" / "outline_system_prompt.md").read_text(
+def test_phase2_prompts_separate_report_understanding_and_deck_editing():
+    report_prompt = (PROJECT_ROOT / "prompts" / "report_map_system_prompt.md").read_text(
         encoding="utf-8"
     )
+    storyboard_prompt = (PROJECT_ROOT / "prompts" / "deck_storyboard_system_prompt.md").read_text(encoding="utf-8")
 
-    assert "# 指令优先级" in prompt
-    assert "Selected few-shot cases" in prompt
-    assert "不能覆盖真实证据" in prompt
-    assert "不得复制 case 中未出现在当前证据里的" in prompt
+    assert "不负责设计幻灯片" in report_prompt
+    assert "excluded_content" in report_prompt
+    assert "每个 content 页必须选择且只选择一个 claim_ref" in storyboard_prompt
+    assert "不要因为选择 figure 就创建独立 figure_page" in storyboard_prompt
 
 
 def test_default_cli_uses_case_directory_and_accepts_trace_output():

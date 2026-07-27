@@ -76,6 +76,8 @@ def test_run_pipeline_publishes_complete_hashed_output(tmp_path):
     assert result.returncode == 0, result.stderr
     expected = {
         "document_bundle/document.json",
+        "report_map.json",
+        "deck_storyboard.json",
         "slide_outline.json",
         "numeric_fact_ledger.json",
         "metric_groups.json",
