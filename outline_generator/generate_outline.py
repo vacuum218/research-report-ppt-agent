@@ -44,6 +44,7 @@ from document_intelligence.models import DocumentIntelligenceSnapshot, Intellige
 from document_intelligence.loader import DocumentIntelligenceError
 from outline_generator.bundle_validation import (
     canonicalize_outline_from_bundle,
+    normalize_topic_sentence_key_messages,
     validate_outline_evidence,
 )
 from outline_generator.few_shot import (
@@ -51,16 +52,7 @@ from outline_generator.few_shot import (
     load_case_library,
     select_cases,
 )
-from outline_generator.editorial import (
-    build_report_map_messages,
-    build_storyboard_messages,
-    normalize_report_map_assets,
-    normalize_storyboard_shape,
-    preview_report_map,
-    storyboard_to_outline,
-    validate_report_map,
-    validate_storyboard,
-)
+from outline_generator.front_matter import compact_front_matter_summary_slides
 from outline_generator.llm_understanding import (
     ContextMemoryError,
     build_direct_context_memory,
@@ -588,18 +580,6 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         default=PROJECT_ROOT / "schemas" / "slide_outline.schema.json",
     )
     parser.add_argument(
-        "--report-map-schema",
-        type=Path,
-        default=PROJECT_ROOT / "schemas" / "report_map.schema.json",
-    )
-    parser.add_argument(
-        "--storyboard-schema",
-        type=Path,
-        default=PROJECT_ROOT / "schemas" / "deck_storyboard.schema.json",
-    )
-    parser.add_argument("--report-map-output", type=Path)
-    parser.add_argument("--storyboard-output", type=Path)
-    parser.add_argument(
         "--bundle-schema",
         type=Path,
         default=PROJECT_ROOT / "schemas" / "document_bundle.schema.json",
@@ -609,16 +589,6 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         "--system-prompt",
         type=Path,
         default=PROJECT_ROOT / "prompts" / "outline_system_prompt.md",
-    )
-    parser.add_argument(
-        "--report-map-prompt",
-        type=Path,
-        default=PROJECT_ROOT / "prompts" / "report_map_system_prompt.md",
-    )
-    parser.add_argument(
-        "--storyboard-prompt",
-        type=Path,
-        default=PROJECT_ROOT / "prompts" / "deck_storyboard_system_prompt.md",
     )
     parser.add_argument(
         "--few-shot",
@@ -679,8 +649,6 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parse_args(argv)
     output = args.output or Path("output/outlines") / f"{args.input.stem}_outline.json"
-    report_map_output = args.report_map_output or output.with_name("report_map.json")
-    storyboard_output = args.storyboard_output or output.with_name("deck_storyboard.json")
 
     try:
         if args.max_attempts < 1:
@@ -703,8 +671,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         )
         context_mode = "direct" if use_direct_context else "compressed"
         schema = load_json(args.schema, "Outline schema")
-        report_map_schema = load_json(args.report_map_schema, "ReportMap schema")
-        storyboard_schema = load_json(args.storyboard_schema, "DeckStoryboard schema")
         case_library = load_case_library(args.few_shot)
         case_selection = select_cases(snapshot, case_library)
         few_shot = case_selection.prompt_payload
@@ -714,8 +680,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "case_library": str(args.few_shot),
         }
         system_prompt = load_text(args.system_prompt, "System prompt")
-        report_map_prompt = load_text(args.report_map_prompt, "ReportMap prompt")
-        storyboard_prompt = load_text(args.storyboard_prompt, "DeckStoryboard prompt")
         selected_case_ids = [
             str(item.get("case_id"))
             for item in case_trace.get("selected_cases", [])
@@ -739,19 +703,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 else preview_context_memory(chunk)
                 for chunk in chunks
             ]
-            report_map_messages = build_report_map_messages(
-                snapshot,
-                preview_memories,
-                report_map_schema,
-                report_map_prompt,
-            )
-            storyboard_messages = build_storyboard_messages(
-                preview_report_map(snapshot),
-                storyboard_schema,
-                storyboard_prompt,
-            )
+            messages = build_messages(snapshot, preview_memories, schema, few_shot, system_prompt)
             preview = {
-                "pipeline": "report_map_then_deck_storyboard_then_outline_adapter",
+                "pipeline": (
+                    "direct_slide_planning"
+                    if use_direct_context
+                    else "context_compression_then_slide_planning"
+                ),
                 "context_mode": context_mode,
                 "context_input_chars": input_chars,
                 "direct_planning_max_chars": direct_planning_max_chars,
@@ -771,16 +729,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                         for chunk in chunks
                     ]
                 ),
-                "report_map_request": build_request(
-                    report_map_messages,
-                    model=args.model,
-                    max_tokens=args.max_tokens,
-                    thinking=args.thinking,
-                    reasoning_effort=args.reasoning_effort,
-                    api_provider=api_provider,
-                ),
-                "deck_storyboard_request": build_request(
-                    storyboard_messages,
+                "slide_planning_request": build_request(
+                    messages,
                     model=args.model,
                     max_tokens=args.max_tokens,
                     thinking=args.thinking,
@@ -788,8 +738,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     api_provider=api_provider,
                 ),
             }
-            # Compatibility alias for existing request-inspection tooling.
-            preview["slide_planning_request"] = preview["deck_storyboard_request"]
             if args.request_output:
                 args.request_output.parent.mkdir(parents=True, exist_ok=True)
                 args.request_output.write_text(
@@ -800,7 +748,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print(
                 f"Dry run OK: provider={api_provider}, model={args.model}, "
                 f"context_mode={context_mode}, context_chars={input_chars}, "
-                f"chunks={len(chunks)}, stages={2 if use_direct_context else 3}"
+                f"chunks={len(chunks)}, stages={1 if use_direct_context else 2}"
             )
             return 0
 
@@ -829,15 +777,21 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             for ref in memory.get("evidence_refs", [])
             if isinstance(ref, Mapping)
         }
-        report_map_messages = build_report_map_messages(
-            snapshot,
-            runtime_memories,
-            report_map_schema,
-            report_map_prompt,
-        )
-        report_map, _, report_attempts = generate_with_retries(
-            report_map_messages,
-            report_map_schema,
+        messages = build_messages(snapshot, runtime_memories, schema, few_shot, system_prompt)
+
+        def postprocess_generated_outline(value: Dict[str, Any]) -> None:
+            compact_front_matter_summary_slides(value, snapshot)
+            normalize_topic_sentence_key_messages(value, snapshot)
+            fill_blank_key_messages(value)
+            canonicalize_outline_from_bundle(
+                value,
+                snapshot,
+                allowed_runtime_evidence,
+            )
+
+        outline, issues, attempts_used = generate_with_retries(
+            messages,
+            schema,
             api_key=api_key,
             base_url=args.base_url,
             timeout=args.timeout,
@@ -848,74 +802,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             api_provider=api_provider,
             max_attempts=args.max_attempts,
             validate_output=not args.skip_validation,
-            postprocess_outline=lambda value: normalize_report_map_assets(
-                value,
-                snapshot,
-            ),
-            additional_validator=lambda value: validate_report_map(
+            postprocess_outline=postprocess_generated_outline,
+            additional_validator=lambda value: validate_outline_evidence(
                 value,
                 snapshot,
                 allowed_runtime_evidence,
             ),
         )
-
-        storyboard_messages = build_storyboard_messages(
-            report_map,
-            storyboard_schema,
-            storyboard_prompt,
-        )
-        storyboard, _, storyboard_attempts = generate_with_retries(
-            storyboard_messages,
-            storyboard_schema,
-            api_key=api_key,
-            base_url=args.base_url,
-            timeout=args.timeout,
-            model=args.model,
-            max_tokens=args.max_tokens,
-            thinking=args.thinking,
-            reasoning_effort=args.reasoning_effort,
-            api_provider=api_provider,
-            max_attempts=args.max_attempts,
-            validate_output=not args.skip_validation,
-            postprocess_outline=lambda value: normalize_storyboard_shape(
-                value,
-                report_map,
-            ),
-            additional_validator=lambda value: validate_storyboard(
-                value,
-                report_map,
-                snapshot,
-            ),
-        )
-
-        outline = storyboard_to_outline(report_map, storyboard)
-        fill_blank_key_messages(outline)
-        canonicalize_outline_from_bundle(
-            outline,
-            snapshot,
-            allowed_runtime_evidence,
-        )
-        issues = validate_outline_data(outline, schema) if not args.skip_validation else []
-        if not args.skip_validation:
-            issues.extend(
-                validate_outline_evidence(
-                    outline,
-                    snapshot,
-                    allowed_runtime_evidence,
-                )
-            )
-        errors = [issue for issue in issues if issue.severity == "error"]
-        if errors:
-            raise OutlineValidationError(issues, content=json.dumps(outline, ensure_ascii=False))
-        for path, value in (
-            (report_map_output, report_map),
-            (storyboard_output, storyboard),
-        ):
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(
-                json.dumps(value, ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
 
         output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.NamedTemporaryFile(
@@ -941,15 +834,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         if not args.skip_validation:
             print(f"VALID: {len(errors)} error(s), {len(warnings)} warning(s)")
         print(f"Created outline: {output}")
-        print(f"Created ReportMap: {report_map_output}")
-        print(f"Created DeckStoryboard: {storyboard_output}")
         print(f"Model: {args.model}")
         print(f"API provider: {api_provider}")
         print(f"Context mode: {context_mode} ({input_chars} chars)")
-        print(
-            f"Attempts: report_map={report_attempts}/{args.max_attempts}, "
-            f"storyboard={storyboard_attempts}/{args.max_attempts}"
-        )
+        print(f"Attempts: {attempts_used}/{args.max_attempts}")
         print(f"Slides: {len(outline.get('slides', []))}")
         return 0
     except (

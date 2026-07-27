@@ -255,9 +255,9 @@ def build_slide_planning_messages(
         + "如果 case 示例与当前文档、Schema 或硬规则不一致，必须忽略 case 中冲突的部分。"
         + "\n\n# DocumentBundle 章节与证据约束\n"
         + "只能使用 section_catalog 中存在的 section_ref；不得新增章节或改变章节顺序。"
-        + "所有带 section_ref 的 slide，其 section_title 必须逐字复制 section_catalog 对应条目的 title。"
-        + "headline/title 是面向观众的页面标题，可以在证据范围内使用结论式表达，不得引入新判断。"
-        + "每个 content slide 必须有唯一 purpose 和一个由证据支持的 claim。"
+        + "所有带 section_ref 的 slide，其 title 必须逐字复制 section_catalog 对应条目的 title，"
+        + "包括章节编号和标点；不得使用结论式标题或同义改写。"
+        + "正文 key_message 优先保留证据中的第一句主旨句，后续信息才允许提炼为 bullet_points。"
         + "正文应保持适合演示文稿的低密度；编译器会依据实际布局容量自动分页，"
         + "不得为了控制篇幅直接丢弃有证据支撑的重要内容。"
         + "每个 content slide 必须提供 evidence_refs，且只能引用 runtime_context_memories 中的原生证据。"
@@ -265,8 +265,12 @@ def build_slide_planning_messages(
         + "\n\n# 原始 PDF Figure 保真迁移\n"
         + "figure_inventory 是应用程序根据 PDF 原始顺序生成的图片目录。"
         + "只选择 selectable=true 且能直接支撑研报重要观点的 figure；不得选择装饰图或无关图片。"
-        + "原始 figure 可以作为 image visual candidate 与解释文字共同出现在普通 content 页。"
-        + "只有直接支持当前页 claim 的 figure 才能被选择，且必须保留原生 figure evidence_ref。"
+        + "每张被选择的 figure 必须生成一个独立 slide，page_role=content，"
+        + "slide_type=figure_page，bullet_points=[]，visual_candidates=[]，"
+        + "evidence_refs 只能包含该一个 figure。"
+        + "figure_page 的 title 优先使用 caption，section_ref 必须等于 figure 的 section_id。"
+        + "被选择的 figure_page 必须严格按照 figure_inventory.order 递增排列，"
+        + "不得交换顺序、合并多图或在一页加入解释性正文。"
         + "\n\n# 目录前摘要强制保留\n"
         + "用户 payload 的 front_matter_summary 由应用程序确定性识别。"
         + "当 required=true 时，必须在 title 页之后、其他所有非 title 页面之前，"
@@ -298,12 +302,12 @@ def build_slide_planning_messages(
             "preserve_section_hierarchy": True,
             "preserve_section_order": True,
             "no_new_sections": True,
-            "preserve_section_title_as_provenance": True,
-            "headline_serves_slide_claim": True,
-            "one_purpose_and_claim_per_content_slide": True,
+            "preserve_source_section_title_verbatim": True,
+            "prefer_first_topic_sentence_verbatim": True,
             "content_slides_require_evidence": True,
             "preserve_front_matter_summary": bool(front_summary["required"]),
-            "native_figure_may_share_content_slide": True,
+            "figure_page_one_figure_only": True,
+            "preserve_figure_order": True,
         },
     }
     return [

@@ -122,24 +122,19 @@ def test_invalid_page_role_fails(validator, valid_outline):
     assert_invalid(validator, instance)
 
 
-def test_native_figure_can_share_a_content_slide_with_explanation(
+def test_figure_page_requires_one_figure_and_no_text_or_visual_candidates(
     validator, valid_outline
 ):
     instance = copy.deepcopy(valid_outline)
     slide = instance["slides"][1]
-    slide["slide_type"] = "industry_analysis"
-    slide["bullet_points"] = ["解释原图如何支持本页观点"]
+    slide["slide_type"] = "figure_page"
+    slide["bullet_points"] = []
     slide["evidence_refs"] = [{"kind": "figure", "id": "fig-007"}]
-    slide["visual_candidates"] = [{
-        "candidate_id": "visual_image_001",
-        "type": "image",
-        "description": "展示原始行业图并解释其含义",
-        "purpose": "支持本页观点",
-        "supports_claim": True,
-        "source_refs": ["src_report"],
-        "evidence_refs": [{"kind": "figure", "id": "fig-007"}],
-    }]
+    slide["visual_candidates"] = []
     validator.validate(instance)
+
+    slide["bullet_points"] = ["不得图文混排"]
+    assert_invalid(validator, instance)
 
 
 def test_layout_hint_is_present_but_unrestricted(validator, valid_outline):

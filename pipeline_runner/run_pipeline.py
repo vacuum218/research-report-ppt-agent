@@ -19,7 +19,6 @@ from document_bundle.markdown import build_from_markdown
 from document_bundle.parser.mineru_client import MinerUClient
 from document_intelligence import load_document_intelligence
 from outline_generator.generate_outline import main as generate_outline_main
-from outline_generator.editorial import legacy_outline_to_editorial_artifacts
 from ppt_engine.compiled_plan import validate_compiled_plan
 from ppt_engine.abstract_layout import load_abstract_layout_catalog
 from ppt_engine.compiler import compile_layout_plan
@@ -47,8 +46,6 @@ DEFAULT_TEMPLATE = PROJECT_ROOT / "templates/financial_report_template_v1.pptx"
 SCHEMA_PATHS = {
     "document_bundle": SCHEMA_ROOT / "document_bundle.schema.json",
     "slide_outline": SCHEMA_ROOT / "slide_outline.schema.json",
-    "report_map": SCHEMA_ROOT / "report_map.schema.json",
-    "deck_storyboard": SCHEMA_ROOT / "deck_storyboard.schema.json",
     "visualization": SCHEMA_ROOT / "visualization.schema.json",
     "visualization_manifest": SCHEMA_ROOT / "visualization_manifest.schema.json",
     "template_profile": SCHEMA_ROOT / "template_profile.schema.json",
@@ -218,10 +215,7 @@ def _materialize_document_bundle(
 def _materialize_outline(
     *,
     bundle_directory: Path,
-    snapshot: Any,
     outline_path: Path,
-    report_map_path: Path,
-    storyboard_path: Path,
     outline_input: Path | None,
     outline_model: str | None,
     outline_base_url: str | None,
@@ -237,26 +231,10 @@ def _materialize_outline(
             SCHEMA_PATHS["slide_outline"],
             stage="outline",
         )
-        report_map, storyboard = legacy_outline_to_editorial_artifacts(
-            outline,
-            snapshot,
-        )
-        _validate_schema(report_map, SCHEMA_PATHS["report_map"], stage="report_map")
-        _validate_schema(storyboard, SCHEMA_PATHS["deck_storyboard"], stage="deck_storyboard")
-        _write_json(report_map_path, report_map)
-        _write_json(storyboard_path, storyboard)
         _write_json(outline_path, outline)
         return outline
 
-    forwarded = [
-        str(bundle_directory),
-        "-o",
-        str(outline_path),
-        "--report-map-output",
-        str(report_map_path),
-        "--storyboard-output",
-        str(storyboard_path),
-    ]
+    forwarded = [str(bundle_directory), "-o", str(outline_path)]
     optional_values = (
         ("--model", outline_model),
         ("--base-url", outline_base_url),
@@ -416,8 +394,6 @@ def _run_manifest(
 ) -> dict[str, Any]:
     artifact_paths = [
         staging_directory / "document_bundle/document.json",
-        staging_directory / "report_map.json",
-        staging_directory / "deck_storyboard.json",
         staging_directory / "slide_outline.json",
         staging_directory / "numeric_fact_ledger.json",
         staging_directory / "metric_groups.json",
@@ -544,14 +520,9 @@ def run_pipeline(
         last_successful_stage = "document_bundle"
 
         outline_path = staging_directory / "slide_outline.json"
-        report_map_path = staging_directory / "report_map.json"
-        storyboard_path = staging_directory / "deck_storyboard.json"
         outline = _materialize_outline(
             bundle_directory=bundle_directory,
-            snapshot=snapshot,
             outline_path=outline_path,
-            report_map_path=report_map_path,
-            storyboard_path=storyboard_path,
             outline_input=outline_input.resolve() if outline_input else None,
             outline_model=outline_model,
             outline_base_url=outline_base_url,

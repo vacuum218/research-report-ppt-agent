@@ -71,8 +71,6 @@ $env:DEEPSEEK_API_PROVIDER = "deepseek"    # 可选
 
 ```text
 document_bundle/
-report_map.json
-deck_storyboard.json
 slide_outline.json
 candidate_locator_report.json
 layout_preflight.json

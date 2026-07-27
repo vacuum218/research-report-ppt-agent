@@ -121,25 +121,17 @@ def plan_visualizations(
                     + ", ".join(sorted(forbidden))
                 )
             visual_type = str(candidate.get("type") or "")
-            if visual_type not in {"chart", "table", "image"}:
+            if visual_type not in {"chart", "table"}:
                 raise VisualizationPlanningError(
                     f"Unsupported visual candidate type: {visual_type or '<empty>'}"
                 )
             candidate_refs = _refs(candidate.get("evidence_refs")) or slide_refs
             _require_valid_evidence(snapshot, candidate_refs)
-            if visual_type == "image" and any(kind != "figure" for kind, _ in candidate_refs):
-                raise VisualizationPlanningError(
-                    "Image visual candidates must reference only native figures"
-                )
-            if visual_type in {"chart", "table"} and any(kind == "figure" for kind, _ in candidate_refs):
-                raise VisualizationPlanningError(
-                    "Chart/table visual candidates cannot reference figure evidence"
-                )
             chart_intent = _intent(candidate)
             key = (visual_type, tuple(sorted(candidate_refs)), chart_intent)
             if key in planned_keys:
                 continue
-            purpose = str(candidate.get("purpose") or candidate.get("description") or slide.get("purpose") or slide.get("claim") or slide.get("key_message") or slide.get("headline") or slide.get("title") or "").strip()
+            purpose = str(candidate.get("purpose") or candidate.get("description") or slide.get("key_message") or slide.get("title") or "").strip()
             requirement = candidate.get("data_requirement")
             requirement_items = requirement.items() if isinstance(requirement, Mapping) else ()
             plans.append(
@@ -168,8 +160,8 @@ def plan_visualizations(
                     )
             auto_index += 1
 
-        # Legacy figure_page outlines remain readable. New Phase 2 storyboards
-        # express native figures as ordinary image visual candidates instead.
+        # Original PDF figures are intentionally restricted to dedicated,
+        # one-figure-per-slide pages in this phase.
         if slide.get("slide_type") == "figure_page":
             figure_refs = tuple(ref for ref in slide_refs if ref[0] == "figure")
             if candidates or len(figure_refs) != 1 or len(slide_refs) != 1:
@@ -216,10 +208,7 @@ def plan_visualizations(
                 continue
             _require_valid_evidence(snapshot, located.evidence_refs)
             purpose = str(
-                slide.get("purpose")
-                or slide.get("claim")
-                or slide.get("key_message")
-                or slide.get("headline")
+                slide.get("key_message")
                 or slide.get("title")
                 or "Evidence-backed visualization"
             ).strip()

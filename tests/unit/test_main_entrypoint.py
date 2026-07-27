@@ -75,18 +75,17 @@ def test_outline_dry_run_does_not_require_api_key(tmp_path):
     assert result.returncode == 0
     assert request_path.is_file()
     request = json.loads(request_path.read_text(encoding="utf-8"))
-    assert request["pipeline"] == "report_map_then_deck_storyboard_then_outline_adapter"
+    assert request["pipeline"] == "direct_slide_planning"
     assert request["context_mode"] == "direct"
     assert request["context_input_chars"] <= request["direct_planning_max_chars"]
     assert request["compression_requests"] == []
     planning_payload = json.loads(
-        request["report_map_request"]["messages"][1]["content"]
+        request["slide_planning_request"]["messages"][1]["content"]
     )
     assert planning_payload["runtime_context_memories"][0]["context_mode"] == "direct"
     assert planning_payload["runtime_context_memories"][0]["raw_context"]
-    assert request["report_map_request"]["model"] == "deepseek-v4-pro"
-    assert request["report_map_request"]["response_format"] == {"type": "json_object"}
-    assert request["deck_storyboard_request"]["response_format"] == {"type": "json_object"}
+    assert request["slide_planning_request"]["model"] == "deepseek-v4-pro"
+    assert request["slide_planning_request"]["response_format"] == {"type": "json_object"}
 
 
 def test_outline_dry_run_can_force_context_compression(tmp_path):
@@ -109,7 +108,7 @@ def test_outline_dry_run_can_force_context_compression(tmp_path):
 
     assert result.returncode == 0
     request = json.loads(request_path.read_text(encoding="utf-8"))
-    assert request["pipeline"] == "report_map_then_deck_storyboard_then_outline_adapter"
+    assert request["pipeline"] == "context_compression_then_slide_planning"
     assert request["context_mode"] == "compressed"
     assert request["compression_requests"]
 

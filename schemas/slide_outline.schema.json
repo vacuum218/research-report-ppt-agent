@@ -167,8 +167,7 @@
           "type": "string",
           "enum": [
             "chart",
-            "table",
-            "image"
+            "table"
           ]
         },
         "description": {
@@ -185,13 +184,6 @@
             "$ref": "#/$defs/evidence_ref"
           },
           "uniqueItems": true
-        },
-        "purpose": {
-          "type": "string",
-          "minLength": 1
-        },
-        "supports_claim": {
-          "type": "boolean"
         },
         "values": false,
         "categories": false,
@@ -252,26 +244,6 @@
           "description": "可选的 DocumentBundle section ID；新生成的 section/content 页面应提供。",
           "minLength": 1
         },
-        "section_title": {
-          "type": "string",
-          "description": "逐字保留的 DocumentBundle 原始章节标题，仅用于来源追踪。",
-          "minLength": 1
-        },
-        "headline": {
-          "type": "string",
-          "description": "面向观众展示的结论式页面标题。",
-          "minLength": 1,
-          "maxLength": 80
-        },
-        "purpose": {
-          "type": "string",
-          "description": "页面在整份演示中的唯一叙事任务。",
-          "minLength": 1
-        },
-        "claim": {
-          "type": ["string", "null"],
-          "description": "本页唯一的证据支持观点；结构页可为 null。"
-        },
         "title": {
           "type": "string",
           "minLength": 1
@@ -311,6 +283,57 @@
           }
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "slide_type": {
+                "const": "figure_page"
+              }
+            },
+            "required": [
+              "slide_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "evidence_refs"
+            ],
+            "properties": {
+              "page_role": {
+                "const": "content"
+              },
+              "bullet_points": {
+                "maxItems": 0
+              },
+              "evidence_refs": {
+                "minItems": 1,
+                "maxItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "id"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "figure"
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "visual_candidates": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ],
       "additionalProperties": false
     }
   }

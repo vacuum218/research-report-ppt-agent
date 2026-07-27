@@ -24,9 +24,6 @@ from pptx.oxml.xmlchemy import OxmlElement
 from pptx.util import Pt
 
 
-_CITATION_MARKER_RE = re.compile(r"\[\^citeid:[^\]]+\]")
-
-
 class VisualizationRenderError(ValueError):
     """Raised for unsupported or inconsistent visualization data."""
 
@@ -717,21 +714,6 @@ def render_table(
         raise VisualizationRenderError("table requires columns and rows")
     if any(not isinstance(row, list) or len(row) != len(columns) for row in rows):
         raise VisualizationRenderError("each table row must match columns length")
-    columns = [
-        _CITATION_MARKER_RE.sub("", value).strip()
-        if isinstance(value, str)
-        else value
-        for value in columns
-    ]
-    rows = [
-        [
-            _CITATION_MARKER_RE.sub("", value).strip()
-            if isinstance(value, str)
-            else value
-            for value in row
-        ]
-        for row in rows
-    ]
     style = style or {}
     max_rows = int(style.get("max_rows", DEFAULT_TABLE_MAX_ROWS))
     max_columns = int(style.get("max_columns", DEFAULT_TABLE_MAX_COLUMNS))

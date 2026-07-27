@@ -89,7 +89,7 @@ def test_content_slide_requires_section_and_evidence(tmp_path):
     }
 
 
-def test_content_headline_may_differ_from_section_heading(tmp_path):
+def test_content_title_must_preserve_section_heading(tmp_path):
     snapshot = _snapshot(tmp_path)
     section_id = snapshot.section_order[0]
     block_id = next(
@@ -101,10 +101,10 @@ def test_content_headline_may_differ_from_section_heading(tmp_path):
     slide = _content_slide(section_id, block_id)
     slide["title"] = "模型自行总结的标题"
     issues = validate_outline_evidence({"slides": [slide]}, snapshot)
-    assert not any(issue.code == "BUNDLE.SECTION_SLIDE_TITLE" for issue in issues)
+    assert any(issue.code == "BUNDLE.SECTION_SLIDE_TITLE" for issue in issues)
 
 
-def test_claim_may_be_an_evidence_grounded_editorial_statement(tmp_path):
+def test_concise_first_sentence_must_be_preserved_as_key_message(tmp_path):
     snapshot = _snapshot(tmp_path)
     section_id = snapshot.section_order[0]
     block_id = next(
@@ -118,7 +118,7 @@ def test_claim_may_be_an_evidence_grounded_editorial_statement(tmp_path):
     slide["title"] = snapshot.blocks_by_id[title_block_id]["text_raw"]
     slide["key_message"] = "模型重新概括的主旨"
     issues = validate_outline_evidence({"slides": [slide]}, snapshot)
-    assert not any(issue.code == "BUNDLE.TOPIC_SENTENCE_MISMATCH" for issue in issues)
+    assert any(issue.code == "BUNDLE.TOPIC_SENTENCE_MISMATCH" for issue in issues)
 
 
 def test_topic_sentence_is_restored_before_validation(tmp_path):
@@ -186,7 +186,7 @@ def test_equivalent_numeric_formatting_is_grounded(tmp_path):
     assert not any(issue.code == "BUNDLE.UNGROUNDED_NUMBER" for issue in issues)
 
 
-def test_bundle_canonicalization_owns_section_provenance_not_headline(tmp_path):
+def test_bundle_canonicalization_owns_section_labels_and_titles(tmp_path):
     snapshot = _snapshot(tmp_path)
     section_id = snapshot.section_order[0]
     section = snapshot.sections_by_id[section_id]
@@ -203,11 +203,10 @@ def test_bundle_canonicalization_owns_section_provenance_not_headline(tmp_path):
     changes = canonicalize_outline_from_bundle({"slides": [slide]}, snapshot)
 
     assert slide["section"] == canonical_title
-    assert slide["section_title"] == canonical_title
-    assert slide["title"] == "模型总结标题"
+    assert slide["title"] == canonical_title
     assert changes == {
         "labels": 1,
-        "titles": 0,
+        "titles": 1,
         "evidence_refs": 0,
         "null_fields": 0,
         "figure_pages_removed": 0,
