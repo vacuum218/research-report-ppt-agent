@@ -1,0 +1,57 @@
+{
+  "title": "2025年Q3全球NAND Flash品牌厂商营收及市场份额表",
+  "columns": [
+    "排名",
+    "厂商",
+    "营收（亿美元）",
+    "季增",
+    "市场份额"
+  ],
+  "rows": [
+    [
+      "1",
+      "Samsung（三星）",
+      60,
+      "+15.4%",
+      "32.3%"
+    ],
+    [
+      "2",
+      "SK Group（SK海力士+Solidigm）",
+      35.3,
+      "+5.7%",
+      null
+    ],
+    [
+      "3",
+      "Kioxia（铠侠）",
+      28.4,
+      "+33.1%",
+      null
+    ],
+    [
+      "4",
+      "Micron（美光）",
+      24.2,
+      "+15.4%",
+      null
+    ],
+    [
+      "5",
+      "SanDisk（闪迪）",
+      "23.1¹",
+      null,
+      null
+    ]
+  ],
+  "source_refs": [
+    "src_001309_2025-10-28"
+  ],
+  "sources": [
+    {
+      "kind": "table",
+      "id": "table-002"
+    }
+  ],
+  "note": "Copied from complete DocumentBundle table table-002; all numeric cells are fact-audited"
+}

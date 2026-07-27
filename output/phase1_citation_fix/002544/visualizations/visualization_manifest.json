@@ -1,0 +1,104 @@
+{
+  "schema_version": "3.0.0",
+  "outline_sha256": "7283be94fdaf8294a7a236e7e6f8aa4c65ccd7b5bb0de8a4433f9ca8e928e34f",
+  "document_source_sha256": "856461c2f536592cd1760c64bc08329a2c4086f149e70cf2f579e78e97e90621",
+  "asset_root": "../document_bundle",
+  "bindings": [
+    {
+      "slide_id": "slide_003",
+      "visualization_id": "visual_001",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-001"
+        }
+      ],
+      "visualization_file": "slide_003__visual_001.json"
+    },
+    {
+      "slide_id": "slide_014",
+      "visualization_id": "visual_002",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-002"
+        }
+      ],
+      "visualization_file": "slide_014__visual_002.json"
+    },
+    {
+      "slide_id": "slide_015",
+      "visualization_id": "visual_003",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-003"
+        }
+      ],
+      "visualization_file": "slide_015__visual_003.json"
+    },
+    {
+      "slide_id": "slide_016",
+      "visualization_id": "visual_004",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-004"
+        }
+      ],
+      "visualization_file": "slide_016__visual_004.json"
+    },
+    {
+      "slide_id": "slide_017",
+      "visualization_id": "visual_005",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-005"
+        }
+      ],
+      "visualization_file": "slide_017__visual_005.json"
+    },
+    {
+      "slide_id": "slide_018",
+      "visualization_id": "visual_006",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-006"
+        }
+      ],
+      "visualization_file": "slide_018__visual_006.json"
+    },
+    {
+      "slide_id": "slide_019",
+      "visualization_id": "visual_007",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-007"
+        }
+      ],
+      "visualization_file": "slide_019__visual_007.json"
+    },
+    {
+      "slide_id": "slide_020",
+      "visualization_id": "visual_008",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-008"
+        }
+      ],
+      "visualization_file": "slide_020__visual_008.json"
+    }
+  ]
+}

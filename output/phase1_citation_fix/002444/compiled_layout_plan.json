@@ -1,0 +1,2321 @@
+{
+  "schema_version": "2.0.0",
+  "plan_id": "plan_2aeec16518144856",
+  "source": {
+    "outline_sha256": "8e914cfbc5f32b51a1aec0bf496a6b4a50276ebacd076b0455908203c76bb0bc",
+    "manifest_sha256": "f4fd50223a4e8ca355c654b28bb02967ccfae0a2139a8ad935ae4494a2edc774"
+  },
+  "template": {
+    "profile_id": "financial-report-v1",
+    "profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "file": "financial_report_template_v1.pptx",
+    "sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2"
+  },
+  "asset_root": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\phase1_citation_fix\\002444\\document_bundle",
+  "visualizations": [
+    {
+      "visualization_id": "visual_002",
+      "slide_id": "slide_004",
+      "visual_type": "table",
+      "data": {
+        "title": "巨星科技各业务板块财务概览（2024年及2025H1收入、占比、毛利率）",
+        "columns": [
+          "业务板块",
+          "2024年收入(亿元)",
+          "2024年收入占比",
+          "2024年毛利率",
+          "2025H1收入(亿元)",
+          "2025H1收入占比"
+        ],
+        "rows": [
+          [
+            "手工具",
+            100.69,
+            "68.05%",
+            "32.09%",
+            46.2,
+            "65.74%"
+          ],
+          [
+            "工业工具",
+            32.29,
+            "21.82%",
+            "35.57%",
+            16.32,
+            "23.23%"
+          ],
+          [
+            "电动工具",
+            14.38,
+            "9.72%",
+            "23.83%",
+            7.42,
+            "10.56%"
+          ]
+        ],
+        "source_refs": [
+          "src_002444_2025-09-21"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-001"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-001; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_024",
+      "slide_id": "slide_019",
+      "visual_type": "table",
+      "data": {
+        "title": "巨星科技品牌矩阵（17个品牌的核心信息）",
+        "columns": [
+          "品牌",
+          "获得时间",
+          "获得方式",
+          "产品类别",
+          "说明"
+        ],
+        "rows": [
+          [
+            "WORKPRO",
+            "2009年",
+            "自建",
+            "手工具",
+            "全品类综合性工具，SKU超4000种"
+          ],
+          [
+            "SHEFFIELD",
+            "2010年",
+            "自建",
+            "手工具/存储/劳保",
+            "工业级工具解决方案，近4000种产品"
+          ],
+          [
+            "Goldblatt",
+            "2010年",
+            "收购",
+            "手工具",
+            "泥工、石工、混凝土高品质工具"
+          ],
+          [
+            "EverBrite",
+            "2011年",
+            "自建",
+            "手工具",
+            "全品类DIY照明工具"
+          ],
+          [
+            "PREXISO/华达科捷",
+            "2015年",
+            "收购",
+            "激光测量",
+            "激光测量/测绘领域领先品牌"
+          ],
+          [
+            "Pony Jorgensen",
+            "2016年",
+            "收购",
+            "手工具",
+            "优质木工工具"
+          ],
+          [
+            "OLEI",
+            "2016年",
+            "收购",
+            "仪器",
+            "专业激光雷达品牌"
+          ],
+          [
+            "Arrow",
+            "2017年",
+            "收购",
+            "动力工具",
+            "美国手动/电动射钉枪百年品牌"
+          ]
+        ],
+        "source_refs": [
+          "src_002444_2025-09-21"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-002"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-002; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_027",
+      "slide_id": "slide_021",
+      "visual_type": "table",
+      "data": {
+        "title": "巨星科技分业务盈利预测汇总（2023A-2027E）",
+        "columns": [
+          "项目",
+          "2023A",
+          "2024A",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "手工具",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "收入",
+            7168,
+            10069,
+            11076,
+            13070,
+            15161
+          ],
+          [
+            "同比增速",
+            null,
+            "+40.5%",
+            "+10.0%",
+            "+18.0%",
+            "+16.0%"
+          ],
+          [
+            "毛利率",
+            "31.97%",
+            "32.09%",
+            "30.0%",
+            "32.0%",
+            "33.0%"
+          ],
+          [
+            "电动工具",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "收入",
+            1053,
+            1438,
+            1654,
+            2150,
+            2688
+          ],
+          [
+            "同比增速",
+            null,
+            "+36.5%",
+            "+15.0%",
+            "+30.0%",
+            "+25.0%"
+          ],
+          [
+            "毛利率",
+            "20.00%",
+            "23.83%",
+            "21.0%",
+            "24.0%",
+            "26.0%"
+          ]
+        ],
+        "source_refs": [
+          "src_002444_2025-09-21"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-003"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-003; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_028",
+      "slide_id": "slide_022",
+      "visual_type": "table",
+      "data": {
+        "title": "可比公司估值对比（2025E-2026E PE）",
+        "columns": [
+          "估值指标",
+          "泉峰控股",
+          "创科实业",
+          "可比公司均值",
+          "巨星科技"
+        ],
+        "rows": [
+          [
+            "2025E PE (X)",
+            6.6,
+            15.2,
+            10.9,
+            12
+          ],
+          [
+            "2026E PE (X)",
+            5.3,
+            13.2,
+            9.2,
+            9.7
+          ]
+        ],
+        "source_refs": [
+          "src_002444_2025-09-21"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-004"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-004; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_029",
+      "slide_id": "slide_022",
+      "visual_type": "chart",
+      "data": {
+        "chart_type": "column",
+        "title": "巨星科技PE TTM估值水平（2017-2025年5月）",
+        "unit": "",
+        "categories": [
+          "2025E PE (X)",
+          "2026E PE (X)"
+        ],
+        "series": [
+          {
+            "name": "泉峰控股",
+            "values": [
+              6.6,
+              5.3
+            ]
+          }
+        ],
+        "source_refs": [
+          "src_002444_2025-09-21"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-004"
+          }
+        ],
+        "note": "Assembled from verified Numeric Fact Ledger references"
+      }
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "slide_mode": "exact_template",
+      "layout_id": "cover",
+      "template_slide": 1,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "cover_title",
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3
+          },
+          "value": "巨星科技"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "subtitle",
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4
+          },
+          "value": "巨星科技（002444）深度研究报告"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "cover_meta",
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6
+          },
+          "value": "002444  |  2025-09-21"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "tag",
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7
+          },
+          "value": "工具制造"
+        }
+      ],
+      "source_slide_id": "slide_001",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_002",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "巨星科技：品牌化转型驱动盈利改善，工具出海龙头价值重估",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**巨星科技是国内手工具行业规模最大、渠道优势最强的龙头之一，也是亚洲乃至全球领先的工具出海企业**。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "公司成立于1993年，2010年7月在深交所上市，主营业务为手工具、电动工具及工业工具的研发、生产和销售，已形成手工具、电动工具、激光测量仪器、存储箱柜四大产品线。",
+            "公司以代工起家，2010年上市后坚定推进品牌化转型，OBM占比持续提升，通过收购ARROW、SK等世界级百年品牌及自创WORKPRO等品牌，目前已拥有17个工具品牌。",
+            "近五年公司营收与盈利稳步增长，毛利率呈趋势性改善，2020-2024年营业收入从85.44亿元增至147.95亿元，归母净利润从13.50亿元提升至23.04亿元，毛利率自2021年低点25.13%持续修复至2024年的32.01%。",
+            "公司持续通过高分红回馈投资者，2023~2024年累计分红11.22亿元，2024年实施三次分红。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_002",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_003",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "战略三阶跃迁：从ODM代工到全球工具品牌集团的成长路径",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "巨星科技的发展历程并非简单的线性增长，而是经历了三次战略跃迁，最终完成了从代工出口向品牌化、全球化的深刻转型。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "第一阶段（1993-2009年）：ODM模式崛起，依托中国制造业成本效率，深度绑定欧美大型渠道客户，奠定制造与渠道根基。",
+            "第二阶段（2010-2016年）：上市后探索与战略纠偏，明确“聚焦主业+发展自有品牌+海外并购”的核心战略，为品牌化跃迁扫清方向。",
+            "第三阶段（此后至今）：通过自主培育与外延并购双轮驱动，搭建多品牌矩阵，已拥有17个工具品牌，从单一制造升级为全球工具集团。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_003",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_004",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "品牌化驱动利润结构升级，三大业务梯次布局构筑全球工具龙头护城河",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_002",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "巨星科技已从成立之初单一的手工具ODM代工厂，逐步发展为涵盖手工具、电动工具、工业工具三大品类的综合性工具品牌商。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "手工具：现金牛基本盘，2024年收入100.69亿元，毛利率32.09%，品牌升级与跨境电商驱动。",
+            "电动工具：战略成长极，2024年收入14.38亿元，毛利率23.83%，2025H1毛利率提升至28.99%，20V锂电突破获大订单。",
+            "工业工具：高毛利利润补充，2024年收入32.29亿元，毛利率35.57%，LISTA与Geelong协同。",
+            "公司海外收入占比超94%，美洲市场占63.44%，欧洲占24.64%，正拓展一带一路等新区域。",
+            "OBM收入占比已达47.92%，2024年OBM业务毛利率35.66%，逆周期韧性突出。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_004",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_005",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利韧性穿越周期：OBM转型驱动下的ROE修复与结构性升级",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "巨星科技近八年ROE经历了“上升—回落—再回升”的完整周期，从2017年的9.19%波动上行至2024年的14.04%，期间2020年达到15.30%的阶段峰值，2022年回落至10.60%的阶段性低点后重新抬升。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "ROE经历上升—回落—再回升周期，2020年达15.30%峰值，2022年回落至10.60%低点。",
+            "杜邦分解：净利率波动远大于周转率和杠杆率，2024年净利率15.57%，权益乘数降至1.409。",
+            "扣非归母净利率从2017年12.89%升至2024年15.57%，与ROE波动高度一致。",
+            "收入波动中利润率逆势修复：2023年收入同比-13.3%，扣非净利率反而升至15.53%，反映OBM转型效果。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_005",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_006",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利韧性穿越周期：OBM转型驱动下的ROE修复与结构性升级",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**OBM转型：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "OBM营收从2021年38.37亿元增至2024年70.90亿元，占比从不足10%升至47.92%。",
+            "2023H1至2024H1，OBM增速从+3.88%升至+15.1%，ODM则从-29.32%反弹至+39.75%。",
+            "OBM高毛利产品结构支撑整体毛利率上行，合并口径单季度毛利率从2022Q1的23%回升至2023Q4的34%。",
+            "存货周转经历周期波动，2024年底存货周转天数已回落至99.8天；应收账款周转稳定在接近60天水平。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_006",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_007",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利韧性穿越周期：OBM转型驱动下的ROE修复与结构性升级",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**运营效率分析：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "存货周转天数从2018-2021年均值约86.2天，因OBM备货复杂度和渠道去库影响阶段性上升，2024年底已回落至99.8天。",
+            "应收账款周转天数2020年后维持接近60天水平，需关注应收账款占归母净利润比达136.56%的回款节奏。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_007",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_008",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "工具行业:景气周期底部,市场份额有提升空间"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 8
+        }
+      ],
+      "source_slide_id": "slide_008",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_009",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "市场规模:成熟行业扎根欧美,周期底部位置明确",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**全球工具行业已步入成熟发展阶段，市场规模长期保持稳健增长，2022年突破千亿美元至1030亿美元，2017-2022年CAGR约为5.8%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "行业2022年突破千亿美元，动力工具占44%，OPE占28%，手工具占20%，存储柜占8%。",
+            "电动工具已占全球工具市场38%，手工具占30%，电动化转型持续深化。",
+            "欧美市场合计占77.6%，美国2023年人均年消费额达164美元，消费级产品占比超60%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_009",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_010",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "市场规模:成熟行业扎根欧美,周期底部位置明确",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**全球工具行业在地区分布上呈现显著分层特征，欧美市场凭借深厚的DIY文化占据绝对主导地位。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "美国工具行业消费级产品是需求主力，至2022年一季度占比超过60%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_010",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_011",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "地产与库存双周期驱动：美国工具行业景气波动中的结构性机会",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "由于巨星科技工具产品主要出口北美地区，我们重点分析美国工具市场需求。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "价：工具产品定价刚性，价格指数随通胀同步，能够有效传导成本。",
+            "量：工具消费与成屋销售高度关联，地产周期决定长期方向。",
+            "库存周期放大短期波动：2022-2023年零售商累库与去库造成需求扭曲。",
+            "当前美国工具行业处于“地产底部企稳+库存周期切换”的共振窗口。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_011",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_012",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "底部确认但反转待时：工具行业景气修复的确定性、传导路径与结构性挑战",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**工具行业景气底部已基本确认，核心驱动力来自地产销售企稳与渠道去库接近尾声两大积极信号。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "美国成屋销售底部区间已确认，房贷利率回落至6.2%附近，利好地产需求修复。",
+            "家得宝与劳氏存货同比回落至低个位数，渠道去库负面影响已较为有限。",
+            "关税与高利率仍是制约：2025年对等关税可能导致“价增量减”格局，降息节奏可能延后。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_012",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_013",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "底部确认但反转待时：工具行业景气修复的确定性、传导路径与结构性挑战",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**尽管底部信号日趋清晰，但关税与高利率仍是制约行业景气反转的两大不确定性，且二者可能形成“价增量减”的结构性局面。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "截至2025年9月，美联储已降息25bp至4.00%-4.25%，但利率仍处历史高位。",
+            "高盛预计2025年底核心PCE通胀率同比上涨3.5%，若关税传导超预期，降息节奏可能进一步放缓。",
+            "“价增量减”的结构性局面可能重塑估值逻辑，定价能力与品牌溢价成为核心变量。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_013",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_014",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "竞争分析:市场相对分散,ODM 重渠道,OBM 重品牌",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "工具产业链呈现“下游渠道高度集中、上游品牌相对分散”的哑铃型结构，渠道商凭借多寡头垄断地位掌握产业链核心话语权，而品牌方仅在具备技术壁垒的动力工具品类中能建立可持续的竞争护城河。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "渠道寡头主导：家得宝与劳氏合计占北美家居零售市场份额约59.1%，手工具白牌占比中枢约88%。",
+            "手工具品牌极度分散：CR3仅约10%，溢价困难；动力工具品牌集中度高，CR5均值约41.4%，技术壁垒构筑护城河。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_014",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_015",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "竞争分析:市场相对分散,ODM 重渠道,OBM 重品牌",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**手工具品类技术门槛低，品牌集中度处于极低水平，品牌壁垒薄弱。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "北美手工具主要品牌市场份额（2023年）",
+            "北美动力工具主要品牌市场份额（2023年）",
+            "北美工具市场品牌集中度对比",
+            "巨星科技ODM业务深度绑定大客户，2024年前五大客户收入占比48.73%，同时通过并购搭建品牌矩阵。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_015",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_016",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "全球资源配置与品牌矩阵双轮驱动：巨星科技构筑不可复制的综合工具护城河",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**巨星科技历经三十余年发展，已从手工具ODM代工厂蜕变为集“欧美本土服务、亚洲产业链制造、中国管理研发”于一体的全球资源配置型综合工具龙头。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "渠道端：深度绑定家得宝、劳氏等核心大客户，并拓展线上增量。",
+            "生产端：研发费用率长期维持在近3.0%，全球23个产能基地，实现全球柔性制造。",
+            "品牌端：通过内生外延搭建品牌矩阵，OBM收入占比约47.9%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_016",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_017",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "渠道壁垒与多元渗透：巨星科技穿越周期的客户粘性护城河",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**深度绑定全球头部零售商，构建高粘性、低替代性的客户合作壁垒。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "前五大客户收入占比维持在35%~40%，通过VMI模式深度嵌入客户供应链。",
+            "全球超过60个海外仓储物流中心，海外仓总面积超80万平米，海外渠道收入占比升至85%。",
+            "自有品牌收入占比提升至约35%，增强渠道议价能力。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_017",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_018",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "研发驱动与全球产能布局：构筑工具龙头的双重护城河",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**公司作为制造型企业，其核心竞争力根植于持续的产品创新与前瞻性的全球产能布局，二者共同构成了抵御市场波动、实现份额扩张的“双轮驱动”模式**。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "研发费用率长期保持约2.9%，2024年设计新产品1937项，20V锂电池产品突破切入大型零售商供应链。",
+            "全球23个生产基地，海外产能占比超55%，越南/泰国/柬埔寨为主要产能中心，自产比例接近翻倍。",
+            "固定资产周转率维持高位，2024年为7.78，以有限固定资产撬动持续增长。",
+            "产品与产能协同形成差异化竞争壁垒：粉色工具套装等创新设计提升品牌认同。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_018",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_019",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "品牌矩阵成型：内生外延双轮驱动，OBM转型进入收获期",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_024",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**巨星科技正处于从ODM代工向OBM品牌运营商转型的关键阶段，且已进入品牌红利加速释放的收获期。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "内生方面：以DTC模式在亚马逊推广自创品牌，WORKPRO、SHEFFIELD等保持强劲增长。",
+            "外延方面：系列精准收购实现品类延伸，Arrow与BeA整合后成为全球最大钉枪及耗材供应商。",
+            "截至2024年末货币资金达68.52亿元，为未来品牌并购预留空间。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_019",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_020",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "品牌矩阵成型：内生外延双轮驱动，OBM转型进入收获期",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**展望未来，在“聚焦主业，创新产品，运营品牌，布局全球”的战略指引下，公司将继续以品牌发展为核心，巩固和拓展现有国际知名工具品牌矩阵，同时培育适应新时代的电商工具品牌，持续提升OBM业务占比和全球市场竞争力**。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "截至2024年末，货币资金达68.52亿元，2025年中期仍保持在52.86亿元。",
+            "公司经营性现金流规模持续稳健。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_020",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_021",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "三大业务板块分化中重构增长：手工具承压、电动工具崛起、工业工具稳守，2026年起盈利拐点确立",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_027",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "手工具作为公司传统主业，凭借产品创新与渠道壁垒维持稳固地位。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "手工具：2025-2027年收入增速预计10%/18%/16%，毛利率30.0%/32.0%/33.0%。",
+            "电动工具：2025-2027年收入增速预计15%/30%/25%，毛利率21.0%/24.0%/26.0%。",
+            "工业工具：2025-2027年收入增速预计7%/14%/11%，毛利率稳定在35%左右。",
+            "2026年起归母净利润增速回升至24.4%/22.2%，电动工具放量成为主要弹性来源。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_021",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_022",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "two_visuals",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "成长溢价与安全边际并存：巨星科技估值重构的底层逻辑",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.5,
+              "width": 11.7333,
+              "height": 0.675
+            }
+          },
+          "value": "**我们预计公司2025-2027年将进入盈利加速释放期。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 2.25,
+              "width": 11.7333,
+              "height": 0.825
+            }
+          },
+          "values": [
+            "可比公司2025E平均PE为10.9X，巨星科技2025E PE为12.0X，反映成长性溢价。",
+            "2026E PE仅9.7X，低于可比均值，安全边际充足。",
+            "给予2026年13倍PE，对应12个月目标价32.8元，首次覆盖给予“买入”评级。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "visual_1",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.375,
+              "width": 5.6,
+              "height": 3.225
+            }
+          },
+          "visualization_id": "visual_028",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "render_chart",
+          "slot_id": "visual_2",
+          "target": {
+            "bounds_in": {
+              "left": 6.9333,
+              "top": 3.375,
+              "width": 5.6,
+              "height": 3.225
+            }
+          },
+          "visualization_id": "visual_029",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10,
+            "legend_font_size_pt": 9,
+            "data_label_font_size_pt": 9,
+            "text_color": "64748B",
+            "axis_color": "94A3B8",
+            "gridline_color": "E2E8F0",
+            "series_colors": [
+              "2F75B5",
+              "ED7D31",
+              "70AD47",
+              "A5A5A5",
+              "FFC000",
+              "5B9BD5"
+            ],
+            "legend_position": "bottom",
+            "line_width_pt": 2.25,
+            "marker_size_pt": 6,
+            "gap_width": 65
+          }
+        }
+      ],
+      "source_slide_id": "slide_022",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_023",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "多重外部风险交织，公司业绩承压的确定性正在上升",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**尽管公司通过全球化产能布局与ODM业务模式部分对冲了外部压力，但海外需求疲软、贸易摩擦升级、下游库存去化反复及北美市场集中度偏高等多重风险正形成共振，对公司短期业绩与中长期盈利能力的压制效应不容忽视。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "海外需求持续低迷：美国8月ISM制造业PMI录得48.7，连续六个月收缩。",
+            "下游补库不确定性：美国家居零售库存同比仍为负增长，补库节奏存疑。",
+            "贸易摩擦升级：中国出口至美工具累计关税已达79%，东南亚产能亦面临关税压力。",
+            "北美市场高度集中：美洲地区营收占比63.44%，单一区域敞口过大。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_023",
+      "continuation_index": 1
+    }
+  ]
+}

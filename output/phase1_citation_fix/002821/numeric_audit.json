@@ -1,0 +1,2629 @@
+{
+  "schema_version": "1.0.0",
+  "status": "passed",
+  "summary": {
+    "visualization_count": 5,
+    "audited_value_count": 66,
+    "mismatch_count": 0
+  },
+  "visualizations": [
+    {
+      "slide_id": "slide_003",
+      "visualization_id": "visual_001",
+      "audited_value_count": 0,
+      "status": "passed",
+      "metric_group": null,
+      "entries": []
+    },
+    {
+      "slide_id": "slide_003",
+      "visualization_id": "visual_002",
+      "audited_value_count": 6,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_ee5e44293bdc23271b66",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "112",
+          "normalized_value": "112",
+          "unit": "",
+          "label": "2016",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2016"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            0,
+            3
+          ],
+          "output_value": 112,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_80908a3e2869ac500675",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "36",
+          "normalized_value": "36",
+          "unit": "",
+          "label": "2018",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2018"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            1,
+            3
+          ],
+          "output_value": 36,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_3b22bc7c045006f98992",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "22",
+          "normalized_value": "22",
+          "unit": "",
+          "label": "2019",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2019"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            2,
+            3
+          ],
+          "output_value": 22,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_0a46d89d8f27e8299e05",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "225",
+          "normalized_value": "225",
+          "unit": "",
+          "label": "2020",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2020"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            3,
+            3
+          ],
+          "output_value": 225,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c504ea347f1abacec5ff",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "273",
+          "normalized_value": "273",
+          "unit": "",
+          "label": "2021",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2021"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            4,
+            3
+          ],
+          "output_value": 273,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_f9b8f6ff940618fcd458",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "608",
+          "normalized_value": "608",
+          "unit": "",
+          "label": "2022",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2022"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 5,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            5,
+            3
+          ],
+          "output_value": 608,
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_005",
+      "visualization_id": "visual_003",
+      "audited_value_count": 8,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_32c8b85c30b25227dc85",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "60.35",
+          "normalized_value": "60.35",
+          "unit": "亿美元",
+          "label": "1",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "1"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            0,
+            4
+          ],
+          "output_value": "60.35亿美元",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_fb61d8b2c3c5dd15e8a3",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "41.65",
+          "normalized_value": "41.65",
+          "unit": "亿美元",
+          "label": "2",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "2"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            1,
+            4
+          ],
+          "output_value": "41.65亿美元",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_4c63bcb40ca4cd325b4f",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "32.88",
+          "normalized_value": "32.88",
+          "unit": "亿美元",
+          "label": "3",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "3"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            2,
+            4
+          ],
+          "output_value": "32.88亿美元",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_e2b373d7a7991a3c41c8",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "20.12",
+          "normalized_value": "20.12",
+          "unit": "亿美元",
+          "label": "4",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "4"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            3,
+            4
+          ],
+          "output_value": "20.12亿美元",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_6d6bef92b66d3c4327c5",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "20.2",
+          "normalized_value": "20.2",
+          "unit": "亿美元",
+          "label": "5",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "5"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            4,
+            4
+          ],
+          "output_value": "20.2亿美元",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_5afee6f98ba1dc4d805c",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "20",
+          "normalized_value": "20",
+          "unit": "亿美元",
+          "label": "6",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "6"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 5,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            5,
+            4
+          ],
+          "output_value": "20亿美元",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_f10c8fd52b09c7387e34",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "20",
+          "normalized_value": "20",
+          "unit": "亿美元",
+          "label": "7",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "7"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            6,
+            4
+          ],
+          "output_value": "20亿美元",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_9fa619f9a81b5a625c68",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "18.25",
+          "normalized_value": "18.25",
+          "unit": "亿美元",
+          "label": "8",
+          "period": null,
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "8"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 7,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            7,
+            4
+          ],
+          "output_value": "18.25亿美元",
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_011",
+      "visualization_id": "visual_004",
+      "audited_value_count": 32,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_c6a6d66e6cc41d19cc0c",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "58.05",
+          "normalized_value": "58.05",
+          "unit": "",
+          "label": "营业收入",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业收入",
+          "measure_kind": "amount",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            0,
+            1
+          ],
+          "output_value": 58.05,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_46532bab1b2698cfc698",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "65.00",
+          "normalized_value": "65.00",
+          "unit": "",
+          "label": "营业收入",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业收入",
+          "measure_kind": "amount",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            0,
+            2
+          ],
+          "output_value": 65,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c23c484e229a36b3c2bf",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "73.00",
+          "normalized_value": "73.00",
+          "unit": "",
+          "label": "营业收入",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业收入",
+          "measure_kind": "amount",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            0,
+            3
+          ],
+          "output_value": 73,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_1d8e1c577e317386bf90",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "82.00",
+          "normalized_value": "82.00",
+          "unit": "",
+          "label": "营业收入",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业收入",
+          "measure_kind": "amount",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            0,
+            4
+          ],
+          "output_value": 82,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_52d7d9a9db51e51e3895",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "-25.82",
+          "normalized_value": "-25.82",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            1,
+            1
+          ],
+          "output_value": "-25.82%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_0f33363b7e59dc88c5af",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+11.97",
+          "normalized_value": "11.97",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            1,
+            2
+          ],
+          "output_value": "+11.97%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_9f9e28a9030608d7b579",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+12.31",
+          "normalized_value": "12.31",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            1,
+            3
+          ],
+          "output_value": "+12.31%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_e1381aefc6978ec53bcf",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+12.33",
+          "normalized_value": "12.33",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            1,
+            4
+          ],
+          "output_value": "+12.33%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_5cb788b38daf7d2fa442",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "46.79",
+          "normalized_value": "46.79",
+          "unit": "",
+          "label": "小分子CDMO",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "小分子CDMO"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            2,
+            1
+          ],
+          "output_value": 46.79,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_90141111c89736118c3f",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "51.70",
+          "normalized_value": "51.70",
+          "unit": "",
+          "label": "小分子CDMO",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "小分子CDMO"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            2,
+            2
+          ],
+          "output_value": 51.7,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_df783b1537aa3f58328a",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "58.00",
+          "normalized_value": "58.00",
+          "unit": "",
+          "label": "小分子CDMO",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "小分子CDMO"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            2,
+            3
+          ],
+          "output_value": 58,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ef6cd8f2493bc1c1bb8b",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "64.00",
+          "normalized_value": "64.00",
+          "unit": "",
+          "label": "小分子CDMO",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "小分子CDMO"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            2,
+            4
+          ],
+          "output_value": 64,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_a6386ade4f8966075fc4",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "-28.5",
+          "normalized_value": "-28.5",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            3,
+            1
+          ],
+          "output_value": "-28.5%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_76b9a53d3317ddff791a",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+10.5",
+          "normalized_value": "10.5",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            3,
+            2
+          ],
+          "output_value": "+10.5%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_fea09711a0401eff391a",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+12.2",
+          "normalized_value": "12.2",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            3,
+            3
+          ],
+          "output_value": "+12.2%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c6f2ae6d01ec1b821208",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+10.3",
+          "normalized_value": "10.3",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            3,
+            4
+          ],
+          "output_value": "+10.3%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_022b53092219d657bdb3",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "33.79",
+          "normalized_value": "33.79",
+          "unit": "",
+          "label": "其中：商业化阶段",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：商业化阶段"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            4,
+            1
+          ],
+          "output_value": 33.79,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_89ffd9afb41b56f154f8",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "37.50",
+          "normalized_value": "37.50",
+          "unit": "",
+          "label": "其中：商业化阶段",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：商业化阶段"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            4,
+            2
+          ],
+          "output_value": 37.5,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_87d6e71b9736dfb1e7fc",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "42.50",
+          "normalized_value": "42.50",
+          "unit": "",
+          "label": "其中：商业化阶段",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：商业化阶段"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            4,
+            3
+          ],
+          "output_value": 42.5,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_7c2c1aee831d3b45bf67",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "47.50",
+          "normalized_value": "47.50",
+          "unit": "",
+          "label": "其中：商业化阶段",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：商业化阶段"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            4,
+            4
+          ],
+          "output_value": 47.5,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_4ea0165c03dd202e462c",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "-33.0",
+          "normalized_value": "-33.0",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 5,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            5,
+            1
+          ],
+          "output_value": "-33.0%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ab9521656d60f8b0c70a",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+11.0",
+          "normalized_value": "11.0",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 5,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            5,
+            2
+          ],
+          "output_value": "+11.0%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c3dfda93f090df417af2",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+13.3",
+          "normalized_value": "13.3",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 5,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            5,
+            3
+          ],
+          "output_value": "+13.3%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_542b762aa1715632aeca",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+11.8",
+          "normalized_value": "11.8",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 5,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            5,
+            4
+          ],
+          "output_value": "+11.8%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_00676588325bf8d2454c",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "13.00",
+          "normalized_value": "13.00",
+          "unit": "",
+          "label": "其中：临床阶段",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：临床阶段"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            6,
+            1
+          ],
+          "output_value": 13,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_b0da94cf74a183942a38",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "14.20",
+          "normalized_value": "14.20",
+          "unit": "",
+          "label": "其中：临床阶段",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：临床阶段"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            6,
+            2
+          ],
+          "output_value": 14.2,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_1ae1584af5541ab57523",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "15.50",
+          "normalized_value": "15.50",
+          "unit": "",
+          "label": "其中：临床阶段",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：临床阶段"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            6,
+            3
+          ],
+          "output_value": 15.5,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c9680107c5f00828912b",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "16.50",
+          "normalized_value": "16.50",
+          "unit": "",
+          "label": "其中：临床阶段",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "其中：临床阶段"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            6,
+            4
+          ],
+          "output_value": 16.5,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_26431542f36ee477a677",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "-13.0",
+          "normalized_value": "-13.0",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2024A",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 7,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            7,
+            1
+          ],
+          "output_value": "-13.0%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_86ce9a77583b8030fef7",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+9.2",
+          "normalized_value": "9.2",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2025E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 7,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            7,
+            2
+          ],
+          "output_value": "+9.2%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_1431a77a53cb2a0b6789",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+9.2",
+          "normalized_value": "9.2",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2026E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 7,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            7,
+            3
+          ],
+          "output_value": "+9.2%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_583b527da11143813142",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "+6.5",
+          "normalized_value": "6.5",
+          "unit": "%",
+          "label": "同比增速",
+          "period": "2027E",
+          "entity": {
+            "id": "002821_2025-09-11",
+            "name": "凯莱英（002821）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "segment",
+            "label": "同比增速"
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 7,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            7,
+            4
+          ],
+          "output_value": "+6.5%",
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_011",
+      "visualization_id": "visual_005",
+      "audited_value_count": 20,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_3dbe409a7f8823b3d202",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "1,800",
+          "normalized_value": "1800",
+          "unit": "亿元",
+          "label": "药明康德",
+          "period": null,
+          "entity": {
+            "id": "table:table-005:entity:0",
+            "name": "药明康德",
+            "type": "peer"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            0,
+            1
+          ],
+          "output_value": 1800,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_baaf89219a1ba74af1ee",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "3.27",
+          "normalized_value": "3.27",
+          "unit": "",
+          "label": "药明康德",
+          "period": "2023",
+          "entity": {
+            "id": "table:table-005:entity:0",
+            "name": "药明康德",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "药明康德",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            0,
+            2
+          ],
+          "output_value": 3.27,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_8119ec72bc819bed8c51",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "3.28",
+          "normalized_value": "3.28",
+          "unit": "",
+          "label": "药明康德",
+          "period": "2024",
+          "entity": {
+            "id": "table:table-005:entity:0",
+            "name": "药明康德",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "药明康德",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            0,
+            3
+          ],
+          "output_value": 3.28,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_1a186033db3da286f67a",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "3.72",
+          "normalized_value": "3.72",
+          "unit": "",
+          "label": "药明康德",
+          "period": "2025E",
+          "entity": {
+            "id": "table:table-005:entity:0",
+            "name": "药明康德",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "药明康德",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            0,
+            4
+          ],
+          "output_value": 3.72,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_f7f7a357d5cd9a950667",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "4.22",
+          "normalized_value": "4.22",
+          "unit": "",
+          "label": "药明康德",
+          "period": "2026E",
+          "entity": {
+            "id": "table:table-005:entity:0",
+            "name": "药明康德",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "药明康德",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            0,
+            5
+          ],
+          "output_value": 4.22,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_7c60407e697ead50322a",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "492",
+          "normalized_value": "492",
+          "unit": "亿元",
+          "label": "康龙化成",
+          "period": null,
+          "entity": {
+            "id": "table:table-005:entity:1",
+            "name": "康龙化成",
+            "type": "peer"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            1,
+            1
+          ],
+          "output_value": 492,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_e9ff32c07ed1d95282de",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "0.90",
+          "normalized_value": "0.90",
+          "unit": "",
+          "label": "康龙化成",
+          "period": "2023",
+          "entity": {
+            "id": "table:table-005:entity:1",
+            "name": "康龙化成",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "康龙化成",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            1,
+            2
+          ],
+          "output_value": 0.9,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c145c168087e8139b07f",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "1.01",
+          "normalized_value": "1.01",
+          "unit": "",
+          "label": "康龙化成",
+          "period": "2024",
+          "entity": {
+            "id": "table:table-005:entity:1",
+            "name": "康龙化成",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "康龙化成",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            1,
+            3
+          ],
+          "output_value": 1.01,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_412a1e605af4d45e8d5c",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "1.09",
+          "normalized_value": "1.09",
+          "unit": "",
+          "label": "康龙化成",
+          "period": "2025E",
+          "entity": {
+            "id": "table:table-005:entity:1",
+            "name": "康龙化成",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "康龙化成",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            1,
+            4
+          ],
+          "output_value": 1.09,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_96928f9119ba7eace4cc",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "1.30",
+          "normalized_value": "1.30",
+          "unit": "",
+          "label": "康龙化成",
+          "period": "2026E",
+          "entity": {
+            "id": "table:table-005:entity:1",
+            "name": "康龙化成",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "康龙化成",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            1,
+            5
+          ],
+          "output_value": 1.3,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_6e0418661a5b6f2c0dd3",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "121",
+          "normalized_value": "121",
+          "unit": "亿元",
+          "label": "九洲药业",
+          "period": null,
+          "entity": {
+            "id": "table:table-005:entity:2",
+            "name": "九洲药业",
+            "type": "peer"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            2,
+            1
+          ],
+          "output_value": 121,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_83f7755b548823492df0",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "1.15",
+          "normalized_value": "1.15",
+          "unit": "",
+          "label": "九洲药业",
+          "period": "2023",
+          "entity": {
+            "id": "table:table-005:entity:2",
+            "name": "九洲药业",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "九洲药业",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            2,
+            2
+          ],
+          "output_value": 1.15,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_00bed1309ed82c6fbaf2",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "0.68",
+          "normalized_value": "0.68",
+          "unit": "",
+          "label": "九洲药业",
+          "period": "2024",
+          "entity": {
+            "id": "table:table-005:entity:2",
+            "name": "九洲药业",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "九洲药业",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            2,
+            3
+          ],
+          "output_value": 0.68,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_35acfdc5447b01edf078",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "1.20",
+          "normalized_value": "1.20",
+          "unit": "",
+          "label": "九洲药业",
+          "period": "2025E",
+          "entity": {
+            "id": "table:table-005:entity:2",
+            "name": "九洲药业",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "九洲药业",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            2,
+            4
+          ],
+          "output_value": 1.2,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_2b64790a03d4d3ea6b32",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "1.31",
+          "normalized_value": "1.31",
+          "unit": "",
+          "label": "九洲药业",
+          "period": "2026E",
+          "entity": {
+            "id": "table:table-005:entity:2",
+            "name": "九洲药业",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "九洲药业",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            2,
+            5
+          ],
+          "output_value": 1.31,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_4d2ac817edfbf078f1bf",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "297",
+          "normalized_value": "297",
+          "unit": "亿元",
+          "label": "凯莱英",
+          "period": null,
+          "entity": {
+            "id": "table:table-005:entity:3",
+            "name": "凯莱英",
+            "type": "peer"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            3,
+            1
+          ],
+          "output_value": 297,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_af4b65bdc9a0c10457d9",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "6.26",
+          "normalized_value": "6.26",
+          "unit": "",
+          "label": "凯莱英",
+          "period": "2023",
+          "entity": {
+            "id": "table:table-005:entity:3",
+            "name": "凯莱英",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "凯莱英",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            3,
+            2
+          ],
+          "output_value": 6.26,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_6d749653eef592170396",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "2.49",
+          "normalized_value": "2.49",
+          "unit": "",
+          "label": "凯莱英",
+          "period": "2024",
+          "entity": {
+            "id": "table:table-005:entity:3",
+            "name": "凯莱英",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "凯莱英",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            3,
+            3
+          ],
+          "output_value": 2.49,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_581668178182d1210237",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "3.16",
+          "normalized_value": "3.16",
+          "unit": "",
+          "label": "凯莱英",
+          "period": "2025E",
+          "entity": {
+            "id": "table:table-005:entity:3",
+            "name": "凯莱英",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "凯莱英",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            3,
+            4
+          ],
+          "output_value": 3.16,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_3246cdbaa55b68d0877b",
+          "source": {
+            "kind": "table",
+            "id": "table-005"
+          },
+          "raw_value": "3.48",
+          "normalized_value": "3.48",
+          "unit": "",
+          "label": "凯莱英",
+          "period": "2026E",
+          "entity": {
+            "id": "table:table-005:entity:3",
+            "name": "凯莱英",
+            "type": "peer"
+          },
+          "metric_key": "eps",
+          "metric_label": "凯莱英",
+          "measure_kind": "per_share",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "estimate",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            3,
+            5
+          ],
+          "output_value": 3.48,
+          "status": "matched"
+        }
+      ]
+    }
+  ]
+}

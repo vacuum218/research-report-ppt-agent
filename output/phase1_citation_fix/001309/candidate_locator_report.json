@@ -1,0 +1,929 @@
+{
+  "schema_version": "1.0.0",
+  "mode": "shadow",
+  "candidate_count": 42,
+  "selected_count": 0,
+  "candidates": [
+    {
+      "candidate_id": "cand_f6364a0dabc66690",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0005"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "NAND Flash周期反转叠加AI需求驱动，行业景气上行。 2024年下半年NAND Flash价格经历回调至底部，2025年原厂严格减产叠加AI应用全面开花（AI服务器、AI眼镜、智能汽车、机器人等），企业级存储需求快速增长。集邦咨询预计2025年Q2 NAND Flash价格环比上涨0-5%，3D NAND Wafer价格环比上涨10-15%，存储模组环节迎来利润拐点[^citeid:search300024tguc5c00][^citeid:searchnand-flash-2025-aitguc5c04]。公司受益于战略备货带来的低价库存优势，在涨价周期中毛利率弹性显著。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_0556328d397cae0e",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0008"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "风险提示： 新产品放量不及预期或影响盈利增速；闪存价格下跌将压缩毛利率；市场竞争加剧及主控芯片研发进度低于预期亦需关注[^citeid:2025-04-09referencereport]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_932edfa2f57f5d79",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0011"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "第二，企业级与车载客户导入正从“验证阶段”走向“放量初期”。 公司已进入包含头部互联网厂商及服务器厂商在内的多家企业级客户供应商体系，实现小规模销售[^citeid:search001309tguga600][^citeid:search001309tguga608]；2025年以来国内主要云厂商CAPEX加速扩张，国产企业级SSD景气度上行，公司有望在这一窗口期获取更多份额。车规级方面，车规移动存储产品已有小批量出货，正与多家汽车制造商及Tier1供应商推进样品测试[^citeid:search001309tgugak00]，AEC-Q100等车规认证若顺利推进，将打开车载存储新增长极。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_2799f6f38116998a",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0012"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "第三，内存条作为2024年新增产品线，已完成DDR5及LPCAMM2等全系列布局[^citeid:search001309tguggb02]。 当前DDR5正处渗透率加速提升阶段，AI PC与服务器需求推动新形态产品导入，内存条业务有望在客户认证和规模放量驱动下成为公司营收增长的新引擎。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_e6974c3d72ca0522",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0010"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison"
+      ],
+      "score": 0.65,
+      "excerpt": "第一，自研PCIe企业级主控芯片是估值重塑的核心变量。 公司已成功研发并量产8款闪存主控芯片，覆盖移动存储、PCIe SSD及嵌入式存储等领域[^citeid:search001309tguc6x00]，主控工艺制程已突破至22nm及以下[^citeid:search001309tguc6x00]；此外，公司率先采用RISC-V指令集打造SATA SSD主控芯片并实现量产[^citeid:search001309tguc6500]，PCIe、UFS、eMMC三颗主控芯片已于2024H1完成研发立项[^citeid:search001309tguc6500]。定增募投项目中，PCIe SSD主控项目投资额从4.99亿元调增至7.43亿元，资源持续加码[^citeid:search001309tgugan09]。RISC-V等自研主控路径具备架构开放、可定制化优势，与国产化替代趋势高度契合，随",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_2946d3477b6c1e0f",
+      "slide_id": "slide_005",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0020"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison"
+      ],
+      "score": 0.65,
+      "excerpt": "前四大股东格局清晰，控制权高度集中且无分散风险。 除李虎外，第二大股东魏宏章持股5.35%，第三大股东徐岱群持股3.05%，第四大股东泰安金程源企业管理合伙企业（有限合伙）持股2.30%[^citeid:shareholdertop1000130920250630]。前四大股东合计持股比例约为47.61%，但李虎一人的持股比例即超过后三大股东之和，形成“一股独大”但非“一股独霸”的稳定治理结构。这种股权安排既避免了因股权分散导致的决策效率低下，也降低了外部恶意收购的风险，为公司长期战略的连贯执行提供了制度保障。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_76c1f8f64b0c10b1",
+      "slide_id": "slide_006",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0024"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "研发积累与早期探索（2008-2015年）：奠定主控芯片自研根基。 公司于2008年以闪存主控芯片与方案设计为起点，通过移动存储产品销售切入市场，并同步构建了稳定的NAND Flash晶圆采购体系与销售网络[^citeid:2025-04-09referencereport]。这一阶段的核心战略在于技术储备：2010年深圳芯片研发中心成立，标志公司正式进入芯片设计领域；随后公司针对SLC/MLC及TLC等不同代际闪存持续进行内存管理算法研究，并于2012年启动USB闪存控制芯片研发[^citeid:2025-04-09referencereport]。这一时期的研发投入虽未立即转化为大规模营收，但为后续主控芯片的自主量产积累了关键IP与人才基础。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_4c33d194cde62ae2",
+      "slide_id": "slide_007",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0035"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "嵌入式存储与内存条业务是公司横向拓展的两大增长极，产品已从消费电子向汽车电子、AI PC等更高价值场景渗透。 嵌入式存储方面，公司已形成eMMC、UFS、LPDDR为核心的产品矩阵，主力聚焦手机客户，并积极向品牌客户及汽车电子拓展[^citeid:search001309tguc6808][^citeid:search001309tguc6x08]。eMMC产品全面覆盖车规、工规和商规市场，在研的TW1801主控芯片支持eMMC 5.1 HS400高性能接口[^citeid:2025-04-09referencereport]；UFS产品已规划256GB至1TB容量区间并实现批量出货[^citeid:search001309tguc6808]。内存条方面，公司已规划DDR3至DDR5全系列产品线，覆盖SODIMM、UDIMM、CUDIMM等形态[^citeid:2025-04-09refe",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_f47c1624afb5cee5",
+      "slide_id": "slide_008",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0037"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "全球NAND Flash晶圆市场高度集中，公司凭借与五大原厂的长期直采关系，构筑了稀缺的上游资源壁垒。 2023年，三星电子、SK海力士、铠侠、西部数据、美光五家原厂合计占据全球约94.8%的市场份额[^citeid:search603986tgucch04]，形成典型的垄断竞争格局。在此背景下，公司作为国内少数同时具备稳定晶圆采购资源与主控芯片设计能力的芯片设计运营公司[^citeid:search001309tgucbj03]，通过直接采购或经销商渠道从上述原厂获取NAND Flash晶圆，并多年来与全球各大原厂保持直采合作关系[^citeid:2025-04-09referencereport]。这一稳定的供应链关系，不仅保障了公司在行业周期波动中的晶圆供应安全，也使其在成本端具备与一线模组厂商竞争的基础。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_189f910a8d9e1030",
+      "slide_id": "slide_010",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0047"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "综合来看，公司营收结构的优化路径清晰——传统移动存储占比从2023年的58.3%降至2025H1的13.06%，而嵌入式存储和内存条等成长型品类合计占比已接近50%，产品组合的韧性和成长性均有明显改善。这一结构性变化不仅降低了单一品类周期波动对整体业绩的冲击，也为公司切入更广阔的消费电子、汽车电子及数据中心市场奠定了产品基础。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_50f2af5707f69e9c",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0049"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "德明利综合毛利率呈现与上游NAND Flash晶圆价格周期高度共振的波动特征，战略备货策略在放大周期上行期弹性的同时，也加剧了下行期的波动幅度。 2020年至2023年，公司毛利率由22.63%逐年收窄至16.67%[^citeid:financialprofit001309reportperiod]，核心驱动在于上游NAND Flash晶圆价格自2021年8月见顶后进入长周期下行通道[^citeid:searchnand-flash-2023-2024-2025tgucd001]，存储模组成本端受压且产品售价跟随下修。2024年毛利率阶段性回升至17.77%，上半年更达到29.00%[^citeid:financialprofit001309reportperiod]，这主要受益于2023年9月至2024年5月NAND指数累计上涨88%的行业复苏行情（部分现货价格反弹超100%）[^ci",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_db1c4c1c0d59822a",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0052"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "固态硬盘业务毛利率呈现“V型”修复走势，产品结构优化是核心驱动力。 2021年该业务毛利率为18.94%，2022年因全球存储芯片价格下行及公司产品以模组加工为主、上游NAND Flash价格波动直接挤压利润而骤降至4.68%的低点[^1]；此后快速修复，2023-2025年回升至12.69%-14.83%区间。驱动力来自产品结构优化——企业级固态硬盘收入占比从2022年约5%提升至2024年约20%，高附加值品类扩大有效支撑了毛利率修复[^2]。对比看，佰维存储综合毛利率（公开数据未单独披露其固态硬盘毛利率，此处仅作参考）波动区间为13.73%-18.19%，幅度明显更窄。考虑到固态硬盘业务占德明利收入约35%-40%，其毛利率从底部回升对综合毛利率改善贡献显著，后续走势取决于存储价格周期及企业级产品拓展进度。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_ec4bbca1444825cf",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0054"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "与毛利率的强周期波动形成鲜明对比，公司费用率管控能力突出，规模效应持续释放。 德明利的期间费用率在同业中处于极低水平，核心驱动在于销售费用端的克制与管理费用端的规模摊薄效应。2024年公司销售费用率仅为0.85%，远低于江波龙的4.42%和佰维存储的3.79%[^citeid:financialprofit001309reportperiod][^citeid:financialprofit301308reportperiod][^citeid:financialprofit688525reportperiod]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_d47de0a2b8f007b3",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0056"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "管理费用率方面，受益于营收的高速增长（2022年11.91亿→2024年47.73亿），管理费用率从2022年的4.15%快速压降至2024年的1.94%，2025年预测进一步降至1.92%，规模效应已充分显现[^citeid:financialprofit001309reportperiod]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_2b4c49cdc1b35d10",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0055"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison"
+      ],
+      "score": 0.65,
+      "excerpt": "销售费用率方面，公司长期维持在1%以内（2021-2025E分别为0.43%、0.57%、0.94%、0.85%、0.87%），与可比公司3.8%-4.8%的水平形成鲜明反差[^citeid:financialprofit001309reportperiod]。低费率的根源在于商业模式差异：德明利以自研主控芯片为核心竞争力，产品主要面向存储卡/盘品牌商、车载及智能终端等B端客户，采用直销与渠道分销相结合的模式，无需承担大规模品牌推广开支[^citeid:search001309tgucgl05][^citeid:search001309tguci206]；而江波龙运营FORESEE与Lexar双品牌、佰维存储聚焦消费级差异化市场，均需较高的渠道与营销投入[^citeid:search301308tgucjj04][^citeid:search688525tgucjj05]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_0a045dac5ad0bac6",
+      "slide_id": "slide_012",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0062"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "盈利能力同业领先。 以最新完整财年为基准，德明利2024年全年销售净利率达7.35%，显著高于同行：江波龙2.89%、佰维存储2.02%，而朗科科技为-13.17%[^citeid:search20242025tgucjq00][^citeid:search301308tguckv03][^citeid:search688525tgucl804][^citeid:search300042tguckp09]。即使在2025年H1行业价格深度调整导致公司整体承压的背景下，Q3单季净利率已恢复至3.56%，盈利修复斜率领先同业，底部囤货带来的成本优势与自研主控芯片的降本效应是净利率持续领先的核心驱动。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_1be69e6816e58f15",
+      "slide_id": "slide_013",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0067"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "持续的研发投入已转化为可量化的竞争壁垒，核心体现在自研主控芯片的规模化量产与成本优势上。 公司以自研闪存主控芯片作为核心技术壁垒，围绕功耗优化、传输速率、存储容量及纠错能力等关键方向持续突破[^citeid:search001309tgucbj08]。截至2025年3月，公司已成功研发并量产8款闪存主控芯片，覆盖移动存储、固态硬盘（PCIe SSD）、嵌入式存储等领域，主控芯片技术已突破至22nm及以下工艺制程[^citeid:search001309tguc6x00]。公司自研的电压侦测电路、电源管理模块（含稳压器）、矩阵式高速ECC纠错算法等核心技术模块，使主控芯片在数据可靠性、闪存适配深度和整机BOM成本控制方面形成显著竞争优势[^citeid:2025-04-09referencereport]。这一成本优势已直接体现在财务端：自研主控芯片带来的毛利率在五年间持续领先于江波龙、佰维",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_92046babc808867f",
+      "slide_id": "slide_013",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0071"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "研发进展方面，公司已形成“量产交付—回片验证—技术储备”的梯度化研发格局，确保产品迭代的连续性与前瞻性。 截至2025年上半年，公司已成功研发并量产8款闪存主控芯片，覆盖移动存储、固态硬盘、嵌入式存储等领域[^citeid:search001309tguc6x00]。在已量产项目中，新一代自研SD6.0存储卡主控芯片已成功实现量产，搭载该主控的存储卡模组已送样至客户，待验证通过后批量导入[^citeid:search001309tgucbj08]；SATA SSD主控芯片亦已量产，目前正处于产品适配与测试加速阶段[^citeid:search001309tgucbj08]。在回片验证环节，支持LDPC及高并发IOPS优化的40nm SD存储控制芯片、基于28nm SATA接口的固态存储阵列硬盘控制芯片已完成MPW回片验证[^citeid:2025-04-09referencereport]",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_13c3d1312708d086",
+      "slide_id": "slide_015",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0075"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "全球NAND Flash市场呈现典型的周期性波动特征，其走势由供需关系、价格周期、技术迭代及终端应用需求共同驱动。 回顾历史，根据CFM闪存市场统计数据，2018年全球NAND Flash市场规模约为644亿美元[^citeid:2025-04-09referencereport]；2019年受供过于求及价格持续下行影响，市场规模骤降至461亿美元，同比萎缩28%[^citeid:2025-04-09referencereport]。2020年，远程办公和在线教育需求拉动市场回升至566亿美元，2021年在全球数字化加速及PC、服务器需求旺盛驱动下，市场规模进一步攀升至675亿美元，同比增长20%，超越2018年前期高点[^citeid:2025-04-09referencereport]。然而2022年，DRAM与NAND Flash平均价格跌幅扩大，市场规模回落至601.26亿美元[^",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_48cd4722e2d8fe35",
+      "slide_id": "slide_015",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0076"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "2023年，市场步入周期低谷，但供给端主动调控成为价格反转的关键转折点。 根据CFM数据，全年市场规模仅为398.67亿美元，其中前三季度合计仅276.41亿美元[^citeid:2025-04-09referencereport]。市场疲软叠加NAND Flash价格持续下滑，存储原厂收益急剧收缩。在此背景下，原厂放弃追求市场份额，转而以恢复盈利为首要目标，采取强势拉涨态度，推动第四季度存储价格全面回升。单Q4市场规模即达122.26亿美元，占全年比重高达30.7%[^citeid:2025-04-09referencereport]，显示出供给端主动调控对市场价格的巨大影响。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_5cc86055b40b3180",
+      "slide_id": "slide_015",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0077"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "2024年，全球AI需求激增驱动NAND Flash市场迎来强劲复苏。 AI服务器大规模采用高性能eSSD、DDR5及HBM，带动存储需求大幅攀升。根据CFM数据，2024年Q2全球NAND Flash市场规模达到180亿美元，同比增长97.2%；Q3进一步扩大至约190.2亿美元，同比增长93.8%[^citeid:2025-04-09referencereport][^citeid:searchnand-flash-2024-2025-cfm-tretgucmw04]。全年市场规模达到696亿美元，同比大幅增长，全年DRAM+NAND Flash整体存储芯片销售收入亦创历史新高[^citeid:2025-04-09referencereport]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_5c563247389b9ba7",
+      "slide_id": "slide_015",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0078"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "进入2025年，市场经历“先抑后扬”的周期转换，供需格局改善叠加AI需求放量成为核心驱动力。 年初，受消费电子需求疲软及渠道库存累积影响，2025年Q1全球NAND Flash市场规模仅为130.1亿美元，为五个季度以来最低点，环比减少25.3%，同比减少14.2%[^citeid:search2025-nand-flash-q2-q3-cfmtgucxi00]。量价齐跌使得各原厂一季度NAND Flash销售收入均出现不同程度的下滑。为应对供需失衡，自2024年Q4起，三星、SK海力士、美光、西部数据和铠侠五大原厂相继启动减产计划，各家发布15%25%的减产规模[^citeid:search2025-q3-nand-flash-trendforctgucq707]。进入Q2，减产效应逐步显现，叠加PC、智能手机及数据中心领域库存回补，NAND Flash价格止跌回稳，晶圆及Client ",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_eb76963ab44254eb",
+      "slide_id": "slide_015",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0079"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "展望2025年Q3及全年，供需格局改善叠加AI需求放量有望推动市场持续回暖。 TrendForce数据显示，Q3原厂将产能向高毛利产品转移，叠加AI投资加码及NVIDIA Blackwell芯片大量出货，NAND Flash合约价预计季度环比增长5%10%，其中Enterprise SSD合约价涨幅亦在5%10%区间[^citeid:search2025-q3-nand-flash-trendforctgucq707]。值得关注的是，高容量QLC企业SSD已被北美云服务商广泛用于推理AI服务器，QLC UFS在智能手机中的渗透率亦在提升，加上供应商限制性资本支出带来的供给约束，TrendForce预测2025年全年全球NAND Flash市场规模将达到约870亿美元，同比增长约29%[^citeid:2025-04-09referencereport]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_1ff078fa27501e52",
+      "slide_id": "slide_016",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0084"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "从终端需求结构看，NAND Flash的消耗正加速向高价值、高容量的应用领域集中，服务器与智能手机成为核心驱动力。 根据CFM闪存市场数据，2023年NAND Flash消耗结构中，Mobile（智能手机）占比34%，cSSD（PC）占比26%，eSSD（服务器）占比14%[^citeid:2025-04-09referencereport]。进入2024年，这一结构发生显著变化：受智能手机单机容量持续提升拉动，Mobile消耗比例预计升至37%；cSSD应用受高库存及AI PC销量增长有限制约，占比保持稳定；而eSSD受益于互联网厂商资本投资增加及企业级服务器更新需求，占比预计提升至约17%[^citeid:2025-04-09referencereport]。更值得关注的是，2024年服务器NAND容量同比暴增108%，服务器已成为存储需求发展的核心驱动力[^citeid:search",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_42bbd17427bb663f",
+      "slide_id": "slide_017",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0088"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "上游存储原厂：寡头格局稳固，企业级需求驱动营收增长，但消费端疲软制约行业全面复苏。 存储原厂聚焦于晶圆生产与闪存产品打造，历经数十年发展形成了从晶圆设计制造到主控芯片设计、再到闪存应用产品制造的全产业链IDM经营模式，凭借极高的技术和资本壁垒，其在产业链中掌握核心话语权，业务重心集中于企业级SSD和嵌入式存储产品（eMMC、UFS），主要服务于行业级与高端消费客户[^citeid:2025-04-09referencereport]。NAND Flash上游市场由少数存储原厂主导，呈现典型的寡头垄断格局，市场价格公开透明，整体呈卖方市场特征，买方议价空间有限，各原厂在产品技术研发和产能扩张方面长期处于相对平衡的竞合关系[^citeid:2025-04-09referencereport]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_4154cef5b40a5bc3",
+      "slide_id": "slide_017",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0089"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "2025年第三季度，受益于云端服务业者持续扩建AI基础设施，企业级SSD需求强劲，前五大NAND Flash品牌商合计营收季增16.5%，逼近171亿美元[^citeid:search2025-nand-flashtgud0y01]，各原厂表现如下：",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_ab6a39a539d89290",
+      "slide_id": "slide_017",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0091"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "资料来源：TrendForce集邦咨询[^citeid:search2025-nand-flashtgud0y01]；¹基于前五大合计营收约171亿美元推算。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_c9f466909783b777",
+      "slide_id": "slide_017",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0092"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "其中三星凭借企业级SSD强劲销售以32.3%的市占率稳居首位；SK集团旗下Solidigm专注生成式AI所需的QLC企业级SSD，贡献集团营收显著；铠侠受惠于AI服务器需求放量及BiCS8技术转换，位元出货量环比大幅增长，营收季增33.1%领先各原厂[^citeid:search2025-nand-flashtgud0y01]。不过，消费端需求仍面临压力：上半年消费者提前释放需求导致下半年旺季效应减弱，消费电子品牌库存水位高于行业警戒线15%-20%，智能手机需求前景不明朗，消费级eMMC/UFS需求平淡呈\"旺季不旺\"态势[^citeid:search920275tgud7q00][^citeid:search2025-nand-flash-tgud7q02]，各原厂于上半年已采取减产措施以应对此前供需失衡[^citeid:search2025-nand-flash-mobile-essd",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_434991c9db62e29c",
+      "slide_id": "slide_017",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0093"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "中游主控芯片设计：高壁垒、高毛利，但需持续研发投入以维持对原厂晶圆的兼容适配能力。 主控芯片设计公司聚焦于存储芯片主控领域的研发创新，以满足行业中游需求为导向实现业务增长[^citeid:2025-04-09referencereport]。其客户范围主要覆盖处于产业链中游的存储模组应用产品类企业，公司需投入大量研发资源，以确保对存储原厂各类NAND Flash存储晶圆具备通用兼容性与适配能力[^citeid:2025-04-09referencereport]。在技术与资本实力层面，主控芯片设计企业与存储原厂之间存在一定差距，持续的研发投入是缩小这一差距、维持产品竞争力的重要基础[^citeid:2025-04-09referencereport]。该类型公司的经营模式与典型的集成电路设计企业类似，由于聚焦于高附加值的芯片设计环节，单位产品毛利率相对较高[^citeid:2025-04-",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_cc2084c724d76d87",
+      "slide_id": "slide_017",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0094"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "下游存储模组应用：客制化服务驱动品牌溢价，但毛利率较低且业绩随存储周期同向波动。 存储模组应用产品厂商的商业模式以客制化服务为核心，专注于细分行业客户的差异化需求，聚焦于存储应用产品的方案设计，并逐步向产业链下游延伸，运营自有品牌并配备一定规模的应用产品组装贴片加工产能[^citeid:2025-04-09referencereport]。此类企业的主要经营目标为获取产品的品牌溢价，而存储芯片、主控芯片及产品封测环节主要依赖外购和委外加工完成。财务特征上，此类企业的单位产品毛利率相对较低，经营业绩水平伴随存储行业市场价格的周期性波动呈现同向波动特征[^citeid:2025-04-09referencereport]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_f2e4df97a88159aa",
+      "slide_id": "slide_018",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0096"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "AI数据中心建设加速，企业级NVMe SSD成为训练与推理工作流的核心存储载体。 据TrendForce数据，2024年全球AI服务器出货量激增46%，2025年基础情境下预计进一步增长近28%，主要受微软、Meta、亚马逊、谷歌等北美头部云服务提供商的强劲需求推动[^citeid:searchai-2024-2025tguc9q05]。AI训练工作流包含数据摄取、预处理与训练、检查点保存、推理及归档五个核心环节，每一环节对存储性能均提出差异化且高强度的要求：数据摄取阶段需要高吞吐顺序写入性能；预处理与训练阶段对SSD的低延迟和每瓦性能比提出严苛要求；训练过程中周期性检查点保存需在极短时间内完成模型参数快照，考验存储的持续写入带宽与可靠性；推理环节则依赖高并发随机读写能力；归档阶段要求大容量高密度存储[^citeid:2025-04-09referencereport]。传统HDD因机械结",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_270e1dae5b974cf1",
+      "slide_id": "slide_018",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0097"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "企业级SSD市场经历2023年深度调整后，于2024年迎来明确的复苏拐点，AI需求成为核心驱动力。 2022年全球SSD市场规模为290亿美元，出货量达3.52亿块，其中企业级SSD为5,500万块，占整体出货量约15.6%[^citeid:2025-04-09referencereport]。2023年受全球通胀高企、终端需求疲软及通用型服务器订单下滑等因素拖累，SSD市场规模仅小幅上升至294.1亿美元，同比增长仅1.4%[^citeid:2025-04-09referencereport]。从季度走势来看，企业级SSD经历了“前低后高”的明显拐点：2023年一季度，全球原厂企业级SSD品牌厂商营收骤降至19.98亿美元，环比大幅下滑47.3%；二季度颓势延续，营收进一步下修至15亿美元，环比减少24.9%[^citeid:2025-04-09referencereport]。进入下半",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_acba339ef7b40317",
+      "slide_id": "slide_018",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0098"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "AI服务器需求从训练端外溢至推理端，企业级SSD市场在经历2025年上半年的库存消化后于Q3迎来强劲反弹，带动德明利企业级SSD业务营收同步增长。 分季度看，2024Q4受NVIDIA H系列产品到货及中国CSP采购支撑，原厂Enterprise SSD营收为73.4亿美元，环比微幅下滑0.5%[^citeid:searchtrendforce-enterprise-ssd-retgudop01]；进入2025Q1，受淡季效应及供应商去库存拖累，TrendForce预测整体营收将环比下滑近30%[^citeid:searchtrendforce-enterprise-ssd-retgudop00]；展望2025Q2，随英伟达AI GPU出货持续扩大及北美AI基建需求提升，TrendForce预计第二季整体营收将恢复正成长[^citeid:search2025-ssd-trendforcet",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_40778a5ef73be70c",
+      "slide_id": "slide_018",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0100"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "智能手机市场复苏为上游存储厂商带来明确的增量需求，德明利消费级业务成长展望积极。 全球智能手机市场在经历2022年深度回调（全年出货量约12.06亿部，同比下降11.02%[^citeid:search2015-2016-2017-2018-2019-202tgudsj04]）后，于2024年迎来强势复苏，全年出货量达12.4亿部（IDC口径），同比增长6.4%，连续第六个季度保持增长[^citeid:search2024-idc-canalys-3-317tgudyo03]。步入2025年，在5G技术渗透率提升催生换机需求、新兴市场经济基本面企稳等因素驱动下，市场延续温和复苏态势。从近四个季度表现来看（如下图所示），2024Q4出货量3.317亿部（同比+2.4%）[^citeid:search2024-idc-canalys-3-317tgudyo03]，2025Q1出货3.049亿部",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_6c3e7454b861a0c6",
+      "slide_id": "slide_018",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0103"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "全球ICT市场持续扩张，云计算渗透率提升与企业上云进程加速，为存储产业链带来结构性增长机遇。 据IDC数据，2024年全球ICT市场总投资规模接近5.3万亿美元，并有望在2028年增至6.9万亿美元，五年复合增长率（CAGR）为7%[^citeid:searchict-2024-2028-9-idctgud3i05]。中国市场方面，2024年中国企业级ICT市场规模约为2,693.6亿美元，同比增长11.7%；自2024年起以11.5%的复合增长率增长，预计2028年规模接近4,150亿美元[^citeid:searchict-2024-2028-9-idctgud3i04][^citeid:searchict-2024-2028-9-idctgud3i05]。其中，2023–2028年中国企业级服务器和存储投资五年CAGR预计达10.2%[^citeid:2025-04-09refere",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_52bc5fc83b80bae7",
+      "slide_id": "slide_018",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0104"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "企业物联网市场规模持续扩大，中国有望成为全球第一大物联网市场，进一步拉动存储需求。 根据IoT Analytics数据，2023年企业物联网市场规模达2,690亿美元，同比增长15%；预计2024年增长率放缓至12%，市场规模约3,010亿美元，但从2025年起增长率重新加速，2025-2030年复合年增长率有望达15%[^citeid:2025-04-09referencereport][^citeid:searchiot-analytics-2024-2025tgudi908]。区域支出方面，中国、印度和美国预计处于领先地位，其中IDC预计到2024年中国物联网市场支出将占全球约26.7%，超越美国成为全球第一大物联网市场[^citeid:search2024-2025tgudas06]。细分市场方面，2024年第一季度全球蜂窝物联网模块市场同比增长7%，中国模块需求的上升有效抵消了全",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_40889280312939b7",
+      "slide_id": "slide_019",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-003"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.complete_table",
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.95,
+      "excerpt": "排名 | 公司 | 市场份额 | 1 | 金士顿（Kingston） | 66.0% | 2 | 威刚（ADATA） | 约5.0% | 4 | 十铨（Team Group） | 营收增长59% | 前五 | 金泰克（Kimtigo） | 4.2% | 前五合计 | - | 81.0%",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_8f954eed3e2e5cc6",
+      "slide_id": "slide_019",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0106"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "全球SSD模组市场集中度持续提升，但国产厂商已从“跟跑”转向“并跑”，并在渠道与定制化能力上形成差异化优势。 2024年，全球渠道SSD模组厂前五大厂商合计市占率突破80%，市场“大者恒大”格局进一步强化[^citeid:search2024-ssd-trendforcetgudp804]。其中，金士顿（Kingston）以36%的市占率稳居龙头，凭借深厚渠道布局与稳定质量持续领跑；威刚（ADATA）受益于电竞及高端消费产品的强势推广，以及快速导入PCIe 4.0/5.0产品，市占率从2023年的11%提升至13%，跃居第二[^citeid:search2024-ssd-trendforcetgudp804][^citeid:2025-04-09referencereport]；Lexar（雷克沙）在江波龙收购后持续扩张全球零售渠道，以约11%的市占率稳居第三。值得注意的是，以极小差距分列",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_ba9002afcf239d59",
+      "slide_id": "slide_019",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0107"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "与SSD市场不同，全球DRAM模组市场虽高度集中，但集中度边际松动，为国产厂商提供了结构性突围窗口。 2024年全球DRAM模组市场整体营收达133亿美元，同比增长7%，扭转了2023年衰退28%的颓势[^citeid:searchdram-2024tguekr07]。据TrendForce统计，2024年前五大模组厂合计占据81%的营收份额，虽仍处高位，但较2023年的87%已有所下降，市场集中度出现松动[^citeid:search2024-dram-133-trendforce-202tgueyb00]。其中，金士顿（Kingston）以66%的市占率稳居龙头，但营收增速已落后同业；威刚（ADATA）凭借低价库存策略实现营收同比增长20%，以约5%的份额排名第二；十铨（Team Group）深耕电竞及企业级Server DRAM，营收大幅增长59%，排名跃升至第四[^citeid:s",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_2be1545f65cf22f8",
+      "slide_id": "slide_021",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0124"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "毛利率短期承压，但净利率中枢上移趋势明确。 2024年毛利率预计为17.77%，较2023年的16.67%有所改善，但2025年预计回落至14.81%，主因高增长阶段产品结构变化及竞争加剧。然而，随着企业级存储等高附加值产品占比提升，2026-2028年毛利率预计回升至16%-17%区间。更值得关注的是净利率的持续改善：从2023年的1.45%跃升至2024年的7.35%，2025年虽因费用前置（研发费用、财务费用增长）回落至6.38%，但2026年起将稳步提升至9.06%、9.78%、10.19%。净利率的提升，是公司从“增收不增利”向“量利齐升”转变的核心标志。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_697d2b6ff9deb00c",
+      "slide_id": "slide_021",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0128"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "风险提示： 1）SSD及企业级存储需求不及预期，导致营收增速放缓；2）行业竞争加剧，毛利率持续承压；3）存货减值风险，若下游需求波动，高存货可能带来资产减值损失；4）现金流改善不及预期，若营运资金占用持续高企，将压制估值修复空间；5）财务杠杆风险，短期借款从2023年的15.80亿元预计增至2025年的34.72亿元，利息支出压力加大。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_6ceb8ce5c10a7b00",
+      "slide_id": "slide_021",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0125"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series"
+      ],
+      "score": 0.7,
+      "excerpt": "ROE与ROIC同步攀升，资本回报效率显著优化。 2023年公司ROE仅为2.23%，ROIC为2.23%，处于极低水平。随着盈利改善与杠杆运用，2024年ROE预计提升至14.15%，ROIC跃升至18.29%。我们预计2025-2028年ROE将分别达到21.05%/24.03%/30.52%/31.07%，ROIC同步提升至16.79%/18.93%/22.50%/23.20%。ROIC持续高于加权平均资本成本（WACC），表明公司已进入价值创造阶段，资本配置效率显著改善。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    }
+  ]
+}

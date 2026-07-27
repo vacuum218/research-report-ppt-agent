@@ -1,0 +1,1018 @@
+{
+  "schema_version": "2.0.0",
+  "plan_id": "plan_e137b3c653b0fc80",
+  "source": {
+    "outline_sha256": "2669a7808360904072965e0e7ae7c03390afd36757acf2476436b5b7e425e87a",
+    "manifest_sha256": "d3b28bf49bdbc212ce27ee9482716b2dc138ac090027f11113bcfba6851fc46d"
+  },
+  "template": {
+    "profile_id": "financial-report-v1",
+    "profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "file": "financial_report_template_v1.pptx",
+    "sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2"
+  },
+  "asset_root": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\phase1_citation_fix\\000333\\document_bundle",
+  "visualizations": [
+    {
+      "visualization_id": "visual_001",
+      "slide_id": "slide_005",
+      "visual_type": "chart",
+      "data": {
+        "chart_type": "line",
+        "title": "展示美的集团分板块营业收入及同比增速（2022-2025年前三季度）",
+        "unit": "亿元",
+        "categories": [
+          "2022",
+          "2023",
+          "2024",
+          "2024前三季度",
+          "2025前三季度"
+        ],
+        "series": [
+          {
+            "name": "智能家居",
+            "values": [
+              2328,
+              2464,
+              2695,
+              2130.6,
+              2407.6
+            ]
+          },
+          {
+            "name": "新能源及工业技术",
+            "values": [
+              216,
+              279,
+              336,
+              252.9,
+              306
+            ]
+          },
+          {
+            "name": "智能建筑科技",
+            "values": [
+              228,
+              259,
+              285,
+              224.8,
+              281
+            ]
+          }
+        ],
+        "source_refs": [
+          "src_000333_2025-10-30"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-001"
+          }
+        ],
+        "note": "Assembled from verified Numeric Fact Ledger references"
+      }
+    },
+    {
+      "visualization_id": "visual_003",
+      "slide_id": "slide_009",
+      "visual_type": "table",
+      "data": {
+        "title": "展示美的集团盈利预测表（2024A-2027E），包括营业总收入、归母净利润、毛利率、EPS及同比增速",
+        "columns": [
+          "预测年度",
+          "营业总收入（亿元）",
+          "同比增速",
+          "归母净利润（亿元）",
+          "同比增速",
+          "毛利率"
+        ],
+        "rows": [
+          [
+            "2024A",
+            4090.84,
+            "+9.47%",
+            385.37,
+            "+14.29%",
+            "26.42%"
+          ],
+          [
+            "2025E",
+            4435.57,
+            "+8.43%",
+            432.39,
+            "+12.20%",
+            "26.6%"
+          ],
+          [
+            "2026E",
+            4749.24,
+            "+7.07%",
+            474.07,
+            "+9.64%",
+            "26.9%"
+          ],
+          [
+            "2027E",
+            5071.4,
+            "+6.78%",
+            517.05,
+            "+9.07%",
+            "27.1%"
+          ]
+        ],
+        "source_refs": [
+          "src_000333_2025-10-30"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-002"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-002; all numeric cells are fact-audited"
+      }
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "slide_mode": "exact_template",
+      "layout_id": "cover",
+      "template_slide": 1,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "cover_title",
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3
+          },
+          "value": "美的集团"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "subtitle",
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4
+          },
+          "value": "美的集团（000333）深度研究报告"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "cover_meta",
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6
+          },
+          "value": "000333  |  2025-10-30"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "tag",
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7
+          },
+          "value": "家电"
+        }
+      ],
+      "source_slide_id": "slide_001",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_002",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "从家电龙头到科技集团：美的集团“ToC+ToB”双轮驱动的战略跃迁与护城河重构",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**从家电龙头到科技集团：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "美的集团前身为1968年成立的塑料生产组，1980年进入家电行业，1992年完成股份制改革并上市。",
+            "2017年收购德国库卡是战略跃迁的起点，形成了“家电制造自动化→对外输出智能制造解决方案”的商业闭环。",
+            "此后通过收购合康新能、科陆电子、万东医疗、ARBONIA Climate、Clivet、东芝电梯等，构建起覆盖五大业务板块的全球化科技集团架构。",
+            "当前已形成ToC与ToB并重发展的业务矩阵：2025年上半年智能家居收入1672亿元（+13.3%），商业及工业解决方案收入645.4亿元（+20.8%），ToB业务成为增长第二引擎，收入占比提升至25.7%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_002",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_003",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "从家电龙头到科技集团：美的集团“ToC+ToB”双轮驱动的战略跃迁与护城河重构",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**治理结构：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "实际控制人为何享健先生，通过美的控股及直接持股合计控制约28.79%表决权；董事长方洪波持股1.55%，管理层利益深度绑定。",
+            "管理层形成以方洪波为核心、内部培养为主的专业化职业经理人团队，核心高管平均司龄超20年。",
+            "1997年起推行的事业部制分权体系与多层次激励机制（合伙人计划、持股计划、股权激励）有机配合，确保战略统一与业务活力。",
+            "2025年上半年推出50-100亿元及15-30亿元的A股回购方案，持续强化股东回报与长效激励。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_003",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_004",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "从家电龙头到科技集团：美的集团“ToC+ToB”双轮驱动的战略跃迁与护城河重构",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**核心竞争力：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "研发驱动：近10年累计研发投入超1000亿元，2024年研发投入超160亿元（费用率约3.9%），全球专利申请量超15万件，专利授权维持量超9万件，研发人员超2.3万名，构建“2+4+N”全球研发网络。",
+            "全球制造与数字化：在全球拥有超400家子公司、43个主要制造基地，海外17个研发中心和22个制造基地；拥有28家国家级绿色工厂、5家灯塔工厂，全价值链数字化运营。",
+            "品牌矩阵与OBM：形成十余个品牌覆盖高中低端，国内“COLMO+东芝”双高端品牌零售额同比增长超60%；海外推行OBM优先战略，2025H1 OBM占智能家居海外收入45%以上；渠道覆盖200多个国家。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_004",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_005",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "双轮驱动加速成型：ToB业务占比提升与盈利结构优化下的估值重塑逻辑",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_chart",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_001",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10,
+            "legend_font_size_pt": 9,
+            "data_label_font_size_pt": 9,
+            "text_color": "64748B",
+            "axis_color": "94A3B8",
+            "gridline_color": "E2E8F0",
+            "series_colors": [
+              "2F75B5",
+              "ED7D31",
+              "70AD47",
+              "A5A5A5",
+              "FFC000",
+              "5B9BD5"
+            ],
+            "legend_position": "bottom",
+            "line_width_pt": 2.25,
+            "marker_size_pt": 6,
+            "gap_width": 65
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**业务结构拆分与收入驱动力分析**",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "前三季度营收3630.57亿元（+13.82%），智能家居增长约13%，新能源及工业技术收入306亿元（+21%），智能建筑科技281亿元（+25%），",
+            "机器人与自动化226亿元（+9%），ToB三大板块合计收入813亿元。",
+            "近三年收入结构持续优化：智能家居2022-2024 CAGR约7.6%，ToB业务CAGR约11.8%，2024年商业及工业解决方案收入首破千亿，",
+            "ToB收入占比从2022年约24%提升至2025年上半年约26%。",
+            "各板块差异化特征：智能家居全品类市占率行业第一；新能源及工业技术增速最快受益于科陆电子反转及汽零放量；智能建筑科技逆势增长凭数据中心液冷等赛道；",
+            "机器人与自动化较2024年下滑后明显改善。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_005",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_006",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "双轮驱动加速成型：ToB业务占比提升与盈利结构优化下的估值重塑逻辑",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**核心盈利能力与财务健康度**",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "综合毛利率从2020年的23.73%回升至2024年的26.42%（创近五年新高），受益于产品结构升级、海外高毛利业务及B端占比提升。",
+            "归母净利率从2021年8.32%升至2024年9.42%，2025年前三季度净利率10.64%，期间费用率同比下降1.89个百分点。",
+            "ROE（摊薄）从23.16%降至17.78%，主因权益基数扩张而非盈利恶化，归母净利润年复合增速约9.1%，预计融资效应消化后将企稳回升。",
+            "资产负债率降至60.54%，流动比率1.11，速动比率0.97，2025年前三季度存货周转率4.83次，财务结构健康，运营效率稳健。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_006",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_007",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "暖通空调与冰洗业务：内销政策驱动与出口结构性分化下的龙头韧性",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**暖通空调业务：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2024年美的空调总销量达6,140万台（+15.5%），全球家用空调销量市占率23.7%，稳居行业首位。",
+            "内销：以旧换新政策叠加高温驱动，出货加速修复，渠道库存健康；2025年4月内销出货同比+4%、全渠道零售量同比+17%。",
+            "出口：2024年中国空调出口量8,742万台（+28.7%），美的出口市占率提升至33%以上；全球极端高温与“一带一路”国家需求拉动显著。",
+            "竞争策略：通过主品牌维护价格体系、子品牌让利抢占份额，实现份额与盈利平衡；2025年1-4月线上均价结构性下降但主品牌保持9%溢价。",
+            "关税风险整体可控：高盛测算若加征20%关税利润影响约7%，可转嫁一半则降至4%；海外22个制造基地支撑“中国供全球+区域供区域”模式。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_007",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_008",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "暖通空调与冰洗业务：内销政策驱动与出口结构性分化下的龙头韧性",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**冰洗业务：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "冰箱内销：嵌入式创新引领升级，美的平嵌与零嵌入式冰箱零售额占比线上30.2%/线下58.4%，嵌入式“机皇”单品Q1销售额破3亿元；美的冰箱内销市占率行业第二。",
+            "洗衣机内销：结构升级温和增长，2024年H1内销量1,975万台（+3.09%）；美的推出元气2.0系列满足健康、超薄需求，以旧换新政策深化有望释放更新需求。",
+            "出口：2024年冰洗出口高景气后，2025年高基数下增速收敛；冰箱9月出口+7.6%，洗衣机+23.8%，前三季度洗衣机累计出口+12%；新兴市场如拉美、东南亚成为重要增长引擎。",
+            "美的冰洗在马来西亚、沙特、智利等市场份额领先，全球区域布局优势凸显。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_008",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_009",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "估值安全边际充足，ToB与OBM双轮驱动打开价值重估空间",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_003",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**盈利预测调整与投资评级**",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "2025-2027年预测：归母净利润复合增速约10.3%，毛利率从26.42%升至27.1%，EPS从5.66元升至6.75元。",
+            "当前股价约73.23元对应2025E/2026E/2027E PE为12.94/11.79/10.85倍，过去5年历史PE均值约16.75倍，当前估值处于历史较低分位；",
+            "同业对比格力PE约7.8-10倍、海尔PE约12-14倍。",
+            "近6个月19家机构平均目标价89.86元；建银国际目标价88.7元，国信证券目标价区间81.82-93.25元；给予“买入”评级，目标价87.0元，约19%上行空间。",
+            "核心催化剂：年报分红方案落地、海外OBM渗透超预期、ToB业务在AI+能源/机器人领域突破。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_009",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_010",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "多维风险对冲体系构筑护城河，美的集团长期增长逻辑稳固",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**宏观经济波动与消费疲软：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "宏观经济与消费疲软：多元化业务布局（ToB收入占比提升至25.5%）有效对冲单一市场波动，以旧换新政策放宽提供需求托底。",
+            "原材料价格波动：大宗商品套期保值、产品结构升级和数字化转型多举措应对，成本压力可控。",
+            "人民币汇率波动：全球化收入结构下，通过远期结汇、外汇期权等多种工具管理多币种风险。",
+            "海外贸易摩擦与关税：美国收入占比较低，关税直接影响有限；通过全球产能布局和新兴市场拓展弱化冲击，同时实施OBM优先战略提升定价能力。",
+            "行业竞争加剧：高强度研发（近3年超430亿元）构筑技术壁垒，毛利率从22.5%提升至26.4%，在竞争中保有韧性。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_010",
+      "continuation_index": 1
+    }
+  ]
+}

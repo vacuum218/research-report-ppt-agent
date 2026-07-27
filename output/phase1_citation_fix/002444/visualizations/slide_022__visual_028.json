@@ -1,0 +1,36 @@
+{
+  "title": "可比公司估值对比（2025E-2026E PE）",
+  "columns": [
+    "估值指标",
+    "泉峰控股",
+    "创科实业",
+    "可比公司均值",
+    "巨星科技"
+  ],
+  "rows": [
+    [
+      "2025E PE (X)",
+      6.6,
+      15.2,
+      10.9,
+      12
+    ],
+    [
+      "2026E PE (X)",
+      5.3,
+      13.2,
+      9.2,
+      9.7
+    ]
+  ],
+  "source_refs": [
+    "src_002444_2025-09-21"
+  ],
+  "sources": [
+    {
+      "kind": "table",
+      "id": "table-004"
+    }
+  ],
+  "note": "Copied from complete DocumentBundle table table-004; all numeric cells are fact-audited"
+}

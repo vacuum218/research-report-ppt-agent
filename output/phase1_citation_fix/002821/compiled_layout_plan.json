@@ -1,0 +1,1662 @@
+{
+  "schema_version": "2.0.0",
+  "plan_id": "plan_77ab44f28a23b839",
+  "source": {
+    "outline_sha256": "eca5d44d16bd612cea4452a06f9ac3b01d17e8d23cd480af42f36b26038f7e34",
+    "manifest_sha256": "7f682820648e7715e8dc1e577c985684c0be04796aafcbb4045accd92930e642"
+  },
+  "template": {
+    "profile_id": "financial-report-v1",
+    "profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "file": "financial_report_template_v1.pptx",
+    "sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2"
+  },
+  "asset_root": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\phase1_citation_fix\\002821\\document_bundle",
+  "visualizations": [
+    {
+      "visualization_id": "visual_001",
+      "slide_id": "slide_003",
+      "visual_type": "table",
+      "data": {
+        "title": "展示公司核心高管团队，包括姓名、职务及简介",
+        "columns": [
+          "姓名",
+          "职务",
+          "简介"
+        ],
+        "rows": [
+          [
+            "HAO HONG（洪浩）",
+            "首席执行官",
+            "博士，曾于美国北卡州立大学从事博士后研究，1995年创办ALAB，在连续反应及绿色化学领域拥有卓越行业影响力，拥有多项国际国内授权专利"
+          ],
+          [
+            "杨蕊",
+            "联席首席执行官",
+            "硕士/北大EMBA，1999年加入公司，长期负责公司整体运营管理"
+          ],
+          [
+            "张达",
+            "首席财务官/首席运营官",
+            "硕士，拥有超15年资本市场经验，2018年5月加入"
+          ],
+          [
+            "XINHUI HU",
+            "首席技术官/首席商务官",
+            "博士，曾任职葛兰素史克、默克、强生等跨国药企及罗氏、云顶新耀，2022年6月加入"
+          ],
+          [
+            "James Randolph Gage",
+            "首席科学官",
+            "博士，拥有近30年医药化学经验，曾任职辉瑞，师从美国著名有机化学家David Evans教授"
+          ],
+          [
+            "洪亮",
+            "执行副总裁",
+            "拥有丰富的大型新建厂区、新型业务车间及环保设施的整体工程管理经验，1998年加入公司"
+          ],
+          [
+            "陈朝勇",
+            "执行副总裁",
+            "本科，拥有丰富的研发生产经验，负责商业化开发、技术转移和生产质量控制，2003年加入公司"
+          ],
+          [
+            "姜英伟",
+            "执行副总裁",
+            "硕士，负责人力资源战略及行政后勤体系全面建设，2020年1月加入"
+          ]
+        ],
+        "source_refs": [
+          "src_002821_2025-09-11"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-001"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-001; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_002",
+      "slide_id": "slide_003",
+      "visual_type": "table",
+      "data": {
+        "title": "展示公司历年股权激励计划，包括年份、激励方式、授予对象、人数及核心业绩考核条件",
+        "columns": [
+          "年份",
+          "激励方式",
+          "授予对象",
+          "人数（人）",
+          "核心业绩考核/解锁条件"
+        ],
+        "rows": [
+          [
+            "2016",
+            "股票期权+限制性股票",
+            "核心管理及技术骨干",
+            112,
+            "2017-2019年净利润每年同比增速不低于25%"
+          ],
+          [
+            "2018",
+            "限制性股票",
+            "管理人员及核心技术业务人员",
+            36,
+            "2018-2020年净利润每年同比增速分别不低于50%/25%/25%"
+          ],
+          [
+            "2019",
+            "限制性股票",
+            "高层管理人员及核心骨干",
+            22,
+            "2019-2021年净利润每年同比增速分别不低于75%/25%/25%"
+          ],
+          [
+            "2020",
+            "限制性股票",
+            "核心管理及技术骨干",
+            225,
+            "2020-2022年净利润每年同比增速不低于25%"
+          ],
+          [
+            "2021",
+            "限制性股票",
+            "核心管理及技术骨干",
+            273,
+            "特别授予部分：2021-2023年净利润每年同比增速50%/25%/25%<br>非特别授予部分：2021-2024年净利润每年同比增速50%/25%/25%"
+          ],
+          [
+            "2022",
+            "员工持股计划",
+            "核心员工",
+            608,
+            "2023-2025年营业收入每年同比增速分别不低于80%/40%/30%"
+          ],
+          [
+            "2025",
+            "A+H股限制性股票",
+            "A股649人+H股授予",
+            "649+",
+            "以2024年营收/净利润为基数，2025-2028年分档增速目标（详见正文）"
+          ]
+        ],
+        "source_refs": [
+          "src_002821_2025-09-11"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-002"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-002; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_003",
+      "slide_id": "slide_005",
+      "visual_type": "table",
+      "data": {
+        "title": "展示2024年国产创新药License‑out交易TOP10，包括排名、合作项目、买卖双方及总金额",
+        "columns": [
+          "排名",
+          "合作项目",
+          "卖方",
+          "买方",
+          "总金额"
+        ],
+        "rows": [
+          [
+            "1",
+            "GLP-1类药物：HRS-7535、HRS9531",
+            "恒瑞医药",
+            "Hercules",
+            "60.35亿美元"
+          ],
+          [
+            "2",
+            "多个心血管RNAi疗法",
+            "舶望制药",
+            "诺华",
+            "41.65亿美元"
+          ],
+          [
+            "3",
+            "LM-299：PD-1/VEGF",
+            "礼新医药",
+            "默沙东",
+            "32.88亿美元"
+          ],
+          [
+            "4",
+            "GLP-1受体激动剂HS-10535",
+            "翰森制药",
+            "默沙东",
+            "20.12亿美元"
+          ],
+          [
+            "5",
+            "小分子Lp(a)抑制剂",
+            "石药集团",
+            "阿斯利康",
+            "20.2亿美元"
+          ],
+          [
+            "6",
+            "IMM2510(VEGFxPD-L1双抗)/IMM27M(CTLA-4抗体)",
+            "宜明昂科",
+            "Instil bio",
+            "20亿美元"
+          ],
+          [
+            "7",
+            "NASH/MASH小核酸疗法",
+            "瑞博生物",
+            "勃林格殷格翰",
+            "20亿美元"
+          ],
+          [
+            "8",
+            "多个前沿创新靶点ADC产品",
+            "宜联生物",
+            "BioNTech",
+            "18.25亿美元"
+          ]
+        ],
+        "source_refs": [
+          "src_002821_2025-09-11"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-003"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-003; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_004",
+      "slide_id": "slide_011",
+      "visual_type": "table",
+      "data": {
+        "title": "展示凯莱英分业务收入拆分与盈利预测（2024A‑2027E）",
+        "columns": [
+          "项目",
+          "2024A",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "营业收入",
+            58.05,
+            65,
+            73,
+            82
+          ],
+          [
+            "同比增速",
+            "-25.82%",
+            "+11.97%",
+            "+12.31%",
+            "+12.33%"
+          ],
+          [
+            "小分子CDMO",
+            46.79,
+            51.7,
+            58,
+            64
+          ],
+          [
+            "同比增速",
+            "-28.5%",
+            "+10.5%",
+            "+12.2%",
+            "+10.3%"
+          ],
+          [
+            "其中：商业化阶段",
+            33.79,
+            37.5,
+            42.5,
+            47.5
+          ],
+          [
+            "同比增速",
+            "-33.0%",
+            "+11.0%",
+            "+13.3%",
+            "+11.8%"
+          ],
+          [
+            "其中：临床阶段",
+            13,
+            14.2,
+            15.5,
+            16.5
+          ],
+          [
+            "同比增速",
+            "-13.0%",
+            "+9.2%",
+            "+9.2%",
+            "+6.5%"
+          ]
+        ],
+        "source_refs": [
+          "src_002821_2025-09-11"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-004"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-004; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_005",
+      "slide_id": "slide_011",
+      "visual_type": "table",
+      "data": {
+        "title": "展示可比公司估值对比（2024‑2026E PE）",
+        "columns": [
+          "公司简称",
+          "总市值（亿元）",
+          "2023 EPS",
+          "2024 EPS",
+          "2025E EPS",
+          "2026E EPS"
+        ],
+        "rows": [
+          [
+            "药明康德",
+            1800,
+            3.27,
+            3.28,
+            3.72,
+            4.22
+          ],
+          [
+            "康龙化成",
+            492,
+            0.9,
+            1.01,
+            1.09,
+            1.3
+          ],
+          [
+            "九洲药业",
+            121,
+            1.15,
+            0.68,
+            1.2,
+            1.31
+          ],
+          [
+            "凯莱英",
+            297,
+            6.26,
+            2.49,
+            3.16,
+            3.48
+          ]
+        ],
+        "source_refs": [
+          "src_002821_2025-09-11"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-005"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-005; all numeric cells are fact-audited"
+      }
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "slide_mode": "exact_template",
+      "layout_id": "cover",
+      "template_slide": 1,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "cover_title",
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3
+          },
+          "value": "凯莱英"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "subtitle",
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4
+          },
+          "value": "凯莱英（002821）深度研究报告"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "cover_meta",
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6
+          },
+          "value": "002821  |  2025-09-11"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "tag",
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7
+          },
+          "value": "医药生物/CDMO"
+        }
+      ],
+      "source_slide_id": "slide_001",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_002",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "凯莱英（002821）深度研究报告",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "全球生物医药行业仍处于周期底部，需求修复缓慢、供给相对过剩，但拐点信号正在积累。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "小分子CDMO剔除大订单后稳健增长，商业化项目进入收获期，基本盘企稳。根据公司在手订单情况，预计2024年小分子PPQ项目达28个，公司已完成首个欧洲研发生产基地布局。",
+            "新兴业务多板块需求旺盛，产能释放加速，正成为公司第二增长曲线。多肽业务加快商业化产能建设，寡核苷酸业务项目承接量高速增长，ADC业务持续聚焦偶联药物赛道。",
+            "投资建议：预计2025-2027年凯莱英营业收入CAGR约12.3%，归母净利润CAGR约19.9%；2024年受大订单退潮影响业绩承压，但2025年上半年已重回增长通道。首次覆盖，给予“买入”评级。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_002",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_003",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "two_visuals",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "管理层深度绑定与平台化布局：凯莱英穿越周期的核心护城河",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.5,
+              "width": 11.7333,
+              "height": 0.675
+            }
+          },
+          "value": "**凯莱英是全球领先的服务于新药研发和生产的CDMO一站式综合服务商，其核心竞争力根植于深厚的技术积淀、稳定的管理层团队以及持续深化的平台化战略。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 2.25,
+              "width": 11.7333,
+              "height": 0.825
+            }
+          },
+          "values": [
+            "公司以小分子CDMO为基石，正加速向新兴业务领域拓展，服务类型已拓展至化学大分子CDMO、制剂CDMO、临床CRO、生物大分子CDMO、技术输出和合成生物技术等，新兴业务2024年收入12.3亿元（+2.3%）。",
+            "核心管理层由洪浩博士领衔，多位高管拥有辉瑞、默克、葛兰素史克等国际药企背景，团队稳定且具备国际化视野。",
+            "公司自2016年上市以来已推出7期股权激励计划，2025年新一期A+H股限制性股票方案设置双重业绩考核，深度绑定核心员工利益，彰显长期发展信心。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "visual_1",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.375,
+              "width": 5.6,
+              "height": 3.225
+            }
+          },
+          "visualization_id": "visual_001",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "visual_2",
+          "target": {
+            "bounds_in": {
+              "left": 6.9333,
+              "top": 3.375,
+              "width": 5.6,
+              "height": 3.225
+            }
+          },
+          "visualization_id": "visual_002",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        }
+      ],
+      "source_slide_id": "slide_003",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_004",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "供需再平衡与创新动能切换：CXO行业周期拐点渐近",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**当前CXO行业仍处于周期拐点待向上阶段，核心矛盾在于终端需求修复节奏与产能出清速度之间的动态博弈。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "需求侧，全球步入降息周期，生物医药投融资回暖，海外业务占比较高的头部CXO有望率先受益；供给侧，头部企业主动放缓扩产，产能持续去化，行业正从“供过于求”向“供需再平衡”过渡。",
+            "医药创新动能正从传统小分子主导向“小分子+新兴疗法”多元并进格局切换，多技术平台布局的CXO企业将在新一轮创新浪潮中占据更有利的竞争位置。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_004",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_005",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "创新药研发投入持续增长与出海加速共振，CDMO行业供需格局迎来拐点",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_003",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**全球医药研发投入稳步增长，生物医药投融资回暖，为CDMO行业提供稳定需求基础。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "全球外包服务需求增速有望快于研发投入的增长，小分子仍占主导，多肽、寡核苷酸等新兴方向加速发展。",
+            "产能建设高峰期已过，在建工程增速转负，冗余产能加速出清，行业供需格局有望逐步改善。",
+            "创新药出海与政策支持形成双重驱动：2024年国产创新药License-out交易达94笔，总金额约519亿美元；政策端全链条支持体系从顶层设计走向地方落地。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_005",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_006",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "守正出奇：小分子基本盘稳固，新兴疗法打开第二增长曲线",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**全球药物研发格局正经历从“小分子独大”向“小分子为基、新兴疗法多点开花”的结构性演变。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "小分子仍是基石赛道，2023年全球占比约54.86%；多肽、寡核苷酸、ADC等新兴疗法加速崛起，多肽CDMO市场2025‑2030年CAGR预计26%。",
+            "凯莱英精准卡位：2025H1小分子CDMO收入24.29亿元（同比+10.64%），新兴业务收入7.56亿元（同比+51.22%），毛利率同比提升9.5pct至29.79%。",
+            "多肽业务：产能快速扩张，首个GLP‑1多肽商业化项目已获批上市；寡核苷酸业务：在手订单金额同比增超90%，临床中后期项目储备超10个。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_006",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_007",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "大订单扰动出清，主业重回高质量增长通道：凯莱英内生增长动能与全球化布局深化",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**大订单扰动出清，主业重回高质量增长通道。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "剔除新冠大订单影响，2019‑2024年营收CAGR约18.7%，归母净利润CAGR约11.4%；2025H1营收同比增长18.2%，常规业务重回增长快车道。",
+            "小分子CDMO作为压舱石，2024年剔除大订单后收入+8.9%，新兴业务2025H1收入同比+80%以上。",
+            "全球产能布局完善：中国、美国、英国8大基地，服务超1100家客户；2024年收购辉瑞英国Sandwich Site，2025H1已交付4个研发项目、首个生产订单落地。",
+            "资本开支从2022年峰值回落；人才规模五年CAGR26%，人均创利增幅达60.7%。",
+            "在手订单于2025年半年报日达10.88亿美元，同比增长趋势持续向好。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_007",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_008",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "小分子CDMO：大订单扰动出清，商业化项目储备驱动盈利质量持续回升",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**小分子CDMO业务是凯莱英的基石与核心收入来源。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "剔除大订单后，小分子收入从2019年的23.75亿元增至2023年的42.00亿元（CAGR 15.32%）；2025H1收入24.29亿元，同比+10.64%，毛利率47.79%同比提升0.6pct。",
+            "商业化项目逐步落地：2024年交付48个，临床Ⅲ期项目73个；预计2025年全年PPQ项目约12个，商业化订单储备充沛。",
+            "盈利质量持续改善：连续反应与酶催化技术应用率超33%，成本优势巩固。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_008",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_009",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "新兴业务：多肽、ADC、小核酸驱动下，第二增长曲线加速兑现",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**新兴业务近年来整体呈现快速扩张态势，但2024年经历了一次明显的增速换挡与盈利承压。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2024年受国内投融资低迷及产能爬坡影响，新兴业务收入12.3亿元（+2.3%），毛利率21.67%。",
+            "2025H1强力反弹：收入7.56亿元（+51.22%），毛利率回升至29.79%（+9.5pct），化学大分子收入+130%，生物大分子+70%。",
+            "多肽业务：商业化产能加速建设，已签订GLP‑1多肽商业化订单；寡核苷酸业务：在手订单持续高增，项目储备充足；制剂CDMO预充针/卡式瓶产线即将投产；临床CRO在手项目丰富；生物药CDMO聚焦ADC，奉贤新基地投建中。",
+            "连续反应与酶催化技术输出业务持续增长，合成生物技术收入同比增长33.22%，境外客户占比超80%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_009",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_010",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "化学大分子CDMO：多肽与寡核苷酸双轮驱动，商业化产能释放打开成长空间",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**化学大分子业务是公司战略发展的核心板块之一，正凭借多肽与寡核苷酸两大高景气赛道的深度布局，进入订单与产能共振的加速成长阶段。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2025H1板块收入3.79亿元（+130%），在手订单同比+90%，境外订单占比超40%。",
+            "多肽固相合成产能从14,250L（2024年6月）扩至2025年底约44,000L；首个GLP‑1商业化项目已获批上市，与国内重要客户签订商业化订单执行顺利。",
+            "寡核苷酸业务：临床中后期项目储备超过10个，产能持续扩充。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_010",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_011",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "two_visuals",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.5,
+              "width": 11.7333,
+              "height": 0.675
+            }
+          },
+          "value": "**核心判断：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 2.25,
+              "width": 11.7333,
+              "height": 0.825
+            }
+          },
+          "values": [
+            "小分子CDMO：在手订单覆盖倍数超1.15倍，PPQ转商业化与海外产能爬坡驱动未来三年收入CAGR约15%~20%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "visual_1",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.375,
+              "width": 5.6,
+              "height": 3.225
+            }
+          },
+          "visualization_id": "visual_004",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "visual_2",
+          "target": {
+            "bounds_in": {
+              "left": 6.9333,
+              "top": 3.375,
+              "width": 5.6,
+              "height": 3.225
+            }
+          },
+          "visualization_id": "visual_005",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        }
+      ],
+      "source_slide_id": "slide_011",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_011__cont_02",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "新兴业务：化学大分子引领，预计2025~2027年整体CAGR约35%~45%，其中多肽、寡核苷酸商业化加速，ADC产能2026Q2交付。",
+            "毛利率受益于产能利用率回升及高毛利商业化项目占比提升，预计从2024年的42.36%逐步修复至44.50%左右，2025~2027年归母净利润分别为11.64/14.10/16.73亿元。",
+            "可比公司估值：凯莱英2025E PE为25.55倍，高于药明康德、九洲药业，低于康龙化成，处于可比公司中等水平。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_011",
+      "continuation_index": 2
+    },
+    {
+      "slide_id": "slide_012",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利高增确定性强，但需警惕产能爬坡与订单持续性风险",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**①新业务产能爬坡不及预期风险。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "新业务产能爬坡不及预期风险：多肽、寡核苷酸、ADC产能快速扩张，若下游需求释放或工艺验证延后，折旧摊销将提前侵蚀利润。",
+            "多肽/ADC订单波动风险：化学大分子2025年高基数下订单持续性存不确定性，ADC尚未形成规模商业化订单，竞争加剧或客户项目推进不顺将拖累放量。",
+            "全球投融资环境变化风险：国内生物医药融资复苏不及预期已拖累境内客户业务，若宏观环境再度收紧，整体收入增速将承压。",
+            "汇率波动风险：境外收入占比约74%，人民币升值将直接压缩毛利率与净利润，每升值1%净利润负面影响约0.5%。",
+            "地缘政治与国际贸易环境不确定性：中美博弈可能影响海外客户供应链策略与CDMO订单稳定性。",
+            "核心人才流失风险：CDMO行业高度依赖核心技术团队，关键人员流失将影响工艺转化与订单交付。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_012",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_013",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "non_content_text",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 1.0667,
+              "top": 0.75,
+              "width": 11.2,
+              "height": 1.5
+            }
+          },
+          "value": "盈利底部确认，2025年有望迎来收入与利润双拐点",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 1.3333,
+              "top": 2.55,
+              "width": 10.6666,
+              "height": 1.2
+            }
+          },
+          "value": "公司2022‑2024年经历了一轮完整的“高增长‑深度调整”周期，当前盈利已触及底部。我们预计，随着收入端在2025年恢复正增长，叠加毛利率修复与费用管控优化，归母净利润将迎来强劲反弹，开启新一轮盈利上行周期。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 1.6,
+              "top": 4.05,
+              "width": 10.1333,
+              "height": 2.4
+            }
+          },
+          "values": [
+            "收入端调整出清，2025年营收预计同比+14.9%，逐步向历史高点回归。",
+            "毛利率触底回升，从2024年42.4%修复至2025年44.0%；资产减值损失大幅收窄，营业利润同比增长28.3%，归母净利润同比增长26.8%。",
+            "ROE从5.6%历史低位回升，当前PE 25.6倍、P/B 1.57倍，估值具备安全边际。",
+            "资产负债率仅13%左右，流动比率超5倍，财务基础稳健，为业绩复苏提供支撑。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_013",
+      "continuation_index": 1
+    }
+  ]
+}

@@ -93,6 +93,18 @@ def test_native_table_style_and_data_survive_reopen(tmp_path):
     assert border_rgb.get("val") == "D9E2EC"
 
 
+def test_table_renderer_removes_internal_citation_markers():
+    _, slide = _slide()
+    value = _table()
+    value["rows"][0][1] = "100[^cite_id:source_a]"
+    value["rows"][0][2] = "120[^citeid:source_b]"
+
+    rendered = render_table(slide, _anchor(), value)
+
+    assert rendered.table.cell(1, 1).text == "100"
+    assert rendered.table.cell(1, 2).text == "120"
+
+
 @pytest.mark.parametrize(
     ("value", "message"),
     [

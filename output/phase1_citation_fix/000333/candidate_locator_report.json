@@ -1,0 +1,379 @@
+{
+  "schema_version": "1.0.0",
+  "mode": "shadow",
+  "candidate_count": 17,
+  "selected_count": 0,
+  "candidates": [
+    {
+      "candidate_id": "cand_3dce916c91e1fb90",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0028"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison"
+      ],
+      "score": 0.65,
+      "excerpt": "美的集团的实际控制人为何享健先生，股权结构清晰且集中，为长期战略执行提供了稳定性。 截至2024年9月30日，何享健通过其控制的美的控股有限公司持有公司28.37%的股份（约21.69亿股），同时其本人直接持股0.42%（约3190.96万股），合计控制约28.79%的表决权[^citeid:search000333tgwiia08][^citeid:search2024-2025tgwiia07]。其他重要股东包括香港中央结算有限公司（14.77%）、HKSCC NOMINEES LIMITED（8.51%）、中国证券金融股份有限公司（2.59%）及中央汇金资产管理有限责任公司（1.15%）等[^citeid:search000333tgwiia08]。值得关注的是，公司核心管理层亦持有较大比例股份：董事长方洪波持股1.55%（约1.17亿股）[^citeid:search2024-20",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_82a0f9f6cda0b136",
+      "slide_id": "slide_003",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0028"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison"
+      ],
+      "score": 0.65,
+      "excerpt": "美的集团的实际控制人为何享健先生，股权结构清晰且集中，为长期战略执行提供了稳定性。 截至2024年9月30日，何享健通过其控制的美的控股有限公司持有公司28.37%的股份（约21.69亿股），同时其本人直接持股0.42%（约3190.96万股），合计控制约28.79%的表决权[^citeid:search000333tgwiia08][^citeid:search2024-2025tgwiia07]。其他重要股东包括香港中央结算有限公司（14.77%）、HKSCC NOMINEES LIMITED（8.51%）、中国证券金融股份有限公司（2.59%）及中央汇金资产管理有限责任公司（1.15%）等[^citeid:search000333tgwiia08]。值得关注的是，公司核心管理层亦持有较大比例股份：董事长方洪波持股1.55%（约1.17亿股）[^citeid:search2024-20",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_e7cfd4113d38d9b1",
+      "slide_id": "slide_004",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0028"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison"
+      ],
+      "score": 0.65,
+      "excerpt": "美的集团的实际控制人为何享健先生，股权结构清晰且集中，为长期战略执行提供了稳定性。 截至2024年9月30日，何享健通过其控制的美的控股有限公司持有公司28.37%的股份（约21.69亿股），同时其本人直接持股0.42%（约3190.96万股），合计控制约28.79%的表决权[^citeid:search000333tgwiia08][^citeid:search2024-2025tgwiia07]。其他重要股东包括香港中央结算有限公司（14.77%）、HKSCC NOMINEES LIMITED（8.51%）、中国证券金融股份有限公司（2.59%）及中央汇金资产管理有限责任公司（1.15%）等[^citeid:search000333tgwiia08]。值得关注的是，公司核心管理层亦持有较大比例股份：董事长方洪波持股1.55%（约1.17亿股）[^citeid:search2024-20",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_70cd8d967e3f7011",
+      "slide_id": "slide_005",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-001"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.complete_table",
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 1.0,
+      "excerpt": "板块（亿元） | 2022 | 2023 | 2024 | 2024前三季度 | 2025前三季度 | 同比增速 | 智能家居 | 2,328 | 2,464 | 2,695 | 2,130.6 | 2,407.6 | +13% | 新能源及工业技术 | 216 | 279 | 336 | 252.9 | 306 | +21% | 智能建筑科技 | 228 | 259 | 285 | 224.8 | 281 | +25% | 机器人与自动化 | 277 | 311 | 287 | 207.3 | 226 | +9% | 其他 | 396 | 430 | 468 | 374.1 | 410.0 | +10% | 合计 | 3,445 | 3,743 | 4,071 | 3,189.7 | 3,630.6 | +13.82%",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_74d6d85a91b0ba24",
+      "slide_id": "slide_005",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0043"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "在增长驱动力层面，各板块呈现差异化特征，其中ToB板块的逆势增长与结构改善是公司估值重塑的关键变量。 智能家居虽增速相对温和，但凭借全品类布局与渠道效率提升，2024年线下/线上多个品类市占率位居行业第一——家用空调线下份额36%/线上33%均列首位，干衣机、微波炉等品类亦稳居第一[^citeid:2025-08-31referencereport]，体现出ToC端强大的品牌护城河与规模效应。新能源及工业技术是增速最快的板块（2025年前三季度+21%），受益于子公司科陆电子经营反转及车用零部件海外产能布局的推进[^citeid:2025-08-31referencereport]。智能建筑科技表现同样亮眼（+25%），公司在国内中央空调市场承压背景下实现逆势增长，并在数据中心液冷等新赛道形成先发优势。机器人与自动化收入增速相对平缓（+9%），但相较于2024年全年同比下滑7.6%已有明显",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_ce771598710a9ac9",
+      "slide_id": "slide_006",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0048"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "近五年来，美的集团核心盈利指标整体呈稳步改善态势，盈利能力持续处于行业领先水平。 综合毛利率自2020年的23.73%经历2021年阶段性低点22.48%后持续回升，2024年达26.42%，创近五年新高[^citeid:financialprofit000333annual]。驱动因素包括：产品结构持续升级（COLMO与东芝双高端品牌零售额同比增长超60%）[^citeid:2025-08-31referencereport]、海外业务毛利率（26.8%）高于内销（24.7%）带来的全球化红利[^citeid:search000333tgwimh09]，以及B端ToB业务占比提升带来的结构性改善。归母净利率从2021年的8.32%逐年攀升至2024年的9.42%[^citeid:financialprofit000333annual]，费用管控成效显著；2025年前三季度，公司整体净利率",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_eab2dc571fbc5398",
+      "slide_id": "slide_006",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0051"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison"
+      ],
+      "score": 0.65,
+      "excerpt": "偿债能力与运营效率方面，公司财务结构健康，为后续业务拓展和股东回报提供了坚实基础。 资产负债率从2024年末的62.33%回落至2025年三季度末的60.54%，流动比率稳定在1.11附近，速动比率从0.93提升至0.97，短期偿债能力有所改善，债务结构处于可控区间[^citeid:financialbalance000333reportperiod]。运营效率方面，2025年前三季度存货周转率为4.83次，在已披露同业中排名前列，周转效率保持稳健[^citeid:search000333tgwiqq08]。综合来看，公司盈利质量持续优化、财务结构健康，为后续业务拓展和股东回报提供了坚实基础。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_0c38c8b01abbbcfb",
+      "slide_id": "slide_007",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0057"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "出口方面，全球需求扩张叠加产能布局优势，美的出口市占率持续提升，关税风险整体可控。 2024年中国空调出口量达8,742万台，同比+28.7%，量额均创历史新高[^citeid:search2024-2025tgwj0a07]。美的出口表现更为突出，全年外销出货增速持续走高：9月同比+32.14%，10月同比+45.57%，11月同比+57.89%[^citeid:search000333tgwizq07][^citeid:search000333tgwizq01][^citeid:search2024-2025tgwizq05]，全年出口市占率提升至33%以上。这一增长受益于全球极端高温频发带来的需求扩张，以及中国对拉美、中东、东盟等“一带一路”沿线国家出口的显著拉动[^citeid:search2024-2025tgwj0a07]。面对美国关税风险，美的通过全球化产能布局形成有效缓冲：",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_8543d86fbc957f9e",
+      "slide_id": "slide_007",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0058"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "竞争格局方面，行业均价整体平稳，美的以“内销稳份额、出口扩市占、价格结构性调整”的组合策略维持龙头韧性。 2025年1-4月，奥维推总空调全渠道零售均价同比-1%，线上-3%、线下+1%[^citeid:search2024-2025tgwj1505]。美的系线上策略相对积极但结构性强，美的主品牌价格未大幅调整，调整集中于子品牌华凌/COLMO及低端机型，线下仅华凌/COLMO降价幅度略超行业[^citeid:search2024-2025tgwj1505]。双渠道份额方面，美的空调线上33.2%、线下37.7%的市占率领先地位稳固[^citeid:search300959tgwj1507]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_fbce65d4a4154d17",
+      "slide_id": "slide_008",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0064"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "出口：高增速收敛，新兴市场贡献增量，美的区域布局优势凸显。 2024年冰洗出口表现强劲，1-2月冰箱出口累计1,131万台，同比增长41.9%；洗衣机出口531万台，同比增长40.0%[^citeid:search000333tgwj0a04]。排产端同步反映高景气，2024年3月冰箱出口排产同比+21.7%，洗衣机出口排产同月则录得-4.7%的阶段性波动[^citeid:search000333tgwj2707]。2Q24冰箱/洗衣机出口量同比分别增长33%/16%[^citeid:search000333tgwj0a05]，前11月冰箱累计出口7,397万台（+20.5%），洗衣机出口3,004万台（+13.8%）[^citeid:search2025tgwj9a09]。进入2025年，高基数下增速明显收敛：9月冰箱出口447万台（+7.6%），洗衣机出口479万台（+23.8%）；前",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_136b45eeca866d5f",
+      "slide_id": "slide_008",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0060"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "冰洗行业整体需求呈现“内销更新驱动、出口波动增长”的双重特征。2024年，国内冰箱市场零售额同比增长7.6%，呈现V型增长态势，全渠道量价齐升[^citeid:search000333tgwj2708]；出货端，冰箱冷柜全年出货增长8.3%，洗衣机干衣机增长10.3%[^citeid:search000333tgwj2701]，更新需求与以旧换新政策共同构成了内销的核心驱动力。出口端虽在2024年录得较高增速，但2025年以来高基数下增速逐步收敛，增长动能正从普惠性修复转向结构性分化。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_0b891a8dfe082653",
+      "slide_id": "slide_008",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0063"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "洗衣机内销：结构升级驱动温和增长，更新需求有望进一步释放。 2024年1-6月洗衣机内销量1,975万台，同比增长3.09%[^citeid:search2024-2025tgwj2705]，增速相对温和，但结构升级趋势明显。产业在线排产数据显示，2024年3月洗衣机内销排产同比+5.3%，3-5月累计内销排产同比+4%[^citeid:search000333tgwj2707]，排产指引与出货增速基本吻合，预示温和增长态势将延续。美的推出的元气2.0系列医护级除真菌洗衣机，搭载纯平超薄15mm微缝安装与535mm无孔大内筒，洗净比达1.15[^citeid:search2024-2025tgwj8x04]，精准回应了消费者对健康、超薄、大容量的升级诉求。2024年10-11月，洗衣机内销出货明显好转[^citeid:search002668tgwj2703]，随着以旧换新政策逐步深化落地",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_24c368cd611021e0",
+      "slide_id": "slide_009",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0071"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "预测调整的核心假设围绕三条主线展开。 其一，收入端延续“C端稳健+B端加速”的双轮驱动格局。2025年前三季度海外及ToB业务表现强劲，其中ToB业务收入同比增速持续高于C端，叠加东芝电梯及Arbonia Climate两项并购完成，预计2025年全年ToB收入占比将进一步提升至约27%[^citeid:search000333tgwijz07]。其二，利润率端受益于海外自有品牌（OBM）渗透率持续提升。2025年前三季度OBM收入同比增20%，占海外业务收入比重已达45%，自有品牌出货的毛利率显著高于代工业务，预计2026年OBM收入仍将实现约15%的增长，持续拉动整体利润率上行[^citeid:search000333tgwijz07]。其三，费用端公司维持节制的促销策略与有效的成本管控，叠加原材料价格相对平稳，盈利能力有望温和改善。综合来看，我们预计2025-2027年归母净利润复合",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_9ca6c836de2b3066",
+      "slide_id": "slide_009",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0070"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "注：2024A为实际值[^citeid:search000333tgwiqq02]；2025E-2027E营收采用太平洋证券预测数据[^citeid:search000333tgwj3y03]，归母净利润及EPS采用同花顺28家/26家机构一致预期均值[^citeid:search000333tgwj6208]，毛利率为我们的估算值。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_dbaacb110eec08b9",
+      "slide_id": "slide_009",
+      "visual_type": "table",
+      "chart_intent": null,
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-002"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.complete_table",
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "预测年度 | 营业总收入（亿元） | 同比增速 | 归母净利润（亿元） | 同比增速 | 毛利率 | EPS（元） | 同比增速 | 2024A | 4,090.84 | +9.47% | 385.37 | +14.29% | 26.42% | 5.44 | — | 2025E | 4,435.57 | +8.43% | 432.39 | +12.20% | 26.6% | 5.66 | +4.04% | 2026E | 4,749.24 | +7.07% | 474.07 | +9.64% | 26.9% | 6.21 | +9.72% | 2027E | 5,071.40 | +6.78% | 517.05 | +9.07% | 27.1% | 6.75 | +8.70%",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_b1c86a77e269a971",
+      "slide_id": "slide_010",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0082"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "美的集团海外业务收入占总营收40%以上，产品出口至全球超过200个国家及地区，而成本构成大部分为本币，收入与支出币种的不匹配致使汇率波动对公司利润有较大影响[^citeid:search000333tgwikh07][^citeid:search000333tgwjf703]。同时，公司面临的风险币种日趋多样化，包括印尼盾、巴西雷亚尔、印度卢比、埃及镑等新兴市场货币[^citeid:search000333tgwjf701]。公司建立了覆盖全流程的外汇风险管理体系：通过远期结汇/远期购汇锁定汇率，消除汇率波动影响；运用外汇期权、期权组合、NDF等工具应对多样化风险币种；通过货币及利率互换业务对冲海外资产及负债面临的汇率和利率波动风险[^citeid:search000333tgwjf701][^citeid:search000333tgwjf703]。此外，公司利用银行金融工具开展外汇资金",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_3d285183ecf72718",
+      "slide_id": "slide_010",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0088"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "综合来看，美的集团已构建起覆盖原材料、汇率、关税等多维度的系统化风险对冲体系，并依托多元化业务结构（ToC+ToB双轮驱动）、全球化产能布局（22个海外研发中心+23个海外制造基地）以及充裕的现金流（2024年经营活动现金流净额605亿元）[^citeid:search000333tgwjgu00]形成了较强的风险抵御能力。公司在面对宏观经济波动时仍保持营收和利润的双位数增长，面对原材料及汇率波动时通过衍生品工具有效锁定风险敞口，面对贸易摩擦时以海外本土化产能及新兴市场扩张弱化冲击。我们认为，美的集团作为全球白电龙头，其综合抗风险能力在同业中处于领先水平，上述风险因素虽在短期内可能造成阶段性扰动，但不足以改变公司长期稳健增长的基本逻辑。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "title": "展示公司2024-2027E销售、管理、研发费用率预测变化趋势。",
+  "columns": [
+    "Item",
+    "2024A",
+    "2025E",
+    "2026E",
+    "2027E"
+  ],
+  "rows": [
+    [
+      "销售费用率",
+      "4.0%",
+      "3.7%",
+      "3.7%",
+      "3.5%"
+    ],
+    [
+      "管理费用率",
+      "4.4%",
+      "4.0%",
+      "3.8%",
+      "3.5%"
+    ],
+    [
+      "研发费用率",
+      "5.1%",
+      "4.8%",
+      "4.6%",
+      "4.5%"
+    ]
+  ],
+  "source_refs": [
+    "src_002544_2025-10-28"
+  ],
+  "sources": [
+    {
+      "kind": "table",
+      "id": "table-003"
+    }
+  ],
+  "note": "Copied from complete DocumentBundle table table-003; all numeric cells are fact-audited"
+}

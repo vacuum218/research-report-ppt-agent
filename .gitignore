@@ -42,3 +42,9 @@ temp/
 # Generated PowerPoint files; the canonical template remains tracked
 *.pptx
 !templates/*.pptx
+
+# Versioned citation-fix acceptance deliverables
+!output/
+output/*
+!output/phase1_citation_fix/
+!output/phase1_citation_fix/**

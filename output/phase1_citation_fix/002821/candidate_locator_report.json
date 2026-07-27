@@ -1,0 +1,580 @@
+{
+  "schema_version": "1.0.0",
+  "mode": "shadow",
+  "candidate_count": 26,
+  "selected_count": 0,
+  "candidates": [
+    {
+      "candidate_id": "cand_33618b02043cca28",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0002"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "全球生物医药行业仍处于周期底部，需求修复缓慢、供给相对过剩，但拐点信号正在积累。随着全球主要经济体步入降息周期，融资环境改善有望逐步传导至下游研发投入，带动需求端复苏；同时，供给端产能持续去化，CDMO行业供需结构正趋向动态平衡[^citeid:2025-02-16referencereport]。在此行业背景下，小分子药物仍占据核心地位，2023年市场占比达54.86%，全球小分子CDMO市场2023年规模为519亿美元，预计以15.5%的CAGR增长至2028年的1067亿美元[^citeid:2025-02-16referencereport][^citeid:webpagepagesohu-com-862053028122177949haefde7]。与此同时，多肽、寡核苷酸、ADC等新兴领域加速发展，为CDMO行业注入新增长动能[^citeid:2025-02-16referen",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_a36a8120ef02d80f",
+      "slide_id": "slide_002",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0004"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "新兴业务多板块需求旺盛，产能释放加速，正成为公司第二增长曲线，并驱动盈利弹性释放。 多肽业务方面，公司加快商业化产能建设，截至年底预计多肽固相合成总产能超20000L[^citeid:2025-02-16referencereport]，已获得多个跨国制药公司临床中后期项目订单，并与国内重要客户签订GLP-1多肽商业化订单且执行顺利[^citeid:2025-02-16referencereport]，2025年起有望快速放量。寡核苷酸业务方面，行业需求持续旺盛，公司项目承接量同比实现高速增长，在手项目储备充足，后续有望保持高速增长态势。ADC业务方面，生物药CDMO在手百余个项目中ADC项目占比超过50%[^citeid:2025-02-16referencereport]，公司持续聚焦偶联药物赛道，竞争优势不断巩固。此外，制剂业务及临床CRO稳步推进，合成生物学板块也在实现突破[^ci",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_ef09b92967dba2cb",
+      "slide_id": "slide_004",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0018"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "当前CXO行业仍处于周期拐点待向上阶段，核心矛盾在于终端需求修复节奏与产能出清速度之间的动态博弈。 从行业内生周期视角看，CXO的景气度本质由下游创新药研发需求驱动，产能与需求的动态协调推动周期轮转。2024年前三季度，CXO板块收入同比下降8%，国内创新药需求复苏节奏偏慢，供给端则呈现产能相对过剩格局，资本开支与员工数双双收缩[^citeid:search601377tgzgk905][^citeid:search603259tgzgk901][^citeid:searchcxo-2024-2025tgzgk902]。供需矛盾尚未根本性改善，行业整体仍处于从底部向上爬坡的过渡阶段。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_6f98a5b27bf71f80",
+      "slide_id": "slide_004",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0020"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "与此同时，医药创新动能正从传统小分子主导向“小分子+新兴疗法”多元并进格局切换，为CXO行业打开新的成长空间。 从全球医药市场格局看，小分子药物仍占据核心地位，2023年全球市场占比约54.86%，FDA获批新药中小分子占比稳定在55%左右[^citeid:2025-02-16referencereport][^citeid:search2024tgzgyl09]。然而，CGT、ADC、RNA等新兴疗法加速崛起，全球CGT市场2024年预计增至185.1亿美元，RNA市场2030年有望达1055亿美元[^citeid:searchcgt-adc-rna-2024-2025tgzgzq09][^citeid:searchcgt-adc-rna-2024-2025tgzgzq04]。这一结构性变化意味着，具备多技术平台布局能力的CXO企业，将在新一轮创新浪潮中占据更有利的竞争位置。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_36867e445e1ae21a",
+      "slide_id": "slide_004",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0019"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "展望后续，需求端与供给端均出现积极信号，行业正逐步趋向动态平衡。 需求侧，随着全球步入降息周期，生物医药投融资明显回暖，海外业务占比较高的头部CXO有望率先受益于海外创新药研发活动的复苏[^citeid:searchcdmo-2025tgzgw702][^citeid:search688293tgzguo06]。供给侧，头部企业主动放缓扩产节奏，中小企业部分关停甚至退出，产能持续去化，行业整体正从“供过于求”向“供需再平衡”过渡[^citeid:2025-02-16referencereport][^citeid:search601377tgzgsj04]。这一过程虽需时间，但方向已明确。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_a7daecce4c28ac0e",
+      "slide_id": "slide_005",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0022"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "全球医药研发投入稳步增长，生物医药投融资回暖，为CDMO行业提供稳定需求基础。 根据Frost & Sullivan预测，2023至2028年全球医药行业研发投入整体CAGR约为6.6%，其中中小型制药公司及Biotech的研发投入增速更为显著[^citeid:2025-02-16referencereport]。小型Biopharmas在全球医药领域的份额预计将从当前约20%提升至2033年的约30%[^citeid:2025-02-16referencereport]，反映出研发活动持续向创新活力更强的中小型药企倾斜，这类企业对外包服务的依赖度更高。从投融资端看，2023年全球生物医药投融资已恢复至疫情前水平，2024年上半年进一步回暖，其中FO及PIPE渠道同比增长近80%，VC渠道同比增长近45%，四大渠道合计同比增长63%[^citeid:2025-02-16referencer",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_237f4022c3b8f8b1",
+      "slide_id": "slide_005",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0026"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "出海层面，中国创新药全球竞争力加速兑现。根据多家第三方数据，2024年中国创新药企License-out交易达94笔，创历史新高[^citeid:search600056tgzheh05][^citeid:search600276tgzhl600]；交易总金额约519亿美元，首付款合计约41亿美元[^citeid:search2024-license-outtgzh6y06]，瑞银统计口径下总交易额达573亿美元，同比增长27%，首付款创近五年新高[^citeid:search600276tgzhl603]。进入2025年，出海热度不减：截至3月17日，国内已发生至少19项License-out交易，累计交易总金额超过126.1亿美元，其中单笔交易达10亿美元及以上的项目有6个[^citeid:search2025-license-out-top10tgzheh07]；2025年Q1 Li",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_b1b3ea28577d01f3",
+      "slide_id": "slide_005",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0023"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "全球外包服务需求增速有望快于研发投入的增长，小分子仍占主导，新兴方向加速发展。 根据Frost & Sullivan数据，2023年全球CXO市场规模约1500亿美元[^citeid:searchcxo-2024-2025-cagr-frost-sultgzh1y04]。分领域看，小分子仍占主导（2023年占比约55%）[^citeid:2025-02-16referencereport]，多肽、寡核苷酸等新兴方向加速发展[^citeid:2025-02-16referencereport]。这意味着，在研发投入持续增长的基础上，外包渗透率的提升将进一步驱动CXO行业增速超越行业整体研发投入增速。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_2f25699a560e4e0d",
+      "slide_id": "slide_006",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0033"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "全球药物研发格局正经历从“小分子独大”向“小分子为基、新兴疗法多点开花”的结构性演变。 2023年，小分子在全球研发管线中占比约54.86%[^citeid:2025-02-16referencereport]，同年FDA批准的55款新药中小分子达30款（占比55%）[^citeid:search2024-frost-sullivantgzi5105]，TOP100药品销售额中小分子贡献约1,758.71亿美元（占比38%）[^citeid:search2024-frost-sullivantgzi5105]，验证了小分子作为基石赛道的确定性。与此同时，多肽、ADC、CGT等新兴疗法加速崛起——多肽CDMO市场2025-2030年CAGR预计26%，寡核苷酸市场2024-2026年CAGR预计32%，全球CGT CDMO市场规模预计2030年达253亿美元[^citeid:search00",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_a0fc98e4a9de0bc7",
+      "slide_id": "slide_006",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0040"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "寡核苷酸药物有望成为继小分子和抗体药物后的第三大类药物，凯莱英前瞻布局正逐步确立竞争身位。 寡核苷酸药物通过作用于pre-mRNA或mRNA、干预靶标基因表达实现疾病治疗，具有高特异性、疗效持久等优势。目前全球已有19款寡核苷酸药物获批上市（其中3款已退市），在市的16款包括9款ASO药物、6款siRNA药物和1款核酸适配体[^citeid:2025-02-16referencereport]。据药融云及Evaluate/BCG预测，全球寡核苷酸市场规模将于2026年达到150亿美元[^citeid:search300487tgzi3b06]，行业正处在快速放量阶段。凯莱英已建立20名资深研发和分析人员（硕博占比超80%）的专业团队[^citeid:search300457tgzi2g06]，配备GE ÄKTA核酸固相合成与纯化设备，建有10条中试-商业化生产线，具备500kg/年合成产能",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_a1b9358ab154d19b",
+      "slide_id": "slide_006",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0039"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series"
+      ],
+      "score": 0.7,
+      "excerpt": "在此高景气赛道中，凯莱英已形成清晰的卡位优势，产能快速扩张与商业化订单落地是核心验证。 公司多肽固相合成总产能从2024年中的14,250L快速扩张至2025年末的45,000L，预计2026年底进一步提升至69,000L[^citeid:search002821tgzhuo06][^citeid:search002821tgzi2g07]；产能利用率亦从约50%提升至70%以上[^citeid:search002821tgzhzo06]。截至2025年末，公司累计承接临床阶段多肽项目52个，其中减重相关领域项目19个（8个处于临床后期），首个多肽项目已获批上市并实现商业化供货，同时已与国内重要客户签订GLP-1多肽商业化订单[^citeid:search2025-glp-1tgzi0t09][^citeid:search002821tgzhzo09][^citeid:search0028",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_728bb2dd6340e689",
+      "slide_id": "slide_007",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0045"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "全球产能布局持续完善，为业务扩张提供物理支撑。 公司在中国（天津、吉林、辽宁、上海、江苏）、美国波士顿、英国桑威奇布局8大研发生产基地，覆盖化学小分子/大分子药、生物药、制剂、技术输出及合成生物等领域[^citeid:2025-02-16referencereport][^citeid:search002821tgzif506]。凭借全球产能优势，公司已服务超1100家客户，2025H1跨国制药公司收入同比+17.6%[^citeid:search002821tgzgmg04][^citeid:search002821tgzif509]。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_3e25f6257e16e421",
+      "slide_id": "slide_007",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0057"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "在手订单方面，公司订单储备延续恢复态势。2024年上半年在手订单为9.7亿美元，同比增长6.59%[^citeid:2025-02-16referencereport]；截至2025年8月25日（2025年半年报披露日），不含本报告期已确认收入，公司在手订单总额进一步增至10.88亿美元[^citeid:search002821tgzimn06]，订单增长趋势持续向好。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_ad319afcafc2f0e0",
+      "slide_id": "slide_008",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0066"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "盈利质量回升是当前小分子业务的核心看点，规模效应与降本增效共同推动毛利率改善。 2024年前三季度小分子业务整体毛利率为48.9%，剔除大订单后同比提升1.2个百分点[^citeid:2025-02-16referencereport]；2025年上半年小分子CDMO业务毛利率维持47.79%，同比继续提升0.6个百分点[^citeid:search002821tgzj3a06]。这反映出大订单时期配置的产能已逐步被常规项目有效消化，规模效应开始显现。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_e943cd16cb2aa140",
+      "slide_id": "slide_008",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0061"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "小分子CDMO业务是凯莱英的基石与核心收入来源。 公司深耕该领域二十余年，提供覆盖药物全生命周期的外包服务，聚焦于高等级、大批量、严监管的领域，服务药物涵盖抗病毒、肿瘤、心血管、神经系统、糖尿病等重大疾病及罕见病[^citeid:2025-02-16referencereport]。凭借深厚的技术积淀与全球超1100家客户的信任积累，公司小分子业务已构建起显著的客户黏性与竞争壁垒。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_4ae588918eed4a28",
+      "slide_id": "slide_009",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0105"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "合成生物技术业务同样展现出强劲的增长动能，境外客户的高占比和MNC合作深化，进一步巩固了公司的全球技术领先地位。 公司酶技术平台历经10年累积，已搭建高通量筛选、无细胞生物合成(CFBS)、AI技术及连续性反应平台等基础技术平台，建立了成熟的酶工程一体化技术体系[^citeid:2025-02-16referencereport]。2024年全年，合成生物技术业务收入同比增长33.22%[^citeid:search002821tgzjxy01]，收入来源中80%以上为境外客户[^citeid:search002821tgzjxy01][^citeid:2025-02-16referencereport]，全年新接触客户近100家[^citeid:search002821tgzjxy01]，并同多个MNC企业达成酶工程早期技术路线开发合作[^citeid:2025-02-16referen",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_5bd11999f04348c9",
+      "slide_id": "slide_010",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0079"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "订单层面，公司已与超过30家生物制药公司建立稳定合作关系，商业化订单的落地是收入爆发的核心驱动力。 公司不仅获得多个跨国制药公司的多肽临床中后期项目订单，更与国内重要客户签订了GLP-1多肽商业化订单，且订单执行顺利[^citeid:2025-02-16referencereport][^citeid:searchglp-1-2024-2025tgzj7807]。2025年上半年，国内重要客户在减重领域的首个多肽项目商业化已获批上市，直接推动化学大分子CDMO业务板块收入同比增长超130%[^citeid:webpage002821stcn-com-3262522h0a5b86]。技术布局方面，公司依托小分子领域积累，已实现多肽全自动规模化生产，核心技术涵盖传统固相合成、（连续）液相合成、生物发酵合成、化学酶促多肽合成（CEPS）、天然化学连接（NCL）及环肽合成，并融合为片段汇集合成策略",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_548f8fa7ad96a242",
+      "slide_id": "slide_010",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0080"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "寡核苷酸业务同样处于高景气通道，项目储备与商业化布局同步推进。 公司寡核苷酸技术平台可为客户提供从临床前样品制备到符合国内外法规要求的寡核苷酸原料药和制剂GMP生产服务[^citeid:2025-02-16referencereport]。团队方面，平台拥有20名资深寡核苷酸研发和分析人员，硕士博士占比超过80%，管理人员均拥有超过10年的相关行业经验[^citeid:2025-02-16referencereport]。产能方面，公司于2023年布局10条寡核苷酸中试-商业化生产线，已具备500kg/年的合成产能[^citeid:2025-02-16referencereport]。项目承接方面，2024年上半年公司寡核苷酸业务新承接项目29项，同比增长70.6%[^citeid:2025-02-16referencereport][^citeid:search002821tgzj780",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_51a34ef871ffa7ab",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-004"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.complete_table",
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 1.0,
+      "excerpt": "项目 | 2024A | 2025E | 2026E | 2027E | 营业收入 | 58.05 | 65.00 | 73.00 | 82.00 | 同比增速 | -25.82% | +11.97% | +12.31% | +12.33% | 小分子CDMO | 46.79 | 51.70 | 58.00 | 64.00 | 同比增速 | -28.5% | +10.5% | +12.2% | +10.3% | 其中：商业化阶段 | 33.79 | 37.50 | 42.50 | 47.50 | 同比增速 | -33.0% | +11.0% | +13.3% | +11.8% | 其中：临床阶段 | 13.00 | 14.20 | 15.50 | 16.50 | 同比增速 | -13.0% | +9.2% | +9.2% | +6.5%",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_9dac310b9fe4032d",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-005"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.complete_table",
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series"
+      ],
+      "score": 0.9,
+      "excerpt": "公司简称 | 总市值（亿元） | 2023 EPS | 2024 EPS | 2025E EPS | 2026E EPS | 2023 PE | 2024 PE | 2025E PE | 2026E PE | 药明康德 | 1,800 | 3.27 | 3.28 | 3.72 | 4.22 | 22.49 | 17.32 | 15.48 | 13.61 | 康龙化成 | 492 | 0.90 | 1.01 | 1.09 | 1.30 | 32.34 | 25.67 | 23.83 | 20.07 | 九洲药业 | 121 | 1.15 | 0.68 | 1.20 | 1.31 | 21.08 | 12.93 | 11.22 | 10.25 | 凯莱英 | 297 | 6.26 | 2.49 | 3.16 | 3.48 | 18.55 | 32.41 | 25.55 | 23.20",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_33998db3d2c10525",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "trend",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0111"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.time_series",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.8,
+      "excerpt": "盈利预测：收入结构优化驱动毛利率修复，预计20252027年归母净利润CAGR约20%。 综合2025年上半年公司已实现恢复性增长（营业收入同比+18.2%，归母净利润同比+23.71%）以及期末在手订单总额达10.88亿美元（为全年业绩奠定基础），我们预计2025-2027年公司营业收入与盈利能力将步入持续改善通道[^citeid:search002821tgzgox06][^citeid:search002821tgzgox09]。核心预测逻辑在于：①小分子CDMO业务中，PPQ项目持续向商业化阶段转化（2024年PPQ项目达28个），叠加欧洲Sandwich Site产能整合后全球化交付能力提升，推动商业化阶段收入稳步增长[^citeid:2025-02-16referencereport]；②新兴业务中，多肽GLP-1商业化订单逐步放量、寡核苷酸新项目高增（1H24新项目同比+70",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_55032906332545cd",
+      "slide_id": "slide_011",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0108"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "核心判断：公司正处于“小分子CDMO商业化收获期”与“新兴业务多极放量期”的叠加阶段，在手订单高覆盖与PPQ项目加速转化构成收入确定性，而新兴业务的结构性高增则提供弹性。我们预计20252027年公司营业收入CAGR约12%，归母净利润CAGR约20%，盈利能力持续修复。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_ccf968dd45125bea",
+      "slide_id": "slide_012",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0130"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "①新业务产能爬坡不及预期风险。 公司多肽、寡核苷酸及ADC产能快速扩张[^citeid:search002821tgzi2g07]，这是支撑未来收入增长的核心驱动力。然而，若下游需求释放节奏错配或工艺验证周期延长，折旧摊销将提前侵蚀利润，新兴业务盈利改善进程可能受阻。产能利用率是判断该风险是否兑现的关键先行指标。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_89dd64e6d8f1b3b5",
+      "slide_id": "slide_012",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0131"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "②多肽/ADC订单波动风险。 化学大分子业务2025年收入高增123.7%[^citeid:search002821tgzi2g07]，高基数下订单持续性存不确定性；ADC尚未形成规模商业化订单，竞争加剧或客户项目推进不顺将拖累放量节奏。订单能见度与客户管线进展是评估该风险的核心变量。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_8507bbe40974f63b",
+      "slide_id": "slide_012",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0132"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "③全球投融资环境变化风险。 创新药VC&PE投融资可作为CXO景气度的先行指标，2024年以来全球和美国创新药VC&PE投融资已恢复正增长[^citeid:search2025-half-year-global-biophatgzhaa07]，但2025H1全球药品行业整体仍处低谷阶段[^citeid:search2025tgzh9301]，公司境内客户业务已受到国内生物医药融资复苏不及预期的拖累[^citeid:search002821tgzik005]。若宏观环境再度收紧，境内客户业务将进一步承压，进而拖累整体收入增速。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    },
+    {
+      "candidate_id": "cand_7915e1a4a031aad8",
+      "slide_id": "slide_012",
+      "visual_type": "chart",
+      "chart_intent": "comparison",
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0133"
+        }
+      ],
+      "trigger_ids": [
+        "candidate.comparable_numbers",
+        "candidate.labels_colocated",
+        "candidate.category_comparison",
+        "candidate.metric_keyword"
+      ],
+      "score": 0.75,
+      "excerpt": "④汇率波动风险。 公司境外收入占比约74%[^citeid:businesscomposition002821]，2025年恒定汇率下收入增速与报表增速相差约1.9个百分点[^citeid:search002821tgzi2g07]，人民币升值将直接压缩毛利率与净利润。汇率敏感性分析显示，人民币每升值1%，净利润将受到约0.5%的负面影响。",
+      "selected": false,
+      "decision_reason": "candidate_locator_shadow_only"
+    }
+  ]
+}

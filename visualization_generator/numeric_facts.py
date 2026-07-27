@@ -63,11 +63,13 @@ _LABEL_SUFFIX_RE = re.compile(
     re.IGNORECASE,
 )
 _MISSING_VALUES = frozenset({"", "-", "--", "—", "N/A", "n/a", "NA", "null"})
+_CITATION_RE = re.compile(r"\[\^cite_?id:[^\]]+\]", re.IGNORECASE)
 _MARKDOWN_RE = re.compile(r"[*_`~]+")
 
 
 def _clean(value: object) -> str:
-    text = _MARKDOWN_RE.sub("", str(value or ""))
+    text = _CITATION_RE.sub("", str(value or ""))
+    text = _MARKDOWN_RE.sub("", text)
     return " ".join(text.replace("\u3000", " ").split())
 
 

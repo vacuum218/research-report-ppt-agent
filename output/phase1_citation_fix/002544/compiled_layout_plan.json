@@ -1,0 +1,2644 @@
+{
+  "schema_version": "2.0.0",
+  "plan_id": "plan_288627748851ceee",
+  "source": {
+    "outline_sha256": "7283be94fdaf8294a7a236e7e6f8aa4c65ccd7b5bb0de8a4433f9ca8e928e34f",
+    "manifest_sha256": "ac71cbcdebac001cfccd9a11449a1df2f8e95068b0533f771aa8ab60ac4ab64d"
+  },
+  "template": {
+    "profile_id": "financial-report-v1",
+    "profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "file": "financial_report_template_v1.pptx",
+    "sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2"
+  },
+  "asset_root": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\phase1_citation_fix\\002544\\document_bundle",
+  "visualizations": [
+    {
+      "visualization_id": "visual_001",
+      "slide_id": "slide_003",
+      "visual_type": "table",
+      "data": {
+        "title": "展示普天科技2022-2024年三大业务板块收入、收入占比及2024年毛利率，反映收入结构由专网主导向公网与智能制造双轮驱动的变化。",
+        "columns": [
+          "业务板块",
+          "2022年收入（亿元）",
+          "占比",
+          "2023年收入（亿元）",
+          "占比",
+          "2024年收入（亿元）"
+        ],
+        "rows": [
+          [
+            "专网通信与智慧应用",
+            41.59,
+            "58.78%",
+            27.71,
+            "50.73%",
+            22.42
+          ],
+          [
+            "公网通信",
+            15.11,
+            "21.35%",
+            14.92,
+            "27.31%",
+            15.81
+          ],
+          [
+            "智能制造",
+            14.06,
+            "19.87%",
+            12,
+            "21.96%",
+            11.49
+          ],
+          [
+            "合计",
+            70.76,
+            "100%",
+            54.63,
+            "100%",
+            49.73
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-001"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-001; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_002",
+      "slide_id": "slide_014",
+      "visual_type": "table",
+      "data": {
+        "title": "展示普天科技2024-2027E公网通信、专网通信与智慧应用、智能制造的收入、增速及毛利率预测拆分。",
+        "columns": [
+          "收入（亿元）",
+          "2024年（近一年）",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "公网通信",
+            15.81,
+            18.19,
+            20.91,
+            24.05
+          ],
+          [
+            "增速",
+            null,
+            "15%",
+            "15%",
+            "15%"
+          ],
+          [
+            "毛利率",
+            "10.62%",
+            "11%",
+            "11%",
+            "11%"
+          ],
+          [
+            "专网通信与智慧应用",
+            22.42,
+            23.54,
+            24.72,
+            25.95
+          ],
+          [
+            "增速",
+            null,
+            "5%",
+            "5%",
+            "5%"
+          ],
+          [
+            "毛利率",
+            "18.60%",
+            "19%",
+            "19%",
+            "19%"
+          ],
+          [
+            "智能制造",
+            11.49,
+            13.22,
+            15.2,
+            17.48
+          ],
+          [
+            "增速",
+            null,
+            "15%",
+            "15%",
+            "15%"
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-002"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-002; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_003",
+      "slide_id": "slide_015",
+      "visual_type": "table",
+      "data": {
+        "title": "展示公司2024-2027E销售、管理、研发费用率预测变化趋势。",
+        "columns": [
+          "Item",
+          "2024A",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "销售费用率",
+            "4.0%",
+            "3.7%",
+            "3.7%",
+            "3.5%"
+          ],
+          [
+            "管理费用率",
+            "4.4%",
+            "4.0%",
+            "3.8%",
+            "3.5%"
+          ],
+          [
+            "研发费用率",
+            "5.1%",
+            "4.8%",
+            "4.6%",
+            "4.5%"
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-003"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-003; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_004",
+      "slide_id": "slide_016",
+      "visual_type": "table",
+      "data": {
+        "title": "展示公司2024-2027E利润表核心数据，包括营业收入、成本、各项费用、归母净利润及EPS。",
+        "columns": [
+          "项目",
+          "2024A",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "营业总收入",
+            49.73,
+            56.07,
+            63.33,
+            71.08
+          ],
+          [
+            "营业总成本",
+            50.02,
+            55.06,
+            61.22,
+            67.8
+          ],
+          [
+            "其中：营业成本",
+            41.2,
+            45.98,
+            51.61,
+            57.57
+          ],
+          [
+            "税金及附加",
+            0.2,
+            0.17,
+            0.19,
+            0.21
+          ],
+          [
+            "销售费用",
+            1.97,
+            2.13,
+            2.34,
+            2.56
+          ],
+          [
+            "管理费用",
+            2.21,
+            2.35,
+            2.53,
+            2.77
+          ],
+          [
+            "研发费用",
+            2.52,
+            2.69,
+            2.91,
+            3.2
+          ],
+          [
+            "财务费用",
+            -0.03,
+            0.06,
+            0.06,
+            0.07
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-004"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-004; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_005",
+      "slide_id": "slide_017",
+      "visual_type": "table",
+      "data": {
+        "title": "展示公司2024年末-2027年末E资产负债表核心项目，包括资产结构、负债和所有者权益。",
+        "columns": [
+          "项目",
+          "2024年末",
+          "2025年末E",
+          "2026年末E",
+          "2027年末E"
+        ],
+        "rows": [
+          [
+            "资产合计",
+            98.94,
+            107.83,
+            117.28,
+            126.93
+          ],
+          [
+            "流动资产合计",
+            83.55,
+            90.99,
+            98.95,
+            107.1
+          ],
+          [
+            "其中：货币资金",
+            20.74,
+            26.96,
+            29.74,
+            32.58
+          ],
+          [
+            "应收票据及应收账款",
+            43.56,
+            46.73,
+            50.66,
+            54.68
+          ],
+          [
+            "存货",
+            13.51,
+            14.37,
+            15.64,
+            16.93
+          ],
+          [
+            "非流动资产合计",
+            15.39,
+            16.84,
+            18.33,
+            19.83
+          ],
+          [
+            "其中：固定资产",
+            5.79,
+            6.34,
+            6.92,
+            7.54
+          ],
+          [
+            "在建工程",
+            3.75,
+            3.49,
+            3.24,
+            3.02
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-005"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-005; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_006",
+      "slide_id": "slide_018",
+      "visual_type": "table",
+      "data": {
+        "title": "展示公司2024-2027E现金流量表核心数据，包括经营、投资、筹资活动现金流及期末现金余额。",
+        "columns": [
+          "项目",
+          "2024A",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "经营活动现金流量净额",
+            0.56,
+            2.27,
+            3.24,
+            4.01
+          ],
+          [
+            "归母净利润（含少数）",
+            0.11,
+            0.97,
+            1.89,
+            2.61
+          ],
+          [
+            "加：折旧摊销",
+            1.19,
+            1.3,
+            1.35,
+            1.4
+          ],
+          [
+            "营运资本变动",
+            -0.74,
+            null,
+            null,
+            null
+          ],
+          [
+            "投资活动现金流量净额",
+            -1.85,
+            -1.8,
+            -1.9,
+            -2
+          ],
+          [
+            "筹资活动现金流量净额",
+            -1.45,
+            -0.23,
+            -0.27,
+            -0.31
+          ],
+          [
+            "现金及现金等价物净增加额",
+            -2.7,
+            0.24,
+            1.07,
+            1.7
+          ],
+          [
+            "期末现金及现金等价物余额",
+            18.93,
+            19.17,
+            20.24,
+            21.94
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-006"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-006; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_007",
+      "slide_id": "slide_019",
+      "visual_type": "table",
+      "data": {
+        "title": "展示公司主要财务指标与估值指标，包括成长能力、盈利能力、运营效率、偿债能力和PE/PB估值。",
+        "columns": [
+          "指标类别",
+          "指标名称",
+          "2024A",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "成长能力",
+            "营收同比增速（%）",
+            -8.98,
+            12.75,
+            12.95,
+            12.24
+          ],
+          [
+            null,
+            "归母净利润同比增速（%）",
+            -68.56,
+            781.82,
+            94.85,
+            38.1
+          ],
+          [
+            "盈利能力",
+            "销售毛利率（%）",
+            17.15,
+            18,
+            18.5,
+            19
+          ],
+          [
+            null,
+            "归母净利率（%）",
+            0.22,
+            1.73,
+            2.98,
+            3.67
+          ],
+          [
+            null,
+            "加权平均ROE（%）",
+            0.3,
+            2.6,
+            4.95,
+            6.53
+          ],
+          [
+            null,
+            "基本每股收益（元）",
+            0.02,
+            0.29,
+            0.37,
+            0.38
+          ],
+          [
+            null,
+            "每股净资产（元）",
+            5.49,
+            5.61,
+            5.87,
+            6.23
+          ],
+          [
+            "运营能力",
+            "应收账款周转率（次）",
+            1.14,
+            1.2,
+            1.25,
+            1.3
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-007"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-007; all numeric cells are fact-audited"
+      }
+    },
+    {
+      "visualization_id": "visual_008",
+      "slide_id": "slide_020",
+      "visual_type": "table",
+      "data": {
+        "title": "展示卫星互联网可比公司（国博电子、中国卫通、北斗星通等）与普天科技的PE(TTM)对比，呈现盈利差异和估值水平。",
+        "columns": [
+          "公司",
+          "业务定位",
+          "PE(TTM，倍）",
+          "说明"
+        ],
+        "rows": [
+          [
+            "国博电子(688375)",
+            "卫星核心元器件",
+            42.4,
+            "盈利稳定，估值合理"
+          ],
+          [
+            "中国卫通(601698)",
+            "卫星运营服务",
+            193.42,
+            "亚洲第二大固网卫星运营商"
+          ],
+          [
+            "北斗星通(002151)",
+            "导航定位产品与服务",
+            193.9,
+            "北斗产业链首家上市公司"
+          ],
+          [
+            "海格通信(002465)",
+            "导航芯片、地面设备",
+            527.79,
+            "2024年净利润同比降92.44%致PE走高"
+          ],
+          [
+            "中国卫星(600118)",
+            "宇航制造与卫星应用",
+            "负值",
+            "微利/亏损，PE为负"
+          ],
+          [
+            "航天宏图(688066)",
+            "卫星遥感与全产业链布局",
+            "负值",
+            "亏损状态"
+          ],
+          [
+            "上海瀚讯(300762)",
+            "卫星通信设备",
+            "负值",
+            "亏损状态"
+          ],
+          [
+            "震有科技(688418)",
+            "卫星通信设备",
+            "负值",
+            "亏损状态"
+          ]
+        ],
+        "source_refs": [
+          "src_002544_2025-10-28"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-008"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-008; all numeric cells are fact-audited"
+      }
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "slide_mode": "exact_template",
+      "layout_id": "cover",
+      "template_slide": 1,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "cover_title",
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3
+          },
+          "value": "普天科技"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "subtitle",
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4
+          },
+          "value": "普天科技（002544）深度研究报告"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "cover_meta",
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6
+          },
+          "value": "002544  |  2025-10-28"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "tag",
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7
+          },
+          "value": "通信"
+        }
+      ],
+      "source_slide_id": "slide_001",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_002",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "战略升维与结构重塑：普天科技从“地面通信服务商”向“空天地一体化平台”的跃迁之路",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**从七所民品到“国家队”上市平台，战略定位持续升维。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "公司前身为中国电子科技集团公司第七研究所民品部门，2011年深交所上市，实际控制人为中国电科，控制权高度集中且稳定。",
+            "作为中国电科在粤港澳大湾区的核心上市平台，被定位为集团内协外联的“主门户”和科技成果转化的“主阵地”，深度参与国家网信体系建设。",
+            "公司正从传统通信技术服务商向空天地一体化信息服务商转型，积极布局卫星互联网、低空经济等新兴赛道。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_002",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_003",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "战略升维与结构重塑：普天科技从“地面通信服务商”向“空天地一体化平台”的跃迁之路",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_001",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**业务结构正在经历从“专网驱动”向“公网+智能制造双轮支撑”的切换，但盈利能力分化显著。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "公司拥有公网通信、专网通信与智慧应用、智能制造三大板块，形成“通信服务+行业应用+高端制造”的立体化业务格局。",
+            "2024年专网通信与智慧应用收入占比45.08%，公网通信占31.80%，智能制造占23.11%；高毛利的专网和智能制造贡献主要利润。",
+            "整体收入从2022年70.76亿元降至2024年49.73亿元，区域上高度聚焦国内市场。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_003",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_004",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "战略升维与结构重塑：普天科技从“地面通信服务商”向“空天地一体化平台”的跃迁之路",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**专网通信与智慧应用**是公司历史第一大板块，涵盖专网通信系统、智慧应用解决方案、卫星通信服务等产品线。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "专网通信与智慧应用：收入从2022年41.59亿元降至2024年22.42亿元，毛利率18.60%，为历史第一大板块但收缩明显。",
+            "公网通信：2024年收入15.81亿元，同比回升约6.0%，但毛利率仅10.62%，竞争激烈。",
+            "智能制造：2024年收入11.49亿元，毛利率23.26%为最高，结构优化趋势延续，2025年前三季度占比升至约25.82%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_004",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_005",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "竞争优势与卫星互联网产业卡位"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 5
+        }
+      ],
+      "source_slide_id": "slide_005",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_006",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "股东赋能与全链闭环：普天科技“国家队”背景下的差异化竞争壁垒",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**中国电子科技集团（CETC）的股东背景，是普天科技区别于一般通信企业的核心战略资源。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "公司定位为集团在粤港澳大湾区的核心上市平台，承担科技成果转化职能，在重大项目获取、产业链协同方面具备“国家队”优势。",
+            "已构筑以资质壁垒、专利储备和国产替代能力为核心的双重护城河：拥有全链条行业一级资质，自主研制5G小基站等国产化产品，并成功突破运营商设备集采市场。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_006",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_007",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "股东赋能与全链闭环：普天科技“国家队”背景下的差异化竞争壁垒",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**智能制造板块构成公司另一重要技术壁垒，并直接服务于通信设备及卫星相关组件的内部供应。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "智能制造板块持续强化高端PCB、时频器件、北斗终端等迭代，为通信设备及卫星组件提供内部配套。",
+            "在6G与卫星互联网领域，公司深度参与CCSA标准制定，完成“无信关站”手持机直连卫星样机研制。",
+            "构建“基础元器件—通信设备—行业解决方案—运营服务”垂直产业链，实现成本协同与交付效率优势。",
+            "优质客户资源覆盖运营商、政府、行业及卫星运营领域，形成难以复制的市场渠道护城河。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_007",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_008",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**国内卫星互联网产业正从“概念验证”迈入“高频组网-批量制造-配套建设”的实质性投资阶段。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2024年行业市场规模353.3亿元，预计2025年增至376亿元；产业链中地面设备制造环节价值量占比最高（全球约51.6%，国内约30%）。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_008",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_009",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**政策体系加速完善，顶层设计与行业标准协同发力，为产业加速提供了制度保障。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "近一年政策框架呈现“国家定方向、标准做支撑、地方落项目”的多层协同特征，海南商业航天发射场已投入运营。",
+            "千帆星座和GW星座已启动正式组网，2025年预计发星700-800颗，较2024年增长10倍以上，地面设备招标将随卫星部署同步启动。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_009",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_010",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**普天科技精准卡位地面设备和通信系统解决方案，产品矩阵覆盖从固定地面站到用户终端的完整链条，形成了“终端突破→系统集成→标准引领”的梯度布局。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "PDT星通站实现PDT移动站与卫星便携站二合一集成，具备覆盖广、易部署优势。",
+            "“无信关站”手持机直连低轨卫星通信技术已完成样机研制，降低卫星通信使用门槛和部署成本。",
+            "天通北斗融合通信系统形成“天通+北斗”双链路备份，适用于智慧应急场景。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_010",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_011",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**在标准制定层面，公司已深度嵌入空天地一体化通信的技术生态体系，形成了“标准+产品”的双轮驱动格局。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "公司深度参与CCSA空天地多模式协同组网标准制定，形成“标准+产品”双轮驱动。",
+            "凭借“国家队”身份和系统级解决方案能力，在众多竞争者中构筑差异化壁垒，并已展现出规模化交付能力。",
+            "与氦星光联、忆芯科技等成立“空天智算联合研发中心”，与西电ISN实验室成立联合实验室，构建产学研用协同生态。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_011",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_012",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**综合来看，普天科技在卫星互联网领域已构建起从终端设备到系统集成、从标准制定到产品落地的多层次产品与解决方案体系。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "公司具备核心元器件自研能力与系统级集成经验，有望在地面设备这一价值链核心环节持续获益。",
+            "产学研用一体化合作架构正在搭建从地面信关站到星上载荷、从标准制定到商业运营的全链条能力底座。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_012",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_013",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "盈利预测与投资建议"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 13
+        }
+      ],
+      "source_slide_id": "slide_013",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_014",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利预测：三大业务分化修复，新兴赛道驱动增长中枢上移",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_002",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**核心判断：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "公网通信受益于5G纵深覆盖与新兴领域布局，预计2025-2027年收入增速均为15%，毛利率维持11%。",
+            "专网通信与智慧应用受客户资金压力影响短期承压，预计2025-2027年收入增速均为5%，毛利率修复至19%。",
+            "智能制造受益于PCB行业景气复苏和高端结构优化，预计2025-2027年收入增速均为15%，毛利率维持23%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_014",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_015",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利预测：三大业务分化修复，新兴赛道驱动增长中枢上移",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_003",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**费用率：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "销售费用率预计从2024年4.0%降至2027年3.5%，管理费用率从4.4%降至3.5%。",
+            "研发费用率受益于产品成熟度提高，预计从5.1%逐步回落至4.5%。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_015",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_016",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利拐点确立，现金流改善驱动估值修复",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_004",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**核心观点：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "营收恢复增长，毛利率逐步改善，驱动归母净利润快速增长，2025-2027年分别预测为0.97/1.89/2.61亿元。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_016",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_017",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利拐点确立，现金流改善驱动估值修复",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_005",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**资产负债表：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "总资产预计从98.94亿元增至126.93亿元，应收账款和存货周转率持续改善。",
+            "资产负债率小幅上升至65.73%，短期偿债能力维持在安全水平。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_017",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_018",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利拐点确立，现金流改善驱动估值修复",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_006",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**现金流量表：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "经营活动现金流净额预计从0.56亿元提升至4.01亿元，自由现金流2025年转正并持续扩大。",
+            "期末现金余额从18.93亿元增至21.94亿元，为偿债和潜在分红提供坚实基础。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_018",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_019",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "盈利拐点确立，现金流改善驱动估值修复",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_007",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**估值与投资含义：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "ROE从2024年0.30%提升至2027年6.53%，盈利能力恢复显著。",
+            "营收增速兑现度与毛利率改善节奏是估值回归的核心变量。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_019",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_020",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "估值失真下的价值洼地：普天科技卫星互联网赛道布局的性价比分析",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_008",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "**估值失真下的价值洼地：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "选取8家可比公司，4家因亏损PE为负，4家正PE均值为239.38倍；普天科技PE(TTM)约1,588倍，因2025年前三季度净利润仅1,755.67万元。",
+            "以预测市盈率看，2025-2027年PE将快速降至143/107/77倍，进入可比区间，反映估值性价比。",
+            "维持“推荐”评级，核心逻辑：卫星互联网卡位明确，业绩拐点确立，估值修复空间显著。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_020",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_021",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "卫星互联网商业化路径漫长，竞争加剧与订单波动双重挤压短期盈利",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**卫星互联网产业建设不及预期，公司战略布局短期难以兑现收入增量。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "国内低轨星座仍面临成本高、发射能力不足、商业需求培育不足等瓶颈，组网进度存在不确定性。",
+            "公司卫星互联网业务尚未独立贡献收入，布局分散在现有板块中，收入转化高度依赖建设节奏。",
+            "技术布局虽广，但多数处于攻关阶段，商业化时间表不确定，研发投入可能面临减值风险。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_021",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_022",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "卫星互联网商业化路径漫长，竞争加剧与订单波动双重挤压短期盈利",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "**行业竞争加剧与订单波动风险：",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "通信技术服务和高端PCB领域竞争激烈，智能制造毛利率已从2022年36.10%降至2024年23.26%，预测2025年进一步下行。",
+            "运营商订单上半年低迷、下半年集中结算的季节性特征，可能导致短期财务指标异常波动。",
+            "客户集中度较低（前五大客户合计14.66%），对单一客户波动有一定缓冲，但核心客户份额有待提升。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_022",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_023",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "non_content_text",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 1.0667,
+              "top": 0.75,
+              "width": 11.2,
+              "height": 1.5
+            }
+          },
+          "value": "投资建议",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 1.3333,
+              "top": 2.55,
+              "width": 10.6666,
+              "height": 1.2
+            }
+          },
+          "value": "维持普天科技“推荐”评级。公司作为卫星互联网“国家队”，卡位地面设备核心赛道，盈利拐点显现，估值有望快速消化。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 1.6,
+              "top": 4.05,
+              "width": 10.1333,
+              "height": 2.4
+            }
+          },
+          "values": [
+            "预计2025-2027年归母净利润分别为1.08/1.45/2.01亿元，对应PE为143/107/77倍。",
+            "催化剂：千帆星座组网加速，手持机直连卫星技术产业化推进，新兴赛道订单落地。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_023",
+      "continuation_index": 1
+    }
+  ]
+}

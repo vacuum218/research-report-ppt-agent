@@ -1,0 +1,45 @@
+{
+  "title": "2024年全球主要DRAM模组厂市场份额表",
+  "columns": [
+    "排名",
+    "公司",
+    "市场份额"
+  ],
+  "rows": [
+    [
+      "1",
+      "金士顿（Kingston）",
+      "66.0%"
+    ],
+    [
+      "2",
+      "威刚（ADATA）",
+      "约5.0%"
+    ],
+    [
+      "4",
+      "十铨（Team Group）",
+      "营收增长59%"
+    ],
+    [
+      "前五",
+      "金泰克（Kimtigo）",
+      "4.2%"
+    ],
+    [
+      "前五合计",
+      null,
+      "81.0%"
+    ]
+  ],
+  "source_refs": [
+    "src_001309_2025-10-28"
+  ],
+  "sources": [
+    {
+      "kind": "table",
+      "id": "table-003"
+    }
+  ],
+  "note": "Copied from complete DocumentBundle table table-003; all numeric cells are fact-audited"
+}

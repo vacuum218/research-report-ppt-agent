@@ -1,0 +1,1333 @@
+{
+  "schema_version": "1.0.0",
+  "status": "passed",
+  "summary": {
+    "visualization_count": 4,
+    "audited_value_count": 33,
+    "mismatch_count": 0
+  },
+  "visualizations": [
+    {
+      "slide_id": "slide_013",
+      "visualization_id": "visual_001",
+      "audited_value_count": 0,
+      "status": "passed",
+      "metric_group": null,
+      "entries": []
+    },
+    {
+      "slide_id": "slide_017",
+      "visualization_id": "visual_002",
+      "audited_value_count": 9,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_fbea16641ec738afc4cc",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "60.0",
+          "normalized_value": "60.0",
+          "unit": "亿美元",
+          "label": "1",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营收（亿美元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "1"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            0,
+            2
+          ],
+          "output_value": 60,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ee5e44293bdc23271b66",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+15.4",
+          "normalized_value": "15.4",
+          "unit": "%",
+          "label": "1",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "composition",
+          "metric_label": "",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "1"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            0,
+            3
+          ],
+          "output_value": "+15.4%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_11b40413964da066c649",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "32.3",
+          "normalized_value": "32.3",
+          "unit": "%",
+          "label": "1",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "market_share",
+          "metric_label": "市场份额",
+          "measure_kind": "share",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "1"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            0,
+            4
+          ],
+          "output_value": "32.3%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_1e482519df750297f6a6",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "35.3",
+          "normalized_value": "35.3",
+          "unit": "亿美元",
+          "label": "2",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营收（亿美元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "2"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            1,
+            2
+          ],
+          "output_value": 35.3,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_80908a3e2869ac500675",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+5.7",
+          "normalized_value": "5.7",
+          "unit": "%",
+          "label": "2",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "composition",
+          "metric_label": "",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            1,
+            3
+          ],
+          "output_value": "+5.7%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_b97e79d564fe52426837",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "28.4",
+          "normalized_value": "28.4",
+          "unit": "亿美元",
+          "label": "3",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营收（亿美元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "3"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            2,
+            2
+          ],
+          "output_value": 28.4,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_3b22bc7c045006f98992",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+33.1",
+          "normalized_value": "33.1",
+          "unit": "%",
+          "label": "3",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "composition",
+          "metric_label": "",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "3"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            2,
+            3
+          ],
+          "output_value": "+33.1%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_adb9cf8330dc38e54489",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "24.2",
+          "normalized_value": "24.2",
+          "unit": "亿美元",
+          "label": "4",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营收（亿美元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "USD",
+          "scope": {
+            "kind": "category",
+            "label": "4"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            3,
+            2
+          ],
+          "output_value": 24.2,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_0a46d89d8f27e8299e05",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+15.4",
+          "normalized_value": "15.4",
+          "unit": "%",
+          "label": "4",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "composition",
+          "metric_label": "",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "4"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            3,
+            3
+          ],
+          "output_value": "+15.4%",
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_019",
+      "visualization_id": "visual_003",
+      "audited_value_count": 3,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_e220e55a67330a34d444",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "66.0",
+          "normalized_value": "66.0",
+          "unit": "%",
+          "label": "1",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "market_share",
+          "metric_label": "市场份额",
+          "measure_kind": "share",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "1"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            0,
+            2
+          ],
+          "output_value": "66.0%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_165b6d027dc1473251f5",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "4.2",
+          "normalized_value": "4.2",
+          "unit": "%",
+          "label": "前五",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "market_share",
+          "metric_label": "市场份额",
+          "measure_kind": "share",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "前五"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            3,
+            2
+          ],
+          "output_value": "4.2%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_0cdae1d5d33fde0c54c6",
+          "source": {
+            "kind": "table",
+            "id": "table-003"
+          },
+          "raw_value": "81.0",
+          "normalized_value": "81.0",
+          "unit": "%",
+          "label": "前五合计",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "market_share",
+          "metric_label": "市场份额",
+          "measure_kind": "share",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "前五合计"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            4,
+            2
+          ],
+          "output_value": "81.0%",
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_020",
+      "visualization_id": "visual_004",
+      "audited_value_count": 21,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_c23c484e229a36b3c2bf",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "2024",
+          "normalized_value": "2024",
+          "unit": "元",
+          "label": null,
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "eps",
+          "metric_label": "EPS（元）",
+          "measure_kind": "per_share",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "consolidated",
+            "label": ""
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            0,
+            3
+          ],
+          "output_value": 2024,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_0f33363b7e59dc88c5af",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "71.91",
+          "normalized_value": "71.91",
+          "unit": "元",
+          "label": "301308",
+          "period": "2025",
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "segment",
+            "label": "301308"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            1,
+            2
+          ],
+          "output_value": 71.91,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_9f9e28a9030608d7b579",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "1.20",
+          "normalized_value": "1.20",
+          "unit": "元",
+          "label": "301308",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "eps",
+          "metric_label": "EPS（元）",
+          "measure_kind": "per_share",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "301308"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            1,
+            3
+          ],
+          "output_value": 1.2,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_e1381aefc6978ec53bcf",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "1.80",
+          "normalized_value": "1.80",
+          "unit": "",
+          "label": "301308",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "301308"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            1,
+            4
+          ],
+          "output_value": 1.8,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_626fbb7d3b07bafda227",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "2.60",
+          "normalized_value": "2.60",
+          "unit": "",
+          "label": "301308",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "301308"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            1,
+            5
+          ],
+          "output_value": 2.6,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_90141111c89736118c3f",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "57.48",
+          "normalized_value": "57.48",
+          "unit": "元",
+          "label": "688525",
+          "period": "2025",
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "segment",
+            "label": "688525"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            2,
+            2
+          ],
+          "output_value": 57.48,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_df783b1537aa3f58328a",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "0.60",
+          "normalized_value": "0.60",
+          "unit": "元",
+          "label": "688525",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "eps",
+          "metric_label": "EPS（元）",
+          "measure_kind": "per_share",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "688525"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            2,
+            3
+          ],
+          "output_value": 0.6,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ef6cd8f2493bc1c1bb8b",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "1.40",
+          "normalized_value": "1.40",
+          "unit": "",
+          "label": "688525",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "688525"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            2,
+            4
+          ],
+          "output_value": 1.4,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_061e9ec4d27a574c293c",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "1.80",
+          "normalized_value": "1.80",
+          "unit": "",
+          "label": "688525",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "688525"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            2,
+            5
+          ],
+          "output_value": 1.8,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_76b9a53d3317ddff791a",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "103.48",
+          "normalized_value": "103.48",
+          "unit": "元",
+          "label": "603986",
+          "period": "2025",
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "segment",
+            "label": "603986"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            3,
+            2
+          ],
+          "output_value": 103.48,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_fea09711a0401eff391a",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "1.70",
+          "normalized_value": "1.70",
+          "unit": "元",
+          "label": "603986",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "eps",
+          "metric_label": "EPS（元）",
+          "measure_kind": "per_share",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "603986"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            3,
+            3
+          ],
+          "output_value": 1.7,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c6f2ae6d01ec1b821208",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "2.50",
+          "normalized_value": "2.50",
+          "unit": "",
+          "label": "603986",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "603986"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            3,
+            4
+          ],
+          "output_value": 2.5,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_39c537578c7b23256390",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "3.20",
+          "normalized_value": "3.20",
+          "unit": "",
+          "label": "603986",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "603986"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            3,
+            5
+          ],
+          "output_value": 3.2,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_89ffd9afb41b56f154f8",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "89.15",
+          "normalized_value": "89.15",
+          "unit": "元",
+          "label": "688766",
+          "period": "2025",
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "segment",
+            "label": "688766"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            4,
+            2
+          ],
+          "output_value": 89.15,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_87d6e71b9736dfb1e7fc",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "2.80",
+          "normalized_value": "2.80",
+          "unit": "元",
+          "label": "688766",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "eps",
+          "metric_label": "EPS（元）",
+          "measure_kind": "per_share",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "688766"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            4,
+            3
+          ],
+          "output_value": 2.8,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_7c2c1aee831d3b45bf67",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "3.30",
+          "normalized_value": "3.30",
+          "unit": "",
+          "label": "688766",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "688766"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            4,
+            4
+          ],
+          "output_value": 3.3,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_cc5b6a089755fd8cba8b",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "4.00",
+          "normalized_value": "4.00",
+          "unit": "",
+          "label": "688766",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "688766"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 4,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            4,
+            5
+          ],
+          "output_value": 4,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_b0da94cf74a183942a38",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "103.63",
+          "normalized_value": "103.63",
+          "unit": "元",
+          "label": "001309",
+          "period": "2025",
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "segment",
+            "label": "001309"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            6,
+            2
+          ],
+          "output_value": 103.63,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_1ae1584af5541ab57523",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "1.70",
+          "normalized_value": "1.70",
+          "unit": "元",
+          "label": "001309",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "eps",
+          "metric_label": "EPS（元）",
+          "measure_kind": "per_share",
+          "unit_family": "currency",
+          "unit_scale": "1",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "001309"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            6,
+            3
+          ],
+          "output_value": 1.7,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c9680107c5f00828912b",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "4.06",
+          "normalized_value": "4.06",
+          "unit": "",
+          "label": "001309",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "001309"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            6,
+            4
+          ],
+          "output_value": 4.06,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_8e8a927a7aa197bdd74e",
+          "source": {
+            "kind": "table",
+            "id": "table-004"
+          },
+          "raw_value": "6.23",
+          "normalized_value": "6.23",
+          "unit": "",
+          "label": "001309",
+          "period": null,
+          "entity": {
+            "id": "001309_2025-10-28",
+            "name": "德明利（001309）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "unknown",
+          "unit_family": "dimensionless",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "001309"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 6,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            6,
+            5
+          ],
+          "output_value": 6.23,
+          "status": "matched"
+        }
+      ]
+    }
+  ]
+}

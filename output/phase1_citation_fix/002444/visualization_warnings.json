@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0.0",
+  "status": "completed_with_warnings",
+  "warning_count": 24,
+  "warnings": [
+    {
+      "slide_id": "slide_002",
+      "visualization_id": "visual_001",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_005",
+      "visualization_id": "visual_003",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_005",
+      "visualization_id": "visual_004",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_006",
+      "visualization_id": "visual_005",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_006",
+      "visualization_id": "visual_006",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_007",
+      "visualization_id": "visual_007",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_007",
+      "visualization_id": "visual_008",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_009",
+      "visualization_id": "visual_009",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_009",
+      "visualization_id": "visual_010",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_010",
+      "visualization_id": "visual_011",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_011",
+      "visualization_id": "visual_012",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_011",
+      "visualization_id": "visual_013",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_012",
+      "visualization_id": "visual_014",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_012",
+      "visualization_id": "visual_015",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_013",
+      "visualization_id": "visual_016",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_013",
+      "visualization_id": "visual_017",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_014",
+      "visualization_id": "visual_018",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_014",
+      "visualization_id": "visual_019",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_015",
+      "visualization_id": "visual_020",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_015",
+      "visualization_id": "visual_021",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_017",
+      "visualization_id": "visual_022",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_017",
+      "visualization_id": "visual_023",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_020",
+      "visualization_id": "visual_025",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    },
+    {
+      "slide_id": "slide_020",
+      "visualization_id": "visual_026",
+      "visual_type": "chart",
+      "reason": "no_traceable_source_data",
+      "disposition": "skipped_unrenderable_candidate"
+    }
+  ]
+}

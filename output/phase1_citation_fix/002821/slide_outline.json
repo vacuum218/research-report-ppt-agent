@@ -1,0 +1,633 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "company": "凯莱英",
+    "company_name": "凯莱英",
+    "stock_code": "002821",
+    "industry": "医药生物/CDMO",
+    "report_title": "凯莱英（002821）深度研究报告",
+    "report_date": "2025-09-11",
+    "source_file": "002821_2025-09-11.md"
+  },
+  "sources": [
+    {
+      "source_id": "src_002821_2025-09-11",
+      "type": "broker_report",
+      "title": "凯莱英（002821）深度研究报告",
+      "publisher": "华安证券研究所",
+      "file_name": "002821_2025-09-11.md"
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "page_role": "title",
+      "slide_type": "company_overview",
+      "section": "封面",
+      "title": "凯莱英（002821）深度研究报告",
+      "key_message": "华安证券研究所深度研究报告",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "slide_id": "slide_002",
+      "page_role": "content",
+      "slide_type": "summary",
+      "section_ref": "sec-001",
+      "title": "凯莱英（002821）深度研究报告",
+      "key_message": "全球生物医药行业仍处于周期底部，需求修复缓慢、供给相对过剩，但拐点信号正在积累。",
+      "bullet_points": [
+        "小分子CDMO剔除大订单后稳健增长，商业化项目进入收获期，基本盘企稳。根据公司在手订单情况，预计2024年小分子PPQ项目达28个，公司已完成首个欧洲研发生产基地布局。",
+        "新兴业务多板块需求旺盛，产能释放加速，正成为公司第二增长曲线。多肽业务加快商业化产能建设，寡核苷酸业务项目承接量高速增长，ADC业务持续聚焦偶联药物赛道。",
+        "投资建议：预计2025-2027年凯莱英营业收入CAGR约12.3%，归母净利润CAGR约19.9%；2024年受大订单退潮影响业绩承压，但2025年上半年已重回增长通道。首次覆盖，给予“买入”评级。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0002"
+        },
+        {
+          "kind": "block",
+          "id": "block_0003"
+        },
+        {
+          "kind": "block",
+          "id": "block_0004"
+        },
+        {
+          "kind": "block",
+          "id": "block_0005"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "凯莱英（002821）深度研究报告"
+    },
+    {
+      "slide_id": "slide_003",
+      "page_role": "content",
+      "slide_type": "company_overview",
+      "section_ref": "sec-002",
+      "title": "管理层深度绑定与平台化布局：凯莱英穿越周期的核心护城河",
+      "key_message": "**凯莱英是全球领先的服务于新药研发和生产的CDMO一站式综合服务商，其核心竞争力根植于深厚的技术积淀、稳定的管理层团队以及持续深化的平台化战略。",
+      "bullet_points": [
+        "公司以小分子CDMO为基石，正加速向新兴业务领域拓展，服务类型已拓展至化学大分子CDMO、制剂CDMO、临床CRO、生物大分子CDMO、技术输出和合成生物技术等，新兴业务2024年收入12.3亿元（+2.3%）。",
+        "核心管理层由洪浩博士领衔，多位高管拥有辉瑞、默克、葛兰素史克等国际药企背景，团队稳定且具备国际化视野。",
+        "公司自2016年上市以来已推出7期股权激励计划，2025年新一期A+H股限制性股票方案设置双重业绩考核，深度绑定核心员工利益，彰显长期发展信心。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0007"
+        },
+        {
+          "kind": "block",
+          "id": "block_0008"
+        },
+        {
+          "kind": "block",
+          "id": "block_0009"
+        },
+        {
+          "kind": "block",
+          "id": "block_0010"
+        },
+        {
+          "kind": "block",
+          "id": "block_0014"
+        },
+        {
+          "kind": "table",
+          "id": "table-001"
+        },
+        {
+          "kind": "table",
+          "id": "table-002"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_001",
+          "type": "table",
+          "description": "展示公司核心高管团队，包括姓名、职务及简介",
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-001"
+            }
+          ]
+        },
+        {
+          "candidate_id": "visual_002",
+          "type": "table",
+          "description": "展示公司历年股权激励计划，包括年份、激励方式、授予对象、人数及核心业绩考核条件",
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-002"
+            }
+          ]
+        }
+      ],
+      "section": "管理层深度绑定与平台化布局：凯莱英穿越周期的核心护城河"
+    },
+    {
+      "slide_id": "slide_004",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-003",
+      "title": "供需再平衡与创新动能切换：CXO行业周期拐点渐近",
+      "key_message": "**当前CXO行业仍处于周期拐点待向上阶段，核心矛盾在于终端需求修复节奏与产能出清速度之间的动态博弈。",
+      "bullet_points": [
+        "需求侧，全球步入降息周期，生物医药投融资回暖，海外业务占比较高的头部CXO有望率先受益；供给侧，头部企业主动放缓扩产，产能持续去化，行业正从“供过于求”向“供需再平衡”过渡。",
+        "医药创新动能正从传统小分子主导向“小分子+新兴疗法”多元并进格局切换，多技术平台布局的CXO企业将在新一轮创新浪潮中占据更有利的竞争位置。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0018"
+        },
+        {
+          "kind": "block",
+          "id": "block_0019"
+        },
+        {
+          "kind": "block",
+          "id": "block_0020"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "供需再平衡与创新动能切换：CXO行业周期拐点渐近"
+    },
+    {
+      "slide_id": "slide_005",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-004",
+      "title": "创新药研发投入持续增长与出海加速共振，CDMO行业供需格局迎来拐点",
+      "key_message": "**全球医药研发投入稳步增长，生物医药投融资回暖，为CDMO行业提供稳定需求基础。",
+      "bullet_points": [
+        "全球外包服务需求增速有望快于研发投入的增长，小分子仍占主导，多肽、寡核苷酸等新兴方向加速发展。",
+        "产能建设高峰期已过，在建工程增速转负，冗余产能加速出清，行业供需格局有望逐步改善。",
+        "创新药出海与政策支持形成双重驱动：2024年国产创新药License-out交易达94笔，总金额约519亿美元；政策端全链条支持体系从顶层设计走向地方落地。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0022"
+        },
+        {
+          "kind": "block",
+          "id": "block_0023"
+        },
+        {
+          "kind": "block",
+          "id": "block_0024"
+        },
+        {
+          "kind": "block",
+          "id": "block_0025"
+        },
+        {
+          "kind": "block",
+          "id": "block_0026"
+        },
+        {
+          "kind": "block",
+          "id": "block_0027"
+        },
+        {
+          "kind": "table",
+          "id": "table-003"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_003",
+          "type": "table",
+          "description": "展示2024年国产创新药License‑out交易TOP10，包括排名、合作项目、买卖双方及总金额",
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-003"
+            }
+          ]
+        }
+      ],
+      "section": "创新药研发投入持续增长与出海加速共振，CDMO行业供需格局迎来拐点"
+    },
+    {
+      "slide_id": "slide_006",
+      "page_role": "content",
+      "slide_type": "company_overview",
+      "section_ref": "sec-005",
+      "title": "守正出奇：小分子基本盘稳固，新兴疗法打开第二增长曲线",
+      "key_message": "**全球药物研发格局正经历从“小分子独大”向“小分子为基、新兴疗法多点开花”的结构性演变。",
+      "bullet_points": [
+        "小分子仍是基石赛道，2023年全球占比约54.86%；多肽、寡核苷酸、ADC等新兴疗法加速崛起，多肽CDMO市场2025‑2030年CAGR预计26%。",
+        "凯莱英精准卡位：2025H1小分子CDMO收入24.29亿元（同比+10.64%），新兴业务收入7.56亿元（同比+51.22%），毛利率同比提升9.5pct至29.79%。",
+        "多肽业务：产能快速扩张，首个GLP‑1多肽商业化项目已获批上市；寡核苷酸业务：在手订单金额同比增超90%，临床中后期项目储备超10个。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0033"
+        },
+        {
+          "kind": "block",
+          "id": "block_0035"
+        },
+        {
+          "kind": "block",
+          "id": "block_0037"
+        },
+        {
+          "kind": "block",
+          "id": "block_0038"
+        },
+        {
+          "kind": "block",
+          "id": "block_0039"
+        },
+        {
+          "kind": "block",
+          "id": "block_0040"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "守正出奇：小分子基本盘稳固，新兴疗法打开第二增长曲线"
+    },
+    {
+      "slide_id": "slide_007",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-006",
+      "title": "大订单扰动出清，主业重回高质量增长通道：凯莱英内生增长动能与全球化布局深化",
+      "key_message": "**大订单扰动出清，主业重回高质量增长通道。",
+      "bullet_points": [
+        "剔除新冠大订单影响，2019‑2024年营收CAGR约18.7%，归母净利润CAGR约11.4%；2025H1营收同比增长18.2%，常规业务重回增长快车道。",
+        "小分子CDMO作为压舱石，2024年剔除大订单后收入+8.9%，新兴业务2025H1收入同比+80%以上。",
+        "全球产能布局完善：中国、美国、英国8大基地，服务超1100家客户；2024年收购辉瑞英国Sandwich Site，2025H1已交付4个研发项目、首个生产订单落地。",
+        "资本开支从2022年峰值回落；人才规模五年CAGR26%，人均创利增幅达60.7%。",
+        "在手订单于2025年半年报日达10.88亿美元，同比增长趋势持续向好。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0042"
+        },
+        {
+          "kind": "block",
+          "id": "block_0043"
+        },
+        {
+          "kind": "block",
+          "id": "block_0045"
+        },
+        {
+          "kind": "block",
+          "id": "block_0048"
+        },
+        {
+          "kind": "block",
+          "id": "block_0052"
+        },
+        {
+          "kind": "block",
+          "id": "block_0057"
+        },
+        {
+          "kind": "block",
+          "id": "block_0058"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "大订单扰动出清，主业重回高质量增长通道：凯莱英内生增长动能与全球化布局深化"
+    },
+    {
+      "slide_id": "slide_008",
+      "page_role": "content",
+      "slide_type": "company_overview",
+      "section_ref": "sec-007",
+      "title": "小分子CDMO：大订单扰动出清，商业化项目储备驱动盈利质量持续回升",
+      "key_message": "**小分子CDMO业务是凯莱英的基石与核心收入来源。",
+      "bullet_points": [
+        "剔除大订单后，小分子收入从2019年的23.75亿元增至2023年的42.00亿元（CAGR 15.32%）；2025H1收入24.29亿元，同比+10.64%，毛利率47.79%同比提升0.6pct。",
+        "商业化项目逐步落地：2024年交付48个，临床Ⅲ期项目73个；预计2025年全年PPQ项目约12个，商业化订单储备充沛。",
+        "盈利质量持续改善：连续反应与酶催化技术应用率超33%，成本优势巩固。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0061"
+        },
+        {
+          "kind": "block",
+          "id": "block_0062"
+        },
+        {
+          "kind": "block",
+          "id": "block_0064"
+        },
+        {
+          "kind": "block",
+          "id": "block_0066"
+        },
+        {
+          "kind": "block",
+          "id": "block_0067"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "小分子CDMO：大订单扰动出清，商业化项目储备驱动盈利质量持续回升"
+    },
+    {
+      "slide_id": "slide_009",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section_ref": "sec-008",
+      "title": "新兴业务：多肽、ADC、小核酸驱动下，第二增长曲线加速兑现",
+      "key_message": "**新兴业务近年来整体呈现快速扩张态势，但2024年经历了一次明显的增速换挡与盈利承压。",
+      "bullet_points": [
+        "2024年受国内投融资低迷及产能爬坡影响，新兴业务收入12.3亿元（+2.3%），毛利率21.67%。",
+        "2025H1强力反弹：收入7.56亿元（+51.22%），毛利率回升至29.79%（+9.5pct），化学大分子收入+130%，生物大分子+70%。",
+        "多肽业务：商业化产能加速建设，已签订GLP‑1多肽商业化订单；寡核苷酸业务：在手订单持续高增，项目储备充足；制剂CDMO预充针/卡式瓶产线即将投产；临床CRO在手项目丰富；生物药CDMO聚焦ADC，奉贤新基地投建中。",
+        "连续反应与酶催化技术输出业务持续增长，合成生物技术收入同比增长33.22%，境外客户占比超80%。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0071"
+        },
+        {
+          "kind": "block",
+          "id": "block_0072"
+        },
+        {
+          "kind": "block",
+          "id": "block_0073"
+        },
+        {
+          "kind": "block",
+          "id": "block_0074"
+        },
+        {
+          "kind": "block",
+          "id": "block_0104"
+        },
+        {
+          "kind": "block",
+          "id": "block_0105"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "新兴业务：多肽、ADC、小核酸驱动下，第二增长曲线加速兑现"
+    },
+    {
+      "slide_id": "slide_010",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section_ref": "sec-009",
+      "title": "化学大分子CDMO：多肽与寡核苷酸双轮驱动，商业化产能释放打开成长空间",
+      "key_message": "**化学大分子业务是公司战略发展的核心板块之一，正凭借多肽与寡核苷酸两大高景气赛道的深度布局，进入订单与产能共振的加速成长阶段。",
+      "bullet_points": [
+        "2025H1板块收入3.79亿元（+130%），在手订单同比+90%，境外订单占比超40%。",
+        "多肽固相合成产能从14,250L（2024年6月）扩至2025年底约44,000L；首个GLP‑1商业化项目已获批上市，与国内重要客户签订商业化订单执行顺利。",
+        "寡核苷酸业务：临床中后期项目储备超过10个，产能持续扩充。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0076"
+        },
+        {
+          "kind": "block",
+          "id": "block_0077"
+        },
+        {
+          "kind": "block",
+          "id": "block_0079"
+        },
+        {
+          "kind": "block",
+          "id": "block_0080"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "化学大分子CDMO：多肽与寡核苷酸双轮驱动，商业化产能释放打开成长空间"
+    },
+    {
+      "slide_id": "slide_011",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-015",
+      "title": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%",
+      "key_message": "**核心判断：",
+      "bullet_points": [
+        "小分子CDMO：在手订单覆盖倍数超1.15倍，PPQ转商业化与海外产能爬坡驱动未来三年收入CAGR约15%~20%。",
+        "新兴业务：化学大分子引领，预计2025~2027年整体CAGR约35%~45%，其中多肽、寡核苷酸商业化加速，ADC产能2026Q2交付。",
+        "毛利率受益于产能利用率回升及高毛利商业化项目占比提升，预计从2024年的42.36%逐步修复至44.50%左右，2025~2027年归母净利润分别为11.64/14.10/16.73亿元。",
+        "可比公司估值：凯莱英2025E PE为25.55倍，高于药明康德、九洲药业，低于康龙化成，处于可比公司中等水平。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0108"
+        },
+        {
+          "kind": "block",
+          "id": "block_0109"
+        },
+        {
+          "kind": "block",
+          "id": "block_0110"
+        },
+        {
+          "kind": "block",
+          "id": "block_0111"
+        },
+        {
+          "kind": "block",
+          "id": "block_0120"
+        },
+        {
+          "kind": "table",
+          "id": "table-004"
+        },
+        {
+          "kind": "table",
+          "id": "table-005"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_004",
+          "type": "table",
+          "description": "展示凯莱英分业务收入拆分与盈利预测（2024A‑2027E）",
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-004"
+            }
+          ]
+        },
+        {
+          "candidate_id": "visual_005",
+          "type": "table",
+          "description": "展示可比公司估值对比（2024‑2026E PE）",
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-005"
+            }
+          ]
+        }
+      ],
+      "section": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%"
+    },
+    {
+      "slide_id": "slide_012",
+      "page_role": "content",
+      "slide_type": "investment_risk",
+      "section_ref": "sec-016",
+      "title": "盈利高增确定性强，但需警惕产能爬坡与订单持续性风险",
+      "key_message": "**①新业务产能爬坡不及预期风险。",
+      "bullet_points": [
+        "新业务产能爬坡不及预期风险：多肽、寡核苷酸、ADC产能快速扩张，若下游需求释放或工艺验证延后，折旧摊销将提前侵蚀利润。",
+        "多肽/ADC订单波动风险：化学大分子2025年高基数下订单持续性存不确定性，ADC尚未形成规模商业化订单，竞争加剧或客户项目推进不顺将拖累放量。",
+        "全球投融资环境变化风险：国内生物医药融资复苏不及预期已拖累境内客户业务，若宏观环境再度收紧，整体收入增速将承压。",
+        "汇率波动风险：境外收入占比约74%，人民币升值将直接压缩毛利率与净利润，每升值1%净利润负面影响约0.5%。",
+        "地缘政治与国际贸易环境不确定性：中美博弈可能影响海外客户供应链策略与CDMO订单稳定性。",
+        "核心人才流失风险：CDMO行业高度依赖核心技术团队，关键人员流失将影响工艺转化与订单交付。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0127"
+        },
+        {
+          "kind": "block",
+          "id": "block_0130"
+        },
+        {
+          "kind": "block",
+          "id": "block_0131"
+        },
+        {
+          "kind": "block",
+          "id": "block_0132"
+        },
+        {
+          "kind": "block",
+          "id": "block_0133"
+        },
+        {
+          "kind": "block",
+          "id": "block_0134"
+        },
+        {
+          "kind": "block",
+          "id": "block_0135"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "盈利高增确定性强，但需警惕产能爬坡与订单持续性风险"
+    },
+    {
+      "slide_id": "slide_013",
+      "page_role": "closing",
+      "slide_type": "summary",
+      "section_ref": "sec-017",
+      "title": "盈利底部确认，2025年有望迎来收入与利润双拐点",
+      "key_message": "公司2022‑2024年经历了一轮完整的“高增长‑深度调整”周期，当前盈利已触及底部。我们预计，随着收入端在2025年恢复正增长，叠加毛利率修复与费用管控优化，归母净利润将迎来强劲反弹，开启新一轮盈利上行周期。",
+      "bullet_points": [
+        "收入端调整出清，2025年营收预计同比+14.9%，逐步向历史高点回归。",
+        "毛利率触底回升，从2024年42.4%修复至2025年44.0%；资产减值损失大幅收窄，营业利润同比增长28.3%，归母净利润同比增长26.8%。",
+        "ROE从5.6%历史低位回升，当前PE 25.6倍、P/B 1.57倍，估值具备安全边际。",
+        "资产负债率仅13%左右，流动比率超5倍，财务基础稳健，为业绩复苏提供支撑。"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0137"
+        },
+        {
+          "kind": "block",
+          "id": "block_0138"
+        },
+        {
+          "kind": "block",
+          "id": "block_0139"
+        },
+        {
+          "kind": "block",
+          "id": "block_0140"
+        },
+        {
+          "kind": "block",
+          "id": "block_0141"
+        },
+        {
+          "kind": "block",
+          "id": "block_0142"
+        }
+      ],
+      "visual_candidates": [],
+      "section": "盈利底部确认，2025年有望迎来收入与利润双拐点"
+    }
+  ]
+}

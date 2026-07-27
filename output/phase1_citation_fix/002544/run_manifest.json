@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "status": "completed",
+  "input": {
+    "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\data\\reports\\agent\\002544_2025-10-28.md",
+    "sha256": "856461c2f536592cd1760c64bc08329a2c4086f149e70cf2f579e78e97e90621"
+  },
+  "schemas": {
+    "document_bundle": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\document_bundle.schema.json",
+      "sha256": "d66e1e8c35c26934546718b3b111a40639e109b73f5450d58e786f7c338f82ae"
+    },
+    "slide_outline": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\slide_outline.schema.json",
+      "sha256": "5ad5eb67aadc2d80af5dde0dd142333e47c718f96ef0ea40dc16cf89872e4752"
+    },
+    "visualization": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\visualization.schema.json",
+      "sha256": "384eaedee6559976507d3e75f4151640b6f54ffb169814b48b2e1d90d809d6c4"
+    },
+    "visualization_manifest": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\visualization_manifest.schema.json",
+      "sha256": "5e91136d99903517491f98fec2c8b6cf59270d088df4cb9cf6ecd62f830ba621"
+    },
+    "template_profile": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\template_profile.schema.json",
+      "sha256": "9e84d4e3e17d8539b236c00c7ed902a9567daaf21590176eddbf0c2e48666734"
+    },
+    "compiled_layout_plan": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\compiled_layout_plan.schema.json",
+      "sha256": "6d375f0b93fcc74e2f7ee50a50f19d147e1382b9b7e6c9884425ff2f36b957eb"
+    },
+    "run_manifest": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\run_manifest.schema.json",
+      "sha256": "192203642957cdc4fe2a0b369258ea49ce1c05cd9788f21ab009f539a2f441ed"
+    },
+    "numeric_fact_ledger": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\numeric_fact_ledger.schema.json",
+      "sha256": "aa98cd8a4e473488533bfea3e75ce271748610f0911ec7e854537b938dc9b51a"
+    },
+    "metric_group": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\metric_group.schema.json",
+      "sha256": "b867abedf600889f5bf7f1f598d9a2d578f5a609f3906484db6b50b4afb9d12d"
+    }
+  },
+  "hashes": {
+    "outline_sha256": "7283be94fdaf8294a7a236e7e6f8aa4c65ccd7b5bb0de8a4433f9ca8e928e34f",
+    "visualization_manifest_sha256": "ac71cbcdebac001cfccd9a11449a1df2f8e95068b0533f771aa8ab60ac4ab64d",
+    "template_profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "template_sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2",
+    "compiled_layout_plan_sha256": "f30d31f43ca2004654b75e089e3aab71e209785687d98fbb1a1c292f1696af5d",
+    "presentation_sha256": "97308a16e239315446e8c5d7498eb2a4d5f20e16e5aba6aa6836e7195ec1f073"
+  },
+  "template": {
+    "profile_path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\template_profile.json",
+    "file_path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\templates\\financial_report_template_v1.pptx"
+  },
+  "warnings": {
+    "visualization_count": 0,
+    "file": "visualization_warnings.json"
+  },
+  "artifacts": [
+    {
+      "path": "document_bundle/document.json",
+      "sha256": "3d4536c8579ffc7504f8ad4bcf4479e733745921dd5a96dd147ec9a9fb7b608c"
+    },
+    {
+      "path": "slide_outline.json",
+      "sha256": "f1bebff79a3260c60b29e4b2c2bb71bff902784d7921be01160d1154167277e0"
+    },
+    {
+      "path": "numeric_fact_ledger.json",
+      "sha256": "7c63aefc09661e0840a896d6e811486aaab7fd206b069f7e147ddc25447188ad"
+    },
+    {
+      "path": "metric_groups.json",
+      "sha256": "215dd8239aa71085b2b694345dbb33a86c6ddfa04fc76ced869561dcf6d5dc89"
+    },
+    {
+      "path": "numeric_audit.json",
+      "sha256": "de23d2d35a14b3d63ccc7ad1e6b59f75295af3e7856d18bce3fefe640aa64f96"
+    },
+    {
+      "path": "visualization_warnings.json",
+      "sha256": "d90fd58cfe46328587b92bb7ba6a5cfa21c88b1b9742ea6ab67f5c3528ee982c"
+    },
+    {
+      "path": "template_profile.json",
+      "sha256": "63394b231ed785fa0b264d33ea3209bd4531d574039bc500fd8be3dc1b3ddb30"
+    },
+    {
+      "path": "visualizations/visualization_manifest.json",
+      "sha256": "7712aac2ca0856ca6df65e2a81a8f0ae4214f9abf230ceb0af574a112e844e59"
+    },
+    {
+      "path": "visualizations/slide_003__visual_001.json",
+      "sha256": "1ea83d952af78924e5675bb3ee8af6bf1ab4dfb66fc28f844464fc36c3c4abe1"
+    },
+    {
+      "path": "visualizations/slide_014__visual_002.json",
+      "sha256": "0d1e6af0019fed9ff05555132991523ddefa3568d06120ff8216461d2ef53b16"
+    },
+    {
+      "path": "visualizations/slide_015__visual_003.json",
+      "sha256": "2b5b972551fb54e178f917cbcf8a037f25371453e0ef6a0231e593af208a470a"
+    },
+    {
+      "path": "visualizations/slide_016__visual_004.json",
+      "sha256": "ef44d14b41a21e95f488ed8cdb5dbdbee8edc329e92ee8061cb2890ee29e8f20"
+    },
+    {
+      "path": "visualizations/slide_017__visual_005.json",
+      "sha256": "a27fea13145d40ca9b52575fbed2a28a4c52d92a2fc85ca1eb1776d567813367"
+    },
+    {
+      "path": "visualizations/slide_018__visual_006.json",
+      "sha256": "571437fd67193ff6addd12e4f525a1a938b5bb66bb7252ffd3ceed8c0bc1bb09"
+    },
+    {
+      "path": "visualizations/slide_019__visual_007.json",
+      "sha256": "10548ebae1a90bec531f707d52aa4d3f4df92c37e6e621ee5b8966f572177918"
+    },
+    {
+      "path": "visualizations/slide_020__visual_008.json",
+      "sha256": "a4eac59054640ee4e47bef5a7fb7ae7ac57cdb8db6c484d76d2205ff228699b0"
+    },
+    {
+      "path": "compiled_layout_plan.json",
+      "sha256": "6702b28b0c942ec2d91e3b77a4b021da1f0843270fdfb59262014332a360bf11"
+    },
+    {
+      "path": "presentation.pptx",
+      "sha256": "97308a16e239315446e8c5d7498eb2a4d5f20e16e5aba6aa6836e7195ec1f073"
+    }
+  ]
+}

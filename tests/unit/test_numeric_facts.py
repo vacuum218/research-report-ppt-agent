@@ -6,6 +6,7 @@ from document_intelligence import build_snapshot
 from visualization_generator.numeric_facts import (
     block_numeric_facts,
     build_numeric_fact_ledger,
+    table_grid,
     table_numeric_facts,
 )
 
@@ -135,6 +136,17 @@ def test_table_facts_use_zero_based_cell_coordinates_and_header_units():
     assert first.measure_kind == "amount"
     assert first.unit_family == "currency"
     assert first.scenario == "actual"
+
+
+def test_table_grid_removes_internal_citation_markers():
+    table = _table()
+    table["structure_raw"]["rows"][0][1] = "10[^cite_id:source_a]"
+    table["structure_raw"]["rows"][0][2] = "15[^citeid:source_b]"
+
+    _, rows = table_grid(table)
+
+    assert rows[0][1:] == ["10", "15"]
+    assert len(table_numeric_facts(table)) == 4
 
 
 def test_incomplete_table_does_not_register_numeric_facts():

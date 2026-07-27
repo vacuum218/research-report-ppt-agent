@@ -1,0 +1,54 @@
+{
+  "chart_type": "line",
+  "title": "展示美的集团分板块营业收入及同比增速（2022-2025年前三季度）",
+  "unit": "亿元",
+  "categories": [
+    "2022",
+    "2023",
+    "2024",
+    "2024前三季度",
+    "2025前三季度"
+  ],
+  "series": [
+    {
+      "name": "智能家居",
+      "values": [
+        2328,
+        2464,
+        2695,
+        2130.6,
+        2407.6
+      ]
+    },
+    {
+      "name": "新能源及工业技术",
+      "values": [
+        216,
+        279,
+        336,
+        252.9,
+        306
+      ]
+    },
+    {
+      "name": "智能建筑科技",
+      "values": [
+        228,
+        259,
+        285,
+        224.8,
+        281
+      ]
+    }
+  ],
+  "source_refs": [
+    "src_000333_2025-10-30"
+  ],
+  "sources": [
+    {
+      "kind": "table",
+      "id": "table-001"
+    }
+  ],
+  "note": "Assembled from verified Numeric Fact Ledger references"
+}

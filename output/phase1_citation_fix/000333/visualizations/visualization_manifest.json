@@ -1,0 +1,32 @@
+{
+  "schema_version": "3.0.0",
+  "outline_sha256": "2669a7808360904072965e0e7ae7c03390afd36757acf2476436b5b7e425e87a",
+  "document_source_sha256": "a413ac7732136bb0465d3f5a545098bc569f75408304207fc78a48ff6bf02fd5",
+  "asset_root": "../document_bundle",
+  "bindings": [
+    {
+      "slide_id": "slide_005",
+      "visualization_id": "visual_001",
+      "visual_type": "chart",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-001"
+        }
+      ],
+      "visualization_file": "slide_005__visual_001.json"
+    },
+    {
+      "slide_id": "slide_009",
+      "visualization_id": "visual_003",
+      "visual_type": "table",
+      "sources": [
+        {
+          "kind": "table",
+          "id": "table-002"
+        }
+      ],
+      "visualization_file": "slide_009__visual_003.json"
+    }
+  ]
+}

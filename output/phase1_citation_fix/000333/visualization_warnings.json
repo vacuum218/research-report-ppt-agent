@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "status": "completed_with_warnings",
+  "warning_count": 1,
+  "warnings": [
+    {
+      "slide_id": "slide_006",
+      "visualization_id": "visual_002",
+      "visual_type": "chart",
+      "reason": "verification_failed: reject.incomplete_metric_typing: metric_key is unknown",
+      "disposition": "skipped_unrenderable_candidate"
+    }
+  ]
+}
