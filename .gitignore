@@ -42,3 +42,9 @@ temp/
 # Generated PowerPoint files; the canonical template remains tracked
 *.pptx
 !templates/*.pptx
+
+# Versioned Phase 2 acceptance deliverables
+!output/
+output/*
+!output/phase2_final/
+!output/phase2_final/**

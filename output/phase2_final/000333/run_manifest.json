@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "status": "completed",
+  "input": {
+    "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\data\\reports\\agent\\000333_2025-10-30.md",
+    "sha256": "a413ac7732136bb0465d3f5a545098bc569f75408304207fc78a48ff6bf02fd5"
+  },
+  "schemas": {
+    "document_bundle": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\document_bundle.schema.json",
+      "sha256": "d66e1e8c35c26934546718b3b111a40639e109b73f5450d58e786f7c338f82ae"
+    },
+    "slide_outline": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\slide_outline.schema.json",
+      "sha256": "878e510b3299a4743bf00208474dcc89af7be7baea6ec4a99a79940028bee3d0"
+    },
+    "report_map": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\report_map.schema.json",
+      "sha256": "a75bb868cd0130c4fcadfd5a4755674b4d6c90c30e0d7329ef415a1403d82f32"
+    },
+    "deck_storyboard": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\deck_storyboard.schema.json",
+      "sha256": "153df027bea4d719cd53221f3fd34e047cae8d57c4f166dedb70dd281f7633dd"
+    },
+    "visualization": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\visualization.schema.json",
+      "sha256": "384eaedee6559976507d3e75f4151640b6f54ffb169814b48b2e1d90d809d6c4"
+    },
+    "visualization_manifest": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\visualization_manifest.schema.json",
+      "sha256": "5e91136d99903517491f98fec2c8b6cf59270d088df4cb9cf6ecd62f830ba621"
+    },
+    "template_profile": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\template_profile.schema.json",
+      "sha256": "9e84d4e3e17d8539b236c00c7ed902a9567daaf21590176eddbf0c2e48666734"
+    },
+    "compiled_layout_plan": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\compiled_layout_plan.schema.json",
+      "sha256": "6d375f0b93fcc74e2f7ee50a50f19d147e1382b9b7e6c9884425ff2f36b957eb"
+    },
+    "run_manifest": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\run_manifest.schema.json",
+      "sha256": "192203642957cdc4fe2a0b369258ea49ce1c05cd9788f21ab009f539a2f441ed"
+    },
+    "numeric_fact_ledger": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\numeric_fact_ledger.schema.json",
+      "sha256": "aa98cd8a4e473488533bfea3e75ce271748610f0911ec7e854537b938dc9b51a"
+    },
+    "metric_group": {
+      "path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\schemas\\metric_group.schema.json",
+      "sha256": "b867abedf600889f5bf7f1f598d9a2d578f5a609f3906484db6b50b4afb9d12d"
+    }
+  },
+  "hashes": {
+    "outline_sha256": "ff7becb5941c0dbbe1b0bad1b39f1057c8f025e7d4ce94d3724446404d206e8c",
+    "visualization_manifest_sha256": "3608501c9de9f4fd4f8fe8c7907987a5150c5b139cf1c54e25392735e416935c",
+    "template_profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "template_sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2",
+    "compiled_layout_plan_sha256": "a147de0ecf6a50e1a1aba755974069593ffc4d172307609ed2ce165d5e9e6b2b",
+    "presentation_sha256": "4a99182ede4fff150959039f50df1c6c0b7edb59ad92ba85e2285544c1cd26e8"
+  },
+  "template": {
+    "profile_path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\template_profile.json",
+    "file_path": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\templates\\financial_report_template_v1.pptx"
+  },
+  "warnings": {
+    "visualization_count": 8,
+    "file": "visualization_warnings.json"
+  },
+  "artifacts": [
+    {
+      "path": "document_bundle/document.json",
+      "sha256": "003b99292d0b8bfc54f5948748589309222a6c5cee922218016fc5e49368baf7"
+    },
+    {
+      "path": "report_map.json",
+      "sha256": "353981fe3abd70d27a8cbfbfec0eb5c12ff2eb667bd6def95f0e4c080d719f9a"
+    },
+    {
+      "path": "deck_storyboard.json",
+      "sha256": "be52e518b6de2bc6a284e124df689eebe7169864238b6956146f65ec683f6669"
+    },
+    {
+      "path": "slide_outline.json",
+      "sha256": "b45e4d8007693eb3fa0250f5a080b76128db6c7da3455ba0ed18c1b35621ab89"
+    },
+    {
+      "path": "numeric_fact_ledger.json",
+      "sha256": "0873adf176d49eeb8b8ed43745adb84f73f1026ad86183e21e0b6efb24671eb4"
+    },
+    {
+      "path": "metric_groups.json",
+      "sha256": "98f8fb33b633d19584c919bab9595c25b2e3c3292fbf0059e459f090ac451140"
+    },
+    {
+      "path": "numeric_audit.json",
+      "sha256": "39ea53468cafe1b8bb1aa72e6ba665b5948756b6f5e31160ad9c20c3f1dc9851"
+    },
+    {
+      "path": "visualization_warnings.json",
+      "sha256": "7ba32609a738493f63933dcaf34bad923997f4835be348853741d2fd037538a1"
+    },
+    {
+      "path": "template_profile.json",
+      "sha256": "63394b231ed785fa0b264d33ea3209bd4531d574039bc500fd8be3dc1b3ddb30"
+    },
+    {
+      "path": "visualizations/visualization_manifest.json",
+      "sha256": "a59eaa3615fb4cebcaea5cacf61045dafed570369deb374f8f62efd43de18f12"
+    },
+    {
+      "path": "visualizations/slide_010__visual_story_009.json",
+      "sha256": "c23661a0dc83612d3f98044d8cccaed4e5a27ee2c4c4ba2e320ed8eee7d542ac"
+    },
+    {
+      "path": "visualizations/slide_011__visual_story_010.json",
+      "sha256": "c8c7f9a51cdd9a266f2c3290c6b4eaf6f02642e56c8cec07983336d5968b39a2"
+    },
+    {
+      "path": "compiled_layout_plan.json",
+      "sha256": "d1b56121b097e37c66cc9887dc985a631b7ff564ed2029618c7d24f0c5e5f1e5"
+    },
+    {
+      "path": "presentation.pptx",
+      "sha256": "4a99182ede4fff150959039f50df1c6c0b7edb59ad92ba85e2285544c1cd26e8"
+    }
+  ]
+}

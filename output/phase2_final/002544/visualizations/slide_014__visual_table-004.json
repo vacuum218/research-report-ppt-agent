@@ -1,0 +1,78 @@
+{
+  "title": "Display income statement highlights.",
+  "columns": [
+    "项目",
+    "2024A",
+    "2025E",
+    "2026E",
+    "2027E"
+  ],
+  "rows": [
+    [
+      "营业总收入",
+      "49.73[^citeid:financialprofit002544annual]",
+      "56.07[^citeid:search002544-2025-2026-2027-epstgzdv900]",
+      "63.33[^citeid:search002544-2025-2026-2027-epstgzdv900]",
+      "71.08[^citeid:search002544-2025-2026-2027-epstgzdv900]"
+    ],
+    [
+      "营业总成本",
+      "50.02[^citeid:financialprofit002544annual]",
+      "55.06[^citeid:calculatepython002544tgzeld]",
+      "61.22[^citeid:calculatepython002544tgzeld]",
+      "67.80[^citeid:calculatepython002544tgzeld]"
+    ],
+    [
+      "其中：营业成本",
+      "41.20[^citeid:financialprofit002544annual]",
+      "45.98[^citeid:calculatepython002544tgzeld]",
+      "51.61[^citeid:calculatepython002544tgzeld]",
+      "57.57[^citeid:calculatepython002544tgzeld]"
+    ],
+    [
+      "税金及附加",
+      "0.20[^citeid:financialprofit002544annual]",
+      "0.17[^citeid:calculatepython002544tgzeld]",
+      "0.19[^citeid:calculatepython002544tgzeld]",
+      "0.21[^citeid:calculatepython002544tgzeld]"
+    ],
+    [
+      "销售费用",
+      "1.97[^citeid:financialprofit002544annual]",
+      "2.13[^citeid:calculatepython002544tgzeld]",
+      "2.34[^citeid:calculatepython002544tgzeld]",
+      "2.56[^citeid:calculatepython002544tgzeld]"
+    ],
+    [
+      "管理费用",
+      "2.21[^citeid:financialprofit002544annual]",
+      "2.35[^citeid:calculatepython002544tgzeld]",
+      "2.53[^citeid:calculatepython002544tgzeld]",
+      "2.77[^citeid:calculatepython002544tgzeld]"
+    ],
+    [
+      "研发费用",
+      "2.52[^citeid:financialprofit002544annual]",
+      "2.69[^citeid:calculatepython002544tgzeld]",
+      "2.91[^citeid:calculatepython002544tgzeld]",
+      "3.20[^citeid:calculatepython002544tgzeld]"
+    ],
+    [
+      "财务费用",
+      "-0.03[^citeid:financialprofit002544annual]",
+      "0.06[^citeid:calculatepython002544tgzeld]",
+      "0.06[^citeid:calculatepython002544tgzeld]",
+      "0.07[^citeid:calculatepython002544tgzeld]"
+    ]
+  ],
+  "source_refs": [
+    "src_002544_2025-10-28"
+  ],
+  "sources": [
+    {
+      "kind": "table",
+      "id": "table-004"
+    }
+  ],
+  "note": "Copied from complete DocumentBundle table table-004; all numeric cells are fact-audited"
+}

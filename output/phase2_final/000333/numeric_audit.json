@@ -1,0 +1,993 @@
+{
+  "schema_version": "1.0.0",
+  "status": "passed",
+  "summary": {
+    "visualization_count": 2,
+    "audited_value_count": 24,
+    "mismatch_count": 0
+  },
+  "visualizations": [
+    {
+      "slide_id": "slide_010",
+      "visualization_id": "visual_story_009",
+      "audited_value_count": 20,
+      "status": "passed",
+      "metric_group": null,
+      "entries": [
+        {
+          "fact_id": "fact_4881a1a83a510bf6a16c",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "4,090.84",
+          "normalized_value": "4090.84",
+          "unit": "亿元",
+          "label": "2024A",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2024A"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            0,
+            1
+          ],
+          "output_value": 4090.84,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_fbea16641ec738afc4cc",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+9.47",
+          "normalized_value": "9.47",
+          "unit": "%",
+          "label": "2024A",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2024A"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            0,
+            2
+          ],
+          "output_value": "+9.47%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ee5e44293bdc23271b66",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "385.37",
+          "normalized_value": "385.37",
+          "unit": "亿元",
+          "label": "2024A",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "parent_net_profit",
+          "metric_label": "归母净利润（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2024A"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            0,
+            3
+          ],
+          "output_value": 385.37,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_11b40413964da066c649",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+14.29",
+          "normalized_value": "14.29",
+          "unit": "%",
+          "label": "2024A",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2024A"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            0,
+            4
+          ],
+          "output_value": "+14.29%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_33ee436ce413a88019b1",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "26.42",
+          "normalized_value": "26.42",
+          "unit": "%",
+          "label": "2024A",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "gross_margin",
+          "metric_label": "毛利率",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2024A"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            0,
+            5
+          ],
+          "output_value": "26.42%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ac7407438639f0c70338",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "4,435.57",
+          "normalized_value": "4435.57",
+          "unit": "亿元",
+          "label": "2025E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2025E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            1,
+            1
+          ],
+          "output_value": 4435.57,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_1e482519df750297f6a6",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+8.43",
+          "normalized_value": "8.43",
+          "unit": "%",
+          "label": "2025E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2025E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            1,
+            2
+          ],
+          "output_value": "+8.43%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_80908a3e2869ac500675",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "432.39",
+          "normalized_value": "432.39",
+          "unit": "亿元",
+          "label": "2025E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "parent_net_profit",
+          "metric_label": "归母净利润（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2025E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            1,
+            3
+          ],
+          "output_value": 432.39,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_41996cc6da0c1ce15d1b",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+12.20",
+          "normalized_value": "12.20",
+          "unit": "%",
+          "label": "2025E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2025E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            1,
+            4
+          ],
+          "output_value": "+12.20%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_c6d6f6b3e7fd1a53f1d0",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "26.6",
+          "normalized_value": "26.6",
+          "unit": "%",
+          "label": "2025E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "gross_margin",
+          "metric_label": "毛利率",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2025E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            1,
+            5
+          ],
+          "output_value": "26.6%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_30196082e86a1279e7dd",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "4,749.24",
+          "normalized_value": "4749.24",
+          "unit": "亿元",
+          "label": "2026E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2026E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            2,
+            1
+          ],
+          "output_value": 4749.24,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_b97e79d564fe52426837",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+7.07",
+          "normalized_value": "7.07",
+          "unit": "%",
+          "label": "2026E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2026E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            2,
+            2
+          ],
+          "output_value": "+7.07%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_3b22bc7c045006f98992",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "474.07",
+          "normalized_value": "474.07",
+          "unit": "亿元",
+          "label": "2026E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "parent_net_profit",
+          "metric_label": "归母净利润（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2026E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            2,
+            3
+          ],
+          "output_value": 474.07,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_464cc5b7cc7c790b22b2",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+9.64",
+          "normalized_value": "9.64",
+          "unit": "%",
+          "label": "2026E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2026E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            2,
+            4
+          ],
+          "output_value": "+9.64%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_bc6b0447339482e0863a",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "26.9",
+          "normalized_value": "26.9",
+          "unit": "%",
+          "label": "2026E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "gross_margin",
+          "metric_label": "毛利率",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2026E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            2,
+            5
+          ],
+          "output_value": "26.9%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_2f542a9ae24295ec0aca",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "5,071.40",
+          "normalized_value": "5071.40",
+          "unit": "亿元",
+          "label": "2027E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2027E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 1
+          },
+          "output_path": [
+            "rows",
+            3,
+            1
+          ],
+          "output_value": 5071.4,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_adb9cf8330dc38e54489",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+6.78",
+          "normalized_value": "6.78",
+          "unit": "%",
+          "label": "2027E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2027E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 2
+          },
+          "output_path": [
+            "rows",
+            3,
+            2
+          ],
+          "output_value": "+6.78%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_0a46d89d8f27e8299e05",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "517.05",
+          "normalized_value": "517.05",
+          "unit": "亿元",
+          "label": "2027E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "parent_net_profit",
+          "metric_label": "归母净利润（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2027E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 3
+          },
+          "output_path": [
+            "rows",
+            3,
+            3
+          ],
+          "output_value": 517.05,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_de14741546c6a71ec735",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "+9.07",
+          "normalized_value": "9.07",
+          "unit": "%",
+          "label": "2027E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "unknown",
+          "metric_label": "",
+          "measure_kind": "growth_rate",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2027E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 4
+          },
+          "output_path": [
+            "rows",
+            3,
+            4
+          ],
+          "output_value": "+9.07%",
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ae64bfce4019b3922acd",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "27.1",
+          "normalized_value": "27.1",
+          "unit": "%",
+          "label": "2027E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "gross_margin",
+          "metric_label": "毛利率",
+          "measure_kind": "ratio",
+          "unit_family": "percentage",
+          "unit_scale": "1",
+          "currency": "",
+          "scope": {
+            "kind": "category",
+            "label": "2027E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 5
+          },
+          "output_path": [
+            "rows",
+            3,
+            5
+          ],
+          "output_value": "27.1%",
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_011",
+      "visualization_id": "visual_story_010",
+      "audited_value_count": 4,
+      "status": "passed",
+      "metric_group": {
+        "group_id": "metric_group_f8bef19f10cf23a39c06",
+        "candidate_id": "visual_story_010",
+        "intent": "comparison",
+        "metric_key": "revenue",
+        "measure_kind": "amount",
+        "unit_family": "currency",
+        "unit": "亿元",
+        "unit_scale": "100000000",
+        "currency": "CNY",
+        "scope": "category",
+        "fact_ids": [
+          "fact_4881a1a83a510bf6a16c",
+          "fact_ac7407438639f0c70338",
+          "fact_30196082e86a1279e7dd",
+          "fact_2f542a9ae24295ec0aca"
+        ],
+        "scenarios": [
+          "actual",
+          "actual",
+          "actual",
+          "actual"
+        ],
+        "forecast_start_index": null
+      },
+      "entries": [
+        {
+          "fact_id": "fact_4881a1a83a510bf6a16c",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "4,090.84",
+          "normalized_value": "4090.84",
+          "unit": "亿元",
+          "label": "2024A",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2024A"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 0,
+            "column_index": 1
+          },
+          "output_path": [
+            "series",
+            0,
+            "values",
+            0
+          ],
+          "output_value": 4090.84,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_ac7407438639f0c70338",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "4,435.57",
+          "normalized_value": "4435.57",
+          "unit": "亿元",
+          "label": "2025E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2025E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 1,
+            "column_index": 1
+          },
+          "output_path": [
+            "series",
+            0,
+            "values",
+            1
+          ],
+          "output_value": 4435.57,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_30196082e86a1279e7dd",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "4,749.24",
+          "normalized_value": "4749.24",
+          "unit": "亿元",
+          "label": "2026E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2026E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 2,
+            "column_index": 1
+          },
+          "output_path": [
+            "series",
+            0,
+            "values",
+            2
+          ],
+          "output_value": 4749.24,
+          "status": "matched"
+        },
+        {
+          "fact_id": "fact_2f542a9ae24295ec0aca",
+          "source": {
+            "kind": "table",
+            "id": "table-002"
+          },
+          "raw_value": "5,071.40",
+          "normalized_value": "5071.40",
+          "unit": "亿元",
+          "label": "2027E",
+          "period": null,
+          "entity": {
+            "id": "000333_2025-10-30",
+            "name": "美的集团（000333）深度研究报告",
+            "type": "company"
+          },
+          "metric_key": "revenue",
+          "metric_label": "营业总收入（亿元）",
+          "measure_kind": "amount",
+          "unit_family": "currency",
+          "unit_scale": "100000000",
+          "currency": "CNY",
+          "scope": {
+            "kind": "category",
+            "label": "2027E"
+          },
+          "scenario": "actual",
+          "source_locator": {
+            "row_index": 3,
+            "column_index": 1
+          },
+          "output_path": [
+            "series",
+            0,
+            "values",
+            3
+          ],
+          "output_value": 5071.4,
+          "status": "matched"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "status": "passed",
+  "summary": {
+    "visualization_count": 0,
+    "audited_value_count": 0,
+    "mismatch_count": 0
+  },
+  "visualizations": []
+}

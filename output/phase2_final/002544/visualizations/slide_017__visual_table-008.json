@@ -1,0 +1,69 @@
+{
+  "title": "Compare peer valuation multiples.",
+  "columns": [
+    "公司",
+    "业务定位",
+    "PE(TTM，倍）",
+    "说明"
+  ],
+  "rows": [
+    [
+      "国博电子(688375)",
+      "卫星核心元器件",
+      42.4,
+      "盈利稳定，估值合理"
+    ],
+    [
+      "中国卫通(601698)",
+      "卫星运营服务",
+      193.42,
+      "亚洲第二大固网卫星运营商[^citeid:search601698tgzfu908]"
+    ],
+    [
+      "北斗星通(002151)",
+      "导航定位产品与服务",
+      193.9,
+      "北斗产业链首家上市公司[^citeid:search002151-ttm-2025tgzfvs05]"
+    ],
+    [
+      "海格通信(002465)",
+      "导航芯片、地面设备",
+      527.79,
+      "2024年净利润同比降92.44%致PE走高[^citeid:search002465tgzfw206]"
+    ],
+    [
+      "中国卫星(600118)",
+      "宇航制造与卫星应用",
+      "负值",
+      "微利/亏损，PE为负[^citeid:search600118-ttm-2025tgzfvh04]"
+    ],
+    [
+      "航天宏图(688066)",
+      "卫星遥感与全产业链布局",
+      "负值",
+      "亏损状态[^citeid:search688066tgzfwl00]"
+    ],
+    [
+      "上海瀚讯(300762)",
+      "卫星通信设备",
+      "负值",
+      "亏损状态[^citeid:search300762tgzfwt09]"
+    ],
+    [
+      "震有科技(688418)",
+      "卫星通信设备",
+      "负值",
+      "亏损状态[^citeid:search688418tgzfx400]"
+    ]
+  ],
+  "source_refs": [
+    "src_002544_2025-10-28"
+  ],
+  "sources": [
+    {
+      "kind": "table",
+      "id": "table-008"
+    }
+  ],
+  "note": "Copied from complete DocumentBundle table table-008; all numeric cells are fact-audited"
+}

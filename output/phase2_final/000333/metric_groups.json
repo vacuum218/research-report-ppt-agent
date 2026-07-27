@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "group_count": 1,
+  "groups": [
+    {
+      "group_id": "metric_group_f8bef19f10cf23a39c06",
+      "candidate_id": "visual_story_010",
+      "intent": "comparison",
+      "metric_key": "revenue",
+      "measure_kind": "amount",
+      "unit_family": "currency",
+      "unit": "亿元",
+      "unit_scale": "100000000",
+      "currency": "CNY",
+      "scope": "category",
+      "fact_ids": [
+        "fact_4881a1a83a510bf6a16c",
+        "fact_ac7407438639f0c70338",
+        "fact_30196082e86a1279e7dd",
+        "fact_2f542a9ae24295ec0aca"
+      ],
+      "scenarios": [
+        "actual",
+        "actual",
+        "actual",
+        "actual"
+      ],
+      "forecast_start_index": null
+    }
+  ]
+}

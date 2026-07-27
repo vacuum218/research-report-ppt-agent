@@ -1,0 +1,467 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "001309_2025-10-28",
+  "slides": [
+    {
+      "story_id": "story_001",
+      "page_role": "title",
+      "slide_type": "company_overview",
+      "purpose": "封面页，展示报告标题、公司名称和股票代码",
+      "claim": null,
+      "headline": "德明利（001309）深度研究报告",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_002",
+      "page_role": "section",
+      "slide_type": "summary",
+      "section_ref": "sec-002",
+      "section_title": "自研主控驱动跃迁，存储周期与产品放量共振",
+      "purpose": "章节过渡页，引出核心投资逻辑",
+      "claim": null,
+      "headline": "自研主控驱动跃迁，存储周期与产品放量共振",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_003",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-002",
+      "section_title": "自研主控驱动跃迁，存储周期与产品放量共振",
+      "purpose": "展示自研主控芯片积累和技术突破",
+      "claim_ref": "claim_sec002_01",
+      "claim": "公司已积累9颗自研主控芯片，覆盖移动存储与SATA SSD，并加速向PCIe SSD、嵌入式及企业级存储拓展。",
+      "headline": "自研9颗主控芯片，加速向高价值领域拓展",
+      "supporting_points": [
+        "覆盖移动存储与SATA SSD",
+        "延伸至PCIe SSD、嵌入式及企业级存储"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0004"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_004",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-002",
+      "section_title": "自研主控驱动跃迁，存储周期与产品放量共振",
+      "purpose": "呈现最新季度业绩高增长",
+      "claim_ref": "claim_sec002_02",
+      "claim": "2025年Q3单季营收25.5亿元（同比+79.47%），净利润9087万元（同比+166.80%）。",
+      "headline": "Q3单季营收25.5亿元，净利润同比增166.8%",
+      "supporting_points": [
+        "营收同比+79.47%",
+        "净利润同比+166.80%"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0006"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_005",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-002",
+      "section_title": "自研主控驱动跃迁，存储周期与产品放量共振",
+      "purpose": "展示盈利预测和增长路径",
+      "claim_ref": "claim_sec002_03",
+      "claim": "预计2024-2026年归母净利润分别为3.97/6.57/10.08亿元，对应增速1489%/65%/53%。",
+      "headline": "预计2024-2026年归母净利润分别为3.97/6.57/10.08亿元，对应增速1489%/65%/53%。",
+      "supporting_points": [
+        "2024年归母净利润3.97亿元",
+        "2025年6.57亿元，2026年10.08亿元"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0006"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_006",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "section_ref": "sec-002",
+      "section_title": "自研主控驱动跃迁，存储周期与产品放量共振",
+      "purpose": "明确评级和估值水平",
+      "claim_ref": "claim_sec002_04",
+      "claim": "维持“买入”评级，基于2026年预期EPS 6.23元，当前股价对应16.64倍PE。",
+      "headline": "维持买入评级，2026E PE仅16.64倍",
+      "supporting_points": [
+        "基于2026E EPS 6.23元",
+        "当前股价对应16.64倍PE"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0007"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_007",
+      "page_role": "section",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-004",
+      "section_title": "自研主控芯片构筑核心壁垒，四大产品线协同打开成长空间",
+      "purpose": "章节过渡，聚焦自研主控与产品矩阵",
+      "claim": null,
+      "headline": "自研主控芯片构筑核心壁垒，四大产品线协同打开成长空间",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_008",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-004",
+      "section_title": "自研主控芯片构筑核心壁垒，四大产品线协同打开成长空间",
+      "purpose": "阐述自研主控覆盖的应用领域",
+      "claim_ref": "claim_sec004_01",
+      "claim": "公司已自主研发9颗主控芯片，产品覆盖数据中心、AI、车载电子等领域。",
+      "headline": "9颗自研主控芯片覆盖数据中心、AI和车载电子",
+      "supporting_points": [
+        "产品覆盖数据中心、AI、车载电子等高端领域"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0015"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_009",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section_ref": "sec-004",
+      "section_title": "自研主控芯片构筑核心壁垒，四大产品线协同打开成长空间",
+      "purpose": "展示四大产品线构成",
+      "claim_ref": "claim_sec004_02",
+      "claim": "形成移动存储、固态硬盘、嵌入式存储和内存条四大产品线。",
+      "headline": "移动存储、SSD、嵌入式、内存条四大产品线协同",
+      "supporting_points": [
+        "覆盖消费级与企业级市场"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0016"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_010",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-005",
+      "section_title": "实际控制人高比例持股，治理结构稳定支撑长期战略执行",
+      "purpose": "展示股权集中度和治理稳定性",
+      "claim_ref": "claim_sec005_02",
+      "claim": "前四大股东合计持股约47.61%，李虎一人持股超后三大股东之和。",
+      "headline": "前四大股东持股47.61%，李虎持股超后三大股东之和",
+      "supporting_points": [
+        "李虎持股集中，治理结构稳定"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0020"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_011",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section_ref": "sec-006",
+      "section_title": "从闪存主控到全栈存储：德明利“主控+模组”双轮驱动的成长路径与投资逻辑",
+      "purpose": "展示成长历程和募投项目布局",
+      "claim_ref": "claim_sec006_02",
+      "claim": "2023年募投项目合计投资近12亿元，其中PCIe SSD项目投资约4.99亿元，嵌入式项目投资约6.67亿元。",
+      "headline": "募投近12亿元，加码PCIe SSD与嵌入式存储",
+      "supporting_points": [
+        "PCIe SSD项目投资4.99亿元",
+        "嵌入式项目投资6.67亿元"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0027"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_012",
+      "page_role": "section",
+      "slide_type": "business_model",
+      "section_ref": "sec-009",
+      "section_title": "财务与经营分析",
+      "purpose": "章节过渡，进入财务分析部分",
+      "claim": null,
+      "headline": "财务与经营分析",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_013",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-010",
+      "section_title": "产品结构重塑：嵌入式存储与固态硬盘双轮驱动，成长型品类占比逼近50%",
+      "purpose": "展示产品结构向高附加值迁移",
+      "claim_ref": "claim_sec010_04",
+      "claim": "传统移动存储营收从2023年10.35亿元降至2025H1的5.37亿元，占比从58.3%降至13.06%。",
+      "headline": "移动存储占比从58.3%降至13.06%，产品结构优化",
+      "supporting_points": [
+        "嵌入式与SSD成为主力"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0044"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_014",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-011",
+      "section_title": "毛利率深度共振存储周期，战略备货放大波动，费用管控构筑护城河",
+      "purpose": "说明毛利率波动与费用率优势",
+      "claim_ref": "claim_sec011_03",
+      "claim": "2024年销售费用率0.85%，远低于江波龙4.42%和佰维存储3.79%。",
+      "headline": "销售费用率仅0.85%，显著低于同行",
+      "supporting_points": [
+        "江波龙4.42%，佰维存储3.79%"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0054"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_015",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-012",
+      "section_title": "Q3盈利强势修复，底部囤货与自研主控构筑净利率领先优势",
+      "purpose": "突出盈利修复和净利率优势",
+      "claim_ref": "claim_sec012_02",
+      "claim": "2024年全年销售净利率7.35%，高于江波龙2.89%、佰维存储2.02%、朗科科技-13.17%。",
+      "headline": "2024年净利率7.35%，超越江波龙、佰维存储",
+      "supporting_points": [
+        "江波龙2.89%，佰维存储2.02%",
+        "自研主控与成本管控构筑优势"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0062"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_016",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-013",
+      "section_title": "研发投入加速转化：自研主控芯片梯度布局，驱动产品结构向高附加值领域跃迁",
+      "purpose": "展示研发投入和主控芯片量产进展",
+      "claim_ref": "claim_sec013_02",
+      "claim": "公司已量产8款闪存主控芯片，主控技术突破至22nm及以下。",
+      "headline": "已量产8款闪存主控芯片，制程突破22nm",
+      "supporting_points": [
+        "技术领先，支撑高附加值产品"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0067"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_017",
+      "page_role": "section",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-014",
+      "section_title": "闪存行业市场广阔,模组+主控模式大有可为",
+      "purpose": "章节过渡，进入行业分析",
+      "claim": null,
+      "headline": "闪存行业市场广阔，模组+主控模式大有可为",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_018",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-015",
+      "section_title": "供需周期拐点确立，AI驱动NAND Flash市场进入新一轮量价齐升通道",
+      "purpose": "展示市场周期和AI驱动复苏",
+      "claim_ref": "claim_sec015_02",
+      "claim": "TrendForce预测2025年全球NAND Flash市场规模约870亿美元，同比增长约29%。",
+      "headline": "2025年NAND Flash市场规模约870亿美元，同比+29%",
+      "supporting_points": [
+        "AI与服务器需求驱动增长"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0079"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_019",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-016",
+      "section_title": "服务器与手机双轮驱动：NAND Flash需求结构加速向高价值应用迁移",
+      "purpose": "说明需求结构向企业级SSD迁移",
+      "claim_ref": "claim_sec016_02",
+      "claim": "2024年服务器NAND容量同比暴增108%。",
+      "headline": "服务器NAND容量同比增长108%，企业级需求爆发",
+      "supporting_points": [
+        "eSSD占比持续提升"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0084"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_020",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-018",
+      "section_title": "AI推理与终端复苏双轮驱动：企业级SSD及存储市场迎来结构性增长拐点",
+      "purpose": "揭示AI服务器对企业级SSD的拉动",
+      "claim_ref": "claim_sec018_02",
+      "claim": "2024年AI服务器客户对企业级SSD采购容量突破45EB，市场年增长率超60%。",
+      "headline": "AI服务器采购企业级SSD超45EB，年增60%以上",
+      "supporting_points": [
+        "AI推理驱动高容量存储需求"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0096"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_021",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-019",
+      "section_title": "国产存储模组崛起：从份额突破到格局重塑的结构性机遇",
+      "purpose": "展示国产模组厂份额提升",
+      "claim_ref": "claim_sec019_02",
+      "claim": "2023年前十大闪存模组厂中中国大陆模组厂合计市占率34%。",
+      "headline": "中国大陆闪存模组厂合计市占率34%，国产替代加速",
+      "supporting_points": [
+        "德明利等国产厂商份额持续提升"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0106"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_022",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "section_ref": "sec-020",
+      "section_title": "盈利高增确立拐点，估值溢价反映成长确定性",
+      "purpose": "对比可比公司估值，提示估值溢价",
+      "claim_ref": "claim_sec020_03",
+      "claim": "可比公司2025E/2026E平均PE分别为37.4倍/28.6倍，德明利当前估值高于均值。",
+      "headline": "估值高于可比均值，2025E/2026E PE 37.4x/28.6x",
+      "supporting_points": [
+        "成长性支撑估值溢价"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0116"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_023",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-021",
+      "section_title": "盈利拐点确立，现金流改善是估值修复的关键变量",
+      "purpose": "强调现金流改善预期",
+      "claim_ref": "claim_sec021_03",
+      "claim": "经营活动现金流2023-2025年持续为负，预计2026年转正至-2.41亿元，2027-2028年分别达到10.00亿和18.00亿元。",
+      "headline": "经营现金流2026年转正，后续大幅改善",
+      "supporting_points": [
+        "2026E -2.41亿元，2027E 10亿元，2028E 18亿元"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0126"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_024",
+      "page_role": "closing",
+      "slide_type": "summary",
+      "purpose": "结束页，总结投资观点",
+      "claim": null,
+      "headline": "德明利：自研主控+全品类布局，成长路径清晰",
+      "supporting_points": [
+        "买入评级",
+        "存储周期上行"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": []
+    }
+  ]
+}

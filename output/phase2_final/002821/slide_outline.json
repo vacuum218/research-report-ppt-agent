@@ -1,0 +1,639 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "company": "凯莱英",
+    "company_name": "凯莱英",
+    "stock_code": "002821",
+    "industry": "",
+    "report_title": "凯莱英（002821）深度研究报告",
+    "report_date": "2025-09-11",
+    "source_file": "002821_2025-09-11.md"
+  },
+  "sources": [
+    {
+      "source_id": "src_002821_2025-09-11",
+      "type": "broker_report",
+      "title": "凯莱英（002821）深度研究报告",
+      "published_date": "2025-09-11",
+      "file_name": "002821_2025-09-11.md"
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "page_role": "title",
+      "slide_type": "company_overview",
+      "title": "凯莱英（002821）深度研究报告",
+      "headline": "凯莱英（002821）深度研究报告",
+      "purpose": "Opening title slide introducing the report on Asymchem",
+      "claim": null,
+      "key_message": "Opening title slide introducing the report on Asymchem",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "slide_id": "slide_002",
+      "page_role": "section",
+      "slide_type": "company_overview",
+      "title": "凯莱英：小分子CDMO龙头深度剖析",
+      "headline": "凯莱英：小分子CDMO龙头深度剖析",
+      "purpose": "Section transition to the report overview",
+      "claim": null,
+      "key_message": "Section transition to the report overview",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-001",
+      "section_title": "凯莱英（002821）深度研究报告",
+      "section": "凯莱英（002821）深度研究报告"
+    },
+    {
+      "slide_id": "slide_003",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "title": "全球小分子CDMO市场有望增长至1067亿美元，CAGR 15.5%",
+      "headline": "全球小分子CDMO市场有望增长至1067亿美元，CAGR 15.5%",
+      "purpose": "Establish the large and growing market opportunity in small-molecule CDMO",
+      "claim": "全球小分子CDMO市场2023年规模为519亿美元，预计以15.5%的CAGR增长至2028年的1067亿美元。",
+      "key_message": "全球小分子CDMO市场2023年规模为519亿美元，预计以15.5%的CAGR增长至2028年的1067亿美元。",
+      "bullet_points": [
+        "2023年市场规模519亿美元",
+        "预计2028年增至1067亿美元",
+        "复合年增长率15.5%"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0002"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_001",
+          "type": "chart",
+          "description": "展示2023-2028年全球小分子CDMO市场规模增长趋势",
+          "purpose": "展示2023-2028年全球小分子CDMO市场规模增长趋势",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0002"
+            }
+          ],
+          "chart_intent": "trend"
+        }
+      ],
+      "section_ref": "sec-001",
+      "section_title": "凯莱英（002821）深度研究报告",
+      "section": "凯莱英（002821）深度研究报告",
+      "layout_hint": "左侧趋势柱状图，右侧关键要点"
+    },
+    {
+      "slide_id": "slide_004",
+      "page_role": "section",
+      "slide_type": "core_competitiveness",
+      "title": "凯莱英：管理层深度绑定与平台化护城河",
+      "headline": "凯莱英：管理层深度绑定与平台化护城河",
+      "purpose": "Section transition to the company's competitive moat",
+      "claim": null,
+      "key_message": "Section transition to the company's competitive moat",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-002",
+      "section_title": "管理层深度绑定与平台化布局：凯莱英穿越周期的核心护城河",
+      "section": "管理层深度绑定与平台化布局：凯莱英穿越周期的核心护城河"
+    },
+    {
+      "slide_id": "slide_005",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "title": "凯莱英服务全球超1100家客户，构建一体化服务生态",
+      "headline": "凯莱英服务全球超1100家客户，构建一体化服务生态",
+      "purpose": "Highlight Asymchem's comprehensive CDMO platform and broad customer base",
+      "claim": "公司是全球领先的CDMO一站式综合服务商，服务全球超1100家客户，已形成创新药一体化服务生态。",
+      "key_message": "公司是全球领先的CDMO一站式综合服务商，服务全球超1100家客户，已形成创新药一体化服务生态。",
+      "bullet_points": [
+        "全球领先的CDMO一站式综合服务商",
+        "服务覆盖超过1100家客户",
+        "创新药一体化服务生态"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0007"
+        }
+      ],
+      "visual_candidates": [],
+      "section_ref": "sec-002",
+      "section_title": "管理层深度绑定与平台化布局：凯莱英穿越周期的核心护城河",
+      "section": "管理层深度绑定与平台化布局：凯莱英穿越周期的核心护城河"
+    },
+    {
+      "slide_id": "slide_006",
+      "page_role": "section",
+      "slide_type": "industry_analysis",
+      "title": "CDMO行业供需格局迎拐点：研发增长与出海共振",
+      "headline": "CDMO行业供需格局迎拐点：研发增长与出海共振",
+      "purpose": "Section transition to industry supply-demand dynamics",
+      "claim": null,
+      "key_message": "Section transition to industry supply-demand dynamics",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-004",
+      "section_title": "创新药研发投入持续增长与出海加速共振，CDMO行业供需格局迎来拐点",
+      "section": "创新药研发投入持续增长与出海加速共振，CDMO行业供需格局迎来拐点"
+    },
+    {
+      "slide_id": "slide_007",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "title": "中国创新药出海加速：2024年License-out达94笔，总金额519亿美元",
+      "headline": "中国创新药出海加速：2024年License-out达94笔，总金额519亿美元",
+      "purpose": "Show China's rapid increase in innovative drug out-licensing, boosting CDMO demand",
+      "claim": "2024年中国创新药License-out交易达94笔，总金额约519亿美元，出海加速提升产业链景气度。",
+      "key_message": "2024年中国创新药License-out交易达94笔，总金额约519亿美元，出海加速提升产业链景气度。",
+      "bullet_points": [
+        "2024年交易数量94笔",
+        "总金额约519亿美元",
+        "出海加速提升产业链景气度"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0026"
+        },
+        {
+          "kind": "table",
+          "id": "table-003"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_003",
+          "type": "chart",
+          "description": "展示中国创新药License-out交易数量和金额趋势",
+          "purpose": "展示中国创新药License-out交易数量和金额趋势",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-003"
+            }
+          ],
+          "chart_intent": "trend"
+        }
+      ],
+      "section_ref": "sec-004",
+      "section_title": "创新药研发投入持续增长与出海加速共振，CDMO行业供需格局迎来拐点",
+      "section": "创新药研发投入持续增长与出海加速共振，CDMO行业供需格局迎来拐点",
+      "layout_hint": "条形图展示近年交易金额增长"
+    },
+    {
+      "slide_id": "slide_008",
+      "page_role": "section",
+      "slide_type": "business_model",
+      "title": "守正出奇：小分子基本盘稳固，新兴疗法开辟第二曲线",
+      "headline": "守正出奇：小分子基本盘稳固，新兴疗法开辟第二曲线",
+      "purpose": "Section transition to business strategy",
+      "claim": null,
+      "key_message": "Section transition to business strategy",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-005",
+      "section_title": "守正出奇：小分子基本盘稳固，新兴疗法打开第二增长曲线",
+      "section": "守正出奇：小分子基本盘稳固，新兴疗法打开第二增长曲线"
+    },
+    {
+      "slide_id": "slide_009",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "title": "2025H1公司新兴业务收入7.56亿元",
+      "headline": "2025H1公司新兴业务收入7.56亿元",
+      "purpose": "Demonstrate strong growth in emerging businesses with margin expansion",
+      "claim": "2025H1公司新兴业务收入7.56亿元，同比增长51.22%，毛利率同比提升9.5pct，多肽和ADC项目驱动增长。",
+      "key_message": "2025H1公司新兴业务收入7.56亿元，同比增长51.22%，毛利率同比提升9.5pct，多肽和ADC项目驱动增长。",
+      "bullet_points": [
+        "2025年上半年收入7.56亿元",
+        "同比增长51.22%",
+        "毛利率同比提升9.5个百分点",
+        "多肽和ADC项目驱动"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0035"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_004",
+          "type": "chart",
+          "description": "展示新兴业务收入及毛利率变化",
+          "purpose": "展示新兴业务收入及毛利率变化",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0035"
+            }
+          ],
+          "chart_intent": "trend"
+        }
+      ],
+      "section_ref": "sec-005",
+      "section_title": "守正出奇：小分子基本盘稳固，新兴疗法打开第二增长曲线",
+      "section": "守正出奇：小分子基本盘稳固，新兴疗法打开第二增长曲线",
+      "layout_hint": "柱状图与折线图组合"
+    },
+    {
+      "slide_id": "slide_010",
+      "page_role": "section",
+      "slide_type": "financial_forecast",
+      "title": "大订单影响出清，主业重回高质量增长",
+      "headline": "大订单影响出清，主业重回高质量增长",
+      "purpose": "Section transition to core business recovery and globalization",
+      "claim": null,
+      "key_message": "Section transition to core business recovery and globalization",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-006",
+      "section_title": "大订单扰动出清，主业重回高质量增长通道：凯莱英内生增长动能与全球化布局深化",
+      "section": "大订单扰动出清，主业重回高质量增长通道：凯莱英内生增长动能与全球化布局深化"
+    },
+    {
+      "slide_id": "slide_011",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "title": "剔除大订单后，小分子CDMO 2025上半年营收增长18.2%",
+      "headline": "剔除大订单后，小分子CDMO 2025上半年营收增长18.2%",
+      "purpose": "Show underlying small-molecule growth after removing pandemic orders",
+      "claim": "剔除新冠大订单影响，公司小分子CDMO 2024年收入同比增长8.9%，2025H1营收同比增长18.2%，重回增长。",
+      "key_message": "剔除新冠大订单影响，公司小分子CDMO 2024年收入同比增长8.9%，2025H1营收同比增长18.2%，重回增长。",
+      "bullet_points": [
+        "2024年收入剔除大订单同比增长8.9%",
+        "2025上半年营收同比增长18.2%",
+        "小分子CDMO重回增长通道"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0042"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_005",
+          "type": "chart",
+          "description": "展示剔除大订单前后小分子CDMO收入增长趋势",
+          "purpose": "展示剔除大订单前后小分子CDMO收入增长趋势",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0042"
+            }
+          ],
+          "chart_intent": "trend"
+        }
+      ],
+      "section_ref": "sec-006",
+      "section_title": "大订单扰动出清，主业重回高质量增长通道：凯莱英内生增长动能与全球化布局深化",
+      "section": "大订单扰动出清，主业重回高质量增长通道：凯莱英内生增长动能与全球化布局深化"
+    },
+    {
+      "slide_id": "slide_012",
+      "page_role": "section",
+      "slide_type": "financial_forecast",
+      "title": "新兴业务：多肽、ADC、小核酸驱动第二曲线加速",
+      "headline": "新兴业务：多肽、ADC、小核酸驱动第二曲线加速",
+      "purpose": "Section transition to emerging business acceleration",
+      "claim": null,
+      "key_message": "Section transition to emerging business acceleration",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-008",
+      "section_title": "新兴业务：多肽、ADC、小核酸驱动下，第二增长曲线加速兑现",
+      "section": "新兴业务：多肽、ADC、小核酸驱动下，第二增长曲线加速兑现"
+    },
+    {
+      "slide_id": "slide_013",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "title": "新兴业务2025H1收入7.56亿元，毛利率回升至29.79%",
+      "headline": "新兴业务2025H1收入7.56亿元，毛利率回升至29.79%",
+      "purpose": "Show the overall revenue and margin trend for emerging business",
+      "claim": "新兴业务2024年收入12.3亿元（同比+2.3%），2025H1收入7.56亿元（同比+51.22%），毛利率回升至29.79%。",
+      "key_message": "新兴业务2024年收入12.3亿元（同比+2.3%），2025H1收入7.56亿元（同比+51.22%），毛利率回升至29.79%。",
+      "bullet_points": [
+        "2024全年收入12.3亿元",
+        "2025上半年收入7.56亿元，同比增51.22%",
+        "毛利率回升至29.79%"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0072"
+        },
+        {
+          "kind": "block",
+          "id": "block_0073"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_006",
+          "type": "chart",
+          "description": "展示新兴业务收入及毛利率季度趋势",
+          "purpose": "展示新兴业务收入及毛利率季度趋势",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0073"
+            }
+          ],
+          "chart_intent": "trend"
+        }
+      ],
+      "section_ref": "sec-008",
+      "section_title": "新兴业务：多肽、ADC、小核酸驱动下，第二增长曲线加速兑现",
+      "section": "新兴业务：多肽、ADC、小核酸驱动下，第二增长曲线加速兑现"
+    },
+    {
+      "slide_id": "slide_014",
+      "page_role": "section",
+      "slide_type": "core_competitiveness",
+      "title": "技术壁垒：连续反应与酶催化双轮驱动商业化",
+      "headline": "技术壁垒：连续反应与酶催化双轮驱动商业化",
+      "purpose": "Section transition to technological moat",
+      "claim": null,
+      "key_message": "Section transition to technological moat",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-013",
+      "section_title": "连续反应与酶催化双轮驱动：技术壁垒兑现为商业化输出的加速拐点",
+      "section": "连续反应与酶催化双轮驱动：技术壁垒兑现为商业化输出的加速拐点"
+    },
+    {
+      "slide_id": "slide_015",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "title": "连续反应与酶催化应用率超40%，能耗降低50%，三废减少60%",
+      "headline": "连续反应与酶催化应用率超40%，能耗降低50%，三废减少60%",
+      "purpose": "Illustrate technology advantages that lower costs and improve sustainability",
+      "claim": "公司连续反应技术与酶催化技术在临床中后期项目应用率超40%，可降低能耗50%、占地面积70%、三废排放30-60%。",
+      "key_message": "公司连续反应技术与酶催化技术在临床中后期项目应用率超40%，可降低能耗50%、占地面积70%、三废排放30-60%。",
+      "bullet_points": [
+        "临床中后期项目应用率超40%",
+        "降低能耗50%",
+        "减少占地面积70%",
+        "减少三废排放30-60%"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0099"
+        },
+        {
+          "kind": "block",
+          "id": "block_0100"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_007",
+          "type": "chart",
+          "description": "展示技术应用前后成本与排放对比",
+          "purpose": "展示技术应用前后成本与排放对比",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0100"
+            }
+          ],
+          "chart_intent": "comparison"
+        }
+      ],
+      "section_ref": "sec-013",
+      "section_title": "连续反应与酶催化双轮驱动：技术壁垒兑现为商业化输出的加速拐点",
+      "section": "连续反应与酶催化双轮驱动：技术壁垒兑现为商业化输出的加速拐点"
+    },
+    {
+      "slide_id": "slide_016",
+      "page_role": "section",
+      "slide_type": "financial_forecast",
+      "title": "盈利预测：2025-2027年归母净利润CAGR约20%",
+      "headline": "盈利预测：2025-2027年归母净利润CAGR约20%",
+      "purpose": "Section transition to financial forecasts",
+      "claim": null,
+      "key_message": "Section transition to financial forecasts",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-015",
+      "section_title": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%",
+      "section": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%"
+    },
+    {
+      "slide_id": "slide_017",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "title": "预计营收CAGR 12%，归母净利润CAGR 20%，毛利率修复至44.50%",
+      "headline": "预计营收CAGR 12%，归母净利润CAGR 20%，毛利率修复至44.50%",
+      "purpose": "Provide the revenue and earnings growth outlook with margin recovery",
+      "claim": "预计2025-2027年公司营业收入CAGR约12%，归母净利润CAGR约20%，毛利率从42.36%修复至44.50%。",
+      "key_message": "预计2025-2027年公司营业收入CAGR约12%，归母净利润CAGR约20%，毛利率从42.36%修复至44.50%。",
+      "bullet_points": [
+        "2025-2027年营收CAGR约12%",
+        "归母净利润CAGR约20%",
+        "毛利率从42.36%修复至44.50%"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-004"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_008",
+          "type": "table",
+          "description": "展示2025-2027年分业务收入、毛利率和净利润预测",
+          "purpose": "展示2025-2027年分业务收入、毛利率和净利润预测",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-004"
+            }
+          ]
+        }
+      ],
+      "section_ref": "sec-015",
+      "section_title": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%",
+      "section": "在手订单高覆盖叠加PPQ加速转化，新兴业务多极放量，预计2025~2027年归母净利润CAGR约20%"
+    },
+    {
+      "slide_id": "slide_018",
+      "page_role": "section",
+      "slide_type": "investment_risk",
+      "title": "投资建议与风险提示",
+      "headline": "投资建议与风险提示",
+      "purpose": "Section transition to investment recommendation and risks",
+      "claim": null,
+      "key_message": "Section transition to investment recommendation and risks",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": [],
+      "section_ref": "sec-016",
+      "section_title": "盈利高增确定性强，但需警惕产能爬坡与订单持续性风险",
+      "section": "盈利高增确定性强，但需警惕产能爬坡与订单持续性风险"
+    },
+    {
+      "slide_id": "slide_019",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "title": "预计2025-2027年归母净利润分别为11.64亿元、14.10亿元、16.73亿元",
+      "headline": "预计2025-2027年归母净利润分别为11.64亿元、14.10亿元、16.73亿元",
+      "purpose": "Provide specific earnings forecasts and valuation, reiterate Buy rating",
+      "claim": "预计2025-2027年归母净利润分别为11.64亿元、14.10亿元、16.73亿元，当前PE分别为23倍、19倍、16倍，给予买入评级。",
+      "key_message": "预计2025-2027年归母净利润分别为11.64亿元、14.10亿元、16.73亿元，当前PE分别为23倍、19倍、16倍，给予买入评级。",
+      "bullet_points": [
+        "2025年归母净利润11.64亿元",
+        "2026年14.10亿元",
+        "2027年16.73亿元",
+        "当前PE对应23倍、19倍、16倍",
+        "给予买入评级"
+      ],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0127"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_009",
+          "type": "table",
+          "description": "展示盈利预测关键指标与估值",
+          "purpose": "展示盈利预测关键指标与估值",
+          "supports_claim": true,
+          "source_refs": [
+            "src_002821_2025-09-11"
+          ],
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0127"
+            }
+          ]
+        }
+      ],
+      "section_ref": "sec-016",
+      "section_title": "盈利高增确定性强，但需警惕产能爬坡与订单持续性风险",
+      "section": "盈利高增确定性强，但需警惕产能爬坡与订单持续性风险"
+    },
+    {
+      "slide_id": "slide_020",
+      "page_role": "closing",
+      "slide_type": "summary",
+      "title": "感谢聆听",
+      "headline": "感谢聆听",
+      "purpose": "Closing slide thanking the audience",
+      "claim": null,
+      "key_message": "Closing slide thanking the audience",
+      "bullet_points": [],
+      "source_refs": [
+        "src_002821_2025-09-11"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": []
+    }
+  ]
+}

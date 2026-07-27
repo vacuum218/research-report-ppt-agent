@@ -1,0 +1,1741 @@
+{
+  "schema_version": "2.0.0",
+  "plan_id": "plan_51c2b13b03885edf",
+  "source": {
+    "outline_sha256": "af761387f36c36413be3d5a2ebc94928d936f3020cbaf2bcf54a19443f3952b3",
+    "manifest_sha256": "972c6e90a88e20755b7893cabbe7e3b2c3155700cb92b64c59068e5af469c549"
+  },
+  "template": {
+    "profile_id": "financial-report-v1",
+    "profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "file": "financial_report_template_v1.pptx",
+    "sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2"
+  },
+  "asset_root": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\phase2_acceptance_retry5\\001309\\document_bundle",
+  "visualizations": [],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "slide_mode": "exact_template",
+      "layout_id": "cover",
+      "template_slide": 1,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "cover_title",
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3
+          },
+          "value": "德明利"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "subtitle",
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4
+          },
+          "value": "德明利（001309）深度研究报告"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "cover_meta",
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6
+          },
+          "value": "001309  |  2025-10-28"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "tag",
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7
+          },
+          "value": ""
+        }
+      ],
+      "source_slide_id": "slide_001",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_002",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "自研主控驱动跃迁，存储周期与产品放量共振"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 2
+        }
+      ],
+      "source_slide_id": "slide_002",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_003",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "自研9颗主控芯片，加速向高价值领域拓展",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "公司已积累9颗自研主控芯片，覆盖移动存储与SATA SSD，并加速向PCIe SSD、嵌入式及企业级存储拓展。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "覆盖移动存储与SATA SSD",
+            "延伸至PCIe SSD、嵌入式及企业级存储"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_003",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_004",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "Q3单季营收25.5亿元，净利润同比增166.8%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2025年Q3单季营收25.5亿元（同比+79.47%），净利润9087万元（同比+166.80%）。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "营收同比+79.47%",
+            "净利润同比+166.80%"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_004",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_005",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "预计2024-2026年归母净利润分别为3.97/6.57/10.08亿元，对应增速1489%/65%/53%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "预计2024-2026年归母净利润分别为3.97/6.57/10.08亿元，对应增速1489%/65%/53%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2024年归母净利润3.97亿元",
+            "2025年6.57亿元，2026年10.08亿元"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_005",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_006",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "维持买入评级，2026E PE仅16.64倍",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "维持“买入”评级，基于2026年预期EPS 6.23元，当前股价对应16.64倍PE。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "基于2026E EPS 6.23元",
+            "当前股价对应16.64倍PE"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_006",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_007",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "自研主控芯片构筑核心壁垒，四大产品线协同打开成长空间"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 7
+        }
+      ],
+      "source_slide_id": "slide_007",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_008",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "9颗自研主控芯片覆盖数据中心、AI和车载电子",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "公司已自主研发9颗主控芯片，产品覆盖数据中心、AI、车载电子等领域。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "产品覆盖数据中心、AI、车载电子等高端领域"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_008",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_009",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "移动存储、SSD、嵌入式、内存条四大产品线协同",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "形成移动存储、固态硬盘、嵌入式存储和内存条四大产品线。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "覆盖消费级与企业级市场"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_009",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_010",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "前四大股东持股47.61%，李虎持股超后三大股东之和",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "前四大股东合计持股约47.61%，李虎一人持股超后三大股东之和。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "李虎持股集中，治理结构稳定"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_010",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_011",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "募投近12亿元，加码PCIe SSD与嵌入式存储",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2023年募投项目合计投资近12亿元，其中PCIe SSD项目投资约4.99亿元，嵌入式项目投资约6.67亿元。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "PCIe SSD项目投资4.99亿元",
+            "嵌入式项目投资6.67亿元"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_011",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_012",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "财务与经营分析"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 12
+        }
+      ],
+      "source_slide_id": "slide_012",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_013",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "移动存储占比从58.3%降至13.06%，产品结构优化",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "传统移动存储营收从2023年10.35亿元降至2025H1的5.37亿元，占比从58.3%降至13.06%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "嵌入式与SSD成为主力"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_013",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_014",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "销售费用率仅0.85%，显著低于同行",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2024年销售费用率0.85%，远低于江波龙4.42%和佰维存储3.79%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "江波龙4.42%，佰维存储3.79%"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_014",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_015",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2024年净利率7.35%，超越江波龙、佰维存储",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2024年全年销售净利率7.35%，高于江波龙2.89%、佰维存储2.02%、朗科科技-13.17%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "江波龙2.89%，佰维存储2.02%",
+            "自研主控与成本管控构筑优势"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_015",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_016",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "已量产8款闪存主控芯片，制程突破22nm",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "公司已量产8款闪存主控芯片，主控技术突破至22nm及以下。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "技术领先，支撑高附加值产品"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_016",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_017",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "闪存行业市场广阔，模组+主控模式大有可为"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 17
+        }
+      ],
+      "source_slide_id": "slide_017",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_018",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2025年NAND Flash市场规模约870亿美元，同比+29%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "TrendForce预测2025年全球NAND Flash市场规模约870亿美元，同比增长约29%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "AI与服务器需求驱动增长"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_018",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_019",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "服务器NAND容量同比增长108%，企业级需求爆发",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2024年服务器NAND容量同比暴增108%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "eSSD占比持续提升"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_019",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_020",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "AI服务器采购企业级SSD超45EB，年增60%以上",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2024年AI服务器客户对企业级SSD采购容量突破45EB，市场年增长率超60%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "AI推理驱动高容量存储需求"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_020",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_021",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "中国大陆闪存模组厂合计市占率34%，国产替代加速",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2023年前十大闪存模组厂中中国大陆模组厂合计市占率34%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "德明利等国产厂商份额持续提升"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_021",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_022",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "估值高于可比均值，2025E/2026E PE 37.4x/28.6x",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "可比公司2025E/2026E平均PE分别为37.4倍/28.6倍，德明利当前估值高于均值。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "成长性支撑估值溢价"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_022",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_023",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "经营现金流2026年转正，后续大幅改善",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "经营活动现金流2023-2025年持续为负，预计2026年转正至-2.41亿元，2027-2028年分别达到10.00亿和18.00亿元。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2026E -2.41亿元，2027E 10亿元，2028E 18亿元"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_023",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_024",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "non_content_text",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 1.0667,
+              "top": 0.75,
+              "width": 11.2,
+              "height": 1.5
+            }
+          },
+          "value": "德明利：自研主控+全品类布局，成长路径清晰",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 1.3333,
+              "top": 2.55,
+              "width": 10.6666,
+              "height": 1.2
+            }
+          },
+          "value": "结束页，总结投资观点",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 1.6,
+              "top": 4.05,
+              "width": 10.1333,
+              "height": 2.4
+            }
+          },
+          "values": [
+            "买入评级",
+            "存储周期上行"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_024",
+      "continuation_index": 1
+    }
+  ]
+}

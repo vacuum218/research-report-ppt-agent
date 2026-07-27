@@ -1,0 +1,1250 @@
+{
+  "schema_version": "2.0.0",
+  "plan_id": "plan_82babb91e9f45890",
+  "source": {
+    "outline_sha256": "0a19f3564f7b5b7834d5bbf77319f366e0ffd4cc4537955d4659f52930d31c04",
+    "manifest_sha256": "3833cc804cc48e778189044f2332d9e8240eef659c32b061342b683777337513"
+  },
+  "template": {
+    "profile_id": "financial-report-v1",
+    "profile_sha256": "33ea6b876e3689ebc88815a8cb67e5145522fd1afea7acc479462ed4fe5e0bfd",
+    "file": "financial_report_template_v1.pptx",
+    "sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2"
+  },
+  "asset_root": "D:\\HuaweiMoveData\\Users\\周宇晨\\Desktop\\Unfixed font version(2)\\output\\phase2_acceptance_retry2\\002821\\document_bundle",
+  "visualizations": [
+    {
+      "visualization_id": "visual_008",
+      "slide_id": "slide_017",
+      "visual_type": "table",
+      "data": {
+        "title": "展示2025-2027年分业务收入、毛利率和净利润预测",
+        "columns": [
+          "项目",
+          "2024A",
+          "2025E",
+          "2026E",
+          "2027E"
+        ],
+        "rows": [
+          [
+            "营业收入",
+            58.05,
+            65,
+            73,
+            82
+          ],
+          [
+            "同比增速",
+            "-25.82%",
+            "+11.97%",
+            "+12.31%",
+            "+12.33%"
+          ],
+          [
+            "小分子CDMO",
+            46.79,
+            51.7,
+            58,
+            64
+          ],
+          [
+            "同比增速",
+            "-28.5%",
+            "+10.5%",
+            "+12.2%",
+            "+10.3%"
+          ],
+          [
+            "其中：商业化阶段",
+            33.79,
+            37.5,
+            42.5,
+            47.5
+          ],
+          [
+            "同比增速",
+            "-33.0%",
+            "+11.0%",
+            "+13.3%",
+            "+11.8%"
+          ],
+          [
+            "其中：临床阶段",
+            13,
+            14.2,
+            15.5,
+            16.5
+          ],
+          [
+            "同比增速",
+            "-13.0%",
+            "+9.2%",
+            "+9.2%",
+            "+6.5%"
+          ]
+        ],
+        "source_refs": [
+          "src_002821_2025-09-11"
+        ],
+        "sources": [
+          {
+            "kind": "table",
+            "id": "table-004"
+          }
+        ],
+        "note": "Copied from complete DocumentBundle table table-004; all numeric cells are fact-audited"
+      }
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide_001",
+      "slide_mode": "exact_template",
+      "layout_id": "cover",
+      "template_slide": 1,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "cover_title",
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3
+          },
+          "value": "凯莱英"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "subtitle",
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4
+          },
+          "value": "凯莱英（002821）深度研究报告"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "cover_meta",
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6
+          },
+          "value": "002821  |  2025-09-11"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "tag",
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7
+          },
+          "value": ""
+        }
+      ],
+      "source_slide_id": "slide_001",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_002",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "凯莱英：小分子CDMO龙头深度剖析"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 2
+        }
+      ],
+      "source_slide_id": "slide_002",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_003",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "全球小分子CDMO市场有望增长至1067亿美元，CAGR 15.5%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "全球小分子CDMO市场2023年规模为519亿美元，预计以15.5%的CAGR增长至2028年的1067亿美元。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2023年市场规模519亿美元",
+            "预计2028年增至1067亿美元",
+            "复合年增长率15.5%"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_003",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_004",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "凯莱英：管理层深度绑定与平台化护城河"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 4
+        }
+      ],
+      "source_slide_id": "slide_004",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_005",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "凯莱英服务全球超1100家客户，构建一体化服务生态",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "公司是全球领先的CDMO一站式综合服务商，服务全球超1100家客户，已形成创新药一体化服务生态。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "全球领先的CDMO一站式综合服务商",
+            "服务覆盖超过1100家客户",
+            "创新药一体化服务生态"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_005",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_006",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "CDMO行业供需格局迎拐点：研发增长与出海共振"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 6
+        }
+      ],
+      "source_slide_id": "slide_006",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_007",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "中国创新药出海加速：2024年License-out达94笔，总金额519亿美元",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2024年中国创新药License-out交易达94笔，总金额约519亿美元，出海加速提升产业链景气度。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2024年交易数量94笔",
+            "总金额约519亿美元",
+            "出海加速提升产业链景气度"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_007",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_008",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "守正出奇：小分子基本盘稳固，新兴疗法开辟第二曲线"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 8
+        }
+      ],
+      "source_slide_id": "slide_008",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_009",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2025H1公司新兴业务收入7.56亿元",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "2025H1公司新兴业务收入7.56亿元，同比增长51.22%，毛利率同比提升9.5pct，多肽和ADC项目驱动增长。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2025年上半年收入7.56亿元",
+            "同比增长51.22%",
+            "毛利率同比提升9.5个百分点",
+            "多肽和ADC项目驱动"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_009",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_010",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "大订单影响出清，主业重回高质量增长"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 10
+        }
+      ],
+      "source_slide_id": "slide_010",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_011",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "剔除大订单后，小分子CDMO 2025上半年营收增长18.2%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "剔除新冠大订单影响，公司小分子CDMO 2024年收入同比增长8.9%，2025H1营收同比增长18.2%，重回增长。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2024年收入剔除大订单同比增长8.9%",
+            "2025上半年营收同比增长18.2%",
+            "小分子CDMO重回增长通道"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_011",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_012",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "新兴业务：多肽、ADC、小核酸驱动第二曲线加速"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 12
+        }
+      ],
+      "source_slide_id": "slide_012",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_013",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "新兴业务2025H1收入7.56亿元，毛利率回升至29.79%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "新兴业务2024年收入12.3亿元（同比+2.3%），2025H1收入7.56亿元（同比+51.22%），毛利率回升至29.79%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2024全年收入12.3亿元",
+            "2025上半年收入7.56亿元，同比增51.22%",
+            "毛利率回升至29.79%"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_013",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_014",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "技术壁垒：连续反应与酶催化双轮驱动商业化"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 14
+        }
+      ],
+      "source_slide_id": "slide_014",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_015",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "连续反应与酶催化应用率超40%，能耗降低50%，三废减少60%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "公司连续反应技术与酶催化技术在临床中后期项目应用率超40%，可降低能耗50%、占地面积70%、三废排放30-60%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "临床中后期项目应用率超40%",
+            "降低能耗50%",
+            "减少占地面积70%",
+            "减少三废排放30-60%"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_015",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_016",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "盈利预测：2025-2027年归母净利润CAGR约20%"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 16
+        }
+      ],
+      "source_slide_id": "slide_016",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_017",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "visual_left_text_right",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "预计营收CAGR 12%，归母净利润CAGR 20%，毛利率修复至44.50%",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "render_table",
+          "slot_id": "primary_visual",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
+            }
+          },
+          "visualization_id": "visual_008",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 10.0,
+            "text_color": "64748B",
+            "header_fill": "102A43",
+            "header_text_color": "FFFFFF",
+            "body_fill": "FFFFFF",
+            "stripe_fill": "F5F7FA",
+            "border_color": "D9E2EC",
+            "border_width_pt": 0.6,
+            "margin_horizontal_pt": 5,
+            "margin_vertical_pt": 3,
+            "header_height_pt": 30,
+            "row_height_pt": 26,
+            "first_column_bold": true,
+            "max_rows": 18,
+            "max_columns": 8
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
+            }
+          },
+          "value": "预计2025-2027年公司营业收入CAGR约12%，归母净利润CAGR约20%，毛利率从42.36%修复至44.50%。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "2025-2027年营收CAGR约12%",
+            "归母净利润CAGR约20%",
+            "毛利率从42.36%修复至44.50%"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_017",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_018",
+      "slide_mode": "exact_template",
+      "layout_id": "agenda",
+      "template_slide": 2,
+      "operations": [
+        {
+          "op": "set_text",
+          "binding_id": "title",
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          },
+          "value": "投资建议与风险提示"
+        },
+        {
+          "op": "set_text",
+          "binding_id": "page_number",
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          },
+          "value": 18
+        }
+      ],
+      "source_slide_id": "slide_018",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_019",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "text_only",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 0.375,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "预计2025-2027年归母净利润分别为11.64亿元、14.10亿元、16.73亿元",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 1.65,
+              "width": 11.7333,
+              "height": 1.05
+            }
+          },
+          "value": "预计2025-2027年归母净利润分别为11.64亿元、14.10亿元、16.73亿元，当前PE分别为23倍、19倍、16倍，给予买入评级。",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 0.8,
+              "top": 3.0,
+              "width": 11.7333,
+              "height": 3.6
+            }
+          },
+          "values": [
+            "2025年归母净利润11.64亿元",
+            "2026年14.10亿元",
+            "2027年16.73亿元",
+            "当前PE对应23倍、19倍、16倍",
+            "给予买入评级"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_019",
+      "continuation_index": 1
+    },
+    {
+      "slide_id": "slide_020",
+      "slide_mode": "adaptive_canvas",
+      "abstract_layout_id": "non_content_text",
+      "base": {
+        "mode": "blank",
+        "slide_layout_index": 0,
+        "clear_placeholders": true,
+        "width_in": 13.3333,
+        "height_in": 7.5,
+        "background_color": "FFFFFF"
+      },
+      "operations": [
+        {
+          "op": "add_text_box",
+          "element_id": "title",
+          "target": {
+            "bounds_in": {
+              "left": 1.0667,
+              "top": 0.75,
+              "width": 11.2,
+              "height": 1.5
+            }
+          },
+          "value": "感谢聆听",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 27.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "middle"
+          }
+        },
+        {
+          "op": "add_text_box",
+          "element_id": "key_message",
+          "target": {
+            "bounds_in": {
+              "left": 1.3333,
+              "top": 2.55,
+              "width": 10.6666,
+              "height": 1.2
+            }
+          },
+          "value": "Closing slide thanking the audience",
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        }
+      ],
+      "source_slide_id": "slide_020",
+      "continuation_index": 1
+    }
+  ]
+}

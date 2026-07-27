@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "group_count": 1,
+  "groups": [
+    {
+      "group_id": "metric_group_b465b443c12946ae4130",
+      "candidate_id": "visual_04",
+      "intent": "trend",
+      "metric_key": "revenue",
+      "measure_kind": "amount",
+      "unit_family": "dimensionless",
+      "unit": "",
+      "unit_scale": "1",
+      "currency": "",
+      "scope": "consolidated",
+      "fact_ids": [
+        "fact_9ea3087d895306d02d10",
+        "fact_afa771eaddfa09ca8c2a",
+        "fact_b635fb2b22ed7cd80606",
+        "fact_fb61d8b2c3c5dd15e8a3",
+        "fact_8f90236325c9297beab6",
+        "fact_dbf2aa91f39acc551834",
+        "fact_71fcc246f775659e1ea7",
+        "fact_28b74cc2d73767af2174",
+        "fact_5afee6f98ba1dc4d805c",
+        "fact_d54ab45c3284839773c9",
+        "fact_b5fa9b7322c9e969a671",
+        "fact_77ff5c75fa90ef4675be",
+        "fact_d7295f06a794f0c8495d",
+        "fact_cc5f1cf2b133a0d17c8a",
+        "fact_0b7f43ab9e9c0c2340db"
+      ],
+      "scenarios": [
+        "actual",
+        "actual",
+        "estimate",
+        "estimate",
+        "estimate",
+        "actual",
+        "actual",
+        "estimate",
+        "estimate",
+        "estimate",
+        "actual",
+        "actual",
+        "estimate",
+        "estimate",
+        "estimate"
+      ],
+      "forecast_start_index": 2
+    }
+  ]
+}

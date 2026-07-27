@@ -1,0 +1,933 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "002444_2025-09-21",
+  "source_id": "src_002444_2025-09-21",
+  "presentation_metadata": {
+    "company": "巨星科技",
+    "company_name": "巨星科技",
+    "stock_code": "002444",
+    "industry": "",
+    "report_title": "巨星科技（002444）深度研究报告",
+    "report_date": "2025-09-21",
+    "source_file": "002444_2025-09-21.md"
+  },
+  "sections": [
+    {
+      "section_ref": "sec-001",
+      "section_title": "巨星科技（002444）深度研究报告",
+      "summary": "巨星科技是国内手工具出海的龙头企业，正从ODM代工向品牌商加速转型。全球工具行业处于景气底部，竞争格局下龙头企业存在市场份额提升空间。公司通过“渠道+生产+品牌”三重壁垒构筑护城河，盈利预测与投资评级首次覆盖给予“买入”评级。",
+      "claims": [
+        {
+          "claim_id": "claim_sec001_1",
+          "text": "巨星科技是国内手工具出海的龙头企业，正从ODM代工向品牌商加速转型。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0002"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec001_2",
+          "text": "全球工具行业正处于景气底部区域，竞争格局下龙头企业存在市场份额提升空间。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0003"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec001_3",
+          "text": "行业底部位置已基本明确，补库与降息有望驱动需求回暖。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0004"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec001_4",
+          "text": "产业链呈现“下游强、上游散”特征，OBM模式壁垒显著高于ODM。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0005"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec001_5",
+          "text": "巨星科技通过“渠道+生产+品牌”三重壁垒构筑了难以复制的护城河，正从ODM代工厂向品牌商跃迁。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0006"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec001_6",
+          "text": "参考信达证券预测，公司2025-2027年营收有望分别实现162.53/192.37/223.10亿元，归母净利润分别为24.2/30.1/36.8亿元，首次覆盖给予“买入”评级。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0007"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-002",
+      "section_title": "巨星科技：品牌化转型驱动盈利改善，工具出海龙头价值重估",
+      "summary": "巨星科技是国内手工具行业规模最大、渠道优势最强的龙头之一，品牌化转型是盈利能力改善的核心驱动力，近五年营收与盈利稳步增长，毛利率呈趋势性改善，并持续通过高分红回馈投资者。",
+      "claims": [
+        {
+          "claim_id": "claim_sec002_1",
+          "text": "巨星科技是国内手工具行业规模最大、渠道优势最强的龙头之一，也是亚洲乃至全球领先的工具出海企业。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0009"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec002_2",
+          "text": "公司以代工起家，2010年上市后坚定推进品牌化转型，OBM占比持续提升。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0010"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec002_3",
+          "text": "2020-2024年，营业收入从85.44亿元增至147.95亿元，归母净利润从13.50亿元提升至23.04亿元，毛利率自2021年低点25.13%持续修复至2024年的32.01%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0011"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec002_4",
+          "text": "2023~2024年累计分红11.22亿元，2024年实施三次分红。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0013"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-003",
+      "section_title": "战略三阶跃迁：从ODM代工到全球工具品牌集团的成长路径",
+      "summary": "巨星科技经历了三次战略跃迁：第一阶段ODM模式崛起，第二阶段上市后探索与战略纠偏，第三阶段OBM战略跃迁构建全球化品牌矩阵。",
+      "claims": [
+        {
+          "claim_id": "claim_sec003_1",
+          "text": "第一阶段（1993-2009年）公司以ODM模式崛起，奠定制造与渠道根基。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0016"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec003_2",
+          "text": "第二阶段（2010-2016年）上市后探索与战略纠偏，明确“聚焦主业+发展自有品牌+海外并购”的核心战略。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0017"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec003_3",
+          "text": "第三阶段（此后至今）OBM战略跃迁，通过自主培育与外延并购双轮驱动构建全球化品牌矩阵，目前已拥有17个工具行业品牌。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0018"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-004",
+      "section_title": "品牌化驱动利润结构升级，三大业务梯次布局构筑全球工具龙头护城河",
+      "summary": "巨星科技涵盖手工具、电动工具、工业工具三大品类，2024年营业收入约148亿元，三大板块梯次布局，OBM业务占比持续攀升驱动盈利质量提升，海外收入占比超94%。",
+      "claims": [
+        {
+          "claim_id": "claim_sec004_1",
+          "text": "2024年公司实现营业收入约148亿元，手工具为现金牛基本盘，电动工具为战略成长极，工业工具为高毛利利润补充。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0020"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec004_2",
+          "text": "2024年手工具收入100.69亿元，占比68.05%，毛利率32.09%；工业工具收入32.29亿元，占比21.82%，毛利率35.57%；电动工具收入14.38亿元，占比9.72%，毛利率23.83%。",
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-001"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec004_3",
+          "text": "公司旗下拥有17个工具行业品牌，正加速从ODM向OBM转型，ODM模式毛利率约8%，OBM模式可达约20%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0024"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec004_4",
+          "text": "电动工具业务2021年收购BeA切入，2023年和2024年分别获得美国大型零售业公司不少于4000万美元和3000万美元的无绳锂电池电动工具订单。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0025"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec004_5",
+          "text": "工业工具以存储箱柜设备为核心，源自收购LISTA和Geelong，2024年毛利率35.57%为三大板块最高。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0026"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec004_6",
+          "text": "近六年海外收入占比均值约94.3%，2024年海外收入占比94.85%，美洲市场贡献收入93.87亿元，占比63.44%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0027"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec004_7",
+          "text": "截至2024年末，OBM业务收入达70.90亿元，占比47.92%，OBM业务毛利率达35.66%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0028"
+            },
+            {
+              "kind": "block",
+              "id": "block_0029"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-005",
+      "section_title": "盈利韧性穿越周期：OBM转型驱动下的ROE修复与结构性升级",
+      "summary": "ROE经历波动，净利率是核心驱动因子，OBM转型平抑周期波动，毛利率有结构性支撑，运营效率行业领先。",
+      "claims": [
+        {
+          "claim_id": "claim_sec005_1",
+          "text": "ROE从2017年的9.19%波动上行至2024年的14.04%，2020年达到15.30%阶段峰值，2022年回落至10.60%后重新抬升。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0033"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec005_2",
+          "text": "净利率是驱动ROE波动的核心变量，在2020年达15.80%峰值，2023年起回升至15.48%及2024年的15.57%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0035"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec005_3",
+          "text": "扣非归母净利率从2022年的11.54%升至2023年的15.53%和2024年的15.57%，2025年前三季度延续改善达15.86%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0037"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec005_4",
+          "text": "2018至2024年收入从59.35亿元增长至147.95亿元，年化复合增速约16.4%，但各年波动剧烈。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0039"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec005_5",
+          "text": "2023年经销商去库存导致公司收入同比下滑13.3%，为近八年首次负增长，但扣非净利率反升至15.53%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0040"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec005_6",
+          "text": "OBM在行业下行期充当减震器：2023年ODM营收同比下滑24.23%时，OBM营收实现2.5%正增长。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0042"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec005_7",
+          "text": "OBM业务自身毛利率2024年达35.66%，同比提升4.60个百分点，显著高于公司整体毛利率。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0044"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec005_8",
+          "text": "存货周转天数2018-2021年均值约86.2天，2024年底显著回落至99.8天；应收账款周转天数自2017年起持续下行，2020年后基本维持在接近60天。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0047"
+            },
+            {
+              "kind": "block",
+              "id": "block_0048"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-006",
+      "section_title": "工具行业:景气周期底部,市场份额有提升空间",
+      "summary": "工具行业处于景气周期底部，市场份额有提升空间。",
+      "claims": [],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-007",
+      "section_title": "市场规模:成熟行业扎根欧美,周期底部位置明确",
+      "summary": "工具行业是成熟行业，扎根欧美，周期底部位置明确。",
+      "claims": [],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-008",
+      "section_title": "工具行业：千亿美元市场稳健增长，电动化与DIY文化驱动结构性机遇",
+      "summary": "全球工具行业2022年市场规模达1030亿美元，电动工具成为主流品类，欧美市场占据主导地位，DIY文化和地产周期是需求核心变量。",
+      "claims": [
+        {
+          "claim_id": "claim_sec008_1",
+          "text": "全球工具行业2022年市场规模突破千亿美元至1030亿美元，2017-2022年CAGR约为5.8%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0054"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec008_2",
+          "text": "工具行业在外部冲击下展现较强需求韧性，但库存周期波动是短期景气度的核心变量。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0055"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec008_3",
+          "text": "电动工具已超越传统手工具成为行业主流品类，2023年电动工具占比约38%，手工具占比约30%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0056"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec008_4",
+          "text": "欧美市场合计占比高达77.6%，美国2023年人均年消费额达164美元，远超全球均值。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0058"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-009",
+      "section_title": "地产与库存双周期驱动：美国工具行业景气波动中的结构性机会",
+      "summary": "美国工具行业景气受地产周期和库存周期驱动，价格随通胀同步，销量波动较大，当前地产底部企稳，渠道补库启动有望带动订单改善。",
+      "claims": [
+        {
+          "claim_id": "claim_sec009_1",
+          "text": "工具产品价格变动与通胀基本保持同步，2022年12月月度同比增速触顶达13.8%，2023年以来五金工具用品价格指数维持在120以上。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0064"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec009_2",
+          "text": "美国五金店销售额与美国成屋销售高度关联，2024年11-12月成屋销售总数年化424万户，工具五金销售额同比分别增长7.6%、7.4%和7.2%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0068"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec009_3",
+          "text": "2022-2023年地产成屋销售走弱但零售商累库支撑需求，2023年下半年启动主动去库存。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0069"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec009_4",
+          "text": "2024年美国家居批发商库存同比-7.7%和零售库存同比-7.4%降幅均明显收窄，渠道去库已接近尾声。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0070"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-010",
+      "section_title": "底部确认但反转待时：工具行业景气修复的确定性、传导路径与结构性挑战",
+      "summary": "工具行业景气底部已基本确认，但关税与高利率构成双重压制，需求修复路径可能呈“价增量减”格局，行业底部趋势的明确反转仍需等待利率环境改善和关税政策明朗化。",
+      "claims": [
+        {
+          "claim_id": "claim_sec010_1",
+          "text": "美国成屋销售在2023-2024年触及底部后企稳回升，2024年12月年化销售达424万户。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0073"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec010_2",
+          "text": "家得宝2024财年第四季度存货周转率从4.3倍提升至4.7倍，劳氏同店销售额在连续八个季度下滑后同比微增0.2%，库存压力正在缓解。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0075"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec010_3",
+          "text": "2025年4月特朗普“对等关税”可能通过推升通胀延缓降息节奏，进而影响工具行业景气反转。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0077"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec010_4",
+          "text": "截至2025年9月，美联储已降息25bp至4.00%-4.25%，但联邦基金利率仍处历史高位，点阵图显示2025年底利率中位数预期为3.6%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0077"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-011",
+      "section_title": "竞争分析:市场相对分散,ODM 重渠道,OBM 重品牌",
+      "summary": "工具行业市场相对分散，ODM重渠道，OBM重品牌。",
+      "claims": [],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-012",
+      "section_title": "渠道寡头主导定价权，动力工具品牌壁垒构筑结构性护城河",
+      "summary": "北美家居零售市场由家得宝与劳氏双寡头主导，渠道集中度极高；手工具品牌集中度极低，动力工具品牌集中度显著较高，头部品牌构筑结构性护城河。",
+      "claims": [
+        {
+          "claim_id": "claim_sec012_1",
+          "text": "家得宝与劳氏合计占据北美家居零售市场份额约59.1%，在动力工具品类中家得宝市占率30%，劳氏19%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0083"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec012_2",
+          "text": "2017-2023年北美手工具白牌产品占比中枢高达约88%，动力工具白牌占比中枢约42%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0083"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec012_3",
+          "text": "2023年美国手工具市场CR3仅约10%，主要品牌Stanley市占率4.7%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0086"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec012_4",
+          "text": "2023年美国动力工具市场中Ryobi市占率14%，2017-2023年CR5均值约41.4%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0088"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec012_5",
+          "text": "2024年TTI取代SB&D成为全球最大电动工具企业，市场份额升至21%，TTI、SB&D、Bosch、Makita合计占据全球70%以上份额。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0088"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-013",
+      "section_title": "渠道壁垒与品牌矩阵：巨星科技的双轮驱动成长路径",
+      "summary": "巨星科技深度绑定家得宝、劳氏等大型零售商，建立渠道壁垒，同时通过内生外延搭建品牌矩阵，推进OBM转型。",
+      "claims": [
+        {
+          "claim_id": "claim_sec013_1",
+          "text": "巨星科技是亚洲最大、全球第三的手工具ODM制造商，深度绑定家得宝、劳氏等欧美大型零售商，前五大客户收入占比达48.73%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0094"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec013_2",
+          "text": "行业头部品牌方普遍选择外延并购搭建品牌矩阵，巨星科技通过收购Arrow、Lista、Shop-Vac、BeA等品牌以及自创Workpro等实现多品牌布局。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0096"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-014",
+      "section_title": "全球资源配置与品牌矩阵双轮驱动：巨星科技构筑不可复制的综合工具护城河",
+      "summary": "巨星科技历经三十余年发展，已从ODM代工厂蜕变为全球资源配置型综合工具龙头，在渠道、生产、品牌三大维度形成系统性竞争壁垒。",
+      "claims": [
+        {
+          "claim_id": "claim_sec014_1",
+          "text": "巨星科技已从ODM制造商向ODM+OBM综合工具龙头战略转型，2017年以来通过产品创新与品牌培育延伸产业链。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0099"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec014_2",
+          "text": "公司已在全球设立23个产能基地，构建起涵盖Workpro、Arrow、BeA等自创和收购品牌的矩阵。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0100"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec014_3",
+          "text": "公司在渠道、生产、品牌三大维度形成系统性竞争壁垒，成为集“欧美本土服务、亚洲产业链制造、中国管理研发”于一体的全球资源配置型公司。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0101"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-015",
+      "section_title": "渠道壁垒与多元渗透：巨星科技穿越周期的客户粘性护城河",
+      "summary": "巨星科技深度绑定全球头部零售商，构建高粘性客户合作壁垒，并加速向自有品牌+多渠道转型，海外渠道收入占比持续提升。",
+      "claims": [
+        {
+          "claim_id": "claim_sec015_1",
+          "text": "巨星科技与The Home Depot、Lowe's等全球前十大建材家居连锁商建立十年以上稳定供货关系，前五大客户收入占比维持在35%-40%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0103"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec015_2",
+          "text": "公司全球拥有超过60个海外仓储物流中心，海外仓总面积超过80万平米，自有品牌收入占比已提升至约35%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0105"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec015_3",
+          "text": "公司海外渠道收入占比从2018年的62%持续提升至2024年的85%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0105"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-016",
+      "section_title": "研发驱动与全球产能布局：构筑工具龙头的双重护城河",
+      "summary": "巨星科技通过持续产品创新和前瞻性全球产能布局构筑核心竞争壁垒，产品创新实现品类拓展，全球产能布局增强供应链韧性。",
+      "claims": [
+        {
+          "claim_id": "claim_sec016_1",
+          "text": "公司研发费用率长期保持约2.9%，2024年设计新产品1937项，凭借20V锂电池产品技术突破切入美国大型零售商供应链。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0109"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec016_2",
+          "text": "2019-2024年生产性资产规模从约17.0亿元提升至接近31.4亿元，自产比例接近翻倍，全球拥有23处生产制造基地。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0110"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec016_3",
+          "text": "固定资产周转率2017-2024年均值维持较高水平，2024年为7.78；海外产能占比已超过55%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0111"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-017",
+      "section_title": "品牌矩阵成型：内生外延双轮驱动，OBM转型进入收获期",
+      "summary": "巨星科技通过内生自建和外延并购系统搭建全品类品牌矩阵，品牌化转型进入收获期，OBM收入占比持续提升，充裕现金流支持未来并购。",
+      "claims": [
+        {
+          "claim_id": "claim_sec017_1",
+          "text": "OBM收入占比已从2016年的不足10%跃升至2024年的约47.9%，2017-2024年收入CAGR达19.4%，净利润CAGR达22.7%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0114"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec017_2",
+          "text": "内生方面以跨境电商DTC模式推广自创品牌WORKPRO、SHEFFIELD等；外延方面收购Arrow、Lista、BeA、TESA等品牌，构建覆盖手工具、电动工具、存储等品类的矩阵。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0115"
+            },
+            {
+              "kind": "block",
+              "id": "block_0116"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec017_3",
+          "text": "公司先后整合Arrow与BeA两大钉枪品牌，已成为全球最大钉枪及其耗材供应商。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0116"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec017_4",
+          "text": "截至2024年末，公司货币资金达68.52亿元，2025年中期仍保持在52.86亿元，充裕资金支持未来品牌并购。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0119"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-018",
+      "section_title": "盈利预测及投资建议",
+      "summary": "盈利预测及投资建议章节。",
+      "claims": [],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-019",
+      "section_title": "三大业务板块分化中重构增长：手工具承压、电动工具崛起、工业工具稳守，2026年起盈利拐点确立",
+      "summary": "手工具面临关税扰动但凭借海外产能和品牌壁垒支撑中长期份额提升；电动工具20V锂电突破打开成长空间；工业工具盈利稳定并拓展一带一路市场；整体增长路径先抑后扬，2026年开启盈利加速。",
+      "claims": [
+        {
+          "claim_id": "claim_sec019_1",
+          "text": "2024年手工具实现收入100.69亿元，同比大幅增长40.46%，跨境电商品牌保持45%以上增速。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0125"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec019_2",
+          "text": "公司预计2025-2027年手工具收入增速分别为10%/18%/16%，毛利率分别为30.0%/32.0%/33.0%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0125"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec019_3",
+          "text": "电动工具2024年20V锂电产品线实现关键突破，2025年7月获得国际大型零售公司每年不少于3000万美元订单，指定越南交付。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0127"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec019_4",
+          "text": "预计2025-2027年电动工具收入分别为16.54亿元、21.50亿元、26.87亿元，同比增速15%/30%/25%，毛利率分别为21.0%/24.0%/26.0%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0127"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec019_5",
+          "text": "2025H1工业工具实现收入16.32亿元、毛利率34.78%，预计2025-2027年收入增速7%/14%/11%，毛利率维持在35%左右。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0129"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec019_6",
+          "text": "整体2025年毛利率阶段性回落至30.2%，2026年起收入增速回升至18.4%/16.0%，毛利率修复至31.7%/32.6%，归母净利润增速24.4%/22.2%。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0133"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-020",
+      "section_title": "成长溢价与安全边际并存：巨星科技估值重构的底层逻辑",
+      "summary": "预计2025-2027年盈利加速释放，当前估值处于历史低位，成长性溢价尚未充分反映，给予2026年13倍PE，目标价32.8元，首次覆盖给予“买入”评级。",
+      "claims": [
+        {
+          "claim_id": "claim_sec020_1",
+          "text": "预计2025-2027年营业收入分别为162.5/192.4/223.1亿元，归母净利润分别为24.2/30.1/36.8亿元。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0136"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec020_2",
+          "text": "可比公司创科实业和泉峰控股2025E平均PE为10.9X，巨星科技2025E/2026E PE分别为12.0X/9.7X。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0137"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec020_3",
+          "text": "公司PE TTM自2017年以来均值约21X，当前估值处于历史低位区间。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0139"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec020_4",
+          "text": "基于2026年EPS 2.52元，给予13倍PE，对应12个月目标价32.8元，首次覆盖给予“买入”评级。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0141"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    },
+    {
+      "section_ref": "sec-021",
+      "section_title": "多重外部风险交织，公司业绩承压的确定性正在上升",
+      "summary": "海外需求低迷、下游库存去化反复、贸易摩擦升级及北美市场集中度偏高等多重风险交织，对公司短期业绩和中长期盈利能力形成压制。",
+      "claims": [
+        {
+          "claim_id": "claim_sec021_1",
+          "text": "美国8月ISM制造业PMI录得48.7，连续六个月低于50荣枯线，美洲地区收入占比超63%使公司面临较大压力。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0144"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec021_2",
+          "text": "截至2024年5月，美国家居零售库存同比-7.4%、家居批发商库存同比-7.7%，补库节奏不确定性是短期订单波动的核心变量。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0145"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec021_3",
+          "text": "2025年美国对华关税累计达79%，公司越南、泰国、柬埔寨产能分别面临46%、36%、49%关税，OBM业务涨价传导效果不确定。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0146"
+            }
+          ]
+        },
+        {
+          "claim_id": "claim_sec021_4",
+          "text": "2024年公司美洲地区营收93.86亿元，占比63.44%，北美市场高度集中放大了业绩脆弱性。",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0147"
+            }
+          ]
+        }
+      ],
+      "native_figures": []
+    }
+  ],
+  "excluded_content": []
+}

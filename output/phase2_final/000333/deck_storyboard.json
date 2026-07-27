@@ -1,0 +1,424 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "000333_2025-10-30",
+  "slides": [
+    {
+      "story_id": "story_cover",
+      "page_role": "title",
+      "slide_type": "company_overview",
+      "purpose": "Opening cover slide for Midea Group in-depth research report.",
+      "claim": null,
+      "headline": "美的集团（000333）深度研究报告",
+      "supporting_points": [
+        "2025年10月30日",
+        "家电行业"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_001",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-001",
+      "section_title": "美的集团（000333）深度研究报告",
+      "purpose": "Present 9M 2025 revenue and net profit growth highlights.",
+      "claim_ref": "claim_sec-001_01",
+      "claim": "美的集团2025年前三季度营收3630.57亿元，同比增长13.82%；归母净利润378.83亿元，同比增长19.51%。",
+      "headline": "前三季度营收3630.57亿元(+13.82%)，归母净利润378.83亿元(+19.51%)",
+      "supporting_points": [
+        "净利润增速显著高于营收，盈利能力持续优化。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0004"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_001",
+          "type": "chart",
+          "purpose": "Bar chart comparing 9M 2025 revenue and net profit with YoY growth rates.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0004"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_002",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section_ref": "sec-001",
+      "section_title": "美的集团（000333）深度研究报告",
+      "purpose": "Show ToB segment growth as a second growth curve.",
+      "claim_ref": "claim_sec-001_03",
+      "claim": "ToB业务前三季度整体收入同比增长18%，其中新能源及工业技术增长21%，智能建筑科技增长25%，机器人与自动化增长9%。",
+      "headline": "ToB业务整体收入+18%，新能源及工业技术+21%，智能建筑科技+25%",
+      "supporting_points": [
+        "三大板块齐头并进，智能建筑科技增速领先。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0012"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_002",
+          "type": "chart",
+          "purpose": "Grouped bar chart showing ToB segment growth rates.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0012"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_003",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section_ref": "sec-002",
+      "section_title": "从家电龙头到科技集团：美的集团“ToC+ToB”双轮驱动的战略跃迁与护城河重构",
+      "purpose": "Demonstrate dual-wheel strategy execution with H1 2025 segment revenues and premium brand growth.",
+      "claim_ref": "claim_sec-002_02",
+      "claim": "2025年上半年，公司ToC端智能家居收入1672亿元，同比+13.3%，双高端品牌COLMO+东芝零售额同比增长超60%；ToB端收入645.4亿元，同比+20.8%。",
+      "headline": "ToC收入1672亿元(+13.3%)，ToB收入645.4亿元(+20.8%)，双高端品牌+超60%",
+      "supporting_points": [
+        "双高端品牌COLMO+东芝零售额增长超60%，产品结构高端化成效显著。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0026"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_003",
+          "type": "chart",
+          "purpose": "Grouped bar chart comparing ToC and ToB revenues with growth rates.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_004",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-002",
+      "section_title": "从家电龙头到科技集团：美的集团“ToC+ToB”双轮驱动的战略跃迁与护城河重构",
+      "purpose": "Highlight R&D investment as a competitive moat.",
+      "claim_ref": "claim_sec-002_04",
+      "claim": "公司近10年累计研发投入超1000亿元，2024年研发投入超160亿元，全球专利申请量超15万件。",
+      "headline": "近10年累计研发投入超1000亿元，全球专利超15万件",
+      "supporting_points": [
+        "2024年研发投入超160亿元，持续构筑技术壁垒。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0032"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_004",
+          "type": "chart",
+          "purpose": "Trend line chart showing R&D spending growth over the past decade.",
+          "supports_claim": true,
+          "chart_intent": "trend",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0032"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_005",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-003",
+      "section_title": "双轮驱动加速成型：ToB业务占比提升与盈利结构优化下的估值重塑逻辑",
+      "purpose": "Illustrate improving profitability trends over five years.",
+      "claim_ref": "claim_sec-003_02",
+      "claim": "公司综合毛利率自2020年23.73%回升至2024年26.42%，创近五年新高；归母净利率从8.32%升至9.42%。",
+      "headline": "综合毛利率升至26.42%、归母净利率升至9.42%，均创五年新高",
+      "supporting_points": [
+        "盈利指标持续改善，得益于产品结构优化与运营效率提升。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0048"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_005",
+          "type": "chart",
+          "purpose": "Dual-axis line chart showing gross margin and net margin trend from 2020 to 2024.",
+          "supports_claim": true,
+          "chart_intent": "trend",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0048"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_006",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-003",
+      "section_title": "双轮驱动加速成型：ToB业务占比提升与盈利结构优化下的估值重塑逻辑",
+      "purpose": "Show revenue mix shift towards ToB with 2024 milestone.",
+      "claim_ref": "claim_sec-003_06",
+      "claim": "公司近三年收入结构显示ToB业务占比从约24%提升至约26%，2024年商业及工业解决方案收入首次突破千亿至1045亿元。",
+      "headline": "ToB业务占比提升至约26%，2024年商业及工业解决方案收入首次突破千亿至1045亿元",
+      "supporting_points": [
+        "收入结构多元化，ToB成为重要增长引擎，增强经营稳健性。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0039"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_006",
+          "type": "chart",
+          "purpose": "Stacked area chart or pie chart illustrating revenue composition change over three years.",
+          "supports_claim": true,
+          "chart_intent": "composition",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0039"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_007",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-004",
+      "section_title": "暖通空调与冰洗业务：内销政策驱动与出口结构性分化下的龙头韧性",
+      "purpose": "Demonstrate global market leadership in air conditioners.",
+      "claim_ref": "claim_sec-004_01",
+      "claim": "2024年美的空调总销量达6140万台，同比+15.5%，全球家用空调销量市占率23.7%，居行业首位。",
+      "headline": "2024年空调总销量6140万台，全球市占率23.7%，行业第一",
+      "supporting_points": [
+        "销量与份额双双领先，规模效应巩固成本优势。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0055"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_007",
+          "type": "chart",
+          "purpose": "Bar chart comparing global market share of major air conditioner brands.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0055"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_008",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-004",
+      "section_title": "暖通空调与冰洗业务：内销政策驱动与出口结构性分化下的龙头韧性",
+      "purpose": "Highlight premium refrigerator penetration and blockbuster product success.",
+      "claim_ref": "claim_sec-004_05",
+      "claim": "2024年美的平嵌与零嵌入式冰箱线上/线下零售额占比分别达30.2%和58.4%，嵌入式“机皇”MR-550WUFIPZE在2025年Q1销售额突破3亿元。",
+      "headline": "嵌入式冰箱线上/线下零售额占比30.2%/58.4%，高端单品Q1销售额突破3亿元",
+      "supporting_points": [
+        "嵌入式设计引领行业潮流，高端化提升冰洗品类均价和盈利水平。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0061"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_008",
+          "type": "chart",
+          "purpose": "Dual bar chart showing online vs offline retail value share of embedded refrigerators.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0061"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_009",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-005",
+      "section_title": "估值安全边际充足，ToB与OBM双轮驱动打开价值重估空间",
+      "purpose": "Provide earnings forecast for 2025-2027.",
+      "claim_ref": "claim_sec-005_01",
+      "claim": "预计2025-2027年归母净利润分别为432.39亿元、474.07亿元、517.05亿元，同比增速12.20%、9.64%、9.07%。",
+      "headline": "预计2025-2027年归母净利润432.39亿、474.07亿、517.05亿元，同比+12.20%、+9.64%、+9.07%",
+      "supporting_points": [
+        "未来三年净利润保持稳步增长，成长能见度高。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-002"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_009",
+          "type": "table",
+          "purpose": "Table showing net profit forecast and YoY growth rates for 2025E-2027E.",
+          "supports_claim": true,
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-002"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_010",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "section_ref": "sec-005",
+      "section_title": "估值安全边际充足，ToB与OBM双轮驱动打开价值重估空间",
+      "purpose": "Compare current valuation to historical averages to show discount.",
+      "claim_ref": "claim_sec-005_02",
+      "claim": "当前股价约73.23元对应2025E PE 12.94倍，低于公司A股过去5年平均PE约16.75倍。",
+      "headline": "2025E PE仅12.94倍，远低于5年均值16.75倍，估值折价明显",
+      "supporting_points": [
+        "历史低位估值提供安全边际，ToB转型成功有望推动估值重塑。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0072"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_story_010",
+          "type": "chart",
+          "purpose": "PE band chart showing current 12.94x vs 5-year average 16.75x.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0072"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_011",
+      "page_role": "content",
+      "slide_type": "investment_risk",
+      "section_ref": "sec-006",
+      "section_title": "多维风险对冲体系构筑护城河，美的集团长期增长逻辑稳固",
+      "purpose": "Illustrate proactive hedging against raw material price volatility.",
+      "claim_ref": "claim_sec-006_02",
+      "claim": "公司开展铜、铝、钢材等大宗商品套期保值业务，流动性安排人民币160亿元，以应对原材料价格波动。",
+      "headline": "铜铝钢材套期保值，流动性安排160亿元，对冲原材料波动风险",
+      "supporting_points": [
+        "有效管理成本端风险，保障利润率的稳定。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0080"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_012",
+      "page_role": "content",
+      "slide_type": "investment_risk",
+      "section_ref": "sec-006",
+      "section_title": "多维风险对冲体系构筑护城河，美的集团长期增长逻辑稳固",
+      "purpose": "Demonstrate global manufacturing footprint mitigating tariff risks.",
+      "claim_ref": "claim_sec-006_04",
+      "claim": "面对美国关税风险，公司通过海外22个研发中心、23个制造基地和“中国供全球+区域供区域”模式弱化冲击。",
+      "headline": "海外22个研发中心、23个制造基地，“区域供区域”模式弱化关税冲击",
+      "supporting_points": [
+        "全球化布局增强供应链韧性，规避贸易摩擦风险。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0084"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_closing",
+      "page_role": "closing",
+      "slide_type": "summary",
+      "purpose": "Closing slide with investment thesis and target price.",
+      "claim": null,
+      "headline": "投资建议：目标价87元，重申“买入”评级",
+      "supporting_points": [
+        "向科技集团转型，ToB+OBM双轮驱动，估值安全边际充足"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": []
+    }
+  ]
+}

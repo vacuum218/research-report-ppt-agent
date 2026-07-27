@@ -1,0 +1,575 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "002544_2025-10-28",
+  "slides": [
+    {
+      "story_id": "story_01",
+      "page_role": "title",
+      "slide_type": "company_overview",
+      "purpose": "Introduce the report and company.",
+      "claim": null,
+      "headline": "普天科技（002544）深度研究报告",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_02",
+      "page_role": "section",
+      "slide_type": "company_overview",
+      "section_ref": "sec-002",
+      "section_title": "战略升维与结构重塑：普天科技从“地面通信服务商”向“空天地一体化平台”的跃迁之路",
+      "purpose": "Transition to company background.",
+      "claim": null,
+      "headline": "战略升维与结构重塑",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_03",
+      "page_role": "content",
+      "slide_type": "company_overview",
+      "section_ref": "sec-002",
+      "section_title": "战略升维与结构重塑：普天科技从“地面通信服务商”向“空天地一体化平台”的跃迁之路",
+      "purpose": "Establish company identity and strategic transformation.",
+      "claim_ref": "claim_sec-002_1",
+      "claim": "普天科技前身为中国电子科技集团公司第七研究所民品部门，于2000年转制组建为有限责任公司，2011年1月在深交所上市（股票代码：002544）。",
+      "headline": "普天科技：从研究所民品部门到深交所上市",
+      "supporting_points": [
+        "定位为集团在粤港澳大湾区的核心上市平台。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0004"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_04",
+      "page_role": "content",
+      "slide_type": "company_overview",
+      "section_ref": "sec-002",
+      "section_title": "战略升维与结构重塑：普天科技从“地面通信服务商”向“空天地一体化平台”的跃迁之路",
+      "purpose": "Show business mix and revenue scale.",
+      "claim_ref": "claim_sec-002_5",
+      "claim": "2024年，专网通信与智慧应用收入22.42亿元（占比45.08%，毛利率18.60%），公网通信收入15.81亿元（占比31.80%，毛利率10.62%），智能制造收入11.49亿元（占比23.11%，毛利率23.26%）。",
+      "headline": "2024年三大业务板块收入与毛利率分化",
+      "supporting_points": [],
+      "evidence_refs": [
+        {
+          "kind": "table",
+          "id": "table-001"
+        },
+        {
+          "kind": "block",
+          "id": "block_0012"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_table-001",
+          "type": "table",
+          "purpose": "Display revenue and margin breakdown by segment.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_05",
+      "page_role": "section",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-004",
+      "section_title": "股东赋能与全链闭环：普天科技“国家队”背景下的差异化竞争壁垒",
+      "purpose": "Transition to competitive strengths.",
+      "claim": null,
+      "headline": "股东赋能与全链闭环",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_06",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-004",
+      "section_title": "股东赋能与全链闭环：普天科技“国家队”背景下的差异化竞争壁垒",
+      "purpose": "Demonstrate state-backed advantages.",
+      "claim_ref": "claim_sec-004_1",
+      "claim": "中国电子科技集团是中央直接管理的国有骨干企业，拥有14个国家级重点实验室与12个国家级质量检测机构。",
+      "headline": "中国电科：14个国家级重点实验室助力普天科技卡位卫星互联网",
+      "supporting_points": [
+        "普天科技定位为集团粤港澳大湾区核心上市平台，中标青海ICT一体化等重大项目。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0015"
+        },
+        {
+          "kind": "block",
+          "id": "block_0016"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_07",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "section_ref": "sec-004",
+      "section_title": "股东赋能与全链闭环：普天科技“国家队”背景下的差异化竞争壁垒",
+      "purpose": "Showcase technology and standard leadership.",
+      "claim_ref": "claim_sec-004_4",
+      "claim": "公司积极参与CCSA空天地协同组网标准制定，已完成“无信关站”手持机直连低轨卫星通信样机研制。",
+      "headline": "参与CCSA标准制定，完成手持机直连卫星样机",
+      "supporting_points": [],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0019"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_08",
+      "page_role": "section",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-005",
+      "section_title": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+      "purpose": "Transition to industry and satellite internet positioning.",
+      "claim": null,
+      "headline": "组网加速与政策闭环共振",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_09",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "section_ref": "sec-005",
+      "section_title": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+      "purpose": "Quantify satellite internet market opportunity.",
+      "claim_ref": "claim_sec-005_1",
+      "claim": "2024年卫星互联网行业市场规模为353.3亿元，预计2025年增至376亿元，近五年复合增速为6.71%。",
+      "headline": "卫星互联网市场2025年预计达376亿元",
+      "supporting_points": [],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0023"
+        },
+        {
+          "kind": "block",
+          "id": "block_0026"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_market_size",
+          "type": "chart",
+          "purpose": "Illustrate satellite internet market size growth.",
+          "supports_claim": true,
+          "chart_intent": "trend",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0023"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_10",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "section_ref": "sec-005",
+      "section_title": "组网加速与政策闭环共振，普天科技卡位地面设备价值链核心环节",
+      "purpose": "Demonstrate key products and partnerships.",
+      "claim_ref": "claim_sec-005_4",
+      "claim": "普天科技在手OR“无信关站”手持机直连低轨卫星通信技术已完成样机研制。",
+      "headline": "“无信关站”手持机直连卫星样机研制完成",
+      "supporting_points": [
+        "PDT星通站实现二合一集成。",
+        "与氦星光联等成立空天智算联合研发中心。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0028"
+        },
+        {
+          "kind": "block",
+          "id": "block_0029"
+        },
+        {
+          "kind": "block",
+          "id": "block_0033"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_11",
+      "page_role": "section",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-007",
+      "section_title": "盈利预测：三大业务分化修复，新兴赛道驱动增长中枢上移",
+      "purpose": "Transition to financial forecasts.",
+      "claim": null,
+      "headline": "盈利预测：三大业务分化修复",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_12",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-007",
+      "section_title": "盈利预测：三大业务分化修复，新兴赛道驱动增长中枢上移",
+      "purpose": "Present revenue and margin forecast by segment.",
+      "claim_ref": "claim_sec-007_1",
+      "claim": "公司整体收入预计2025年触底回升，2025-2027年收入增速分别为10%、11%、11%，毛利率稳定在17%左右。",
+      "headline": "2025年收入触底回升，增速达10%",
+      "supporting_points": [
+        "销售、管理、研发费用率逐年下降。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0037"
+        },
+        {
+          "kind": "table",
+          "id": "table-002"
+        },
+        {
+          "kind": "block",
+          "id": "block_0038"
+        },
+        {
+          "kind": "block",
+          "id": "block_0039"
+        },
+        {
+          "kind": "block",
+          "id": "block_0040"
+        },
+        {
+          "kind": "block",
+          "id": "block_0041"
+        },
+        {
+          "kind": "table",
+          "id": "table-003"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_table-002",
+          "type": "table",
+          "purpose": "Show segment revenue and margin projections.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-002"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_13",
+      "page_role": "section",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-008",
+      "section_title": "盈利拐点确立，现金流改善驱动估值修复",
+      "purpose": "Transition to detailed financials and valuation.",
+      "claim": null,
+      "headline": "盈利拐点确立，现金流改善",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_14",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-008",
+      "section_title": "盈利拐点确立，现金流改善驱动估值修复",
+      "purpose": "Show bottom-line recovery and cash flow improvement.",
+      "claim_ref": "claim_sec-008_1",
+      "claim": "预计公司归母净利润从2024年的0.11亿元升至2025年的0.97亿元，经营现金流净额从0.56亿元改善至2.27亿元。",
+      "headline": "预计公司归母净利润从2024年的0.11亿元升至2025年的0.97亿元，经营现金流净额从0.56亿元改善至2.27亿元。",
+      "supporting_points": [],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0049"
+        },
+        {
+          "kind": "table",
+          "id": "table-004"
+        },
+        {
+          "kind": "table",
+          "id": "table-006"
+        },
+        {
+          "kind": "block",
+          "id": "block_0050"
+        },
+        {
+          "kind": "block",
+          "id": "block_0051"
+        },
+        {
+          "kind": "table",
+          "id": "table-005"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_table-004",
+          "type": "table",
+          "purpose": "Display income statement highlights.",
+          "supports_claim": true,
+          "chart_intent": "trend",
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-004"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_15",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "section_ref": "sec-008",
+      "section_title": "盈利拐点确立，现金流改善驱动估值修复",
+      "purpose": "Forward PE and PB multiples.",
+      "claim_ref": "claim_sec-008_4",
+      "claim": "以最新市值约155亿元计算，公司2025-2027年对应PE分别为159.8倍、82.0倍和59.4倍，PB分别为4.06倍、3.88倍和3.65倍。",
+      "headline": "2025年PE 159.8倍，2027年收窄至59.4倍",
+      "supporting_points": [],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0053"
+        },
+        {
+          "kind": "table",
+          "id": "table-007"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_table-007",
+          "type": "table",
+          "purpose": "Display PE and PB projections.",
+          "supports_claim": true,
+          "chart_intent": "trend",
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-007"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_16",
+      "page_role": "section",
+      "slide_type": "valuation_analysis",
+      "section_ref": "sec-009",
+      "section_title": "估值失真下的价值洼地：普天科技卫星互联网赛道布局的性价比分析",
+      "purpose": "Transition to relative valuation.",
+      "claim": null,
+      "headline": "估值失真与价值洼地",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_17",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "section_ref": "sec-009",
+      "section_title": "估值失真下的价值洼地：普天科技卫星互联网赛道布局的性价比分析",
+      "purpose": "Show current PE distortion and recovery trajectory.",
+      "claim_ref": "claim_sec-009_3",
+      "claim": "普天科技当前PE(TTM)约1,588倍，处于利润低谷期，2025年第三季度单季归母净利润已回升至3,836万元，同比+282.07%。",
+      "headline": "普天科技当前PE(TTM)约1,588倍，处于利润低谷期，2025年第三季度单季归母净利润已回升至3,836万元，同比+282.07%。",
+      "supporting_points": [],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0073"
+        },
+        {
+          "kind": "block",
+          "id": "block_0074"
+        },
+        {
+          "kind": "block",
+          "id": "block_0069"
+        },
+        {
+          "kind": "table",
+          "id": "table-008"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_table-008",
+          "type": "table",
+          "purpose": "Compare peer valuation multiples.",
+          "supports_claim": true,
+          "chart_intent": "comparison",
+          "evidence_refs": [
+            {
+              "kind": "table",
+              "id": "table-008"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_18",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "section_ref": "sec-009",
+      "section_title": "估值失真下的价值洼地：普天科技卫星互联网赛道布局的性价比分析",
+      "purpose": "Reiterate rating and relative value.",
+      "claim_ref": "claim_sec-009_5",
+      "claim": "维持普天科技“推荐”评级，当前2025年PE约143X，显著低于可比公司均值465X。",
+      "headline": "推荐评级：2025年PE 143X，远低于可比均值465X",
+      "supporting_points": [],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0075"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_19",
+      "page_role": "section",
+      "slide_type": "investment_risk",
+      "section_ref": "sec-010",
+      "section_title": "卫星互联网商业化路径漫长，竞争加剧与订单波动双重挤压短期盈利",
+      "purpose": "Transition to risk factors.",
+      "claim": null,
+      "headline": "风险因素",
+      "supporting_points": [],
+      "evidence_refs": [],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_20",
+      "page_role": "content",
+      "slide_type": "investment_risk",
+      "section_ref": "sec-010",
+      "section_title": "卫星互联网商业化路径漫长，竞争加剧与订单波动双重挤压短期盈利",
+      "purpose": "Risk: satellite internet deployment delay.",
+      "claim_ref": "claim_sec-010_1",
+      "claim": "国内低轨卫星互联网系统仍处于规划、研发与验证阶段，建设进度可能低于预期，影响公司业务增量兑现。",
+      "headline": "低轨卫星建设进度或低于预期",
+      "supporting_points": [
+        "卫星互联网业务尚未形成独立收入，存在投入产出不确定性。",
+        "手持机直连卫星大规模商用时间表不确定。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0077"
+        },
+        {
+          "kind": "block",
+          "id": "block_0078"
+        },
+        {
+          "kind": "block",
+          "id": "block_0079"
+        }
+      ],
+      "visual_candidates": []
+    },
+    {
+      "story_id": "story_21",
+      "page_role": "content",
+      "slide_type": "investment_risk",
+      "section_ref": "sec-010",
+      "section_title": "卫星互联网商业化路径漫长，竞争加剧与订单波动双重挤压短期盈利",
+      "purpose": "Risk: competition and margin pressure.",
+      "claim_ref": "claim_sec-010_4",
+      "claim": "智能制造板块毛利率从2022年的36.10%降至2024年的23.26%，预测2025年可能进一步降至20.67%，竞争加剧导致盈利能力承压。",
+      "headline": "智能制造板块毛利率从2022年的36.10%降至2024年的23.26%，预测2025年可能进一步降至20.67%，竞争加剧导致盈利能力承压。",
+      "supporting_points": [
+        "运营商订单季节性波动可能放大短期业绩波动。"
+      ],
+      "evidence_refs": [
+        {
+          "kind": "block",
+          "id": "block_0081"
+        },
+        {
+          "kind": "block",
+          "id": "block_0082"
+        }
+      ],
+      "visual_candidates": [
+        {
+          "candidate_id": "visual_margin_trend",
+          "type": "chart",
+          "purpose": "Show declining manufacturing gross margin trend.",
+          "supports_claim": true,
+          "chart_intent": "trend",
+          "evidence_refs": [
+            {
+              "kind": "block",
+              "id": "block_0081"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "story_id": "story_22",
+      "page_role": "closing",
+      "slide_type": "summary",
+      "purpose": "Summarize investment thesis and rating.",
+      "claim": null,
+      "headline": "普天科技：卫星互联网国家队，盈利拐点初现，维持“推荐”",
+      "supporting_points": [
+        "中国电科控股，全链条资质与标准制定卡位。",
+        "2025年收入触底回升，归母净利润大幅改善。",
+        "当前估值失真，2025年PE 143X远低于可比均值。",
+        "风险关注卫星互联网建设进度及竞争加剧。"
+      ],
+      "evidence_refs": [],
+      "visual_candidates": []
+    }
+  ]
+}

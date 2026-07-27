@@ -1,0 +1,1560 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "financial-report-v1",
+  "template": {
+    "file": "financial_report_template_v1.pptx",
+    "sha256": "6890827410a2b25eb8b6cedd9fc345708e60a200b91329feb1d26cff75f2a5b2",
+    "slide_count": 16,
+    "width_in": 13.3333,
+    "height_in": 7.5
+  },
+  "supported_operations": [
+    "set_text",
+    "set_bullets",
+    "set_repeated_text",
+    "render_chart",
+    "render_table",
+    "render_image",
+    "remove_shapes",
+    "add_text_box",
+    "add_bullet_list",
+    "add_shape",
+    "add_line"
+  ],
+  "layout_resolution": {
+    "page_role_overrides": {
+      "title": "cover",
+      "section": "agenda",
+      "closing": "executive_summary"
+    },
+    "semantic_visual_rules": [
+      {
+        "rule_id": "industry_analysis_chart",
+        "slide_type": "industry_analysis",
+        "visual_type": "chart",
+        "layout_hint_any": [
+          "图",
+          "chart"
+        ],
+        "layout_id": "industry_outlook"
+      },
+      {
+        "rule_id": "business_model_chart",
+        "slide_type": "business_model",
+        "visual_type": "chart",
+        "layout_hint_any": [
+          "图",
+          "chart"
+        ],
+        "layout_id": "business_structure"
+      },
+      {
+        "rule_id": "financial_forecast_table",
+        "slide_type": "financial_forecast",
+        "visual_type": "table",
+        "layout_hint_any": [
+          "表",
+          "table",
+          "chart_page"
+        ],
+        "layout_id": "earnings_forecast"
+      },
+      {
+        "rule_id": "financial_forecast_chart",
+        "slide_type": "financial_forecast",
+        "visual_type": "chart",
+        "layout_hint_any": [
+          "图",
+          "chart"
+        ],
+        "layout_id": "financial_review"
+      },
+      {
+        "rule_id": "valuation_analysis_comparison_table",
+        "slide_type": "valuation_analysis",
+        "visual_type": "table",
+        "layout_hint_any": [
+          "可比",
+          "comparison"
+        ],
+        "layout_id": "valuation_comparison"
+      },
+      {
+        "rule_id": "valuation_analysis_chart",
+        "slide_type": "valuation_analysis",
+        "visual_type": "chart",
+        "layout_hint_any": [
+          "图",
+          "chart"
+        ],
+        "layout_id": "valuation"
+      }
+    ],
+    "slide_type_defaults": {
+      "company_overview": "company_overview",
+      "industry_analysis": "executive_summary",
+      "business_model": "executive_summary",
+      "core_competitiveness": "executive_summary",
+      "financial_forecast": "executive_summary",
+      "valuation_analysis": "executive_summary",
+      "investment_risk": "risk_catalyst",
+      "figure_page": "image_only_layout",
+      "summary": "executive_summary"
+    }
+  },
+  "adaptive_canvas": {
+    "enabled": true,
+    "base": {
+      "mode": "blank",
+      "slide_layout_index": 0,
+      "clear_placeholders": true,
+      "background_color": "FFFFFF"
+    },
+    "safe_area_in": {
+      "left": 0.5333,
+      "top": 0.3,
+      "width": 12.2666,
+      "height": 6.9
+    },
+    "style_tokens": {
+      "slide_title": {
+        "font_family": "Microsoft YaHei",
+        "font_size_pt": 27.0,
+        "bold": true,
+        "color": "102A43",
+        "alignment": "left",
+        "vertical_alignment": "middle"
+      },
+      "key_message": {
+        "font_family": "Microsoft YaHei",
+        "font_size_pt": 16.0,
+        "bold": true,
+        "color": "102A43",
+        "alignment": "left",
+        "vertical_alignment": "top"
+      },
+      "body_text": {
+        "font_family": "Microsoft YaHei",
+        "font_size_pt": 14.0,
+        "bold": false,
+        "color": "64748B",
+        "alignment": "left",
+        "vertical_alignment": "top"
+      },
+      "primary_visual": {
+        "font_family": "Microsoft YaHei",
+        "font_size_pt": 10,
+        "legend_font_size_pt": 9,
+        "data_label_font_size_pt": 9,
+        "text_color": "64748B",
+        "axis_color": "94A3B8",
+        "gridline_color": "E2E8F0",
+        "series_colors": [
+          "2F75B5",
+          "ED7D31",
+          "70AD47",
+          "A5A5A5",
+          "FFC000",
+          "5B9BD5"
+        ],
+        "legend_position": "bottom",
+        "line_width_pt": 2.25,
+        "marker_size_pt": 6,
+        "gap_width": 65
+      },
+      "table": {
+        "font_family": "Microsoft YaHei",
+        "font_size_pt": 10.0,
+        "text_color": "64748B",
+        "header_fill": "102A43",
+        "header_text_color": "FFFFFF",
+        "body_fill": "FFFFFF",
+        "stripe_fill": "F5F7FA",
+        "border_color": "D9E2EC",
+        "border_width_pt": 0.6,
+        "margin_horizontal_pt": 5,
+        "margin_vertical_pt": 3,
+        "header_height_pt": 30,
+        "row_height_pt": 26,
+        "first_column_bold": true,
+        "max_rows": 18,
+        "max_columns": 8
+      }
+    }
+  },
+  "layouts": {
+    "cover": {
+      "template_slide": 1,
+      "description": "财报封面",
+      "bindings": [
+        {
+          "binding_id": "cover_title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "metadata.company_name",
+          "required": true,
+          "target": {
+            "name": "cover_title",
+            "shape_id": 3
+          }
+        },
+        {
+          "binding_id": "subtitle",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "metadata.report_title",
+          "required": false,
+          "target": {
+            "name": "cover_subtitle",
+            "shape_id": 4
+          }
+        },
+        {
+          "binding_id": "cover_meta",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.cover_meta",
+          "required": true,
+          "target": {
+            "name": "cover_meta",
+            "shape_id": 6
+          }
+        },
+        {
+          "binding_id": "tag",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "metadata.industry",
+          "required": false,
+          "target": {
+            "name": "cover_tag",
+            "shape_id": 7
+          }
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": false
+    },
+    "agenda": {
+      "template_slide": 2,
+      "description": "报告目录",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": false
+    },
+    "executive_summary": {
+      "template_slide": 3,
+      "description": "核心结论、投资逻辑和关键指标",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 39
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "thesis",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.key_message",
+          "required": true,
+          "target": {
+            "name": "thesis",
+            "shape_id": 6
+          }
+        },
+        {
+          "binding_id": "logics",
+          "kind": "repeated_text",
+          "operation": "set_repeated_text",
+          "source": "slide.bullet_points",
+          "required": true,
+          "targets": [
+            {
+              "title": {
+                "name": "logic_1_title",
+                "shape_id": 9
+              },
+              "body": {
+                "name": "logic_1_body",
+                "shape_id": 10
+              }
+            },
+            {
+              "title": {
+                "name": "logic_2_title",
+                "shape_id": 13
+              },
+              "body": {
+                "name": "logic_2_body",
+                "shape_id": 14
+              }
+            },
+            {
+              "title": {
+                "name": "logic_3_title",
+                "shape_id": 17
+              },
+              "body": {
+                "name": "logic_3_body",
+                "shape_id": 18
+              }
+            }
+          ],
+          "max_items": 3
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": true
+    },
+    "company_overview": {
+      "template_slide": 4,
+      "description": "公司定位、主营业务和规模",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 27
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "company_name",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "metadata.company_name",
+          "required": true,
+          "target": {
+            "name": "company_name",
+            "shape_id": 7
+          }
+        },
+        {
+          "binding_id": "company_code",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "metadata.stock_code",
+          "required": false,
+          "target": {
+            "name": "company_code",
+            "shape_id": 8
+          }
+        },
+        {
+          "binding_id": "company_positioning",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.key_message",
+          "required": true,
+          "target": {
+            "name": "company_positioning",
+            "shape_id": 9
+          }
+        },
+        {
+          "binding_id": "segments",
+          "kind": "repeated_text",
+          "operation": "set_repeated_text",
+          "source": "slide.bullet_points",
+          "required": true,
+          "targets": [
+            {
+              "title": {
+                "name": "business_a_title",
+                "shape_id": 12
+              },
+              "body": {
+                "name": "business_a_body",
+                "shape_id": 13
+              }
+            },
+            {
+              "title": {
+                "name": "business_b_title",
+                "shape_id": 16
+              },
+              "body": {
+                "name": "business_b_body",
+                "shape_id": 17
+              }
+            },
+            {
+              "title": {
+                "name": "business_c_title",
+                "shape_id": 20
+              },
+              "body": {
+                "name": "business_c_body",
+                "shape_id": 21
+              }
+            }
+          ],
+          "max_items": 3
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": true
+    },
+    "timeline": {
+      "template_slide": 5,
+      "description": "发展阶段、技术路线或战略演进",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": false
+    },
+    "business_structure": {
+      "template_slide": 6,
+      "description": "分业务收入、占比、毛利率或增速对比",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 12
+          },
+          "separator": ", "
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "chart_left",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "chart_left_panel",
+            "shape_id": 6
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "chart_left_title",
+            "shape_id": 8
+          }
+        },
+        {
+          "slot_id": "chart_right",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "chart_right_panel",
+            "shape_id": 7
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "chart_right_title",
+            "shape_id": 9
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    },
+    "industry_outlook": {
+      "template_slide": 7,
+      "description": "行业空间、渗透率、景气度或资本开支趋势",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 21
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "drivers",
+          "kind": "repeated_text",
+          "operation": "set_repeated_text",
+          "source": "slide.bullet_points",
+          "required": true,
+          "targets": [
+            {
+              "title": {
+                "name": "driver_1_title",
+                "shape_id": 11
+              },
+              "body": {
+                "name": "driver_1_body",
+                "shape_id": 12
+              }
+            },
+            {
+              "title": {
+                "name": "driver_2_title",
+                "shape_id": 15
+              },
+              "body": {
+                "name": "driver_2_body",
+                "shape_id": 16
+              }
+            },
+            {
+              "title": {
+                "name": "driver_3_title",
+                "shape_id": 19
+              },
+              "body": {
+                "name": "driver_3_body",
+                "shape_id": 20
+              }
+            }
+          ],
+          "max_items": 3
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "chart",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "industry_chart_panel",
+            "shape_id": 6
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "industry_chart_title",
+            "shape_id": 7
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    },
+    "competitive_landscape": {
+      "template_slide": 8,
+      "description": "二维定位、竞争对比和护城河",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 31
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "moats",
+          "kind": "repeated_text",
+          "operation": "set_repeated_text",
+          "source": "slide.bullet_points",
+          "required": true,
+          "targets": [
+            {
+              "title": {
+                "name": "moat_1_title",
+                "shape_id": 21
+              },
+              "body": {
+                "name": "moat_1_body",
+                "shape_id": 22
+              }
+            },
+            {
+              "title": {
+                "name": "moat_2_title",
+                "shape_id": 25
+              },
+              "body": {
+                "name": "moat_2_body",
+                "shape_id": 26
+              }
+            },
+            {
+              "title": {
+                "name": "moat_3_title",
+                "shape_id": 29
+              },
+              "body": {
+                "name": "moat_3_body",
+                "shape_id": 30
+              }
+            }
+          ],
+          "max_items": 3
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": false
+    },
+    "chart_text": {
+      "template_slide": 9,
+      "description": "一张核心图表配解释与结论",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 14
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "takeaway",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.key_message",
+          "required": true,
+          "target": {
+            "name": "logic_main_point",
+            "shape_id": 10
+          }
+        },
+        {
+          "binding_id": "bullets",
+          "kind": "bullet_list",
+          "operation": "set_bullets",
+          "source": "slide.bullet_points",
+          "required": true,
+          "target": {
+            "name": "logic_bullets",
+            "shape_id": 11
+          }
+        },
+        {
+          "binding_id": "conclusion",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.key_message",
+          "required": false,
+          "target": {
+            "name": "logic_conclusion_text",
+            "shape_id": 13
+          }
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "chart",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "logic_chart_panel",
+            "shape_id": 6
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "logic_chart_title",
+            "shape_id": 7
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    },
+    "two_charts": {
+      "template_slide": 10,
+      "description": "两张相关图表共同支撑一个结论",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 13
+          },
+          "separator": ", "
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "chart_left",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "two_chart_left",
+            "shape_id": 6
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "two_chart_left_title",
+            "shape_id": 8
+          }
+        },
+        {
+          "slot_id": "chart_right",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "two_chart_right",
+            "shape_id": 7
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "two_chart_right_title",
+            "shape_id": 9
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    },
+    "capability_map": {
+      "template_slide": 11,
+      "description": "能力、进展和商业兑现路径",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 21
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "stages",
+          "kind": "repeated_text",
+          "operation": "set_repeated_text",
+          "source": "slide.bullet_points",
+          "required": true,
+          "targets": [
+            {
+              "title": {
+                "name": "capability_1_title",
+                "shape_id": 8
+              },
+              "body": {
+                "name": "capability_1_body",
+                "shape_id": 9
+              }
+            },
+            {
+              "title": {
+                "name": "capability_2_title",
+                "shape_id": 12
+              },
+              "body": {
+                "name": "capability_2_body",
+                "shape_id": 13
+              }
+            },
+            {
+              "title": {
+                "name": "capability_3_title",
+                "shape_id": 16
+              },
+              "body": {
+                "name": "capability_3_body",
+                "shape_id": 17
+              }
+            }
+          ],
+          "max_items": 3
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": false
+    },
+    "financial_review": {
+      "template_slide": 12,
+      "description": "历史收入、利润率、现金流和经营质量",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 24
+          },
+          "separator": ", "
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "chart",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "financial_chart_panel",
+            "shape_id": 6
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 5,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "financial_chart_title",
+            "shape_id": 7
+          }
+        }
+      ],
+      "has_unbound_example_content": true
+    },
+    "earnings_forecast": {
+      "template_slide": 13,
+      "description": "盈利预测表、趋势图和核心假设",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": true,
+          "target": {
+            "name": "source",
+            "shape_id": 12
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "note",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.key_message",
+          "required": false,
+          "target": {
+            "name": "forecast_note",
+            "shape_id": 6
+          }
+        },
+        {
+          "binding_id": "assumptions",
+          "kind": "bullet_list",
+          "operation": "set_bullets",
+          "source": "slide.bullet_points",
+          "required": true,
+          "target": {
+            "name": "forecast_assumption",
+            "shape_id": 11
+          }
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "table",
+          "kind": "table",
+          "operation": "render_table",
+          "required": true,
+          "target": {
+            "name": "forecast_table",
+            "shape_id": 19
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_rows": 7,
+            "max_columns": 5
+          }
+        },
+        {
+          "slot_id": "chart",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": false,
+          "target": {
+            "name": "forecast_chart_panel",
+            "shape_id": 8
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "forecast_chart_title",
+            "shape_id": 9
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    },
+    "valuation": {
+      "template_slide": 14,
+      "description": "可比估值、历史估值或目标价值",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 14
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "headline",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.key_message",
+          "required": true,
+          "target": {
+            "name": "valuation_headline",
+            "shape_id": 10
+          }
+        },
+        {
+          "binding_id": "bullets",
+          "kind": "bullet_list",
+          "operation": "set_bullets",
+          "source": "slide.bullet_points",
+          "required": true,
+          "target": {
+            "name": "valuation_bullets",
+            "shape_id": 11
+          }
+        },
+        {
+          "binding_id": "conclusion",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.key_message",
+          "required": true,
+          "target": {
+            "name": "valuation_conclusion_text",
+            "shape_id": 13
+          }
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "chart",
+          "kind": "chart",
+          "operation": "render_chart",
+          "required": true,
+          "target": {
+            "name": "valuation_chart_panel",
+            "shape_id": 6
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_categories": 8,
+            "max_series": 3
+          },
+          "title_target": {
+            "name": "valuation_chart_title",
+            "shape_id": 7
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    },
+    "valuation_comparison": {
+      "template_slide": 14,
+      "description": "可比公司估值表与结论",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 14
+          },
+          "separator": ", "
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "table",
+          "kind": "table",
+          "operation": "render_table",
+          "required": false,
+          "target": {
+            "name": "valuation_chart_panel",
+            "shape_id": 6
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_rows": 8,
+            "max_columns": 6
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    },
+    "risk_catalyst": {
+      "template_slide": 15,
+      "description": "上行催化因素和结论失效条件",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source",
+            "shape_id": 34
+          },
+          "separator": ", "
+        },
+        {
+          "binding_id": "risks",
+          "kind": "repeated_text",
+          "operation": "set_repeated_text",
+          "source": "slide.bullet_points",
+          "required": true,
+          "targets": [
+            {
+              "number": {
+                "name": "risk_num_1",
+                "shape_id": 13
+              },
+              "text": {
+                "name": "risk_item_1",
+                "shape_id": 14
+              }
+            },
+            {
+              "number": {
+                "name": "risk_num_2",
+                "shape_id": 19
+              },
+              "text": {
+                "name": "risk_item_2",
+                "shape_id": 20
+              }
+            },
+            {
+              "number": {
+                "name": "risk_num_3",
+                "shape_id": 25
+              },
+              "text": {
+                "name": "risk_item_3",
+                "shape_id": 26
+              }
+            },
+            {
+              "number": {
+                "name": "risk_num_4",
+                "shape_id": 31
+              },
+              "text": {
+                "name": "risk_item_4",
+                "shape_id": 32
+              }
+            }
+          ],
+          "max_items": 4
+        }
+      ],
+      "slots": [],
+      "has_unbound_example_content": false
+    },
+    "image_only_layout": {
+      "template_slide": 9,
+      "description": "原始 PDF 图片独立保真页",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title"
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no"
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": false,
+          "target": {
+            "name": "source"
+          },
+          "separator": ", "
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "image",
+          "kind": "image",
+          "operation": "render_image",
+          "required": true,
+          "target": {
+            "bounds_in": {
+              "left": 0.75,
+              "top": 1.35,
+              "width": 11.83,
+              "height": 5.2
+            }
+          },
+          "capacity": {
+            "max_items": 1
+          }
+        }
+      ],
+      "has_unbound_example_content": false,
+      "remove_shapes": [
+        "logic_chart_panel",
+        "logic_chart_title",
+        "logic_takeaway",
+        "logic_main_point",
+        "logic_bullets",
+        "logic_conclusion",
+        "logic_conclusion_text"
+      ]
+    },
+    "appendix": {
+      "template_slide": 16,
+      "description": "财务明细、统计口径和来源",
+      "bindings": [
+        {
+          "binding_id": "title",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.title",
+          "required": true,
+          "target": {
+            "name": "title",
+            "shape_id": 2
+          }
+        },
+        {
+          "binding_id": "page_number",
+          "kind": "auto",
+          "operation": "set_text",
+          "source": "compiler.page_number",
+          "required": true,
+          "target": {
+            "name": "page_no",
+            "shape_id": 5
+          }
+        },
+        {
+          "binding_id": "source_refs",
+          "kind": "text",
+          "operation": "set_text",
+          "source": "slide.source_refs",
+          "required": true,
+          "target": {
+            "name": "source",
+            "shape_id": 9
+          },
+          "separator": ", "
+        }
+      ],
+      "slots": [
+        {
+          "slot_id": "table",
+          "kind": "table",
+          "operation": "render_table",
+          "required": true,
+          "target": {
+            "name": "appendix_financial_table",
+            "shape_id": 15
+          },
+          "capacity": {
+            "max_items": 1,
+            "max_rows": 9,
+            "max_columns": 5
+          }
+        }
+      ],
+      "has_unbound_example_content": false
+    }
+  }
+}

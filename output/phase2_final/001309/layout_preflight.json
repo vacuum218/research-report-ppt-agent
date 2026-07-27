@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0.0",
+  "status": "passed",
+  "error_count": 0,
+  "warning_count": 0,
+  "pages": [
+    {
+      "slide_id": "slide_001",
+      "page_role": "title",
+      "slide_type": "company_overview",
+      "visual_count": 0,
+      "recommended_visual_count": 0,
+      "maximum_visual_count": 0,
+      "selected_abstract_layout": "non_content_text",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_002",
+      "page_role": "section",
+      "slide_type": "summary",
+      "visual_count": 0,
+      "recommended_visual_count": 0,
+      "maximum_visual_count": 0,
+      "selected_abstract_layout": "non_content_text",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_003",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_004",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_005",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_006",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_007",
+      "page_role": "section",
+      "slide_type": "core_competitiveness",
+      "visual_count": 0,
+      "recommended_visual_count": 0,
+      "maximum_visual_count": 0,
+      "selected_abstract_layout": "non_content_text",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_008",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_009",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_010",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_011",
+      "page_role": "content",
+      "slide_type": "business_model",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_012",
+      "page_role": "section",
+      "slide_type": "business_model",
+      "visual_count": 0,
+      "recommended_visual_count": 0,
+      "maximum_visual_count": 0,
+      "selected_abstract_layout": "non_content_text",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_013",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_014",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_015",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_016",
+      "page_role": "content",
+      "slide_type": "core_competitiveness",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_017",
+      "page_role": "section",
+      "slide_type": "industry_analysis",
+      "visual_count": 0,
+      "recommended_visual_count": 0,
+      "maximum_visual_count": 0,
+      "selected_abstract_layout": "non_content_text",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_018",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_019",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_020",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_021",
+      "page_role": "content",
+      "slide_type": "industry_analysis",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_022",
+      "page_role": "content",
+      "slide_type": "valuation_analysis",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_023",
+      "page_role": "content",
+      "slide_type": "financial_forecast",
+      "visual_count": 0,
+      "recommended_visual_count": 1,
+      "maximum_visual_count": 2,
+      "selected_abstract_layout": "text_only",
+      "issues": []
+    },
+    {
+      "slide_id": "slide_024",
+      "page_role": "closing",
+      "slide_type": "summary",
+      "visual_count": 0,
+      "recommended_visual_count": 0,
+      "maximum_visual_count": 0,
+      "selected_abstract_layout": "non_content_text",
+      "issues": []
+    }
+  ]
+}
