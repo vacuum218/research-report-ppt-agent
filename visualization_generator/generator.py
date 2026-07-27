@@ -131,7 +131,10 @@ def _score(query: str, value: str) -> int:
 
 
 def _candidate_tables(
-    plan: VisualizationPlan, snapshot: DocumentIntelligenceSnapshot
+    plan: VisualizationPlan,
+    snapshot: DocumentIntelligenceSnapshot,
+    *,
+    allow_section_fallback: bool = True,
 ) -> list[Mapping[str, Any]]:
     explicit: list[Mapping[str, Any]] = []
     section_ids: set[str] = set()
@@ -147,7 +150,7 @@ def _candidate_tables(
                 for table_id in snapshot.block_table_ids.get(identity, ())
                 if table_id in snapshot.tables_by_id
             )
-    if explicit:
+    if explicit or not allow_section_fallback:
         return list({str(item.get("id")): item for item in explicit}.values())
     query = plan.purpose + " " + " ".join(plan.data_requirement.values())
     values = [
@@ -354,7 +357,11 @@ def generate_from_plans(
                             for table_id in snapshot.block_table_ids.get(identity, ())
                         )
                 if proposal is None:
-                    for table in _candidate_tables(plan, snapshot):
+                    for table in _candidate_tables(
+                        plan,
+                        snapshot,
+                        allow_section_fallback=False,
+                    ):
                         proposal = proposal_from_table(plan, table, ledger)
                         if proposal is not None:
                             allowed_sources.append(("table", str(table.get("id") or "")))

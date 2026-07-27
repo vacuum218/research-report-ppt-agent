@@ -130,9 +130,10 @@ def assemble_verified_chart(
             raise VisualizationVerificationError(
                 "line chart requires at least four period-labelled categories"
             )
-    elif proposal.chart_type in {"bar", "column"} and not 2 <= category_count <= 12:
+    elif proposal.chart_type in {"bar", "column"} and not 3 <= category_count <= 8:
         raise VisualizationVerificationError(
-            "bar or column chart requires between two and twelve categories"
+            "reject.invalid_category_count: bar or column chart requires "
+            "between three and eight categories"
         )
     if proposal.chart_type == "pie":
         if len(values_by_series) != 1:

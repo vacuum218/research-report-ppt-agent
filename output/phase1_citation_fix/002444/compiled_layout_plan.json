@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0",
-  "plan_id": "plan_2aeec16518144856",
+  "plan_id": "plan_ff691b5ace1dcfca",
   "source": {
     "outline_sha256": "8e914cfbc5f32b51a1aec0bf496a6b4a50276ebacd076b0455908203c76bb0bc",
-    "manifest_sha256": "f4fd50223a4e8ca355c654b28bb02967ccfae0a2139a8ad935ae4494a2edc774"
+    "manifest_sha256": "7badbbe173aabe797eadc9e9f158c729b61ec194ff6b88b02e82f212bb06ae5f"
   },
   "template": {
     "profile_id": "financial-report-v1",
@@ -279,39 +279,6 @@
           }
         ],
         "note": "Copied from complete DocumentBundle table table-004; all numeric cells are fact-audited"
-      }
-    },
-    {
-      "visualization_id": "visual_029",
-      "slide_id": "slide_022",
-      "visual_type": "chart",
-      "data": {
-        "chart_type": "column",
-        "title": "巨星科技PE TTM估值水平（2017-2025年5月）",
-        "unit": "",
-        "categories": [
-          "2025E PE (X)",
-          "2026E PE (X)"
-        ],
-        "series": [
-          {
-            "name": "泉峰控股",
-            "values": [
-              6.6,
-              5.3
-            ]
-          }
-        ],
-        "source_refs": [
-          "src_002444_2025-09-21"
-        ],
-        "sources": [
-          {
-            "kind": "table",
-            "id": "table-004"
-          }
-        ],
-        "note": "Assembled from verified Numeric Fact Ledger references"
       }
     }
   ],
@@ -2086,7 +2053,7 @@
     {
       "slide_id": "slide_022",
       "slide_mode": "adaptive_canvas",
-      "abstract_layout_id": "two_visuals",
+      "abstract_layout_id": "visual_left_text_right",
       "base": {
         "mode": "blank",
         "slide_layout_index": 0,
@@ -2118,60 +2085,14 @@
           }
         },
         {
-          "op": "add_text_box",
-          "element_id": "key_message",
-          "target": {
-            "bounds_in": {
-              "left": 0.8,
-              "top": 1.5,
-              "width": 11.7333,
-              "height": 0.675
-            }
-          },
-          "value": "**我们预计公司2025-2027年将进入盈利加速释放期。",
-          "style": {
-            "font_family": "Microsoft YaHei",
-            "font_size_pt": 16.0,
-            "bold": true,
-            "color": "102A43",
-            "alignment": "left",
-            "vertical_alignment": "top"
-          }
-        },
-        {
-          "op": "add_bullet_list",
-          "element_id": "body",
-          "target": {
-            "bounds_in": {
-              "left": 0.8,
-              "top": 2.25,
-              "width": 11.7333,
-              "height": 0.825
-            }
-          },
-          "values": [
-            "可比公司2025E平均PE为10.9X，巨星科技2025E PE为12.0X，反映成长性溢价。",
-            "2026E PE仅9.7X，低于可比均值，安全边际充足。",
-            "给予2026年13倍PE，对应12个月目标价32.8元，首次覆盖给予“买入”评级。"
-          ],
-          "style": {
-            "font_family": "Microsoft YaHei",
-            "font_size_pt": 14.0,
-            "bold": false,
-            "color": "64748B",
-            "alignment": "left",
-            "vertical_alignment": "top"
-          }
-        },
-        {
           "op": "render_table",
-          "slot_id": "visual_1",
+          "slot_id": "primary_visual",
           "target": {
             "bounds_in": {
               "left": 0.8,
-              "top": 3.375,
-              "width": 5.6,
-              "height": 3.225
+              "top": 1.65,
+              "width": 5.7333,
+              "height": 4.95
             }
           },
           "visualization_id": "visual_028",
@@ -2195,37 +2116,49 @@
           }
         },
         {
-          "op": "render_chart",
-          "slot_id": "visual_2",
+          "op": "add_text_box",
+          "element_id": "key_message",
           "target": {
             "bounds_in": {
-              "left": 6.9333,
-              "top": 3.375,
-              "width": 5.6,
-              "height": 3.225
+              "left": 7.2,
+              "top": 1.65,
+              "width": 5.3333,
+              "height": 1.125
             }
           },
-          "visualization_id": "visual_029",
+          "value": "**我们预计公司2025-2027年将进入盈利加速释放期。",
           "style": {
             "font_family": "Microsoft YaHei",
-            "font_size_pt": 10,
-            "legend_font_size_pt": 9,
-            "data_label_font_size_pt": 9,
-            "text_color": "64748B",
-            "axis_color": "94A3B8",
-            "gridline_color": "E2E8F0",
-            "series_colors": [
-              "2F75B5",
-              "ED7D31",
-              "70AD47",
-              "A5A5A5",
-              "FFC000",
-              "5B9BD5"
-            ],
-            "legend_position": "bottom",
-            "line_width_pt": 2.25,
-            "marker_size_pt": 6,
-            "gap_width": 65
+            "font_size_pt": 16.0,
+            "bold": true,
+            "color": "102A43",
+            "alignment": "left",
+            "vertical_alignment": "top"
+          }
+        },
+        {
+          "op": "add_bullet_list",
+          "element_id": "body",
+          "target": {
+            "bounds_in": {
+              "left": 7.2,
+              "top": 3.075,
+              "width": 5.3333,
+              "height": 3.525
+            }
+          },
+          "values": [
+            "可比公司2025E平均PE为10.9X，巨星科技2025E PE为12.0X，反映成长性溢价。",
+            "2026E PE仅9.7X，低于可比均值，安全边际充足。",
+            "给予2026年13倍PE，对应12个月目标价32.8元，首次覆盖给予“买入”评级。"
+          ],
+          "style": {
+            "font_family": "Microsoft YaHei",
+            "font_size_pt": 14.0,
+            "bold": false,
+            "color": "64748B",
+            "alignment": "left",
+            "vertical_alignment": "top"
           }
         }
       ],

@@ -320,6 +320,7 @@ def _partition_generation_issues(
         "reject.mixed_scenario",
         "reject.invalid_forecast_boundary",
         "reject.incomplete_metric_typing",
+        "reject.invalid_category_count",
     )
     warnings = [
         issue

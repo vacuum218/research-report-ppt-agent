@@ -26,7 +26,7 @@ def _snapshot(tmp_path: Path):
             "id": "p001-b001",
             "page": 1,
             "type": "paragraph",
-            "text_raw": "2021年营业收入10亿元，2022年营业收入15亿元。",
+            "text_raw": "2016年营业收入1亿元，2017年营业收入2亿元，2018年营业收入3亿元，2019年营业收入4亿元，2020年营业收入5亿元，2021年营业收入6亿元，2022年营业收入7亿元，2023年营业收入8亿元，2024年营业收入9亿元。",
             "bbox": None,
             "parser_order": 0,
             "reading_order": 0,
@@ -136,9 +136,42 @@ def test_verifier_resolves_fact_ids_and_preserves_native_sources(tmp_path):
 
     data = assemble_verified_chart(plan, proposal, ledger, _schema())
 
-    assert data["series"][0]["values"] == [10, 15]
+    assert data["series"][0]["values"] == list(range(1, 10))
     assert data["sources"] == [{"kind": "block", "id": "p001-b001"}]
     assert data["unit"] == "亿元"
+
+
+@pytest.mark.parametrize(("category_count", "accepted"), [(2, False), (3, True), (8, True), (9, False)])
+def test_column_chart_requires_three_to_eight_categories(
+    tmp_path, category_count, accepted
+):
+    snapshot = _snapshot(tmp_path)
+    ledger = build_numeric_fact_ledger(snapshot)
+    plan = _plan("block", "p001-b001")
+    facts = ledger.for_source("block", "p001-b001")[:category_count]
+    proposal = ExtractionProposal(
+        candidate_id=plan.visualization_id,
+        chart_type="column",
+        title="营业收入比较",
+        unit="亿元",
+        category_labels=tuple(f"类别{index}" for index in range(category_count)),
+        series=(
+            ProposedSeries(
+                name="营业收入",
+                fact_ids=tuple(fact.fact_id for fact in facts),
+            ),
+        ),
+    )
+
+    if accepted:
+        data = assemble_verified_chart(plan, proposal, ledger, _schema())
+        assert len(data["categories"]) == category_count
+    else:
+        with pytest.raises(
+            VisualizationVerificationError,
+            match="reject.invalid_category_count",
+        ):
+            assemble_verified_chart(plan, proposal, ledger, _schema())
 
 
 def test_verifier_rejects_unknown_fact_id(tmp_path):

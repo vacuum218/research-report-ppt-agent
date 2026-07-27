@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "status": "passed",
   "summary": {
-    "visualization_count": 5,
-    "audited_value_count": 53,
+    "visualization_count": 4,
+    "audited_value_count": 51,
     "mismatch_count": 0
   },
   "visualizations": [
@@ -2027,115 +2027,6 @@
             4
           ],
           "output_value": 9.7,
-          "status": "matched"
-        }
-      ]
-    },
-    {
-      "slide_id": "slide_022",
-      "visualization_id": "visual_029",
-      "audited_value_count": 2,
-      "status": "passed",
-      "metric_group": {
-        "group_id": "metric_group_4d291b41be4bbc1aaf50",
-        "candidate_id": "visual_029",
-        "intent": "comparison",
-        "metric_key": "pe",
-        "measure_kind": "multiple",
-        "unit_family": "dimensionless",
-        "unit": "",
-        "unit_scale": "1",
-        "currency": "",
-        "scope": "category",
-        "fact_ids": [
-          "fact_c6a6d66e6cc41d19cc0c",
-          "fact_52d7d9a9db51e51e3895"
-        ],
-        "scenarios": [
-          "actual",
-          "actual"
-        ],
-        "forecast_start_index": null
-      },
-      "entries": [
-        {
-          "fact_id": "fact_c6a6d66e6cc41d19cc0c",
-          "source": {
-            "kind": "table",
-            "id": "table-004"
-          },
-          "raw_value": "6.6",
-          "normalized_value": "6.6",
-          "unit": "",
-          "label": "2025E PE (X)",
-          "period": null,
-          "entity": {
-            "id": "002444_2025-09-21",
-            "name": "巨星科技（002444）深度研究报告",
-            "type": "company"
-          },
-          "metric_key": "pe",
-          "metric_label": "",
-          "measure_kind": "multiple",
-          "unit_family": "dimensionless",
-          "unit_scale": "1",
-          "currency": "",
-          "scope": {
-            "kind": "category",
-            "label": "2025E PE (X)"
-          },
-          "scenario": "actual",
-          "source_locator": {
-            "row_index": 0,
-            "column_index": 1
-          },
-          "output_path": [
-            "series",
-            0,
-            "values",
-            0
-          ],
-          "output_value": 6.6,
-          "status": "matched"
-        },
-        {
-          "fact_id": "fact_52d7d9a9db51e51e3895",
-          "source": {
-            "kind": "table",
-            "id": "table-004"
-          },
-          "raw_value": "5.3",
-          "normalized_value": "5.3",
-          "unit": "",
-          "label": "2026E PE (X)",
-          "period": null,
-          "entity": {
-            "id": "002444_2025-09-21",
-            "name": "巨星科技（002444）深度研究报告",
-            "type": "company"
-          },
-          "metric_key": "pe",
-          "metric_label": "",
-          "measure_kind": "multiple",
-          "unit_family": "dimensionless",
-          "unit_scale": "1",
-          "currency": "",
-          "scope": {
-            "kind": "category",
-            "label": "2026E PE (X)"
-          },
-          "scenario": "actual",
-          "source_locator": {
-            "row_index": 1,
-            "column_index": 1
-          },
-          "output_path": [
-            "series",
-            0,
-            "values",
-            1
-          ],
-          "output_value": 5.3,
           "status": "matched"
         }
       ]

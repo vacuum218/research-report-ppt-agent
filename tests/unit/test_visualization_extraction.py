@@ -33,7 +33,7 @@ def _snapshot(tmp_path: Path):
             "id": "p001-b002",
             "page": 1,
             "type": "paragraph",
-            "text_raw": "营业收入10亿元，营业收入15亿元。",
+            "text_raw": "营业收入10亿元，营业收入15亿元，营业收入22亿元。",
             "bbox": None,
             "parser_order": 1,
             "reading_order": 1,
@@ -254,7 +254,7 @@ def test_optional_adapter_receives_facts_only_after_rule_mapping_declines(tmp_pa
                 chart_type="column",
                 title=received_plan.purpose,
                 unit="亿元",
-                category_labels=("A", "B"),
+                category_labels=("A", "B", "C"),
                 series=(
                     ProposedSeries(
                         name="营业收入",
@@ -303,7 +303,7 @@ def test_optional_adapter_receives_facts_only_after_rule_mapping_declines(tmp_pa
         llm_adapter=adapter,
     )
     assert issues == []
-    assert artifacts[0].data["series"][0]["values"] == [10, 15]
+    assert artifacts[0].data["series"][0]["values"] == [10, 15, 22]
     assert artifacts[0].data["sources"] == [{"kind": "block", "id": "p001-b002"}]
 
 
@@ -320,7 +320,7 @@ def test_adapter_cannot_return_a_proposal_for_another_candidate(tmp_path):
                 chart_type="column",
                 title="Invalid",
                 unit="亿元",
-                category_labels=("A", "B"),
+                category_labels=("A", "B", "C"),
                 series=(
                     ProposedSeries(
                         name="营业收入",

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from copy import deepcopy
 from pathlib import Path
 
 import pytest
@@ -203,6 +204,46 @@ def test_table_candidate_reconciles_an_unambiguous_same_section_table(tmp_path):
 
     assert not issues
     assert artifacts[0].data["sources"] == [{"kind": "table", "id": "table-001"}]
+
+
+def test_chart_candidate_does_not_fall_back_to_an_unlinked_section_table(tmp_path):
+    snapshot = _snapshot(tmp_path)
+    document = deepcopy(dict(snapshot.document_json))
+    image_block = {
+        "id": "p001-b003",
+        "page": 1,
+        "type": "image",
+        "text_raw": "![Historical valuation](chart:historical-valuation)",
+        "bbox": None,
+        "parser_order": 2,
+        "reading_order": 2,
+        "section_id": "sec-1",
+        "source_type": "test",
+    }
+    document["blocks"].append(image_block)
+    document["pages"][0]["block_ids"].append(image_block["id"])
+    document["sections"][0]["content_block_ids"].append(image_block["id"])
+    document["reading_order"].append(image_block["id"])
+    image_snapshot = build_snapshot(document, tmp_path)
+    outline = {
+        "slides": [
+            _slide(
+                "chart",
+                "Historical valuation",
+                [{"kind": "block", "id": image_block["id"]}],
+            )
+        ]
+    }
+
+    artifacts, issues = generate_visualizations(
+        outline,
+        image_snapshot,
+        candidate_mode="shadow",
+    )
+
+    assert artifacts == []
+    assert len(issues) == 1
+    assert issues[0].reason == "no_traceable_source_data"
 
 
 def test_image_uses_existing_bundle_figure_asset(tmp_path):

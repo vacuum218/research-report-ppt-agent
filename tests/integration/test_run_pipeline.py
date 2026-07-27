@@ -158,6 +158,13 @@ def test_missing_source_data_is_warning_but_explicit_verification_failure_blocks
             "chart",
             "verification_failed: reject.mixed_metric: revenue and net_profit",
         ),
+        GenerationIssue(
+            "slide_005",
+            "visual_explicit",
+            "chart",
+            "verification_failed: reject.invalid_category_count: "
+            "bar or column chart requires between three and eight categories",
+        ),
     ]
 
     blocking, warnings = _partition_generation_issues(outline, issues)
@@ -167,6 +174,7 @@ def test_missing_source_data_is_warning_but_explicit_verification_failure_blocks
     ]
     assert [issue.visualization_id for issue in warnings] == [
         "cand_auto",
+        "visual_explicit",
         "visual_explicit",
         "visual_explicit",
     ]

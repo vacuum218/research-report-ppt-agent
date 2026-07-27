@@ -51,18 +51,6 @@
         }
       ],
       "visualization_file": "slide_022__visual_028.json"
-    },
-    {
-      "slide_id": "slide_022",
-      "visualization_id": "visual_029",
-      "visual_type": "chart",
-      "sources": [
-        {
-          "kind": "table",
-          "id": "table-004"
-        }
-      ],
-      "visualization_file": "slide_022__visual_029.json"
     }
   ]
 }
